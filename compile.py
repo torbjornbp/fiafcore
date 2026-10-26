@@ -49,6 +49,8 @@ def convert_vocabulary(input_file):
 for vocab in [
     'fiafcore-base.ttl',
     'fiafcore-broadcaststandard.ttl',
+    'fiafcore-colourcharacteristic.ttl',
+    'fiafcore-colourencoding.ttl',
     'fiafcore-colourstandard.ttl',
     'fiafcore-country.ttl',
     'fiafcore-element.ttl',

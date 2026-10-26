@@ -1,0 +1,35 @@
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+### Class
+
+<https://dev.fiafcore.org/ColourEncoding> a owl:Class ;
+    rdfs:label "Colour Encoding"@en ;
+    dc:description "A digital colour encoding used to represent colour values in a moving image file."@en ;
+    dc:source <> ;
+.
+
+### Subclasses
+
+<https://dev.fiafcore.org/RGB> a owl:Class ;
+    rdfs:label "RGB"@en ;
+    dc:description "A digital colour encoding using red, green, and blue channels."@en ;
+    dc:source <> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ColourEncoding> ;
+.
+
+<https://dev.fiafcore.org/YUV> a owl:Class ;
+    rdfs:label "YUV"@en ;
+    dc:description "A digital colour encoding using one luma and two chrominance components."@en ;
+    dc:source <> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ColourEncoding> ;
+.
+
+### Datatype Properties
+
+# None
+
+### Object Properties
+
+# None

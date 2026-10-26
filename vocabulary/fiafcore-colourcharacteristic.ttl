@@ -1,0 +1,23 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+<https://dev.fiafcore.org/BlackAndWhite>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/ColourCharacteristic> ;
+    skos:definition "A monochrome moving image reproduced in black, white and intermediate greys, without natural colour."@en ;
+    skos:inScheme <https://dev.fiafcore.org/ColourCharacteristic> ;
+    skos:prefLabel "Black and White"@en ;
+.
+
+<https://dev.fiafcore.org/Colour>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/ColourCharacteristic> ;
+    skos:definition "A moving image reproduced in natural or mimetic colour, as opposed to black and white."@en ;
+    skos:inScheme <https://dev.fiafcore.org/ColourCharacteristic> ;
+    skos:prefLabel "Colour"@en ;
+.
+
+<https://dev.fiafcore.org/ColourCharacteristic>
+    a skos:ConceptScheme ;
+    skos:definition "The presence of colour(s), tone(s), etc. in a Manifestation or an Item."@en ;
+    skos:prefLabel "Colour Characteristic"@en ;
+.
