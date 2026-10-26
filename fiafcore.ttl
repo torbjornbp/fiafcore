@@ -76,7 +76,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "3M"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -112,7 +112,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Abbreviated Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -148,7 +148,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Acquisition Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -247,7 +247,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Agfa"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -255,15 +255,16 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Agfa Gevaert"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
 <https://dev.fiafcore.org/Agfacolor>
     a owl:Class ;
     rdfs:label "Agfacolor"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/ColourStandard> ;
+    dc:description "A chromogenic monopack colour process introduced by Agfa in 1936."@en ;
+    dc:source <https://filmcolors.org/timeline-entry/1276/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ChromogenicMonopack> ;
 .
 
 <https://dev.fiafcore.org/AgriculturalForestryFilm>
@@ -420,6 +421,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/SpecialEffectsActivity> ;
 .
 
+<https://dev.fiafcore.org/Anscocolor>
+    a owl:Class ;
+    rdfs:label "Anscocolor"@en ;
+    dc:description "A chromogenic monopack colour process produced by Ansco."@en ;
+    dc:source <https://filmcolors.org/timeline-entry/1372/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ChromogenicMonopack> ;
+.
+
 <https://dev.fiafcore.org/Antarctica>
     a owl:Class ;
     rdfs:label "Antarctica"@en ;
@@ -564,7 +573,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Augmented Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -607,7 +616,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Award Or Nomination Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
@@ -790,9 +799,9 @@ rdfs:subClassOf
 
 <https://dev.fiafcore.org/BlackAndWhite>
     a owl:Class ;
-    rdfs:label "Black And White"@en ;
-    dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-colourcharacteristic.ttl> ;
+    rdfs:label "Black and White"@en ;
+    dc:description "A monochrome moving image reproduced in black, white and intermediate greys, without natural colour."@en ;
+    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%20340%3A4462> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ColourCharacteristic> ;
 .
 
@@ -885,7 +894,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Broadcast Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PublicationEvent> ;
 .
 
@@ -1010,7 +1019,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Captions"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/WrittenLanguage> ;
 .
 
@@ -1034,7 +1043,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Casting Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ProductionEvent> ;
 .
 
@@ -1064,7 +1073,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Censored Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -1072,7 +1081,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Censorship Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/DecisionEvent> ;
 .
 
@@ -1169,6 +1178,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Country> ;
 .
 
+<https://dev.fiafcore.org/ChromolyticSingleLayer>
+    a owl:Class ;
+    rdfs:label "Chromolytic Single Layer"@en ;
+    dc:description "A subtractive colour process using a single layer in which dyes are destroyed in proportion to exposure."@en ;
+    dc:source <https://filmcolors.org/cat/chromolytic-single-layer/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/SubtractiveColourProcess> ;
+.
+
 <https://dev.fiafcore.org/ChurchSlavonic>
     a owl:Class ;
     rdfs:label "Church Slavonic"@en ;
@@ -1254,16 +1271,24 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/Colour>
     a owl:Class ;
     rdfs:label "Colour"@en ;
-    dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-colourcharacteristic.ttl> ;
+    dc:description "A moving image reproduced in natural or mimetic colour, as opposed to black and white."@en ;
+    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%20340%3A4462> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ColourCharacteristic> ;
+.
+
+<https://dev.fiafcore.org/ColourSeparation>
+    a owl:Class ;
+    rdfs:label "Colour Separation"@en ;
+    dc:description "A subtractive colour process using separate colour-record negatives."@en ;
+    dc:source <https://filmcolors.org/cat/color-separation/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/SubtractiveColourProcess> ;
 .
 
 <https://dev.fiafcore.org/ColourizedVariant>
     a owl:Class ;
     rdfs:label "Colourized Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -1308,7 +1333,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Condensed Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -1383,7 +1408,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Corrected Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -1474,7 +1499,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Credits"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/WrittenLanguage> ;
 .
 
@@ -1615,8 +1640,9 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/DeLuxe>
     a owl:Class ;
     rdfs:label "DeLuxe"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/ColourStandard> ;
+    dc:description "Deluxe Laboratories' Eastmancolor-based colour process, adapted for printing and mass production."@en ;
+    dc:source <https://en.wikipedia.org/wiki/DeLuxe_Color> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ChromogenicMonopack> ;
 .
 
 <https://dev.fiafcore.org/Denmark>
@@ -1653,7 +1679,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Different Soundtrack Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -1668,8 +1694,16 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Digitisation Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PreservationEvent> ;
+.
+
+<https://dev.fiafcore.org/DirectPositive>
+    a owl:Class ;
+    rdfs:label "Direct Positive"@en ;
+    dc:description "A colour process that produces a positive image directly, without a negative stage."@en ;
+    dc:source <https://filmcolors.org/cat/direct-positive/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/SubtractiveColourProcess> ;
 .
 
 <https://dev.fiafcore.org/Director>
@@ -1691,7 +1725,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Distribution Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PublicationEvent> ;
 .
 
@@ -1773,7 +1807,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Donation Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AcquisitionEvent> ;
 .
 
@@ -1783,6 +1817,14 @@ rdfs:subClassOf
     dc:description "Double, Stunt Double, Body Double. A person who is filmed in place of a leading actor either as part of a stunt scene (Stunt Double), or to replace the cast member’s body in e.g. shots requiring nudity or depiction of some physical property that the actor does not have (Body Double)."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/CastActivity> ;
+.
+
+<https://dev.fiafcore.org/DoubleCoatedBipack>
+    a owl:Class ;
+    rdfs:label "Double-Coated / Bi-Pack"@en ;
+    dc:description "A subtractive colour process using two emulsion layers or two films exposed together."@en ;
+    dc:source <https://filmcolors.org/cat/double-coated-stock/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/SubtractiveColourProcess> ;
 .
 
 <https://dev.fiafcore.org/DramaFilm>
@@ -1795,15 +1837,16 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/Duartcolor>
     a owl:Class ;
     rdfs:label "Duartcolor"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/ColourStandard> ;
+    dc:description "DuArt's laboratory colour process, associated with Eastmancolor; DuArt processed the first Eastmancolor negative in 1950."@en ;
+    dc:source <https://en.wikipedia.org/wiki/DuArt_Film_and_Video> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ChromogenicMonopack> ;
 .
 
 <https://dev.fiafcore.org/DubbedVariant>
     a owl:Class ;
     rdfs:label "Dubbed Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -1857,7 +1900,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Duplication Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PreservationEvent> ;
 .
 
@@ -1865,7 +1908,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Dupont"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -1887,7 +1930,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Eastman"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -1895,15 +1938,16 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Eastman Kodak"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
 <https://dev.fiafcore.org/Eastmancolor>
     a owl:Class ;
     rdfs:label "Eastmancolor"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/ColourStandard> ;
+    dc:description "A chromogenic monopack colour process introduced by Eastman Kodak in 1950."@en ;
+    dc:source <https://filmcolors.org/timeline-entry/1310/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ChromogenicMonopack> ;
 .
 
 <https://dev.fiafcore.org/Ecuador>
@@ -2037,7 +2081,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Exchange Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AcquisitionEvent> ;
 .
 
@@ -2124,8 +2168,16 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Ferrania"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
+.
+
+<https://dev.fiafcore.org/Ferraniacolor>
+    a owl:Class ;
+    rdfs:label "Ferraniacolor"@en ;
+    dc:description "A chromogenic monopack colour process produced by Ferrania."@en ;
+    dc:source <https://filmcolors.org/timeline-entry/1312/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ChromogenicMonopack> ;
 .
 
 <https://dev.fiafcore.org/FightArranger>
@@ -2162,7 +2214,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Film Printing Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ManufactureEvent> ;
 .
 
@@ -2200,7 +2252,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Foot"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
@@ -2243,15 +2295,16 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Fuji"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
 <https://dev.fiafcore.org/Fujicolor>
     a owl:Class ;
     rdfs:label "Fujicolor"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/ColourStandard> ;
+    dc:description "A chromogenic monopack colour process produced by Fuji."@en ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-colourstandard.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ChromogenicMonopack> ;
 .
 
 <https://dev.fiafcore.org/Fulah>
@@ -2311,6 +2364,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Genre> ;
 .
 
+<https://dev.fiafcore.org/Gasparcolor>
+    a owl:Class ;
+    rdfs:label "Gasparcolor"@en ;
+    dc:description "A subtractive three-colour silver dye-bleach multilayer process."@en ;
+    dc:source <https://filmcolors.org/timeline-entry/1264/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ChromolyticMultilayer> ;
+.
+
 <https://dev.fiafcore.org/GeneratorOperator>
     a owl:Class ;
     rdfs:label "Generator Operator"@en ;
@@ -2351,7 +2412,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Gevaert"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -2359,7 +2420,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Gevaert Belgium"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -2381,7 +2442,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Gigabyte"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
@@ -2433,7 +2494,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Greyscaled Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -2546,6 +2607,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/AudioFormat> ;
 .
 
+<https://dev.fiafcore.org/HandColouring>
+    a owl:Class ;
+    rdfs:label "Hand Colouring"@en ;
+    dc:description "A colour process in which translucent dyes are applied by hand, frame by frame."@en ;
+    dc:source <https://filmcolors.org/cat/hand-coloring/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AppliedColourProcess> ;
+.
+
 <https://dev.fiafcore.org/HandPuppetFilm>
     a owl:Class ;
     rdfs:label "Hand puppet Film"@en ;
@@ -2634,7 +2703,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Home Video Publication Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PublicationEvent> ;
 .
 
@@ -2707,7 +2776,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Identifiying Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Title> ;
 .
 
@@ -2729,7 +2798,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Ilford"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -2758,7 +2827,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Indoor Shooting Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ProductionEvent> ;
 .
 
@@ -2773,8 +2842,16 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Inspection Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
+.
+
+<https://dev.fiafcore.org/InstantDyeDiffusion>
+    a owl:Class ;
+    rdfs:label "Instant Dye Diffusion"@en ;
+    dc:description "A colour process in which dyes diffuse into the image layer during processing."@en ;
+    dc:source <https://filmcolors.org/cat/instant-dye-diffusion/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/SubtractiveColourProcess> ;
 .
 
 <https://dev.fiafcore.org/Interlingua>
@@ -2803,7 +2880,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Intertitles"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/WrittenLanguage> ;
 .
 
@@ -2987,8 +3064,16 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Kilobyte"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
+.
+
+<https://dev.fiafcore.org/Kinemacolor>
+    a owl:Class ;
+    rdfs:label "Kinemacolor"@en ;
+    dc:description "An early additive two-colour process using alternating red and green frames projected through a rotating filter."@en ;
+    dc:source <https://filmcolors.org/cat/rotary-filters/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/TemporalSynthesis> ;
 .
 
 <https://dev.fiafcore.org/Kinyarwanda>
@@ -3005,11 +3090,19 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Country> ;
 .
 
+<https://dev.fiafcore.org/Kodachrome>
+    a owl:Class ;
+    rdfs:label "Kodachrome"@en ;
+    dc:description "A chromogenic monopack reversal colour process introduced by Kodak in 1935."@en ;
+    dc:source <https://filmcolors.org/timeline-entry/1277/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ChromogenicMonopack> ;
+.
+
 <https://dev.fiafcore.org/Kodak>
     a owl:Class ;
     rdfs:label "Kodak"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -3172,6 +3265,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/CinematographyActivity> ;
 .
 
+<https://dev.fiafcore.org/LenticularScreen>
+    a owl:Class ;
+    rdfs:label "Lenticular Screen"@en ;
+    dc:description "An additive screen process using lenticular lenses to separate coloured records."@en ;
+    dc:source <https://filmcolors.org/cat/lenticular-screen/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ScreenProcess> ;
+.
+
 <https://dev.fiafcore.org/Lesotho>
     a owl:Class ;
     rdfs:label "Lesotho"@en ;
@@ -3215,6 +3316,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/ProducingActivity> ;
 .
 
+<https://dev.fiafcore.org/LineScreen>
+    a owl:Class ;
+    rdfs:label "Line Screen"@en ;
+    dc:description "An additive screen process using a grid of coloured lines."@en ;
+    dc:source <https://filmcolors.org/cat/line-screen/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ScreenProcess> ;
+.
+
 <https://dev.fiafcore.org/Lingala>
     a owl:Class ;
     rdfs:label "Lingala"@en ;
@@ -3255,7 +3364,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Loan Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AcquisitionEvent> ;
 .
 
@@ -3477,7 +3586,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Mastering Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ManufactureEvent> ;
 .
 
@@ -3529,7 +3638,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Megabyte"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
@@ -3544,15 +3653,16 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Metre"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
 <https://dev.fiafcore.org/Metrocolor>
     a owl:Class ;
     rdfs:label "Metrocolor"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/ColourStandard> ;
+    dc:description "MGM's trade name for films processed at its laboratory, generally shot on Eastmancolor stock."@en ;
+    dc:source <https://en.wikipedia.org/wiki/Metrocolor> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ChromogenicMonopack> ;
 .
 
 <https://dev.fiafcore.org/Mexico>
@@ -3580,7 +3690,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Minute"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
@@ -3654,6 +3764,14 @@ rdfs:subClassOf
     rdfs:label "Morocco"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Country> ;
+.
+
+<https://dev.fiafcore.org/MosaicScreen>
+    a owl:Class ;
+    rdfs:label "Mosaic Screen"@en ;
+    dc:description "An additive screen process using a mosaic of coloured dots."@en ;
+    dc:source <https://filmcolors.org/cat/mosaic-screen/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ScreenProcess> ;
 .
 
 <https://dev.fiafcore.org/MotionCapture>
@@ -3744,7 +3862,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Mute"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-soundcharacteristic.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-soundcharacteristic.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/SoundCharacteristic> ;
 .
 
@@ -3905,7 +4023,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "No Dialogue"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Dialogue> ;
 .
 
@@ -3913,7 +4031,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Non-Theatrical Distribution Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PublicationEvent> ;
 .
 
@@ -3992,7 +4110,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Not For Release Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PublicationEvent> ;
 .
 
@@ -4015,7 +4133,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Off-Air Recording Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AcquisitionEvent> ;
 .
 
@@ -4051,7 +4169,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Online Transmission Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PublicationEvent> ;
 .
 
@@ -4124,15 +4242,16 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Orwo"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
 <https://dev.fiafcore.org/Orwocolor>
     a owl:Class ;
     rdfs:label "Orwocolor"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/ColourStandard> ;
+    dc:description "A chromogenic monopack colour process produced by ORWO."@en ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-colourstandard.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ChromogenicMonopack> ;
 .
 
 <https://dev.fiafcore.org/Ossetian>
@@ -4146,7 +4265,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Outdoor Shooting Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ProductionEvent> ;
 .
 
@@ -4203,7 +4322,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Panasonic"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -4225,7 +4344,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Parallel Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -4254,8 +4373,16 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Pathe"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
+.
+
+<https://dev.fiafcore.org/Pathecolor>
+    a owl:Class ;
+    rdfs:label "Pathécolor"@en ;
+    dc:description "A stencil-colouring process associated with Pathé; the name was also used for later Eastmancolor-based prints."@en ;
+    dc:source <https://filmcolors.org/timeline-entry/1218/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/StencilColouring> ;
 .
 
 <https://dev.fiafcore.org/Persian>
@@ -4375,7 +4502,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Post-Production Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ProductionEvent> ;
 .
 
@@ -4391,7 +4518,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Pre-Release Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -4407,7 +4534,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Preferred Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Title> ;
 .
 
@@ -4415,7 +4542,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Prerelease Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PublicationEvent> ;
 .
 
@@ -4454,7 +4581,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Preservation Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -4593,7 +4720,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Purchase Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AcquisitionEvent> ;
 .
 
@@ -4633,11 +4760,19 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
 .
 
+<https://dev.fiafcore.org/RGB>
+    a owl:Class ;
+    rdfs:label "RGB"@en ;
+    dc:description "A digital colour encoding using red, green, and blue channels."@en ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-colourencoding.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ColourEncoding> ;
+.
+
 <https://dev.fiafcore.org/RatingEvent>
     a owl:Class ;
     rdfs:label "Rating Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/DecisionEvent> ;
 .
 
@@ -4652,7 +4787,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Reel"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
@@ -4668,7 +4803,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Release Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PublicationEvent> ;
 .
 
@@ -4690,7 +4825,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Reproduction Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PreservationEvent> ;
 .
 
@@ -4721,7 +4856,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Restoration Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -4736,7 +4871,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Revision Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/DecisionEvent> ;
 .
 
@@ -4758,7 +4893,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Rights/Copyright/Registration Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
@@ -4970,7 +5105,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Scanning Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ManufactureEvent> ;
 .
 
@@ -5008,7 +5143,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Search Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -5016,7 +5151,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Second"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
@@ -5106,7 +5241,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Series Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -5172,7 +5307,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Signed Language"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Dialogue> ;
 .
 
@@ -5180,7 +5315,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Silent"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-soundcharacteristic.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-soundcharacteristic.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/SoundCharacteristic> ;
 .
 
@@ -5296,7 +5431,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Sonorized Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -5304,7 +5439,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Sony"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -5312,7 +5447,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Sound"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-soundcharacteristic.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-soundcharacteristic.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/SoundCharacteristic> ;
 .
 
@@ -5413,6 +5548,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Language> ;
 .
 
+<https://dev.fiafcore.org/Sovcolor>
+    a owl:Class ;
+    rdfs:label "Sovcolor"@en ;
+    dc:description "A chromogenic monopack colour process based on Agfacolor, produced in the Soviet Union."@en ;
+    dc:source <https://filmcolors.org/timeline-entry/1316/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ChromogenicMonopack> ;
+.
+
 <https://dev.fiafcore.org/Spain>
     a owl:Class ;
     rdfs:label "Spain"@en ;
@@ -5427,6 +5570,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Language> ;
 .
 
+<https://dev.fiafcore.org/SpatialSynthesis>
+    a owl:Class ;
+    rdfs:label "Spatial Synthesis"@en ;
+    dc:description "An additive colour process in which two or more images are captured simultaneously through separate lenses or a beam splitter."@en ;
+    dc:source <https://filmcolors.org/cat/spatial-synthesis/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AdditiveColourProcess> ;
+.
+
 <https://dev.fiafcore.org/SpecialEffects>
     a owl:Class ;
     rdfs:label "Special Effects"@en ;
@@ -5439,7 +5590,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Spoken Language"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Dialogue> ;
 .
 
@@ -5547,7 +5698,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Subtitled Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -5555,7 +5706,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Subtitles"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/WrittenLanguage> ;
 .
 
@@ -5577,7 +5728,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Sung Language "@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Dialogue> ;
 .
 
@@ -5607,7 +5758,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Supplied/Devised Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Title> ;
 .
 
@@ -5740,15 +5891,16 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/Technicolor>
     a owl:Class ;
     rdfs:label "Technicolor"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/ColourStandard> ;
+    dc:description "A subtractive dye-transfer colour process, notably the three-strip process."@en ;
+    dc:source <https://filmcolors.org/cat/printing-dye-transfer/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/PrintingDyeTransferPigment> ;
 .
 
 <https://dev.fiafcore.org/TelecineEvent>
     a owl:Class ;
     rdfs:label "Telecine Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ManufactureEvent> ;
 .
 
@@ -5763,7 +5915,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Terabyte"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
@@ -5785,7 +5937,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Theatrical Distribution Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PublicationEvent> ;
 .
 
@@ -5828,9 +5980,9 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/Tinted>
     a owl:Class ;
     rdfs:label "Tinted"@en ;
-    dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-colourcharacteristic.ttl> ;
-    rdfs:subClassOf <https://dev.fiafcore.org/ColourCharacteristic> ;
+    dc:description "A colour process in which a black-and-white film print is immersed in dye, colouring the whole image uniformly."@en ;
+    dc:source <https://filmcolors.org/cat/tinting/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AppliedColourProcess> ;
 .
 
 <https://dev.fiafcore.org/TitleDesigner>
@@ -5845,7 +5997,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Title Proper"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Title> ;
 .
 
@@ -5866,9 +6018,9 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/Toned>
     a owl:Class ;
     rdfs:label "Toned"@en ;
-    dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-colourcharacteristic.ttl> ;
-    rdfs:subClassOf <https://dev.fiafcore.org/ColourCharacteristic> ;
+    dc:description "A colour process in which the silver image is chemically converted into coloured compounds."@en ;
+    dc:source <https://filmcolors.org/cat/toning/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AppliedColourProcess> ;
 .
 
 <https://dev.fiafcore.org/Tonga>
@@ -5912,7 +6064,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Transfer Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PreservationEvent> ;
 .
 
@@ -5920,7 +6072,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Translated Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -5928,7 +6080,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Transliterated Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -6121,7 +6273,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Uploading Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ManufactureEvent> ;
 .
 
@@ -6193,7 +6345,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "VideoCopying Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ManufactureEvent> ;
 .
 
@@ -6277,6 +6429,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/ProductionDesignActivity> ;
 .
 
+<https://dev.fiafcore.org/Warnercolor>
+    a owl:Class ;
+    rdfs:label "Warnercolor"@en ;
+    dc:description "Warner Bros.' Eastmancolor-based colour process."@en ;
+    dc:source <https://en.wikipedia.org/wiki/Eastmancolor> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ChromogenicMonopack> ;
+.
+
 <https://dev.fiafcore.org/Welsh>
     a owl:Class ;
     rdfs:label "Welsh"@en ;
@@ -6337,7 +6497,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Working Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -6370,6 +6530,14 @@ rdfs:subClassOf
     rdfs:label "Xhosa"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Language> ;
+.
+
+<https://dev.fiafcore.org/YUV>
+    a owl:Class ;
+    rdfs:label "YUV"@en ;
+    dc:description "A digital colour encoding using one luma and two chrominance components."@en ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-colourencoding.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ColourEncoding> ;
 .
 
 <https://dev.fiafcore.org/Yemen>
@@ -6432,7 +6600,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Achievement"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Event> ;
     rdfs:range xsd:string ;
 .
@@ -6441,7 +6609,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Activity"@en ;
     dc:description "Express the relationship between an Event and an Activity."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Event> ;
     rdfs:range <https://dev.fiafcore.org/Activity> ;
 .
@@ -6459,7 +6627,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Award Name"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Event> ;
     rdfs:range xsd:string ;
 .
@@ -6468,7 +6636,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Base"@en ;
     dc:description "The physical material or video format on which the Item is captured."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-item.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-item.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Item> ;
     rdfs:range <https://dev.fiafcore.org/Base> ;
 .
@@ -6477,7 +6645,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Broadcast Standard"@en ;
     dc:description "The broadcast standard for a video or DVD/BluRay."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-item.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-item.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Item> ;
     rdfs:range <https://dev.fiafcore.org/BroadcastStandard> ;
 .
@@ -6486,7 +6654,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Carrier"@en ;
     dc:description "Express the relationship between a moving image Item and a moving image Carrier."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-item.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-item.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Item> ;
     rdfs:range <https://dev.fiafcore.org/Carrier> ;
 .
@@ -6495,7 +6663,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Colour Characteristic"@en ;
     dc:description "The presence of colour(s), tone(s), etc. in a Manifestation or an Item."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-manifestation.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-manifestation.ttl> ;
     rdfs:domain
         [
             owl:unionOf (
@@ -6506,13 +6674,30 @@ rdfs:subClassOf
     rdfs:range <https://dev.fiafcore.org/ColourCharacteristic> ;
 .
 
+<https://dev.fiafcore.org/hasColourEncoding>
+    a owl:ObjectProperty ;
+    rdfs:label "Has Colour Encoding"@en ;
+    dc:description "The digital colour encoding used for a Manifestation or Item."@en ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-manifestation.ttl> ;
+    rdfs:domain
+        [
+            owl:unionOf (
+                <https://dev.fiafcore.org/Manifestation>
+                <https://dev.fiafcore.org/Item>
+            ) ;
+        ] ;
+    rdfs:range <https://dev.fiafcore.org/ColourEncoding> ;
+.
+
 <https://dev.fiafcore.org/hasColourStandard>
     a owl:ObjectProperty ;
     rdfs:label "Has Colour Standard"@en ;
-    dc:description "Express a specific colour process."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-colourcharacteristic.ttl> ;
+    dc:description "Deprecated: use hasColourProcess. Express a specific colour process."@en ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-colourcharacteristic.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/ColourCharacteristic> ;
     rdfs:range <https://dev.fiafcore.org/ColourStandard> ;
+    rdfs:subPropertyOf <https://dev.fiafcore.org/hasColourProcess> ;
+    owl:deprecated true ;
 .
 
 <https://dev.fiafcore.org/hasCountry>
@@ -6528,7 +6713,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Date"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Event> ;
     rdfs:range xsd:date ;
 .
@@ -6537,7 +6722,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Event"@en ;
     dc:description "An Event characterises occurrences in the lifecycle of a moving image Work, Variant, Manifestation, Item or Carrier."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-work.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-work.ttl> ;
     rdfs:domain
         [
             owl:unionOf (
@@ -6555,7 +6740,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Extent"@en ;
     dc:description "The concept of extent as applied to Manifestations is the “ideal” logical, physical, or temporal (duration) units and not a description of a real physical object. Actual objects in the collection are described at the Item level."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-manifestation.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-manifestation.ttl> ;
     rdfs:domain
         [
             owl:unionOf (
@@ -6570,7 +6755,7 @@ rdfs:subClassOf
     a owl:DatatypeProperty ;
     rdfs:label "Has Extent Value"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Extent> ;
     rdfs:range xsd:string ;
 .
@@ -6588,7 +6773,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Format"@en ;
     dc:description "The medium on or the encoding format in which the moving image Manifestation or Item is fixed."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-manifestation.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-manifestation.ttl> ;
     rdfs:domain
         [
             owl:unionOf (
@@ -6612,7 +6797,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Holding Institution"@en ;
     dc:description "Record the name of the institution possessing the moving image Item or authorised to make it available."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-item.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-item.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Item> ;
     rdfs:range <https://dev.fiafcore.org/Organisation> ;
 .
@@ -6621,7 +6806,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Identifier"@en ;
     dc:description "An Identifier refers to a specific entity and provides clear disambiguation between entities to avoid confusion."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-work.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-work.ttl> ;
     rdfs:domain
         [
             owl:unionOf (
@@ -6640,7 +6825,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Identifier Authority"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-identifier.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-identifier.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Identifier> ;
     rdfs:range <https://dev.fiafcore.org/Organisation> ;
 .
@@ -6649,7 +6834,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Identifier Value"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-identifier.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-identifier.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Identifier> ;
     rdfs:range xsd:string ;
 .
@@ -6658,7 +6843,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Item"@en ;
     dc:description "Express the relationship between a moving image Manifestation and a moving image Item."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-manifestation.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-manifestation.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Manifestation> ;
     rdfs:range <https://dev.fiafcore.org/Item> ;
 .
@@ -6667,7 +6852,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Language"@en ;
     dc:description "Express a language."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/LanguageUsage> ;
     rdfs:range <https://dev.fiafcore.org/Language> ;
 .
@@ -6676,7 +6861,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Language Usage"@en ;
     dc:description "Record the usage type of a language e.g. spoken, intertitles, subtitles, etc."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-work.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-work.ttl> ;
     rdfs:domain
         [
             owl:unionOf (
@@ -6707,7 +6892,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Sound Characteristic"@en ;
     dc:description "Technical specifications relating to the fixation of sound in a moving image Manifestation or moving image Item."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-manifestation.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-manifestation.ttl> ;
     rdfs:domain
         [
             owl:unionOf (
@@ -6722,7 +6907,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Sound Standard"@en ;
     dc:description "Express a specific sound process."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-soundcharacteristic.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-soundcharacteristic.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/SoundCharacteristic> ;
     rdfs:range <https://dev.fiafcore.org/SoundStandard> ;
 .
@@ -6731,7 +6916,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Status"@en ;
     dc:description "Description of the preservation or access status of the Item."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-item.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-item.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Item> ;
     rdfs:range <https://dev.fiafcore.org/Status> ;
 .
@@ -6740,7 +6925,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Stock"@en ;
     dc:description "Describes the specific stock/brand on which the Item is captured."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-item.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-item.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Item> ;
     rdfs:range <https://dev.fiafcore.org/Stock> ;
 .
@@ -6749,7 +6934,7 @@ rdfs:subClassOf
     a owl:DatatypeProperty ;
     rdfs:label "Has Stock Code"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Stock> ;
     rdfs:range xsd:string ;
 .
@@ -6758,7 +6943,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Title"@en ;
     dc:description "Record a title, identifying phrase, or name for the moving image Work, Variant, Manifestation or Item."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-work.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-work.ttl> ;
     rdfs:domain
         [
             owl:unionOf (
@@ -6775,7 +6960,7 @@ rdfs:subClassOf
     a owl:DatatypeProperty ;
     rdfs:label "Has Title Value"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Title> ;
     rdfs:range xsd:string ;
 .
@@ -6793,7 +6978,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Verdict"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/DecisionEvent> ;
     rdfs:range xsd:string ;
 .
@@ -6811,7 +6996,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Is Element"@en ;
     dc:description "Record the nature or function of the moving image Item, describing its place in the photochemical or digital production or duplication process."@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-item.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-item.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Item> ;
     rdfs:range <https://dev.fiafcore.org/Element> ;
 .
@@ -6820,7 +7005,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Nomination Only"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Event> ;
     rdfs:range xsd:boolean ;
 .
@@ -6833,6 +7018,22 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
 .
 
+<https://dev.fiafcore.org/ChromolyticMultilayer>
+    a owl:Class ;
+    rdfs:label "Chromolytic Multilayer"@en ;
+    dc:description "A subtractive colour process in which dyes in a multilayer emulsion are destroyed in proportion to exposure."@en ;
+    dc:source <https://filmcolors.org/cat/chromolytic-multilayer/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/SubtractiveColourProcess> ;
+.
+
+<https://dev.fiafcore.org/PrintingDyeTransferPigment>
+    a owl:Class ;
+    rdfs:label "Printing / Dye-Transfer / Pigment"@en ;
+    dc:description "A subtractive colour process in which colour is added by printing dye-transfer or pigment layers onto the film."@en ;
+    dc:source <https://filmcolors.org/cat/printing-dye-transfer/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/SubtractiveColourProcess> ;
+.
+
 <https://dev.fiafcore.org/PuppetActivity>
     a owl:Class ;
     rdfs:label "Puppet Activity"@en ;
@@ -6841,12 +7042,51 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
 .
 
+<https://dev.fiafcore.org/StencilColouring>
+    a owl:Class ;
+    rdfs:label "Stencil Colouring"@en ;
+    dc:description "A colour process in which colour is applied through stencils cut for individual image areas."@en ;
+    dc:source <https://filmcolors.org/cat/stencil-coloring/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AppliedColourProcess> ;
+.
+
+<https://dev.fiafcore.org/TemporalSynthesis>
+    a owl:Class ;
+    rdfs:label "Temporal Synthesis"@en ;
+    dc:description "An additive colour process in which successive frames are exposed through different colour filters."@en ;
+    dc:source <https://filmcolors.org/cat/rotary-filters/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AdditiveColourProcess> ;
+.
+
+<https://dev.fiafcore.org/hasColourProcess>
+    a owl:ObjectProperty ;
+    rdfs:label "Has Colour Process"@en ;
+    dc:description "The colour process or standard by which colour is produced or fixed in a Manifestation or Item."@en ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-manifestation.ttl> ;
+    rdfs:domain
+        [
+            owl:unionOf (
+                <https://dev.fiafcore.org/Manifestation>
+                <https://dev.fiafcore.org/Item>
+            ) ;
+        ] ;
+    rdfs:range <https://dev.fiafcore.org/ColourStandard> ;
+.
+
 <https://dev.fiafcore.org/EditingActivity>
     a owl:Class ;
     rdfs:label "Editing Activity"@en ;
     dc:description "Editing contribution to a moving image work."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
+.
+
+<https://dev.fiafcore.org/MimeticColourProcess>
+    a owl:Class ;
+    rdfs:label "Mimetic Colour Process"@en ;
+    dc:description "A colour process in which the colours of the subject are reproduced photographically."@en ;
+    dc:source <https://filmcolors.org/#classification> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ColourStandard> ;
 .
 
 <https://dev.fiafcore.org/Organisation>
@@ -6861,17 +7101,40 @@ owl:DatatypeProperty
     rdfs:label "Datatype Property" ;
 .
 
+<https://dev.fiafcore.org/AdditiveColourProcess>
+    a owl:Class ;
+    rdfs:label "Additive Colour Process"@en ;
+    dc:description "A colour process in which colours are produced by adding coloured light, typically through filters or screens."@en ;
+    dc:source <https://filmcolors.org/#classification> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/MimeticColourProcess> ;
+.
+
 <https://dev.fiafcore.org/Carrier>
     a owl:Class ;
     rdfs:label "Carrier"@en ;
     dc:description "A moving image Carrier is the discrete physical unit on which the moving image is retained. It can either contain the entire artistic work or a portion, for example in the case of individual film reels."@en ;
 .
 
+<https://dev.fiafcore.org/ColourEncoding>
+    a owl:Class ;
+    rdfs:label "Colour Encoding"@en ;
+    dc:description "A digital colour encoding used to represent colour values in a moving image file."@en ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-colourencoding.ttl> ;
+.
+
 <https://dev.fiafcore.org/Identifier>
     a owl:Class ;
     rdfs:label "Identifier"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-identifier.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-identifier.ttl> ;
+.
+
+<https://dev.fiafcore.org/ScreenProcess>
+    a owl:Class ;
+    rdfs:label "Screen Process"@en ;
+    dc:description "An additive colour process in which a screen of coloured lines, dots, or lenses produces colour."@en ;
+    dc:source <https://filmcolors.org/cat/screen-processes/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AdditiveColourProcess> ;
 .
 
 <https://dev.fiafcore.org/Status>
@@ -6887,6 +7150,14 @@ owl:DatatypeProperty
     dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%2047%3A79> ;
 .
 
+<https://dev.fiafcore.org/AppliedColourProcess>
+    a owl:Class ;
+    rdfs:label "Applied Colour Process"@en ;
+    dc:description "A colour process in which colour is applied to a black-and-white image rather than produced photographically."@en ;
+    dc:source <https://filmcolors.org/#classification> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ColourStandard> ;
+.
+
 <https://dev.fiafcore.org/Base>
     a owl:Class ;
     rdfs:label "Base"@en ;
@@ -6899,11 +7170,25 @@ owl:DatatypeProperty
     dc:description "Standard for broadcast encoding."@en ;
 .
 
+<https://dev.fiafcore.org/ColourCharacteristic>
+    a owl:Class ;
+    rdfs:label "Colour Characteristic"@en ;
+    dc:description "The presence of colour(s), tone(s), etc. in a Manifestation or an Item."@en ;
+    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%2075%3A135> ;
+.
+
+<https://dev.fiafcore.org/ColourStandard>
+    a owl:Class ;
+    rdfs:label "Colour Standard"@en ;
+    dc:description "A named colour process, system, or standard by which colour is produced or fixed in a moving image."@en ;
+    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%20341%3A4463> ;
+.
+
 <https://dev.fiafcore.org/DecisionEvent>
     a owl:Class ;
     rdfs:label "Decision Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
@@ -6911,7 +7196,7 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Dialogue"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/LanguageUsage> ;
 .
 
@@ -6927,7 +7212,7 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Language Usage"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
 .
 
 <https://dev.fiafcore.org/OpticalFormat>
@@ -6941,7 +7226,7 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Preservation Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
@@ -6949,7 +7234,7 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Production Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
@@ -6957,7 +7242,7 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Written Language"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/LanguageUsage> ;
 .
 
@@ -6965,7 +7250,7 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Acquisition Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
@@ -6973,14 +7258,7 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Sound Characteristic"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-soundcharacteristic.ttl> ;
-.
-
-<https://dev.fiafcore.org/ColourCharacteristic>
-    a owl:Class ;
-    rdfs:label "Colour Characteristic"@en ;
-    dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-colourcharacteristic.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-soundcharacteristic.ttl> ;
 .
 
 <https://dev.fiafcore.org/Format>
@@ -6993,7 +7271,7 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Manufacture Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
@@ -7030,7 +7308,7 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
 .
 
 <https://dev.fiafcore.org/AnimationActivity>
@@ -7054,17 +7332,19 @@ owl:DatatypeProperty
     dc:description ""@en ;
 .
 
+<https://dev.fiafcore.org/SubtractiveColourProcess>
+    a owl:Class ;
+    rdfs:label "Subtractive Colour Process"@en ;
+    dc:description "A colour process in which colours are produced by subtracting parts of the spectrum using dyes or pigments."@en ;
+    dc:source <https://filmcolors.org/#classification> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/MimeticColourProcess> ;
+.
+
 <https://dev.fiafcore.org/VideoFormat>
     a owl:Class ;
     rdfs:label "Video Format"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
-.
-
-<https://dev.fiafcore.org/ColourStandard>
-    a owl:Class ;
-    rdfs:label "Colour Standard"@en ;
-    dc:description "A standardised colour process."@en ;
 .
 
 <https://dev.fiafcore.org/ManifestationActivity>
@@ -7079,7 +7359,7 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Publication Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
@@ -7087,7 +7367,7 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Alternative Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Title> ;
 .
 
@@ -7110,7 +7390,7 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Extent"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
 .
 
 <https://dev.fiafcore.org/Form>
@@ -7125,6 +7405,14 @@ owl:DatatypeProperty
     dc:description "Music contribution to a moving image work."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
+.
+
+<https://dev.fiafcore.org/ChromogenicMonopack>
+    a owl:Class ;
+    rdfs:label "Chromogenic Monopack"@en ;
+    dc:description "A subtractive colour process in which colour couplers in one or more emulsion layers form dyes during development."@en ;
+    dc:source <https://filmcolors.org/cat/chromogenic-monopack/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/SubtractiveColourProcess> ;
 .
 
 <https://dev.fiafcore.org/SpecialEffectsActivity>
@@ -7158,18 +7446,18 @@ owl:DatatypeProperty
     dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%2049%3A82> ;
 .
 
-<https://dev.fiafcore.org/Item>
-    a owl:Class ;
-    rdfs:label "Item"@en ;
-    dc:description "A moving image Item is the physical or digital product of a Manifestation of a Work or Variant, i.e. the actual copy of a Work or Variant. Whereas the Manifestation record describes the “ideal” of a particular format or publication, the Item record represents the actual holding in a repository's collection."@en ;
-    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.36209%3A5084> ;
-.
-
 <https://dev.fiafcore.org/Work>
     a owl:Class ;
     rdfs:label "Work"@en ;
     dc:description "A moving image Work comprises both the intellectual or artistic content and the process of realisation in a cinematographic medium."@en ;
     dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.35986%3A5030> ;
+.
+
+<https://dev.fiafcore.org/Item>
+    a owl:Class ;
+    rdfs:label "Item"@en ;
+    dc:description "A moving image Item is the physical or digital product of a Manifestation of a Work or Variant, i.e. the actual copy of a Work or Variant. Whereas the Manifestation record describes the “ideal” of a particular format or publication, the Item record represents the actual holding in a repository's collection."@en ;
+    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.36209%3A5084> ;
 .
 
 <https://dev.fiafcore.org/Variant>
@@ -7190,7 +7478,7 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Stock"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
 .
 
 <https://dev.fiafcore.org/CinematographyActivity>
@@ -7199,13 +7487,6 @@ owl:DatatypeProperty
     dc:description "Cinematography contribution to a moving image work."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
-.
-
-<https://dev.fiafcore.org/Manifestation>
-    a owl:Class ;
-    rdfs:label "Manifestation"@en ;
-    dc:description "A moving image Manifestation is the embodiment of a moving image Work or Variant. Manifestations usually include all analogue, digital and online media associated with a particular embodiment of a Work or Variant."@en ;
-    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.36114%3A5061> ;
 .
 
 <https://dev.fiafcore.org/ProducingActivity>
@@ -7222,6 +7503,13 @@ owl:DatatypeProperty
     dc:description "Production Design contribution to a moving image work."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
+.
+
+<https://dev.fiafcore.org/Manifestation>
+    a owl:Class ;
+    rdfs:label "Manifestation"@en ;
+    dc:description "A moving image Manifestation is the embodiment of a moving image Work or Variant. Manifestations usually include all analogue, digital and online media associated with a particular embodiment of a Work or Variant."@en ;
+    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.36114%3A5061> ;
 .
 
 owl:ObjectProperty

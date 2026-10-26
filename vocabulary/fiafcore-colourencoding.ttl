@@ -1,0 +1,23 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+<https://dev.fiafcore.org/RGB>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/ColourEncoding> ;
+    skos:definition "A digital colour encoding using red, green, and blue channels."@en ;
+    skos:inScheme <https://dev.fiafcore.org/ColourEncoding> ;
+    skos:prefLabel "RGB"@en ;
+.
+
+<https://dev.fiafcore.org/YUV>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/ColourEncoding> ;
+    skos:definition "A digital colour encoding using one luma and two chrominance components."@en ;
+    skos:inScheme <https://dev.fiafcore.org/ColourEncoding> ;
+    skos:prefLabel "YUV"@en ;
+.
+
+<https://dev.fiafcore.org/ColourEncoding>
+    a skos:ConceptScheme ;
+    skos:definition "A digital colour encoding used to represent colour values in a moving image file."@en ;
+    skos:prefLabel "Colour Encoding"@en ;
+.

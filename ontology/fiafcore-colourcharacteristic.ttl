@@ -7,37 +7,23 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 <https://dev.fiafcore.org/ColourCharacteristic>
     a owl:Class ;
     rdfs:label "Colour Characteristic"@en ;
-    dc:description ""@en ;
-    dc:source <> ;
+    dc:description "The presence of colour(s), tone(s), etc. in a Manifestation or an Item."@en ;
+    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%2075%3A135> ;
 .
 
 ### Subclasses
 
 <https://dev.fiafcore.org/BlackAndWhite> a owl:Class ;
-    rdfs:label "Black And White"@en ;
-    dc:description ""@en ;
-    dc:source <> ;
+    rdfs:label "Black and White"@en ;
+    dc:description "A monochrome moving image reproduced in black, white and intermediate greys, without natural colour."@en ;
+    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%20340%3A4462> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ColourCharacteristic> ;
 .
 
 <https://dev.fiafcore.org/Colour> a owl:Class ;
     rdfs:label "Colour"@en ;
-    dc:description ""@en ;
-    dc:source <> ;
-    rdfs:subClassOf <https://dev.fiafcore.org/ColourCharacteristic> ;
-.
-
-<https://dev.fiafcore.org/Tinted> a owl:Class ;
-    rdfs:label "Tinted"@en ;
-    dc:description ""@en ;
-    dc:source <> ;
-    rdfs:subClassOf <https://dev.fiafcore.org/ColourCharacteristic> ;
-.
-
-<https://dev.fiafcore.org/Toned> a owl:Class ;
-    rdfs:label "Toned"@en ;
-    dc:description ""@en ;
-    dc:source <> ;
+    dc:description "A moving image reproduced in natural or mimetic colour, as opposed to black and white."@en ;
+    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%20340%3A4462> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ColourCharacteristic> ;
 .
 
@@ -50,8 +36,10 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 <https://dev.fiafcore.org/hasColourStandard>
     a owl:ObjectProperty ;
     rdfs:label "Has Colour Standard"@en ;
-    dc:description "Express a specific colour process."@en ;
+    dc:description "Deprecated: use hasColourProcess. Express a specific colour process."@en ;
     dc:source <> ;
+    owl:deprecated true ;
     rdfs:domain <https://dev.fiafcore.org/ColourCharacteristic> ;
     rdfs:range <https://dev.fiafcore.org/ColourStandard> ;
+    rdfs:subPropertyOf <https://dev.fiafcore.org/hasColourProcess> ;
 .

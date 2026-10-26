@@ -96,6 +96,22 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     rdfs:range <https://dev.fiafcore.org/ColourCharacteristic> ;
 .
 
+<https://dev.fiafcore.org/hasColourEncoding> a owl:ObjectProperty ;
+    rdfs:label "Has Colour Encoding"@en ;
+    dc:description "The digital colour encoding used for a Manifestation or Item."@en ;
+    dc:source <> ;
+    rdfs:domain [ owl:unionOf (<https://dev.fiafcore.org/Manifestation> <https://dev.fiafcore.org/Item>) ] ;
+    rdfs:range <https://dev.fiafcore.org/ColourEncoding> ;
+.
+
+<https://dev.fiafcore.org/hasColourProcess> a owl:ObjectProperty ;
+    rdfs:label "Has Colour Process"@en ;
+    dc:description "The colour process or standard by which colour is produced or fixed in a Manifestation or Item."@en ;
+    dc:source <> ;
+    rdfs:domain [ owl:unionOf (<https://dev.fiafcore.org/Manifestation> <https://dev.fiafcore.org/Item>) ] ;
+    rdfs:range <https://dev.fiafcore.org/ColourStandard> ;
+.
+
 <https://dev.fiafcore.org/hasExtent> a owl:ObjectProperty ;
     rdfs:label "Has Extent"@en ;
     dc:description "The concept of extent as applied to Manifestations is the “ideal” logical, physical, or temporal (duration) units and not a description of a real physical object. Actual objects in the collection are described at the Item level."@en ;

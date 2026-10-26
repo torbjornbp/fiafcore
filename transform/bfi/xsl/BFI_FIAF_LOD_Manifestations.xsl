@@ -80,102 +80,128 @@
                                         <rdf:type rdf:resource="https://dev.fiafcore.org/Colour"/>
                                         <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite"/>
                                     </xsl:when>
+                                    <xsl:when test="$colour_manifestation = 'Sepia'">
+                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Colour"/>
+                                    </xsl:when>
                                     <xsl:otherwise>
                                         <xsl:message terminate="yes">
                                             Error: Unexpected value "<xsl:value-of select="$colour_manifestation"/>".
                                         </xsl:message>
                                     </xsl:otherwise>
                                 </xsl:choose>
-                                <xsl:if test="$colour_standard">
-                                    <xsl:choose>
-                                        <xsl:when test="$colour_standard = ''"/>
-                                        <xsl:when test="$colour_standard = 'Avala Color'"/>
-                                        <xsl:when test="$colour_standard = 'CFI Color'"/>
-                                        <xsl:when test="$colour_standard = 'Movielabcolor'"/>
-                                        <xsl:when test="$colour_standard = 'Rankcolor'"/>
-                                        <xsl:when test="$colour_standard = 'Foto-Kem'"/>
-                                        <xsl:when test="$colour_standard = 'Warnercolor'"/>
-                                        <xsl:when test="$colour_standard = 'Sovcolor'"/>
-                                        <xsl:when test="$colour_standard = 'Pathécolor'"/>
-                                        <xsl:when test="$colour_standard = 'TVC Color'"/>
-                                        <xsl:when test="$colour_standard = 'Trucolor'"/>
-                                        <xsl:when test="$colour_standard = 'Cinecolor'"/>
-                                        <xsl:when test="$colour_standard = 'Film House color'"/>
-                                        <xsl:when test="$colour_standard = 'Cinefotocolor'"/>
-                                        <xsl:when test="$colour_standard = 'Atlab Color'"/>
-                                        <xsl:when test="$colour_standard = 'Telecolor'"/>
-                                        <xsl:when test="$colour_standard = 'Gevacolour'"/>
-                                        <xsl:when test="$colour_standard = 'Astro colour'"/>
-                                        <xsl:when test="$colour_standard = 'Ferraniacolor'"/>
-                                        <xsl:when test="$colour_standard = 'Panavision Color'"/>
-                                        <xsl:when test="$colour_standard = 'Alpha Cine Color'"/>
-                                        <xsl:when test="$colour_standard = 'Kodacolor'"/>
-                                        <xsl:when test="$colour_standard = 'MGM Color'"/>
-                                        <xsl:when test="$colour_standard = 'Eclair Color'"/>
-                                        <xsl:when test="$colour_standard = 'Anscocolor'"/>
-                                        <xsl:when test="$colour_standard = 'Kodachrome'"/>
-                                        <xsl:when test="$colour_standard = 'Medallioncolor'"/>
-                                        <xsl:when test="$colour_standard = 'Scope Colour'"/>
-                                        <xsl:when test="$colour_standard = 'Cinecittà Color'"/>
-                                        <xsl:when test="$colour_standard = 'United Color'"/>
-                                        <xsl:when test="$colour_standard = 'Consolidated Film Industries'"/>
-                                        <xsl:when test="$colour_standard = 'Supercinecolor'"/>
-                                        <xsl:when test="$colour_standard = 'Monaco colour'"/>
-                                        <xsl:when test="$colour_standard = 'Daieicolor'"/>
-                                        <xsl:when test="$colour_standard = 'Ektachrome'"/>
-                                        <xsl:when test="$colour_standard = 'Cinevexcolour'"/>
-                                        <xsl:when test="$colour_standard = 'Prizma Color'"/>
-                                        <xsl:when test="$colour_standard = 'Kinemacolour'"/>
-                                        <xsl:when test="$colour_standard = 'Luciano Vittori colour'"/>
-                                        <xsl:when test="$colour_standard = 'Dufay'"/>
-                                        <xsl:when test="$colour_standard = 'Image Transform'"/>
-                                        <xsl:when test="$colour_standard = 'Cinefilm Color'"/>
-                                        <xsl:when test="$colour_standard = 'Cinecocolor'"/>
-                                        <xsl:when test="$colour_standard = 'Telcocolor'"/>
-                                        <xsl:when test="$colour_standard = 'Technochrome'"/>
-                                        <xsl:when test="$colour_standard = 'Getty colour'"/>
-                                        <xsl:when test="$colour_standard = 'Panacolor'"/>
-                                        <xsl:when test="$colour_standard = 'Perfect'"/>
-                                        <xsl:when test="$colour_standard = 'Spot Film  Continental color'"/>
-                                        <xsl:when test="$colour_standard = 'Magicolor'"/>
-                                        <xsl:when test="$colour_standard = 'Sonolab colour'"/>
-                                        <xsl:when test="$colour_standard = 'Colorfilm Color'"/>
-                                        <xsl:when test="$colour_standard = 'Astral Bellvue Pathé Color'"/>
-                                        <xsl:when test="$colour_standard = 'Monochrome'"/>
-                                        <xsl:when test="$colour_standard = 'Avala Color'"/>
-                                        <xsl:when test="$colour_standard = 'Technicolor'" >
-                                            <fiaf:hasColourStandard rdf:resource="https://dev.fiafcore.org/Technicolor"/>
-                                        </xsl:when>
-                                        <xsl:when test="$colour_standard = 'Eastmancolor'" >
-                                            <fiaf:hasColourStandard rdf:resource="https://dev.fiafcore.org/Eastmancolor"/>
-                                        </xsl:when>
-                                        <xsl:when test="$colour_standard = 'DeLuxe'" >
-                                            <fiaf:hasColourStandard rdf:resource="https://dev.fiafcore.org/DeLuxe"/>
-                                        </xsl:when>
-                                        <xsl:when test="$colour_standard = 'Metrocolor'" >
-                                            <fiaf:hasColourStandard rdf:resource="https://dev.fiafcore.org/Metrocolor"/>
-                                        </xsl:when>
-                                        <xsl:when test="$colour_standard = 'Duartcolor'" >
-                                            <fiaf:hasColourStandard rdf:resource="https://dev.fiafcore.org/Duartcolor"/>
-                                        </xsl:when>
-                                        <xsl:when test="$colour_standard = 'Fujicolor'" >
-                                            <fiaf:hasColourStandard rdf:resource="https://dev.fiafcore.org/Fujicolor"/>
-                                        </xsl:when>
-                                        <xsl:when test="$colour_standard = 'Agfacolor'" >
-                                            <fiaf:hasColourStandard rdf:resource="https://dev.fiafcore.org/Agfacolor"/>
-                                        </xsl:when>
-                                        <xsl:when test="$colour_standard = 'Orwocolor'" >
-                                            <fiaf:hasColourStandard rdf:resource="https://dev.fiafcore.org/Orwocolor"/>
-                                        </xsl:when>
-                                        <xsl:otherwise>
-                                            <xsl:message terminate="yes">
-                                                Error: Unexpected value "<xsl:value-of select="$colour_standard"/>".
-                                            </xsl:message>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
-                                </xsl:if>
                             </rdf:Description>
                         </fiaf:hasColourCharacteristic>
+                    </xsl:if>
+
+                    <!-- fiaf:hasColourProcess -->
+
+                    <xsl:if test="$colour_standard">
+                        <xsl:choose>
+                            <xsl:when test="$colour_standard = ''"/>
+                            <xsl:when test="$colour_standard = 'Avala Color'"/>
+                            <xsl:when test="$colour_standard = 'CFI Color'"/>
+                            <xsl:when test="$colour_standard = 'Movielabcolor'"/>
+                            <xsl:when test="$colour_standard = 'Rankcolor'"/>
+                            <xsl:when test="$colour_standard = 'Foto-Kem'"/>
+                            <xsl:when test="$colour_standard = 'TVC Color'"/>
+                            <xsl:when test="$colour_standard = 'Trucolor'"/>
+                            <xsl:when test="$colour_standard = 'Cinecolor'"/>
+                            <xsl:when test="$colour_standard = 'Film House color'"/>
+                            <xsl:when test="$colour_standard = 'Cinefotocolor'"/>
+                            <xsl:when test="$colour_standard = 'Atlab Color'"/>
+                            <xsl:when test="$colour_standard = 'Telecolor'"/>
+                            <xsl:when test="$colour_standard = 'Gevacolour'"/>
+                            <xsl:when test="$colour_standard = 'Astro colour'"/>
+                            <xsl:when test="$colour_standard = 'Panavision Color'"/>
+                            <xsl:when test="$colour_standard = 'Alpha Cine Color'"/>
+                            <xsl:when test="$colour_standard = 'Kodacolor'"/>
+                            <xsl:when test="$colour_standard = 'MGM Color'"/>
+                            <xsl:when test="$colour_standard = 'Eclair Color'"/>
+                            <xsl:when test="$colour_standard = 'Medallioncolor'"/>
+                            <xsl:when test="$colour_standard = 'Scope Colour'"/>
+                            <xsl:when test="$colour_standard = 'Cinecittà Color'"/>
+                            <xsl:when test="$colour_standard = 'United Color'"/>
+                            <xsl:when test="$colour_standard = 'Consolidated Film Industries'"/>
+                            <xsl:when test="$colour_standard = 'Supercinecolor'"/>
+                            <xsl:when test="$colour_standard = 'Monaco colour'"/>
+                            <xsl:when test="$colour_standard = 'Daieicolor'"/>
+                            <xsl:when test="$colour_standard = 'Ektachrome'"/>
+                            <xsl:when test="$colour_standard = 'Cinevexcolour'"/>
+                            <xsl:when test="$colour_standard = 'Prizma Color'"/>
+                            <xsl:when test="$colour_standard = 'Luciano Vittori colour'"/>
+                            <xsl:when test="$colour_standard = 'Dufay'"/>
+                            <xsl:when test="$colour_standard = 'Image Transform'"/>
+                            <xsl:when test="$colour_standard = 'Cinefilm Color'"/>
+                            <xsl:when test="$colour_standard = 'Cinecocolor'"/>
+                            <xsl:when test="$colour_standard = 'Telcocolor'"/>
+                            <xsl:when test="$colour_standard = 'Technochrome'"/>
+                            <xsl:when test="$colour_standard = 'Getty colour'"/>
+                            <xsl:when test="$colour_standard = 'Panacolor'"/>
+                            <xsl:when test="$colour_standard = 'Perfect'"/>
+                            <xsl:when test="$colour_standard = 'Spot Film  Continental color'"/>
+                            <xsl:when test="$colour_standard = 'Magicolor'"/>
+                            <xsl:when test="$colour_standard = 'Sonolab colour'"/>
+                            <xsl:when test="$colour_standard = 'Colorfilm Color'"/>
+                            <xsl:when test="$colour_standard = 'Astral Bellvue Pathé Color'"/>
+                            <xsl:when test="$colour_standard = 'Monochrome'"/>
+                            <xsl:when test="$colour_standard = 'Avala Color'"/>
+                            <xsl:when test="$colour_standard = 'Technicolor'">
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Technicolor"/>
+                            </xsl:when>
+                            <xsl:when test="$colour_standard = 'Eastmancolor'">
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Eastmancolor"/>
+                            </xsl:when>
+                            <xsl:when test="$colour_standard = 'DeLuxe'">
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/DeLuxe"/>
+                            </xsl:when>
+                            <xsl:when test="$colour_standard = 'Metrocolor'">
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Metrocolor"/>
+                            </xsl:when>
+                            <xsl:when test="$colour_standard = 'Duartcolor'">
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Duartcolor"/>
+                            </xsl:when>
+                            <xsl:when test="$colour_standard = 'Fujicolor'">
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Fujicolor"/>
+                            </xsl:when>
+                            <xsl:when test="$colour_standard = 'Agfacolor'">
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Agfacolor"/>
+                            </xsl:when>
+                            <xsl:when test="$colour_standard = 'Orwocolor'">
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Orwocolor"/>
+                            </xsl:when>
+                            <xsl:when test="$colour_standard = 'Warnercolor'">
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Warnercolor"/>
+                            </xsl:when>
+                            <xsl:when test="$colour_standard = 'Sovcolor'">
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Sovcolor"/>
+                            </xsl:when>
+                            <xsl:when test="$colour_standard = 'Pathécolor'">
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Pathecolor"/>
+                            </xsl:when>
+                            <xsl:when test="$colour_standard = 'Ferraniacolor'">
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Ferraniacolor"/>
+                            </xsl:when>
+                            <xsl:when test="$colour_standard = 'Anscocolor'">
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Anscocolor"/>
+                            </xsl:when>
+                            <xsl:when test="$colour_standard = 'Kodachrome'">
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Kodachrome"/>
+                            </xsl:when>
+                            <xsl:when test="$colour_standard = 'Kinemacolour'">
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Kinemacolor"/>
+                            </xsl:when>
+                            <xsl:when test="$colour_standard = 'Sepia'">
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Toning"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:message terminate="yes">
+                                    Error: Unexpected value "<xsl:value-of select="$colour_standard"/>".
+                                </xsl:message>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:if>
+                    <xsl:if test="$colour_manifestation = 'Sepia' and not($colour_standard)">
+                        <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Toning"/>
                     </xsl:if>
 
                     <!-- fiaf:hasEvent -->
