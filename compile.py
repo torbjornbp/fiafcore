@@ -56,6 +56,7 @@ for vocab in [
     'fiafcore-format.ttl',
     'fiafcore-genre.ttl',
     'fiafcore-language.ttl',
+    'fiafcore-soundchannelconfiguration.ttl',
     'fiafcore-soundstandard.ttl',
     'fiafcore-status.ttl']:
     convert_vocabulary(vocab)
