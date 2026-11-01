@@ -58,6 +58,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/FilmFormat> ;
 .
 
+<https://dev.fiafcore.org/28mmFilm>
+    a owl:Class ;
+    rdfs:label "28mm Film"@en ;
+    dc:description "A non-standard 28mm film gauge used chiefly for early home and educational projection."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/FilmFormat> ;
+.
+
 <https://dev.fiafcore.org/35mmFilm>
     a owl:Class ;
     rdfs:label "35mm Film"@en ;
@@ -76,7 +84,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "3M"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -105,14 +113,14 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "AVI"@en ;
     dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ContainerFormat> ;
 .
 
 <https://dev.fiafcore.org/AbbreviatedTitle>
     a owl:Class ;
     rdfs:label "Abbreviated Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -148,7 +156,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Acquisition Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -247,7 +255,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Agfa"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -255,7 +263,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Agfa Gevaert"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -564,7 +572,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Augmented Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -607,7 +615,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Award Or Nomination Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
@@ -636,7 +644,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "BASF"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -765,7 +773,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Betacam SP"@en ;
     dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Betacam> ;
 .
 
 <https://dev.fiafcore.org/Betamax>
@@ -807,7 +815,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Black And White"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-colourcharacteristic.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-colourcharacteristic.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ColourCharacteristic> ;
 .
 
@@ -816,13 +824,6 @@ rdfs:subClassOf
     rdfs:label "Blaxploitation Film"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Genre> ;
-.
-
-<https://dev.fiafcore.org/BluRay>
-    a owl:Class ;
-    rdfs:label "BluRay"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/OpticalFormat> ;
 .
 
 <https://dev.fiafcore.org/BoliviaPlurinationalStateOf>
@@ -900,7 +901,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Broadcast Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PublicationEvent> ;
 .
 
@@ -962,11 +963,20 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Country> ;
 .
 
-<https://dev.fiafcore.org/CD>
+<https://dev.fiafcore.org/CDR>
     a owl:Class ;
-    rdfs:label "CD"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/OpticalFormat> ;
+    rdfs:label "CD-R"@en ;
+    dc:description "A recordable compact disc."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/CD> ;
+.
+
+<https://dev.fiafcore.org/CDROM>
+    a owl:Class ;
+    rdfs:label "CD-ROM"@en ;
+    dc:description "A compact disc carrying computer data, typically an ISO 9660 file system."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/CD> ;
 .
 
 <https://dev.fiafcore.org/CGIArtist>
@@ -1025,7 +1035,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Captions"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/WrittenLanguage> ;
 .
 
@@ -1049,7 +1059,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Casting Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ProductionEvent> ;
 .
 
@@ -1079,7 +1089,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Censored Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -1087,7 +1097,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Censorship Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/DecisionEvent> ;
 .
 
@@ -1206,6 +1216,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/CinematographyActivity> ;
 .
 
+<https://dev.fiafcore.org/Cineon>
+    a owl:Class ;
+    rdfs:label "Cineon"@en ;
+    dc:description "The Kodak Cineon image file format."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ImageFormat> ;
+.
+
 <https://dev.fiafcore.org/CircusFilm>
     a owl:Class ;
     rdfs:label "Circus Film"@en ;
@@ -1270,7 +1288,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Colour"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-colourcharacteristic.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-colourcharacteristic.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ColourCharacteristic> ;
 .
 
@@ -1278,7 +1296,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Colourized Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -1323,7 +1341,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Condensed Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -1398,7 +1416,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Corrected Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -1489,7 +1507,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Credits"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/WrittenLanguage> ;
 .
 
@@ -1591,11 +1609,52 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
+<https://dev.fiafcore.org/D6>
+    a owl:Class ;
+    rdfs:label "D-6"@en ;
+    dc:description "A professional high definition videocassette format recording uncompressed video."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+.
+
+<https://dev.fiafcore.org/DAT>
+    a owl:Class ;
+    rdfs:label "DAT"@en ;
+    dc:description "Digital Audio Tape, a 3.81mm (0.15 inch) magnetic cassette tape format for digital audio recording."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AudioFormat> ;
+.
+
+<https://dev.fiafcore.org/DCDM>
+    a owl:Class ;
+    rdfs:label "DCDM"@en ;
+    dc:description "The Digital Cinema Distribution Master: an uncompressed master comprising image, audio, and subtitle files defined by SMPTE ST 428."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/PackageFormat> ;
+.
+
+<https://dev.fiafcore.org/DCP>
+    a owl:Class ;
+    rdfs:label "DCP"@en ;
+    dc:description "A Digital Cinema Package as defined by SMPTE or Interop, comprising a composition playlist, packing list, asset map, and MXF tracks."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/PackageFormat> ;
+.
+
 <https://dev.fiafcore.org/DPX>
     a owl:Class ;
     rdfs:label "DPX"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
+    dc:description "Digital Picture Exchange, an uncompressed image file format used for image sequences in digital cinema and preservation workflows."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ImageFormat> ;
+.
+
+<https://dev.fiafcore.org/DTRS>
+    a owl:Class ;
+    rdfs:label "DTRS"@en ;
+    dc:description "Digital Tape Recording System, an eight-track modular digital multitrack tape format."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AudioFormat> ;
 .
 
 <https://dev.fiafcore.org/DTS>
@@ -1609,21 +1668,38 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "DVCAM"@en ;
     dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DV> ;
 .
 
 <https://dev.fiafcore.org/DVCPROHD>
     a owl:Class ;
     rdfs:label "DVCPRO HD"@en ;
     dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DVCPRO> ;
 .
 
-<https://dev.fiafcore.org/DVD>
+<https://dev.fiafcore.org/DVDAudio>
     a owl:Class ;
-    rdfs:label "DVD"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/OpticalFormat> ;
+    rdfs:label "DVD-Audio"@en ;
+    dc:description "A DVD carrying audio only."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DVD> ;
+.
+
+<https://dev.fiafcore.org/DVDR>
+    a owl:Class ;
+    rdfs:label "DVD-R"@en ;
+    dc:description "A recordable DVD."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DVD> ;
+.
+
+<https://dev.fiafcore.org/DVDROM>
+    a owl:Class ;
+    rdfs:label "DVD-ROM"@en ;
+    dc:description "A DVD carrying computer data rather than DVD-Video or DVD-Audio content."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DVD> ;
 .
 
 <https://dev.fiafcore.org/DanceFilm>
@@ -1689,7 +1765,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Different Soundtrack Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -1697,14 +1773,14 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Digital Betacam"@en ;
     dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Betacam> ;
 .
 
 <https://dev.fiafcore.org/DigitisationEvent>
     a owl:Class ;
     rdfs:label "Digitisation Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PreservationEvent> ;
 .
 
@@ -1727,7 +1803,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Distribution Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PublicationEvent> ;
 .
 
@@ -1809,7 +1885,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Donation Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AcquisitionEvent> ;
 .
 
@@ -1839,7 +1915,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Dubbed Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -1893,7 +1969,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Duplication Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PreservationEvent> ;
 .
 
@@ -1901,7 +1977,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Dupont"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -1923,7 +1999,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Eastman"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -1931,7 +2007,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Eastman Kodak"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -2073,7 +2149,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Exchange Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AcquisitionEvent> ;
 .
 
@@ -2112,6 +2188,14 @@ rdfs:subClassOf
     dc:description "Extra. An actor who appears in crowd scenes or as an incidental figure without speaking any lines. Usually does not receive screen credit."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/CastActivity> ;
+.
+
+<https://dev.fiafcore.org/FFV1>
+    a owl:Class ;
+    rdfs:label "FFV1"@en ;
+    dc:description "FFV1, a lossless intra-frame video codec used for preservation masters."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoCodec> ;
 .
 
 <https://dev.fiafcore.org/FairyTaleFilm>
@@ -2160,7 +2244,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Ferrania"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -2198,7 +2282,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Film Printing Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ManufactureEvent> ;
 .
 
@@ -2214,6 +2298,14 @@ rdfs:subClassOf
     rdfs:label "Finnish"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Language> ;
+.
+
+<https://dev.fiafcore.org/FlashMemory>
+    a owl:Class ;
+    rdfs:label "Flash Memory"@en ;
+    dc:description "Flash memory storage such as a USB flash drive or a memory card."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
 .
 
 <https://dev.fiafcore.org/FocusPuller>
@@ -2236,7 +2328,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Foot"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-extent.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
@@ -2279,7 +2371,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Fuji"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -2387,7 +2479,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Gevaert"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -2395,7 +2487,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Gevaert Belgium"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -2417,7 +2509,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Gigabyte"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-extent.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
@@ -2469,7 +2561,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Greyscaled Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -2558,6 +2650,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
+<https://dev.fiafcore.org/HDV>
+    a owl:Class ;
+    rdfs:label "HDV"@en ;
+    dc:description "A high definition videocassette format recording MPEG-2 video onto DV-format tape."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+.
+
 <https://dev.fiafcore.org/HairStylist>
     a owl:Class ;
     rdfs:label "Hair Stylist"@en ;
@@ -2582,11 +2682,17 @@ rdfs:subClassOf
 
 <https://dev.fiafcore.org/HalfInchAudiotape>
     a owl:Class ;
-    rdfs:label
-        "Half Inch Audiotape"@en ,
-        "Video Format"@en ;
+    rdfs:label "Half Inch Audiotape"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/AudioFormat> ;
+.
+
+<https://dev.fiafcore.org/HalfInchVideotape>
+    a owl:Class ;
+    rdfs:label "Half Inch Videotape"@en ;
+    dc:description "Half inch videotape, the gauge used by the Betamax, VHS, and Video 2000 cassette families."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
 <https://dev.fiafcore.org/HandPuppetFilm>
@@ -2594,6 +2700,14 @@ rdfs:subClassOf
     rdfs:label "Hand puppet Film"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Genre> ;
+.
+
+<https://dev.fiafcore.org/HardDrive>
+    a owl:Class ;
+    rdfs:label "Hard Drive"@en ;
+    dc:description "A magnetic hard disk drive used as an offline digital storage carrier."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
 .
 
 <https://dev.fiafcore.org/Hausa>
@@ -2635,7 +2749,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Hi8"@en ;
     dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Video8> ;
 .
 
 <https://dev.fiafcore.org/Hindi>
@@ -2684,7 +2798,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Home Video Publication Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PublicationEvent> ;
 .
 
@@ -2731,6 +2845,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Country> ;
 .
 
+<https://dev.fiafcore.org/IMF>
+    a owl:Class ;
+    rdfs:label "IMF"@en ;
+    dc:description "An Interoperable Master Format package as defined by SMPTE ST 2067."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/PackageFormat> ;
+.
+
 <https://dev.fiafcore.org/Iceland>
     a owl:Class ;
     rdfs:label "Iceland"@en ;
@@ -2757,7 +2879,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Identifiying Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Title> ;
 .
 
@@ -2779,7 +2901,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Ilford"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -2808,7 +2930,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Indoor Shooting Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ProductionEvent> ;
 .
 
@@ -2823,7 +2945,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Inspection Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
@@ -2853,7 +2975,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Intertitles"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/WrittenLanguage> ;
 .
 
@@ -3037,7 +3159,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Kilobyte"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-extent.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
@@ -3059,7 +3181,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Kodak"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -3131,6 +3253,38 @@ rdfs:subClassOf
     rdfs:label "Kyrgyzstan"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Country> ;
+.
+
+<https://dev.fiafcore.org/LTO3>
+    a owl:Class ;
+    rdfs:label "LTO-3"@en ;
+    dc:description "Linear Tape-Open generation 3 data tape."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
+.
+
+<https://dev.fiafcore.org/LTO4>
+    a owl:Class ;
+    rdfs:label "LTO-4"@en ;
+    dc:description "Linear Tape-Open generation 4 data tape."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
+.
+
+<https://dev.fiafcore.org/LTO5>
+    a owl:Class ;
+    rdfs:label "LTO-5"@en ;
+    dc:description "Linear Tape-Open generation 5 data tape."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
+.
+
+<https://dev.fiafcore.org/LTO6>
+    a owl:Class ;
+    rdfs:label "LTO-6"@en ;
+    dc:description "Linear Tape-Open generation 6 data tape."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
 .
 
 <https://dev.fiafcore.org/Laboratory>
@@ -3305,7 +3459,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Loan Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AcquisitionEvent> ;
 .
 
@@ -3346,32 +3500,49 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/MusicActivity> ;
 .
 
+<https://dev.fiafcore.org/MKV>
+    a owl:Class ;
+    rdfs:label "Matroska"@en ;
+    dc:description "Matroska, an open extensible container format."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ContainerFormat> ;
+.
+
 <https://dev.fiafcore.org/MOV>
     a owl:Class ;
     rdfs:label "MOV"@en ;
     dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ContainerFormat> ;
 .
 
 <https://dev.fiafcore.org/MP4>
     a owl:Class ;
     rdfs:label "MP4"@en ;
     dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ContainerFormat> ;
 .
 
 <https://dev.fiafcore.org/MPEG-4>
     a owl:Class ;
     rdfs:label "MPEG-4"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
+    dc:description "The MPEG-4 family of video encoding standards."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoCodec> ;
+.
+
+<https://dev.fiafcore.org/MPEG2>
+    a owl:Class ;
+    rdfs:label "MPEG-2"@en ;
+    dc:description "MPEG-2 video."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoCodec> ;
 .
 
 <https://dev.fiafcore.org/MXF>
     a owl:Class ;
     rdfs:label "MXF"@en ;
     dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ContainerFormat> ;
 .
 
 <https://dev.fiafcore.org/Macao>
@@ -3400,6 +3571,14 @@ rdfs:subClassOf
     rdfs:label "Magnetic"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
+.
+
+<https://dev.fiafcore.org/MagnetoOpticalDisc>
+    a owl:Class ;
+    rdfs:label "Magneto-Optical Disc"@en ;
+    dc:description "A magneto-optical disc used as an offline digital storage carrier."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
 .
 
 <https://dev.fiafcore.org/MakeUpArtist>
@@ -3527,7 +3706,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Mastering Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ManufactureEvent> ;
 .
 
@@ -3557,7 +3736,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Maxell"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -3587,7 +3766,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Megabyte"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-extent.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
@@ -3602,7 +3781,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Metre"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-extent.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
@@ -3638,14 +3817,14 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "MiniDV"@en ;
     dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DV> ;
 .
 
 <https://dev.fiafcore.org/Minute>
     a owl:Class ;
     rdfs:label "Minute"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-extent.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
@@ -3809,7 +3988,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Mute"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-soundcharacteristic.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-soundcharacteristic.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/SoundCharacteristic> ;
 .
 
@@ -3970,7 +4149,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "No Dialogue"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Dialogue> ;
 .
 
@@ -3978,7 +4157,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Non-Theatrical Distribution Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PublicationEvent> ;
 .
 
@@ -4057,7 +4236,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Not For Release Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PublicationEvent> ;
 .
 
@@ -4080,7 +4259,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Off-Air Recording Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AcquisitionEvent> ;
 .
 
@@ -4130,8 +4309,16 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Online Transmission Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PublicationEvent> ;
+.
+
+<https://dev.fiafcore.org/OpenEXR>
+    a owl:Class ;
+    rdfs:label "OpenEXR"@en ;
+    dc:description "The OpenEXR high dynamic range image file format."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ImageFormat> ;
 .
 
 <https://dev.fiafcore.org/OperaFilm>
@@ -4203,7 +4390,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Orwo"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -4225,7 +4412,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Outdoor Shooting Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ProductionEvent> ;
 .
 
@@ -4241,6 +4428,14 @@ rdfs:subClassOf
     rdfs:label "PAL"@en ;
     dc:description "Broadcast standard most commonly associated with Europe and Australia."@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/BroadcastStandard> ;
+.
+
+<https://dev.fiafcore.org/PCM>
+    a owl:Class ;
+    rdfs:label "PCM"@en ;
+    dc:description "Pulse-code modulation, the uncompressed digital audio encoding used by WAV, CD, DCDM, and most preservation masters."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AudioCodec> ;
 .
 
 <https://dev.fiafcore.org/Pakistan>
@@ -4282,7 +4477,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Panasonic"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -4304,7 +4499,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Parallel Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -4333,7 +4528,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Pathe"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -4454,7 +4649,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Post-Production Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ProductionEvent> ;
 .
 
@@ -4470,7 +4665,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Pre-Release Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -4486,7 +4681,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Preferred Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Title> ;
 .
 
@@ -4494,7 +4689,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Prerelease Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PublicationEvent> ;
 .
 
@@ -4533,7 +4728,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Preservation Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -4542,6 +4737,14 @@ rdfs:subClassOf
     rdfs:label "Prison Film"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Genre> ;
+.
+
+<https://dev.fiafcore.org/ProRes422HQ>
+    a owl:Class ;
+    rdfs:label "ProRes 422 HQ"@en ;
+    dc:description "Apple ProRes 422 HQ, a high quality 4:2:2 ProRes variant."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ProRes> ;
 .
 
 <https://dev.fiafcore.org/Producer>
@@ -4672,7 +4875,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Purchase Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AcquisitionEvent> ;
 .
 
@@ -4709,29 +4912,22 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Quicktime"@en ;
     dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ContainerFormat> ;
 .
 
 <https://dev.fiafcore.org/RatingEvent>
     a owl:Class ;
     rdfs:label "Rating Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/DecisionEvent> ;
-.
-
-<https://dev.fiafcore.org/RealVideo>
-    a owl:Class ;
-    rdfs:label "Real Video"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
 .
 
 <https://dev.fiafcore.org/Reel>
     a owl:Class ;
     rdfs:label "Reel"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-extent.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
@@ -4747,7 +4943,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Release Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PublicationEvent> ;
 .
 
@@ -4769,7 +4965,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Reproduction Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PreservationEvent> ;
 .
 
@@ -4800,7 +4996,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Restoration Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -4815,7 +5011,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Revision Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/DecisionEvent> ;
 .
 
@@ -4837,7 +5033,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Rights/Copyright/Registration Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
@@ -4930,7 +5126,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "SVCD"@en ;
     dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/CD> ;
 .
 
 <https://dev.fiafcore.org/SaintBarthelemy>
@@ -5049,7 +5245,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Scanning Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ManufactureEvent> ;
 .
 
@@ -5072,7 +5268,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Scotch"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -5095,7 +5291,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Search Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -5103,7 +5299,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Second"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-extent.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
@@ -5193,7 +5389,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Series Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -5259,7 +5455,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Signed Language"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Dialogue> ;
 .
 
@@ -5267,7 +5463,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Silent"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-soundcharacteristic.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-soundcharacteristic.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/SoundCharacteristic> ;
 .
 
@@ -5383,7 +5579,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Sonorized Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -5391,7 +5587,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Sony"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
 .
 
@@ -5399,7 +5595,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Sound"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-soundcharacteristic.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-soundcharacteristic.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/SoundCharacteristic> ;
 .
 
@@ -5533,7 +5729,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Spoken Language"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Dialogue> ;
 .
 
@@ -5641,7 +5837,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Subtitled Variant"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-variant.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-variant.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Variant> ;
 .
 
@@ -5649,7 +5845,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Subtitles"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/WrittenLanguage> ;
 .
 
@@ -5671,7 +5867,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Sung Language "@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Dialogue> ;
 .
 
@@ -5693,7 +5889,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Super VHS"@en ;
     dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VHS> ;
 .
 
 <https://dev.fiafcore.org/SupervisingSoundEditor>
@@ -5708,7 +5904,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Supplied/Devised Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Title> ;
 .
 
@@ -5779,8 +5975,16 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "TDK"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Stock> ;
+.
+
+<https://dev.fiafcore.org/TIFF>
+    a owl:Class ;
+    rdfs:label "TIFF"@en ;
+    dc:description "The Tag Image File Format, used for still and image sequence files."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ImageFormat> ;
 .
 
 <https://dev.fiafcore.org/Tagalog>
@@ -5857,7 +6061,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Telecine Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ManufactureEvent> ;
 .
 
@@ -5872,7 +6076,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Terabyte"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-extent.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
@@ -5894,7 +6098,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Theatrical Distribution Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PublicationEvent> ;
 .
 
@@ -5938,7 +6142,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Tinted"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-colourcharacteristic.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-colourcharacteristic.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ColourCharacteristic> ;
 .
 
@@ -5954,7 +6158,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Title Proper"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Title> ;
 .
 
@@ -5976,7 +6180,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Toned"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-colourcharacteristic.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-colourcharacteristic.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ColourCharacteristic> ;
 .
 
@@ -6021,7 +6225,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Transfer Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/PreservationEvent> ;
 .
 
@@ -6029,7 +6233,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Translated Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -6037,7 +6241,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Transliterated Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -6175,6 +6379,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Language> ;
 .
 
+<https://dev.fiafcore.org/UltraHDBluRay>
+    a owl:Class ;
+    rdfs:label "Ultra HD Blu-ray"@en ;
+    dc:description "The Ultra HD Blu-ray optical disc format."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/BluRay> ;
+.
+
 <https://dev.fiafcore.org/UmaticHighBand>
     a owl:Class ;
     rdfs:label "U-matic High Band"@en ;
@@ -6251,7 +6463,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Uploading Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ManufactureEvent> ;
 .
 
@@ -6287,7 +6499,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "VCD"@en ;
     dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/CD> ;
 .
 
 <https://dev.fiafcore.org/VCR>
@@ -6297,11 +6509,12 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
-<https://dev.fiafcore.org/VHS>
+<https://dev.fiafcore.org/VOB>
     a owl:Class ;
-    rdfs:label "VHS"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+    rdfs:label "VOB"@en ;
+    dc:description "The DVD-Video Object container."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ContainerFormat> ;
 .
 
 <https://dev.fiafcore.org/Vanuatu>
@@ -6332,13 +6545,6 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
-<https://dev.fiafcore.org/Video8>
-    a owl:Class ;
-    rdfs:label "Video8"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
-.
-
 <https://dev.fiafcore.org/VideoAssist>
     a owl:Class ;
     rdfs:label "Video Assist"@en ;
@@ -6351,7 +6557,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "VideoCopying Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ManufactureEvent> ;
 .
 
@@ -6406,6 +6612,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Language> ;
 .
 
+<https://dev.fiafcore.org/WAV>
+    a owl:Class ;
+    rdfs:label "WAV"@en ;
+    dc:description "Waveform Audio File Format, including Broadcast Wave."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ContainerFormat> ;
+.
+
 <https://dev.fiafcore.org/WallisAndFutuna>
     a owl:Class ;
     rdfs:label "Wallis and Futuna"@en ;
@@ -6433,6 +6647,14 @@ rdfs:subClassOf
     dc:description "Wardrobe Supervisor, Wardrobe Supervision, Wardrobe Master, Wardrobe Mistress. The wardrobe personnel is primarily responsible for physically handling and maintaining the costumes and related accessories on the set, and making sure that the cast members are properly dressed for each scene to be photographed."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ProductionDesignActivity> ;
+.
+
+<https://dev.fiafcore.org/WebM>
+    a owl:Class ;
+    rdfs:label "WebM"@en ;
+    dc:description "The WebM container format."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ContainerFormat> ;
 .
 
 <https://dev.fiafcore.org/Welsh>
@@ -6463,13 +6685,6 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Country> ;
 .
 
-<https://dev.fiafcore.org/WindowsMedia>
-    a owl:Class ;
-    rdfs:label "Windows Media"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
-.
-
 <https://dev.fiafcore.org/Wolof>
     a owl:Class ;
     rdfs:label "Wolof"@en ;
@@ -6495,7 +6710,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Working Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/AlternativeTitle> ;
 .
 
@@ -6597,7 +6812,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Achievement"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Event> ;
     rdfs:range xsd:string ;
 .
@@ -6606,7 +6821,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Activity"@en ;
     dc:description "Express the relationship between an Event and an Activity."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Event> ;
     rdfs:range <https://dev.fiafcore.org/Activity> ;
 .
@@ -6624,7 +6839,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Award Name"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Event> ;
     rdfs:range xsd:string ;
 .
@@ -6633,7 +6848,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Base"@en ;
     dc:description "The physical material or video format on which the Item is captured."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-item.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-item.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Item> ;
     rdfs:range <https://dev.fiafcore.org/Base> ;
 .
@@ -6642,7 +6857,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Broadcast Standard"@en ;
     dc:description "The broadcast standard for a video or DVD/BluRay."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-item.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-item.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Item> ;
     rdfs:range <https://dev.fiafcore.org/BroadcastStandard> ;
 .
@@ -6651,7 +6866,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Carrier"@en ;
     dc:description "Express the relationship between a moving image Item and a moving image Carrier."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-item.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-item.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Item> ;
     rdfs:range <https://dev.fiafcore.org/Carrier> ;
 .
@@ -6660,7 +6875,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Colour Characteristic"@en ;
     dc:description "The presence of colour(s), tone(s), etc. in a Manifestation or an Item."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-manifestation.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-manifestation.ttl> ;
     rdfs:domain
         [
             owl:unionOf (
@@ -6675,7 +6890,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Colour Standard"@en ;
     dc:description "Express a specific colour process."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-colourcharacteristic.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-colourcharacteristic.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/ColourCharacteristic> ;
     rdfs:range <https://dev.fiafcore.org/ColourStandard> ;
 .
@@ -6693,7 +6908,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Date"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Event> ;
     rdfs:range xsd:date ;
 .
@@ -6702,7 +6917,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Event"@en ;
     dc:description "An Event characterises occurrences in the lifecycle of a moving image Work, Variant, Manifestation, Item or Carrier."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-work.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-work.ttl> ;
     rdfs:domain
         [
             owl:unionOf (
@@ -6720,7 +6935,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Extent"@en ;
     dc:description "The concept of extent as applied to Manifestations is the “ideal” logical, physical, or temporal (duration) units and not a description of a real physical object. Actual objects in the collection are described at the Item level."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-manifestation.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-manifestation.ttl> ;
     rdfs:domain
         [
             owl:unionOf (
@@ -6735,7 +6950,7 @@ rdfs:subClassOf
     a owl:DatatypeProperty ;
     rdfs:label "Has Extent Value"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-extent.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Extent> ;
     rdfs:range xsd:string ;
 .
@@ -6753,7 +6968,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Format"@en ;
     dc:description "The medium on or the encoding format in which the moving image Manifestation or Item is fixed."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-manifestation.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-manifestation.ttl> ;
     rdfs:domain
         [
             owl:unionOf (
@@ -6777,7 +6992,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Holding Institution"@en ;
     dc:description "Record the name of the institution possessing the moving image Item or authorised to make it available."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-item.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-item.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Item> ;
     rdfs:range <https://dev.fiafcore.org/Organisation> ;
 .
@@ -6786,7 +7001,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Identifier"@en ;
     dc:description "An Identifier refers to a specific entity and provides clear disambiguation between entities to avoid confusion."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-work.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-work.ttl> ;
     rdfs:domain
         [
             owl:unionOf (
@@ -6805,7 +7020,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Identifier Authority"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-identifier.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-identifier.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Identifier> ;
     rdfs:range <https://dev.fiafcore.org/Organisation> ;
 .
@@ -6814,7 +7029,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Identifier Value"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-identifier.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-identifier.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Identifier> ;
     rdfs:range xsd:string ;
 .
@@ -6823,7 +7038,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Item"@en ;
     dc:description "Express the relationship between a moving image Manifestation and a moving image Item."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-manifestation.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-manifestation.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Manifestation> ;
     rdfs:range <https://dev.fiafcore.org/Item> ;
 .
@@ -6832,7 +7047,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Language"@en ;
     dc:description "Express a language."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-languageusage.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/LanguageUsage> ;
     rdfs:range <https://dev.fiafcore.org/Language> ;
 .
@@ -6841,7 +7056,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Language Usage"@en ;
     dc:description "Record the usage type of a language e.g. spoken, intertitles, subtitles, etc."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-work.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-work.ttl> ;
     rdfs:domain
         [
             owl:unionOf (
@@ -6872,7 +7087,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Sound Characteristic"@en ;
     dc:description "Technical specifications relating to the fixation of sound in a moving image Manifestation or moving image Item."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-manifestation.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-manifestation.ttl> ;
     rdfs:domain
         [
             owl:unionOf (
@@ -6887,7 +7102,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Sound Standard"@en ;
     dc:description "Express a specific sound process."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-soundcharacteristic.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-soundcharacteristic.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/SoundCharacteristic> ;
     rdfs:range <https://dev.fiafcore.org/SoundStandard> ;
 .
@@ -6896,7 +7111,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Status"@en ;
     dc:description "Description of the preservation or access status of the Item."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-item.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-item.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Item> ;
     rdfs:range <https://dev.fiafcore.org/Status> ;
 .
@@ -6905,7 +7120,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Stock"@en ;
     dc:description "Describes the specific stock/brand on which the Item is captured."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-item.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-item.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Item> ;
     rdfs:range <https://dev.fiafcore.org/Stock> ;
 .
@@ -6914,7 +7129,7 @@ rdfs:subClassOf
     a owl:DatatypeProperty ;
     rdfs:label "Has Stock Code"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Stock> ;
     rdfs:range xsd:string ;
 .
@@ -6923,7 +7138,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Title"@en ;
     dc:description "Record a title, identifying phrase, or name for the moving image Work, Variant, Manifestation or Item."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-work.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-work.ttl> ;
     rdfs:domain
         [
             owl:unionOf (
@@ -6940,7 +7155,7 @@ rdfs:subClassOf
     a owl:DatatypeProperty ;
     rdfs:label "Has Title Value"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-title.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Title> ;
     rdfs:range xsd:string ;
 .
@@ -6958,7 +7173,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Has Verdict"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/DecisionEvent> ;
     rdfs:range xsd:string ;
 .
@@ -6976,7 +7191,7 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Is Element"@en ;
     dc:description "Record the nature or function of the moving image Item, describing its place in the photochemical or digital production or duplication process."@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-item.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-item.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Item> ;
     rdfs:range <https://dev.fiafcore.org/Element> ;
 .
@@ -6985,9 +7200,24 @@ rdfs:subClassOf
     a owl:ObjectProperty ;
     rdfs:label "Nomination Only"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:domain <https://dev.fiafcore.org/Event> ;
     rdfs:range xsd:boolean ;
+.
+
+<https://dev.fiafcore.org/AudioCodec>
+    a owl:Class ;
+    rdfs:label "Audio Codec"@en ;
+    dc:description "A digital audio encoding used inside a digital container."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
+.
+
+<https://dev.fiafcore.org/BluRay>
+    a owl:Class ;
+    rdfs:label "BluRay"@en ;
+    dc:description ""@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalFormat> ;
 .
 
 <https://dev.fiafcore.org/CensorshipActivity>
@@ -6998,12 +7228,50 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
 .
 
+<https://dev.fiafcore.org/DVCPRO>
+    a owl:Class ;
+    rdfs:label "DVCPRO"@en ;
+    dc:description "The DVCPRO family of professional digital videocassette formats."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DV> ;
+.
+
+<https://dev.fiafcore.org/ProRes>
+    a owl:Class ;
+    rdfs:label "ProRes"@en ;
+    dc:description "The Apple ProRes family of video codecs."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoCodec> ;
+.
+
 <https://dev.fiafcore.org/PuppetActivity>
     a owl:Class ;
     rdfs:label "Puppet Activity"@en ;
     dc:description "Puppetry contribution to a moving image work."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
+.
+
+<https://dev.fiafcore.org/VHS>
+    a owl:Class ;
+    rdfs:label "VHS"@en ;
+    dc:description ""@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+.
+
+<https://dev.fiafcore.org/Video8>
+    a owl:Class ;
+    rdfs:label "Video8"@en ;
+    dc:description ""@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+.
+
+<https://dev.fiafcore.org/Betacam>
+    a owl:Class ;
+    rdfs:label "Betacam"@en ;
+    dc:description "The Betacam family of half inch component videocassette formats."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
 <https://dev.fiafcore.org/EditingActivity>
@@ -7032,11 +7300,26 @@ owl:DatatypeProperty
     dc:description "A moving image Carrier is the discrete physical unit on which the moving image is retained. It can either contain the entire artistic work or a portion, for example in the case of individual film reels."@en ;
 .
 
+<https://dev.fiafcore.org/DV>
+    a owl:Class ;
+    rdfs:label "DV"@en ;
+    dc:description "The DV family of digital videocassette formats."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+.
+
+<https://dev.fiafcore.org/DVD>
+    a owl:Class ;
+    rdfs:label "DVD"@en ;
+    dc:description ""@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalFormat> ;
+.
+
 <https://dev.fiafcore.org/Identifier>
     a owl:Class ;
     rdfs:label "Identifier"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-identifier.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-identifier.ttl> ;
 .
 
 <https://dev.fiafcore.org/OneInchVideotape>
@@ -7044,6 +7327,14 @@ owl:DatatypeProperty
     rdfs:label "One Inch Videotape"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+.
+
+<https://dev.fiafcore.org/PackageFormat>
+    a owl:Class ;
+    rdfs:label "Package Format"@en ;
+    dc:description "A defined deliverable package combining image, audio, and metadata files, rather than a single file container."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
 .
 
 <https://dev.fiafcore.org/Status>
@@ -7078,11 +7369,18 @@ owl:DatatypeProperty
     dc:description "Standard for broadcast encoding."@en ;
 .
 
+<https://dev.fiafcore.org/CD>
+    a owl:Class ;
+    rdfs:label "CD"@en ;
+    dc:description ""@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalFormat> ;
+.
+
 <https://dev.fiafcore.org/DecisionEvent>
     a owl:Class ;
     rdfs:label "Decision Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
@@ -7090,8 +7388,16 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Dialogue"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/LanguageUsage> ;
+.
+
+<https://dev.fiafcore.org/ImageFormat>
+    a owl:Class ;
+    rdfs:label "Image Format"@en ;
+    dc:description "A self-contained digital image file format combining a header and a raster payload, without a separate wrapping container or codec."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
 .
 
 <https://dev.fiafcore.org/LaboratoryActivity>
@@ -7106,13 +7412,14 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Language Usage"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-languageusage.ttl> ;
 .
 
 <https://dev.fiafcore.org/OpticalFormat>
     a owl:Class ;
     rdfs:label "Optical Format"@en ;
-    dc:description ""@en ;
+    dc:description "An optical disc carrier read by laser."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
 .
 
@@ -7120,7 +7427,7 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Preservation Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
@@ -7128,15 +7435,23 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Production Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
+.
+
+<https://dev.fiafcore.org/VideoCodec>
+    a owl:Class ;
+    rdfs:label "Video Codec"@en ;
+    dc:description "A video or image sequence encoding used inside a digital container."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
 .
 
 <https://dev.fiafcore.org/WrittenLanguage>
     a owl:Class ;
     rdfs:label "Written Language"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-languageusage.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-languageusage.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/LanguageUsage> ;
 .
 
@@ -7144,43 +7459,38 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Acquisition Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
+.
+
+<https://dev.fiafcore.org/DigitalFormat>
+    a owl:Class ;
+    rdfs:label "Digital Format"@en ;
+    dc:description "A digital file container, deliverable package, or encoding."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
 .
 
 <https://dev.fiafcore.org/SoundCharacteristic>
     a owl:Class ;
     rdfs:label "Sound Characteristic"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-soundcharacteristic.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-soundcharacteristic.ttl> ;
 .
 
 <https://dev.fiafcore.org/ColourCharacteristic>
     a owl:Class ;
     rdfs:label "Colour Characteristic"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-colourcharacteristic.ttl> ;
-.
-
-<https://dev.fiafcore.org/Format>
-    a owl:Class ;
-    rdfs:label "Format"@en ;
-    dc:description ""@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-colourcharacteristic.ttl> ;
 .
 
 <https://dev.fiafcore.org/ManufactureEvent>
     a owl:Class ;
     rdfs:label "Manufacture Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
-.
-
-<https://dev.fiafcore.org/AudioFormat>
-    a owl:Class ;
-    rdfs:label "Audio Format"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
 .
 
 <https://dev.fiafcore.org/CopyrightandDistributionActivity>
@@ -7189,6 +7499,14 @@ owl:DatatypeProperty
     dc:description "Copyright and Distribution contribution to a moving image work."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
+.
+
+<https://dev.fiafcore.org/DataStorageFormat>
+    a owl:Class ;
+    rdfs:label "Data Storage Format"@en ;
+    dc:description "An offline digital storage carrier used to hold moving image data, such as data tape, a hard disk drive, or flash memory."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
 .
 
 <https://dev.fiafcore.org/DirectingActivity>
@@ -7205,11 +7523,18 @@ owl:DatatypeProperty
     dc:description ""@en ;
 .
 
+<https://dev.fiafcore.org/Format>
+    a owl:Class ;
+    rdfs:label "Format"@en ;
+    dc:description "The physical medium, file container, encoding, or deliverable package in which a moving image Manifestation or Item is fixed."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+.
+
 <https://dev.fiafcore.org/Title>
     a owl:Class ;
     rdfs:label "Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-title.ttl> ;
 .
 
 <https://dev.fiafcore.org/AnimationActivity>
@@ -7220,23 +7545,40 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
 .
 
-<https://dev.fiafcore.org/FilmFormat>
-    a owl:Class ;
-    rdfs:label "Film Format"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
-.
-
 <https://dev.fiafcore.org/SoundStandard>
     a owl:Class ;
     rdfs:label "Sound Standard"@en ;
     dc:description ""@en ;
 .
 
+<https://dev.fiafcore.org/AudioFormat>
+    a owl:Class ;
+    rdfs:label "Audio Format"@en ;
+    dc:description "A physical audio carrier, such as magnetic film, magnetic tape, or an audio cassette."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
+.
+
 <https://dev.fiafcore.org/ColourStandard>
     a owl:Class ;
     rdfs:label "Colour Standard"@en ;
     dc:description "A standardised colour process."@en ;
+.
+
+<https://dev.fiafcore.org/ContainerFormat>
+    a owl:Class ;
+    rdfs:label "Container Format"@en ;
+    dc:description "A digital file container holding one or more image, audio, or metadata streams."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
+.
+
+<https://dev.fiafcore.org/FilmFormat>
+    a owl:Class ;
+    rdfs:label "Film Format"@en ;
+    dc:description "A film gauge on which a moving image is recorded photochemically."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
 .
 
 <https://dev.fiafcore.org/ManifestationActivity>
@@ -7251,7 +7593,7 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Publication Event"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-event.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
@@ -7259,7 +7601,7 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Alternative Title"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-title.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-title.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Title> ;
 .
 
@@ -7271,18 +7613,11 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
 .
 
-<https://dev.fiafcore.org/DigitalFormat>
-    a owl:Class ;
-    rdfs:label "Digital Format"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
-.
-
 <https://dev.fiafcore.org/Extent>
     a owl:Class ;
     rdfs:label "Extent"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-extent.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-extent.ttl> ;
 .
 
 <https://dev.fiafcore.org/Form>
@@ -7358,6 +7693,14 @@ owl:DatatypeProperty
     dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%2048%3A80> ;
 .
 
+<https://dev.fiafcore.org/VideoFormat>
+    a owl:Class ;
+    rdfs:label "Video Format"@en ;
+    dc:description "A physical videotape or videocassette format."@en ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-format.ttl> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
+.
+
 <https://dev.fiafcore.org/CinematographyActivity>
     a owl:Class ;
     rdfs:label "Cinematography Activity"@en ;
@@ -7389,18 +7732,11 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
 .
 
-<https://dev.fiafcore.org/VideoFormat>
-    a owl:Class ;
-    rdfs:label "Video Format"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
-.
-
 <https://dev.fiafcore.org/Stock>
     a owl:Class ;
     rdfs:label "Stock"@en ;
     dc:description ""@en ;
-    dc:source <file:///Users/torbjornbp/Github/fiafcore/ontology/fiafcore-stock.ttl> ;
+    dc:source <file:///home/agent/.local/share/opencode/worktree/8d39b3/restructure-format-taxonomy/ontology/fiafcore-stock.ttl> ;
 .
 
 owl:ObjectProperty

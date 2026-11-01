@@ -191,7 +191,9 @@
                                 <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/VHS" />
                             </xsl:when>
                             <xsl:when test="$format = 'Videocassette'"/>
-                            <xsl:when test="$format = 'Digital Cinema Package (DCP)'"/>
+                            <xsl:when test="$format = 'Digital Cinema Package (DCP)'">
+                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DCP" />
+                            </xsl:when>
                             <xsl:when test="$format = 'Digital Video'"/>
                             <xsl:when test="$format = 'Digital Media'"/>
                             <xsl:when test="$format = 'Phase Alternate Line (PAL)'"/>
@@ -199,21 +201,29 @@
                                 <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Umatic" />
                             </xsl:when>
                             <xsl:when test="$format = 'High-Definition Video'"/>
-                            <xsl:when test="$format = 'DVD-ROM'"/>
+                            <xsl:when test="$format = 'DVD-ROM'">
+                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DVDROM" />
+                            </xsl:when>
                             <xsl:when test="$format = '3-D (Un-specified)'"/>
                             <xsl:when test="$format = 'Imax'"/>
                             <xsl:when test="$format = 'Betamax Videocassette'">
                                 <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Betamax" />
                             </xsl:when>
-                            <xsl:when test="$format = 'IMF Package (IMP)'"/>
+                            <xsl:when test="$format = 'IMF Package (IMP)'">
+                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/IMF" />
+                            </xsl:when>
                             <xsl:when test="$format = 'Mini-DV'">
                                 <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/MiniDV" />
                             </xsl:when>
                             <xsl:when test="$format = '65mm film'"/>
                             <xsl:when test="$format = 'HD Digital'"/>
-                            <xsl:when test="$format = 'Apple ProRes 422 HQ'"/>
+                            <xsl:when test="$format = 'Apple ProRes 422 HQ'">
+                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/ProRes422HQ" />
+                            </xsl:when>
                             <xsl:when test="$format = '25mm Film'"/>
-                            <xsl:when test="$format = 'Betacam Videocassette'"/>
+                            <xsl:when test="$format = 'Betacam Videocassette'">
+                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Betacam" />
+                            </xsl:when>
                             <xsl:when test="$format = 'VHS Compact'">
                                 <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/VHS" />
                             </xsl:when>
@@ -228,11 +238,15 @@
                             </xsl:when>
                             <xsl:when test="$format = 'Reel to reel tape'"/>
                             <xsl:when test="$format = 'Scope (Un-specified)'"/>
-                            <xsl:when test="$format = 'QuickTime'"/>
+                            <xsl:when test="$format = 'QuickTime'">
+                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Quicktime" />
+                            </xsl:when>
                             <xsl:when test="$format = 'D2 Digital'">
                                 <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/D2" />
                             </xsl:when>
-                            <xsl:when test="$format = 'D5-HD'"/>
+                            <xsl:when test="$format = 'D5-HD'">
+                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/D5" />
+                            </xsl:when>
                             <xsl:when test="$format = '1 Videotape'">
                                 <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/OneInchVideotape" />
                             </xsl:when>
@@ -275,6 +289,7 @@
                             </xsl:when>
                             <xsl:when test="$format = 'ProRes QuickTime'">
                                 <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Quicktime" />
+                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/ProRes" />
                             </xsl:when>
                             <xsl:when test="$format = 'Laser-Disc'">
                                 <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/LaserDisc" />

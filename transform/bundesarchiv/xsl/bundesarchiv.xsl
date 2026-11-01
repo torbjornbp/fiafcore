@@ -1953,16 +1953,32 @@
             <xsl:if test="ba:Container">
                 <xsl:variable name="format" select="translate(ba:Container, ' ', '_')"/>
                 <xsl:choose>
-                    <xsl:when test="$format = 'TIFF'" />
-                    <xsl:when test="$format = 'WAVE'" />
+                    <xsl:when test="$format = 'TIFF'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/TIFF" />
+                    </xsl:when>
+                    <xsl:when test="$format = 'WAVE'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/WAV" />
+                    </xsl:when>
                     <xsl:when test="$format = 'OHNE_Container'" />
-                    <xsl:when test="$format = 'VOB'" />
-                    <xsl:when test="$format = 'WebM'" />
-                    <xsl:when test="$format = 'MPEG-2'" />
+                    <xsl:when test="$format = 'VOB'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/VOB" />
+                    </xsl:when>
+                    <xsl:when test="$format = 'WebM'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/WebM" />
+                    </xsl:when>
+                    <xsl:when test="$format = 'MPEG-2'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/MPEG2" />
+                    </xsl:when>
                     <xsl:when test="$format = 'Unbekannt'" />
-                    <xsl:when test="$format = 'DCP'" />
-                    <xsl:when test="$format = 'Kodak_Cineon_Format'" />
-                    <xsl:when test="$format = 'Open_EXR'" />
+                    <xsl:when test="$format = 'DCP'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DCP" />
+                    </xsl:when>
+                    <xsl:when test="$format = 'Kodak_Cineon_Format'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Cineon" />
+                    </xsl:when>
+                    <xsl:when test="$format = 'Open_EXR'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/OpenEXR" />
+                    </xsl:when>
                     <xsl:when test="$format = 'MP4'">
                         <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/MP4" />
                     </xsl:when>
