@@ -104,20 +104,20 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "Betamax"@en ;
 .
 
-<https://dev.fiafcore.org/CDR>
+<https://dev.fiafcore.org/CD>
     a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/CD> ;
-    skos:definition "A recordable compact disc."@en ;
+    skos:broader <https://dev.fiafcore.org/AudioFormat> ;
+    skos:definition "An optical audio disc in Compact Disc Digital Audio format."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
-    skos:prefLabel "CD-R"@en ;
+    skos:prefLabel "CD"@en ;
 .
 
-<https://dev.fiafcore.org/CDROM>
+<https://dev.fiafcore.org/CDR>
     a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/CD> ;
-    skos:definition "A compact disc carrying computer data, typically an ISO 9660 file system."@en ;
+    skos:broader <https://dev.fiafcore.org/DataStorageFormat> ;
+    skos:definition "A recordable compact disc used as an offline digital data storage carrier."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
-    skos:prefLabel "CD-ROM"@en ;
+    skos:prefLabel "CD-R"@en ;
 .
 
 <https://dev.fiafcore.org/Cineon>
@@ -224,28 +224,20 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "DVCPRO HD"@en ;
 .
 
-<https://dev.fiafcore.org/DVDAudio>
+<https://dev.fiafcore.org/DVD>
     a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/DVD> ;
-    skos:definition "A DVD carrying audio only."@en ;
+    skos:broader <https://dev.fiafcore.org/OpticalVideoDisc> ;
+    skos:definition "An optical video disc in DVD-Video format."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
-    skos:prefLabel "DVD-Audio"@en ;
+    skos:prefLabel "DVD"@en ;
 .
 
 <https://dev.fiafcore.org/DVDR>
     a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/DVD> ;
-    skos:definition "A recordable DVD."@en ;
+    skos:broader <https://dev.fiafcore.org/DataStorageFormat> ;
+    skos:definition "A recordable DVD used as an offline digital data storage carrier."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
     skos:prefLabel "DVD-R"@en ;
-.
-
-<https://dev.fiafcore.org/DVDROM>
-    a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/DVD> ;
-    skos:definition "A DVD carrying computer data rather than DVD-Video or DVD-Audio content."@en ;
-    skos:inScheme <https://dev.fiafcore.org/Format> ;
-    skos:prefLabel "DVD-ROM"@en ;
 .
 
 <https://dev.fiafcore.org/DigitalBetacam>
@@ -378,8 +370,8 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 <https://dev.fiafcore.org/LaserDisc>
     a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/OpticalFormat> ;
-    skos:definition ""@en ;
+    skos:broader <https://dev.fiafcore.org/OpticalVideoDisc> ;
+    skos:definition "An analogue optical video disc format."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
     skos:prefLabel "LaserDisc"@en ;
 .
@@ -530,8 +522,8 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 <https://dev.fiafcore.org/SVCD>
     a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/CD> ;
-    skos:definition ""@en ;
+    skos:broader <https://dev.fiafcore.org/OpticalVideoDisc> ;
+    skos:definition "Super Video CD, an optical video disc format."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
     skos:prefLabel "SVCD"@en ;
 .
@@ -587,7 +579,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 <https://dev.fiafcore.org/UltraHDBluRay>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/BluRay> ;
-    skos:definition "The Ultra HD Blu-ray optical disc format."@en ;
+    skos:definition "The Ultra HD Blu-ray optical video disc format."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
     skos:prefLabel "Ultra HD Blu-ray"@en ;
 .
@@ -618,8 +610,8 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 <https://dev.fiafcore.org/VCD>
     a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/CD> ;
-    skos:definition ""@en ;
+    skos:broader <https://dev.fiafcore.org/OpticalVideoDisc> ;
+    skos:definition "Video CD, an optical video disc format."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
     skos:prefLabel "VCD"@en ;
 .
@@ -682,8 +674,8 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 <https://dev.fiafcore.org/BluRay>
     a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/OpticalFormat> ;
-    skos:definition ""@en ;
+    skos:broader <https://dev.fiafcore.org/OpticalVideoDisc> ;
+    skos:definition "An optical video disc in Blu-ray Disc format."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
     skos:prefLabel "BluRay"@en ;
 .
@@ -736,14 +728,6 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "DV"@en ;
 .
 
-<https://dev.fiafcore.org/DVD>
-    a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/OpticalFormat> ;
-    skos:definition ""@en ;
-    skos:inScheme <https://dev.fiafcore.org/Format> ;
-    skos:prefLabel "DVD"@en ;
-.
-
 <https://dev.fiafcore.org/OneInchVideotape>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/VideoFormat> ;
@@ -768,36 +752,12 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "U-matic"@en ;
 .
 
-<https://dev.fiafcore.org/CD>
-    a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/OpticalFormat> ;
-    skos:definition ""@en ;
-    skos:inScheme <https://dev.fiafcore.org/Format> ;
-    skos:prefLabel "CD"@en ;
-.
-
-<https://dev.fiafcore.org/DataStorageFormat>
-    a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/Format> ;
-    skos:definition "An offline digital storage carrier used to hold moving image data, such as data tape, a hard disk drive, or flash memory."@en ;
-    skos:inScheme <https://dev.fiafcore.org/Format> ;
-    skos:prefLabel "Data Storage Format"@en ;
-.
-
 <https://dev.fiafcore.org/ImageFormat>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/DigitalFormat> ;
     skos:definition "A self-contained digital image file format combining a header and a raster payload, without a separate wrapping container or codec."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
     skos:prefLabel "Image Format"@en ;
-.
-
-<https://dev.fiafcore.org/OpticalFormat>
-    a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/Format> ;
-    skos:definition "An optical disc carrier read by laser."@en ;
-    skos:inScheme <https://dev.fiafcore.org/Format> ;
-    skos:prefLabel "Optical Format"@en ;
 .
 
 <https://dev.fiafcore.org/DigitalFormat>
@@ -816,6 +776,22 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "LTO"@en ;
 .
 
+<https://dev.fiafcore.org/OpticalVideoDisc>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/VideoFormat> ;
+    skos:definition "An optical disc format carrying moving image video, read by laser."@en ;
+    skos:inScheme <https://dev.fiafcore.org/Format> ;
+    skos:prefLabel "Optical Video Disc"@en ;
+.
+
+<https://dev.fiafcore.org/DataStorageFormat>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/Format> ;
+    skos:definition "An offline digital storage carrier used to hold moving image data, such as data tape, a hard disk drive, a recordable optical data disc, or flash memory."@en ;
+    skos:inScheme <https://dev.fiafcore.org/Format> ;
+    skos:prefLabel "Data Storage Format"@en ;
+.
+
 <https://dev.fiafcore.org/VideoCodec>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/DigitalFormat> ;
@@ -827,7 +803,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 <https://dev.fiafcore.org/AudioFormat>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/Format> ;
-    skos:definition "A physical non-film audio carrier, such as open-reel magnetic tape or an audio cassette."@en ;
+    skos:definition "A physical non-film audio carrier, such as open-reel magnetic tape, an audio cassette, or an audio compact disc."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
     skos:prefLabel "Audio Format"@en ;
 .
@@ -851,7 +827,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 <https://dev.fiafcore.org/VideoFormat>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/Format> ;
-    skos:definition "A physical videotape or videocassette format."@en ;
+    skos:definition "A physical videotape, videocassette, or optical video disc format."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
     skos:prefLabel "Video Format"@en ;
 .

@@ -999,18 +999,18 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Country> ;
 .
 
+<https://dev.fiafcore.org/CD>
+    a owl:Class ;
+    rdfs:label "CD"@en ;
+    dc:description "An optical audio disc in Compact Disc Digital Audio format."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AudioFormat> ;
+.
+
 <https://dev.fiafcore.org/CDR>
     a owl:Class ;
     rdfs:label "CD-R"@en ;
-    dc:description "A recordable compact disc."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/CD> ;
-.
-
-<https://dev.fiafcore.org/CDROM>
-    a owl:Class ;
-    rdfs:label "CD-ROM"@en ;
-    dc:description "A compact disc carrying computer data, typically an ISO 9660 file system."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/CD> ;
+    dc:description "A recordable compact disc used as an offline digital data storage carrier."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
 .
 
 <https://dev.fiafcore.org/CGIArtist>
@@ -1727,25 +1727,18 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/DVCPRO> ;
 .
 
-<https://dev.fiafcore.org/DVDAudio>
+<https://dev.fiafcore.org/DVD>
     a owl:Class ;
-    rdfs:label "DVD-Audio"@en ;
-    dc:description "A DVD carrying audio only."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DVD> ;
+    rdfs:label "DVD"@en ;
+    dc:description "An optical video disc in DVD-Video format."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalVideoDisc> ;
 .
 
 <https://dev.fiafcore.org/DVDR>
     a owl:Class ;
     rdfs:label "DVD-R"@en ;
-    dc:description "A recordable DVD."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DVD> ;
-.
-
-<https://dev.fiafcore.org/DVDROM>
-    a owl:Class ;
-    rdfs:label "DVD-ROM"@en ;
-    dc:description "A DVD carrying computer data rather than DVD-Video or DVD-Audio content."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DVD> ;
+    dc:description "A recordable DVD used as an offline digital data storage carrier."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
 .
 
 <https://dev.fiafcore.org/DanceFilm>
@@ -3526,8 +3519,8 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/LaserDisc>
     a owl:Class ;
     rdfs:label "LaserDisc"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/OpticalFormat> ;
+    dc:description "An analogue optical video disc format."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalVideoDisc> ;
 .
 
 <https://dev.fiafcore.org/Latin>
@@ -5390,8 +5383,8 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/SVCD>
     a owl:Class ;
     rdfs:label "SVCD"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/CD> ;
+    dc:description "Super Video CD, an optical video disc format."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalVideoDisc> ;
 .
 
 <https://dev.fiafcore.org/SaintBarthelemy>
@@ -6700,7 +6693,7 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/UltraHDBluRay>
     a owl:Class ;
     rdfs:label "Ultra HD Blu-ray"@en ;
-    dc:description "The Ultra HD Blu-ray optical disc format."@en ;
+    dc:description "The Ultra HD Blu-ray optical video disc format."@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/BluRay> ;
 .
 
@@ -6829,8 +6822,8 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/VCD>
     a owl:Class ;
     rdfs:label "VCD"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/CD> ;
+    dc:description "Video CD, an optical video disc format."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalVideoDisc> ;
 .
 
 <https://dev.fiafcore.org/VCR>
@@ -7603,8 +7596,8 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/BluRay>
     a owl:Class ;
     rdfs:label "BluRay"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/OpticalFormat> ;
+    dc:description "An optical video disc in Blu-ray Disc format."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalVideoDisc> ;
 .
 
 <https://dev.fiafcore.org/CensorshipActivity>
@@ -7814,13 +7807,6 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
-<https://dev.fiafcore.org/DVD>
-    a owl:Class ;
-    rdfs:label "DVD"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/OpticalFormat> ;
-.
-
 <https://dev.fiafcore.org/DigitalElement>
     a owl:Class ;
     rdfs:label "Digital Element"@en ;
@@ -7925,13 +7911,6 @@ owl:DatatypeProperty
     dc:description "Standard for broadcast encoding."@en ;
 .
 
-<https://dev.fiafcore.org/CD>
-    a owl:Class ;
-    rdfs:label "CD"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/OpticalFormat> ;
-.
-
 <https://dev.fiafcore.org/Carrier>
     a owl:Class ;
     rdfs:label "Carrier"@en ;
@@ -7943,13 +7922,6 @@ owl:DatatypeProperty
     rdfs:label "Colour Standard"@en ;
     dc:description "A named colour process, system, or standard by which colour is produced or fixed in a moving image."@en ;
     dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%20341%3A4463> ;
-.
-
-<https://dev.fiafcore.org/DataStorageFormat>
-    a owl:Class ;
-    rdfs:label "Data Storage Format"@en ;
-    dc:description "An offline digital storage carrier used to hold moving image data, such as data tape, a hard disk drive, or flash memory."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
 .
 
 <https://dev.fiafcore.org/DecisionEvent>
@@ -7985,13 +7957,6 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Language Usage"@en ;
     dc:description ""@en ;
-.
-
-<https://dev.fiafcore.org/OpticalFormat>
-    a owl:Class ;
-    rdfs:label "Optical Format"@en ;
-    dc:description "An optical disc carrier read by laser."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
 .
 
 <https://dev.fiafcore.org/PreservationEvent>
@@ -8068,6 +8033,13 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
 .
 
+<https://dev.fiafcore.org/OpticalVideoDisc>
+    a owl:Class ;
+    rdfs:label "Optical Video Disc"@en ;
+    dc:description "An optical disc format carrying moving image video, read by laser."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+.
+
 <https://dev.fiafcore.org/Positive>
     a owl:Class ;
     rdfs:label "Positive"@en ;
@@ -8079,6 +8051,19 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Sound Standard"@en ;
     dc:description "A sound process, playback system, or noise-reduction standard by which sound is fixed or encoded in a moving image."@en ;
+.
+
+<https://dev.fiafcore.org/DataStorageFormat>
+    a owl:Class ;
+    rdfs:label "Data Storage Format"@en ;
+    dc:description "An offline digital storage carrier used to hold moving image data, such as data tape, a hard disk drive, a recordable optical data disc, or flash memory."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
+.
+
+<https://dev.fiafcore.org/Format>
+    a owl:Class ;
+    rdfs:label "Format"@en ;
+    dc:description "The physical medium, file container, encoding, or deliverable package in which a moving image Manifestation or Item is fixed."@en ;
 .
 
 <https://dev.fiafcore.org/ManufactureEvent>
@@ -8107,13 +8092,6 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
 .
 
-<https://dev.fiafcore.org/AudioFormat>
-    a owl:Class ;
-    rdfs:label "Audio Format"@en ;
-    dc:description "A physical non-film audio carrier, such as open-reel magnetic tape or an audio cassette."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
-.
-
 <https://dev.fiafcore.org/ColourSpace>
     a owl:Class ;
     rdfs:label "Colour Space"@en ;
@@ -8136,12 +8114,6 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
 .
 
-<https://dev.fiafcore.org/Format>
-    a owl:Class ;
-    rdfs:label "Format"@en ;
-    dc:description "The physical medium, file container, encoding, or deliverable package in which a moving image Manifestation or Item is fixed."@en ;
-.
-
 <https://dev.fiafcore.org/Title>
     a owl:Class ;
     rdfs:label "Title"@en ;
@@ -8154,6 +8126,13 @@ owl:DatatypeProperty
     dc:description "Animation contribution to a moving image work."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
+.
+
+<https://dev.fiafcore.org/AudioFormat>
+    a owl:Class ;
+    rdfs:label "Audio Format"@en ;
+    dc:description "A physical non-film audio carrier, such as open-reel magnetic tape, an audio cassette, or an audio compact disc."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
 .
 
 <https://dev.fiafcore.org/ColourCharacteristic>
@@ -8302,13 +8281,6 @@ owl:DatatypeProperty
     dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%2048%3A80> ;
 .
 
-<https://dev.fiafcore.org/VideoFormat>
-    a owl:Class ;
-    rdfs:label "Video Format"@en ;
-    dc:description "A physical videotape or videocassette format."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
-.
-
 <https://dev.fiafcore.org/CinematographyActivity>
     a owl:Class ;
     rdfs:label "Cinematography Activity"@en ;
@@ -8322,6 +8294,13 @@ owl:DatatypeProperty
     rdfs:label "Manifestation"@en ;
     dc:description "A moving image Manifestation is the embodiment of a moving image Work or Variant. Manifestations usually include all analogue, digital and online media associated with a particular embodiment of a Work or Variant."@en ;
     dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.36114%3A5061> ;
+.
+
+<https://dev.fiafcore.org/VideoFormat>
+    a owl:Class ;
+    rdfs:label "Video Format"@en ;
+    dc:description "A physical videotape, videocassette, or optical video disc format."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
 .
 
 <https://dev.fiafcore.org/ProducingActivity>

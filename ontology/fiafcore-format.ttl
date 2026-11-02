@@ -91,7 +91,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 # Audio formats
 
 <https://dev.fiafcore.org/AudioFormat> a owl:Class ;
-    dc:description "A physical non-film audio carrier, such as open-reel magnetic tape or an audio cassette."@en ;
+    dc:description "A physical non-film audio carrier, such as open-reel magnetic tape, an audio cassette, or an audio compact disc."@en ;
     dc:source <> ;
     rdfs:label "Audio Format"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
@@ -100,6 +100,13 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 <https://dev.fiafcore.org/Audiocassette> a owl:Class ;
     dc:description ""@en ;
     rdfs:label "Audiocassette"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AudioFormat> ;
+.
+
+<https://dev.fiafcore.org/CD> a owl:Class ;
+    dc:description "An optical audio disc in Compact Disc Digital Audio format."@en ;
+    dc:source <> ;
+    rdfs:label "CD"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/AudioFormat> ;
 .
 
@@ -144,7 +151,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 # Video formats
 
 <https://dev.fiafcore.org/VideoFormat> a owl:Class ;
-    dc:description "A physical videotape or videocassette format."@en ;
+    dc:description "A physical videotape, videocassette, or optical video disc format."@en ;
     dc:source <> ;
     rdfs:label "Video Format"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
@@ -354,100 +361,76 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
-# Optical disc formats
-
-<https://dev.fiafcore.org/OpticalFormat> a owl:Class ;
-    dc:description "An optical disc carrier read by laser."@en ;
+<https://dev.fiafcore.org/OpticalVideoDisc> a owl:Class ;
+    dc:description "An optical disc format carrying moving image video, read by laser."@en ;
     dc:source <> ;
-    rdfs:label "Optical Format"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
-.
-
-<https://dev.fiafcore.org/CD> a owl:Class ;
-    dc:description ""@en ;
-    rdfs:label "CD"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/OpticalFormat> ;
-.
-
-<https://dev.fiafcore.org/CDR> a owl:Class ;
-    dc:description "A recordable compact disc."@en ;
-    dc:source <> ;
-    rdfs:label "CD-R"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/CD> ;
-.
-
-<https://dev.fiafcore.org/CDROM> a owl:Class ;
-    dc:description "A compact disc carrying computer data, typically an ISO 9660 file system."@en ;
-    dc:source <> ;
-    rdfs:label "CD-ROM"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/CD> ;
-.
-
-<https://dev.fiafcore.org/SVCD> a owl:Class ;
-    dc:description ""@en ;
-    rdfs:label "SVCD"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/CD> ;
-.
-
-<https://dev.fiafcore.org/VCD> a owl:Class ;
-    dc:description ""@en ;
-    rdfs:label "VCD"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/CD> ;
-.
-
-<https://dev.fiafcore.org/DVD> a owl:Class ;
-    dc:description ""@en ;
-    rdfs:label "DVD"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/OpticalFormat> ;
-.
-
-<https://dev.fiafcore.org/DVDAudio> a owl:Class ;
-    dc:description "A DVD carrying audio only."@en ;
-    dc:source <> ;
-    rdfs:label "DVD-Audio"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DVD> ;
-.
-
-<https://dev.fiafcore.org/DVDR> a owl:Class ;
-    dc:description "A recordable DVD."@en ;
-    dc:source <> ;
-    rdfs:label "DVD-R"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DVD> ;
-.
-
-<https://dev.fiafcore.org/DVDROM> a owl:Class ;
-    dc:description "A DVD carrying computer data rather than DVD-Video or DVD-Audio content."@en ;
-    dc:source <> ;
-    rdfs:label "DVD-ROM"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DVD> ;
+    rdfs:label "Optical Video Disc"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
 <https://dev.fiafcore.org/BluRay> a owl:Class ;
-    dc:description ""@en ;
+    dc:description "An optical video disc in Blu-ray Disc format."@en ;
+    dc:source <> ;
     rdfs:label "BluRay"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/OpticalFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalVideoDisc> ;
 .
 
 <https://dev.fiafcore.org/UltraHDBluRay> a owl:Class ;
-    dc:description "The Ultra HD Blu-ray optical disc format."@en ;
+    dc:description "The Ultra HD Blu-ray optical video disc format."@en ;
     dc:source <> ;
     rdfs:label "Ultra HD Blu-ray"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/BluRay> ;
 .
 
+<https://dev.fiafcore.org/DVD> a owl:Class ;
+    dc:description "An optical video disc in DVD-Video format."@en ;
+    dc:source <> ;
+    rdfs:label "DVD"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalVideoDisc> ;
+.
+
 <https://dev.fiafcore.org/LaserDisc> a owl:Class ;
-    dc:description ""@en ;
+    dc:description "An analogue optical video disc format."@en ;
+    dc:source <> ;
     rdfs:label "LaserDisc"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/OpticalFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalVideoDisc> ;
+.
+
+<https://dev.fiafcore.org/SVCD> a owl:Class ;
+    dc:description "Super Video CD, an optical video disc format."@en ;
+    dc:source <> ;
+    rdfs:label "SVCD"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalVideoDisc> ;
+.
+
+<https://dev.fiafcore.org/VCD> a owl:Class ;
+    dc:description "Video CD, an optical video disc format."@en ;
+    dc:source <> ;
+    rdfs:label "VCD"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalVideoDisc> ;
 .
 
 # Data storage formats
 
 <https://dev.fiafcore.org/DataStorageFormat> a owl:Class ;
-    dc:description "An offline digital storage carrier used to hold moving image data, such as data tape, a hard disk drive, or flash memory."@en ;
+    dc:description "An offline digital storage carrier used to hold moving image data, such as data tape, a hard disk drive, a recordable optical data disc, or flash memory."@en ;
     dc:source <> ;
     rdfs:label "Data Storage Format"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
+.
+
+<https://dev.fiafcore.org/CDR> a owl:Class ;
+    dc:description "A recordable compact disc used as an offline digital data storage carrier."@en ;
+    dc:source <> ;
+    rdfs:label "CD-R"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
+.
+
+<https://dev.fiafcore.org/DVDR> a owl:Class ;
+    dc:description "A recordable DVD used as an offline digital data storage carrier."@en ;
+    dc:source <> ;
+    rdfs:label "DVD-R"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
 .
 
 <https://dev.fiafcore.org/LTO> a owl:Class ;
