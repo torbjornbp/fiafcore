@@ -2053,8 +2053,11 @@
 
             <xsl:if test="ba:Filmbreite">
                 <xsl:variable name="format" select="translate(ba:Filmbreite, ' ', '_')"/>
+                <xsl:variable name="is_sepmag" select="translate(ba:Aufbewahrungseinheit/ba:Materialart, ' ', '_') = 'Magnetband' or translate(ba:Aufbewahrungseinheit/ba:Materialart, ' ', '_') = 'Magnetband_zu_Farbe'"/>
                 <xsl:choose>
-                    <xsl:when test="$format = '6,25_mm'" />
+                    <xsl:when test="$format = '6,25_mm'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/QuerterInchAudiotape" />
+                    </xsl:when>
                     <xsl:when test="$format = 'Unbekannt'" />
                     <xsl:when test="$format = '35_+_16_mm'" />
                     <xsl:when test="$format = '35-8_mm'" />
@@ -2062,16 +2065,24 @@
                     <xsl:when test="$format = 'Nicht_standardisiert'" />
                     <xsl:when test="$format = '35-16_mm'" />
                     <xsl:when test="$format = '35_mm'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/35mmFilm" />
+                        <xsl:choose>
+                            <xsl:when test="$is_sepmag">
+                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/35mmMagneticFilm" />
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/35mmFilm" />
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </xsl:when>
-                    <xsl:when test="$format = '16_mm'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/16mmFilm" />
-                    </xsl:when>
-                    <xsl:when test="$format = '16_mm_neue_Norm'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/16mmFilm" />
-                    </xsl:when>
-                    <xsl:when test="$format = '16_mm_alte_Norm'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/16mmFilm" />
+                    <xsl:when test="$format = '16_mm' or $format = '16_mm_neue_Norm' or $format = '16_mm_alte_Norm'">
+                        <xsl:choose>
+                            <xsl:when test="$is_sepmag">
+                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/16mmMagneticFilm" />
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/16mmFilm" />
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </xsl:when>
                     <xsl:when test="$format = '8_mm'">
                         <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/8mmFilm" />
@@ -2708,8 +2719,15 @@
             <xsl:if test="ba:Aufbewahrungseinheit/ba:Materialart">
                 <xsl:variable name="element" select="translate(ba:Aufbewahrungseinheit/ba:Materialart, ' ', '_')"/>
                 <xsl:choose>
-                    <xsl:when test="$element = 'Magnetband'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AudioElement" />
+                    <xsl:when test="$element = 'Magnetband' or $element = 'Magnetband_zu_Farbe'">
+                        <xsl:choose>
+                            <xsl:when test="ba:Filmbreite and translate(ba:Filmbreite, ' ', '_') != '6,25_mm' and translate(ba:Filmbreite, ' ', '_') != 'Unbekannt'">
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SeparatedMagneticSound" />
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AudioElement" />
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </xsl:when>
                     <xsl:when test="$element = 'Stumme_Kopie'">
                         <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
@@ -2826,9 +2844,6 @@
                     </xsl:when>
                     <xsl:when test="$element = 'Nullkopie_kombiniert'">
                         <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AnswerPrint" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Magnetband_zu_Farbe'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AudioElement" />
                     </xsl:when>
                     <xsl:when test="$element = 'LTO_5'" />
                     <xsl:when test="$element = 'Stummes_Original_Color_Reversal_Positive'">
