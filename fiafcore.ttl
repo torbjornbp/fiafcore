@@ -7349,12 +7349,13 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/hasFormat>
     a owl:ObjectProperty ;
     rdfs:label "Has Format"@en ;
-    dc:description "The medium on or the encoding format in which the moving image Manifestation or Item is fixed."@en ;
+    dc:description "The medium on or the encoding format in which the moving image Manifestation, Item, or Carrier is fixed."@en ;
     rdfs:domain
         [
             owl:unionOf (
                 <https://dev.fiafcore.org/Manifestation>
                 <https://dev.fiafcore.org/Item>
+                <https://dev.fiafcore.org/Carrier>
             ) ;
         ] ;
     rdfs:range <https://dev.fiafcore.org/Format> ;
@@ -7806,12 +7807,6 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/MimeticColourProcess> ;
 .
 
-<https://dev.fiafcore.org/Carrier>
-    a owl:Class ;
-    rdfs:label "Carrier"@en ;
-    dc:description "A moving image Carrier is the discrete physical unit on which the moving image is retained. It can either contain the entire artistic work or a portion, for example in the case of individual film reels."@en ;
-.
-
 <https://dev.fiafcore.org/DV>
     a owl:Class ;
     rdfs:label "DV"@en ;
@@ -7935,6 +7930,12 @@ owl:DatatypeProperty
     rdfs:label "CD"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/OpticalFormat> ;
+.
+
+<https://dev.fiafcore.org/Carrier>
+    a owl:Class ;
+    rdfs:label "Carrier"@en ;
+    dc:description "A moving image Carrier is the discrete physical or digital unit on which the moving image is retained. It can either contain the entire artistic work or a portion, for example in the case of individual film reels or digital file parts."@en ;
 .
 
 <https://dev.fiafcore.org/ColourStandard>
