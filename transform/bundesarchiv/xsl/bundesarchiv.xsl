@@ -1857,7 +1857,6 @@
                     <xsl:when test="$colourchar = 'Schablonenkolorierung'">
                         <fiaf:hasColourCharacteristic>
                             <rdf:Description>
-                                <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite" />
                                 <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/StencilColouring" />
                             </rdf:Description>
                         </fiaf:hasColourCharacteristic>
@@ -1865,7 +1864,6 @@
                     <xsl:when test="$colourchar = 'Handkolorierung'">
                         <fiaf:hasColourCharacteristic>
                             <rdf:Description>
-                                <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite" />
                                 <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/HandColouring" />
                             </rdf:Description>
                         </fiaf:hasColourCharacteristic>
@@ -1911,7 +1909,6 @@
                     <xsl:when test="$colourchar = 'Virage'">
                         <fiaf:hasColourCharacteristic>
                             <rdf:Description>
-                                <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite" />
                                 <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Tinted" />
                             </rdf:Description>
                         </fiaf:hasColourCharacteristic>
@@ -1919,7 +1916,6 @@
                     <xsl:when test="$colourchar = 'Tonung'">
                         <fiaf:hasColourCharacteristic>
                             <rdf:Description>
-                                <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite" />
                                 <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Toned" />
                             </rdf:Description>
                         </fiaf:hasColourCharacteristic>
@@ -1935,7 +1931,6 @@
                     <xsl:when test="$colourchar = 'Virage und Tonung'">
                         <fiaf:hasColourCharacteristic>
                             <rdf:Description>
-                                <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite" />
                                 <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Tinted" />
                                 <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Toned" />
                             </rdf:Description>

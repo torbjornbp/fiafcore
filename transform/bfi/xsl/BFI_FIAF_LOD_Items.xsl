@@ -105,7 +105,7 @@
                                                 <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite" />
                                                 <rdf:type rdf:resource="https://dev.fiafcore.org/Colour" />
                                             </xsl:when>
-                                            <xsl:when test="contains($desc, 'BW') or contains($desc, 'Tinted') or contains($desc, 'Toned') or contains($desc, 'Sepia') or contains($desc, 'Stencil')">
+                                            <xsl:when test="contains($desc, 'BW')">
                                                 <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite" />
                                             </xsl:when>
                                             <xsl:when test="contains($desc, 'Colour')">

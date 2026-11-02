@@ -82,8 +82,7 @@
                                             <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite"/>
                                         </xsl:when>
                                         <xsl:when test="$colour_manifestation = 'Sepia'">
-                                            <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite"/>
-                                            <xsl:if test="$colour_standard != 'Sepia'">
+                                            <xsl:if test="not($colour_standard = 'Sepia')">
                                                 <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Toned"/>
                                             </xsl:if>
                                         </xsl:when>
@@ -285,9 +284,6 @@
                                             </xsl:message>
                                         </xsl:otherwise>
                                     </xsl:choose>
-                                </xsl:if>
-                                <xsl:if test="$colour_manifestation = 'Sepia' and not($colour_standard = 'Sepia')">
-                                    <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Toned"/>
                                 </xsl:if>
                             </rdf:Description>
                         </fiaf:hasColourCharacteristic>
