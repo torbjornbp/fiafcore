@@ -11,40 +11,142 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 ### Subclasses
 
+<https://dev.fiafcore.org/AudioElement> a owl:Class ;
+    dc:description "An Element of an audio item, such as a master recording or a sound element separated from the image."@en ;
+    rdfs:label "Audio Element"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
+.
+
+<https://dev.fiafcore.org/AudioMaster> a owl:Class ;
+    dc:description "An audio master, such as a final mix or print master, from which further copies are made."@en ;
+    rdfs:label "Audio Master"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AudioElement> ;
+.
+
+<https://dev.fiafcore.org/DigitalAccessCopy> a owl:Class ;
+    dc:description "A digital copy made for viewing or reference rather than preservation."@en ;
+    rdfs:label "Digital Access Copy"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DigitalElement> ;
+.
+
+<https://dev.fiafcore.org/DigitalElement> a owl:Class ;
+    dc:description "An Element of a digital item, such as a master, mezzanine or access copy."@en ;
+    rdfs:label "Digital Element"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
+.
+
+<https://dev.fiafcore.org/DigitalMaster> a owl:Class ;
+    dc:description "A digital master, maintained as the preservation or primary copy."@en ;
+    rdfs:label "Digital Master"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DigitalElement> ;
+.
+
+<https://dev.fiafcore.org/DigitalMezzanine> a owl:Class ;
+    dc:description "A digital mezzanine file, of sufficient quality for making distribution copies but not maintained as the master."@en ;
+    rdfs:label "Digital Mezzanine"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DigitalElement> ;
+.
+
 <https://dev.fiafcore.org/DuplicateNegative> a owl:Class ;
     dc:description ""@en ;
     rdfs:label "Duplicate Negative"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Negative> ;
 .
 
 <https://dev.fiafcore.org/DuplicatePositive> a owl:Class ;
     dc:description ""@en ;
     rdfs:label "Duplicate Positive"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Positive> ;
+.
+
+<https://dev.fiafcore.org/FilmElement> a owl:Class ;
+    dc:description "An Element of a photochemical moving-image film item, whatever its polarity."@en ;
+    rdfs:label "Film Element"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
+.
+
+<https://dev.fiafcore.org/HomeViewingCopy> a owl:Class ;
+    dc:description "A physical video release distributed for home viewing, such as a videocassette or optical video disc."@en ;
+    rdfs:label "Home Viewing Copy"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoElement> ;
+.
+
+<https://dev.fiafcore.org/Negative> a owl:Class ;
+    dc:description "A negative film Element of unspecified generation."@en ;
+    rdfs:label "Negative"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
 .
 
 <https://dev.fiafcore.org/OriginalNegative> a owl:Class ;
     dc:description ""@en ;
     rdfs:label "Original Negative"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Negative> ;
+.
+
+<https://dev.fiafcore.org/OriginalVideoRecording> a owl:Class ;
+    dc:description "An original video recording as captured in production, before editing or mastering."@en ;
+    rdfs:label "Original Video Recording"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoElement> ;
+.
+
+<https://dev.fiafcore.org/Positive> a owl:Class ;
+    dc:description "A positive film Element of unspecified generation."@en ;
+    rdfs:label "Positive"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
 .
 
 <https://dev.fiafcore.org/ReleasePrint> a owl:Class ;
     dc:description ""@en ;
     rdfs:label "Release Print"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Positive> ;
+.
+
+<https://dev.fiafcore.org/ReversalPositive> a owl:Class ;
+    dc:description "An original positive produced by reversal processing, without an intervening negative."@en ;
+    rdfs:label "Reversal Positive"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Positive> ;
+.
+
+<https://dev.fiafcore.org/SeparatedMagneticSound> a owl:Class ;
+    dc:description "A sound Element on magnetic film carrying sound separately from the image (sepmag)."@en ;
+    rdfs:label "Separated Magnetic Sound"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AudioElement> ;
 .
 
 <https://dev.fiafcore.org/SoundNegative> a owl:Class ;
-    dc:description ""@en ;
+    dc:description "An optical sound negative Element carrying sound separately from the image."@en ;
     rdfs:label "Sound Negative"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AudioElement> ;
 .
 
 <https://dev.fiafcore.org/SoundPositive> a owl:Class ;
-    dc:description ""@en ;
+    dc:description "An optical sound positive Element carrying sound separately from the image."@en ;
     rdfs:label "Sound Positive"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AudioElement> ;
+.
+
+<https://dev.fiafcore.org/VideoAccessCopy> a owl:Class ;
+    dc:description "A video copy made for viewing or reference rather than preservation."@en ;
+    rdfs:label "Video Access Copy"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoElement> ;
+.
+
+<https://dev.fiafcore.org/VideoElement> a owl:Class ;
+    dc:description "An Element of a video item, such as an original recording, master or access copy."@en ;
+    rdfs:label "Video Element"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
+.
+
+<https://dev.fiafcore.org/VideoMaster> a owl:Class ;
+    dc:description "A video master from which further copies are made."@en ;
+    rdfs:label "Video Master"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoElement> ;
+.
+
+<https://dev.fiafcore.org/WorkPrint> a owl:Class ;
+    dc:description "A positive print used for editing and assembly work, not for release."@en ;
+    rdfs:label "Work Print"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Positive> ;
 .
 
 ### Datatype Properties
