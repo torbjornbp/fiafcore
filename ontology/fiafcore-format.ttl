@@ -15,7 +15,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 # Film formats
 
 <https://dev.fiafcore.org/FilmFormat> a owl:Class ;
-    dc:description "A film gauge on which a moving image is recorded photochemically."@en ;
+    dc:description "A perforated motion-picture film gauge, whether photochemical or magnetic."@en ;
     dc:source <> ;
     rdfs:label "Film Format"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
@@ -39,6 +39,12 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     rdfs:subClassOf <https://dev.fiafcore.org/FilmFormat> ;
 .
 
+<https://dev.fiafcore.org/16mmMagneticFilm> a owl:Class ;
+    dc:description ""@en ;
+    rdfs:label "16mm Magnetic Film"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/FilmFormat> ;
+.
+
 <https://dev.fiafcore.org/17.5mmFilm> a owl:Class ;
     dc:description ""@en ;
     rdfs:label "17.5mm Film"@en ;
@@ -55,6 +61,12 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 <https://dev.fiafcore.org/35mmFilm> a owl:Class ;
     dc:description ""@en ;
     rdfs:label "35mm Film"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/FilmFormat> ;
+.
+
+<https://dev.fiafcore.org/35mmMagneticFilm> a owl:Class ;
+    dc:description ""@en ;
+    rdfs:label "35mm Magnetic Film"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/FilmFormat> ;
 .
 
@@ -79,22 +91,10 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 # Audio formats
 
 <https://dev.fiafcore.org/AudioFormat> a owl:Class ;
-    dc:description "A physical audio carrier, such as magnetic film, magnetic tape, or an audio cassette."@en ;
+    dc:description "A physical non-film audio carrier, such as open-reel magnetic tape or an audio cassette."@en ;
     dc:source <> ;
     rdfs:label "Audio Format"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
-.
-
-<https://dev.fiafcore.org/16mmMagneticFilm> a owl:Class ;
-    dc:description ""@en ;
-    rdfs:label "16mm Magnetic Film"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/AudioFormat> ;
-.
-
-<https://dev.fiafcore.org/35mmMagneticFilm> a owl:Class ;
-    dc:description ""@en ;
-    rdfs:label "35mm Magnetic Film"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/AudioFormat> ;
 .
 
 <https://dev.fiafcore.org/Audiocassette> a owl:Class ;
@@ -151,7 +151,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 .
 
 <https://dev.fiafcore.org/HalfInchVideotape> a owl:Class ;
-    dc:description "Half inch videotape, the gauge used by the Betamax, VHS, and Video 2000 cassette families."@en ;
+    dc:description "Half inch open-reel or unspecified videotape."@en ;
     dc:source <> ;
     rdfs:label "Half Inch Videotape"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
@@ -325,13 +325,13 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 <https://dev.fiafcore.org/D1> a owl:Class ;
     dc:description ""@en ;
-    rdfs:label "D1"@en ;
+    rdfs:label "D-1"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
 <https://dev.fiafcore.org/D2> a owl:Class ;
     dc:description ""@en ;
-    rdfs:label "D2"@en ;
+    rdfs:label "D-2"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
@@ -343,7 +343,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 <https://dev.fiafcore.org/D5> a owl:Class ;
     dc:description ""@en ;
-    rdfs:label "D5"@en ;
+    rdfs:label "D-5"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
@@ -450,32 +450,46 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
 .
 
+<https://dev.fiafcore.org/LTO> a owl:Class ;
+    dc:description "Linear Tape-Open magnetic data tape storage format."@en ;
+    dc:source <> ;
+    rdfs:label "LTO"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
+.
+
+<https://dev.fiafcore.org/LTO2> a owl:Class ;
+    dc:description "Linear Tape-Open generation 2 data tape."@en ;
+    dc:source <> ;
+    rdfs:label "LTO-2"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/LTO> ;
+.
+
 <https://dev.fiafcore.org/LTO3> a owl:Class ;
     dc:description "Linear Tape-Open generation 3 data tape."@en ;
     dc:source <> ;
     rdfs:label "LTO-3"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/LTO> ;
 .
 
 <https://dev.fiafcore.org/LTO4> a owl:Class ;
     dc:description "Linear Tape-Open generation 4 data tape."@en ;
     dc:source <> ;
     rdfs:label "LTO-4"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/LTO> ;
 .
 
 <https://dev.fiafcore.org/LTO5> a owl:Class ;
     dc:description "Linear Tape-Open generation 5 data tape."@en ;
     dc:source <> ;
     rdfs:label "LTO-5"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/LTO> ;
 .
 
 <https://dev.fiafcore.org/LTO6> a owl:Class ;
     dc:description "Linear Tape-Open generation 6 data tape."@en ;
     dc:source <> ;
     rdfs:label "LTO-6"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/LTO> ;
 .
 
 <https://dev.fiafcore.org/HardDrive> a owl:Class ;
@@ -676,6 +690,18 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     dc:source <> ;
     rdfs:label "ProRes 422 HQ"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/ProRes> ;
+.
+
+<https://dev.fiafcore.org/RealVideo> a owl:Class ;
+    dc:description ""@en ;
+    rdfs:label "Real Video"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoCodec> ;
+.
+
+<https://dev.fiafcore.org/WindowsMedia> a owl:Class ;
+    dc:description ""@en ;
+    rdfs:label "Windows Media"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoCodec> ;
 .
 
 <https://dev.fiafcore.org/AudioCodec> a owl:Class ;

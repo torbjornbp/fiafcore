@@ -10,7 +10,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 <https://dev.fiafcore.org/16mmMagneticFilm>
     a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/AudioFormat> ;
+    skos:broader <https://dev.fiafcore.org/FilmFormat> ;
     skos:definition ""@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
     skos:prefLabel "16mm Magnetic Film"@en ;
@@ -42,7 +42,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 <https://dev.fiafcore.org/35mmMagneticFilm>
     a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/AudioFormat> ;
+    skos:broader <https://dev.fiafcore.org/FilmFormat> ;
     skos:definition ""@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
     skos:prefLabel "35mm Magnetic Film"@en ;
@@ -133,7 +133,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:broader <https://dev.fiafcore.org/VideoFormat> ;
     skos:definition ""@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
-    skos:prefLabel "D1"@en ;
+    skos:prefLabel "D-1"@en ;
 .
 
 <https://dev.fiafcore.org/D2>
@@ -141,7 +141,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:broader <https://dev.fiafcore.org/VideoFormat> ;
     skos:definition ""@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
-    skos:prefLabel "D2"@en ;
+    skos:prefLabel "D-2"@en ;
 .
 
 <https://dev.fiafcore.org/D3>
@@ -157,7 +157,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:broader <https://dev.fiafcore.org/VideoFormat> ;
     skos:definition ""@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
-    skos:prefLabel "D5"@en ;
+    skos:prefLabel "D-5"@en ;
 .
 
 <https://dev.fiafcore.org/D6>
@@ -307,7 +307,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 <https://dev.fiafcore.org/HalfInchVideotape>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/VideoFormat> ;
-    skos:definition "Half inch videotape, the gauge used by the Betamax, VHS, and Video 2000 cassette families."@en ;
+    skos:definition "Half inch open-reel or unspecified videotape."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
     skos:prefLabel "Half Inch Videotape"@en ;
 .
@@ -336,9 +336,17 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "IMF"@en ;
 .
 
+<https://dev.fiafcore.org/LTO2>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/LTO> ;
+    skos:definition "Linear Tape-Open generation 2 data tape."@en ;
+    skos:inScheme <https://dev.fiafcore.org/Format> ;
+    skos:prefLabel "LTO-2"@en ;
+.
+
 <https://dev.fiafcore.org/LTO3>
     a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/DataStorageFormat> ;
+    skos:broader <https://dev.fiafcore.org/LTO> ;
     skos:definition "Linear Tape-Open generation 3 data tape."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
     skos:prefLabel "LTO-3"@en ;
@@ -346,7 +354,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 <https://dev.fiafcore.org/LTO4>
     a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/DataStorageFormat> ;
+    skos:broader <https://dev.fiafcore.org/LTO> ;
     skos:definition "Linear Tape-Open generation 4 data tape."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
     skos:prefLabel "LTO-4"@en ;
@@ -354,7 +362,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 <https://dev.fiafcore.org/LTO5>
     a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/DataStorageFormat> ;
+    skos:broader <https://dev.fiafcore.org/LTO> ;
     skos:definition "Linear Tape-Open generation 5 data tape."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
     skos:prefLabel "LTO-5"@en ;
@@ -362,7 +370,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 <https://dev.fiafcore.org/LTO6>
     a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/DataStorageFormat> ;
+    skos:broader <https://dev.fiafcore.org/LTO> ;
     skos:definition "Linear Tape-Open generation 6 data tape."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
     skos:prefLabel "LTO-6"@en ;
@@ -512,6 +520,14 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "Quicktime"@en ;
 .
 
+<https://dev.fiafcore.org/RealVideo>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/VideoCodec> ;
+    skos:definition ""@en ;
+    skos:inScheme <https://dev.fiafcore.org/Format> ;
+    skos:prefLabel "Real Video"@en ;
+.
+
 <https://dev.fiafcore.org/SVCD>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/CD> ;
@@ -648,6 +664,14 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "WebM"@en ;
 .
 
+<https://dev.fiafcore.org/WindowsMedia>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/VideoCodec> ;
+    skos:definition ""@en ;
+    skos:inScheme <https://dev.fiafcore.org/Format> ;
+    skos:prefLabel "Windows Media"@en ;
+.
+
 <https://dev.fiafcore.org/AudioCodec>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/DigitalFormat> ;
@@ -752,6 +776,14 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "CD"@en ;
 .
 
+<https://dev.fiafcore.org/DataStorageFormat>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/Format> ;
+    skos:definition "An offline digital storage carrier used to hold moving image data, such as data tape, a hard disk drive, or flash memory."@en ;
+    skos:inScheme <https://dev.fiafcore.org/Format> ;
+    skos:prefLabel "Data Storage Format"@en ;
+.
+
 <https://dev.fiafcore.org/ImageFormat>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/DigitalFormat> ;
@@ -768,14 +800,6 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "Optical Format"@en ;
 .
 
-<https://dev.fiafcore.org/VideoCodec>
-    a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/DigitalFormat> ;
-    skos:definition "A video or image sequence encoding used inside a digital container."@en ;
-    skos:inScheme <https://dev.fiafcore.org/Format> ;
-    skos:prefLabel "Video Codec"@en ;
-.
-
 <https://dev.fiafcore.org/DigitalFormat>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/Format> ;
@@ -784,18 +808,26 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "Digital Format"@en ;
 .
 
-<https://dev.fiafcore.org/DataStorageFormat>
+<https://dev.fiafcore.org/LTO>
     a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/Format> ;
-    skos:definition "An offline digital storage carrier used to hold moving image data, such as data tape, a hard disk drive, or flash memory."@en ;
+    skos:broader <https://dev.fiafcore.org/DataStorageFormat> ;
+    skos:definition "Linear Tape-Open magnetic data tape storage format."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
-    skos:prefLabel "Data Storage Format"@en ;
+    skos:prefLabel "LTO"@en ;
+.
+
+<https://dev.fiafcore.org/VideoCodec>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/DigitalFormat> ;
+    skos:definition "A video or image sequence encoding used inside a digital container."@en ;
+    skos:inScheme <https://dev.fiafcore.org/Format> ;
+    skos:prefLabel "Video Codec"@en ;
 .
 
 <https://dev.fiafcore.org/AudioFormat>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/Format> ;
-    skos:definition "A physical audio carrier, such as magnetic film, magnetic tape, or an audio cassette."@en ;
+    skos:definition "A physical non-film audio carrier, such as open-reel magnetic tape or an audio cassette."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
     skos:prefLabel "Audio Format"@en ;
 .
@@ -811,7 +843,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 <https://dev.fiafcore.org/FilmFormat>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/Format> ;
-    skos:definition "A film gauge on which a moving image is recorded photochemically."@en ;
+    skos:definition "A perforated motion-picture film gauge, whether photochemical or magnetic."@en ;
     skos:inScheme <https://dev.fiafcore.org/Format> ;
     skos:prefLabel "Film Format"@en ;
 .
