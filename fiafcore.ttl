@@ -840,6 +840,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Genre> ;
 .
 
+<https://dev.fiafcore.org/Bodo>
+    a owl:Class ;
+    rdfs:label "Bodo"@en ;
+    dc:description "Bodo language (ISO 639-3: brx)."@en ;
+    dc:source <https://iso639-3.sil.org/code/brx> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Language> ;
+.
+
 <https://dev.fiafcore.org/BoliviaPlurinationalStateOf>
     a owl:Class ;
     rdfs:label "Bolivia, Plurinational State of"@en ;
@@ -909,6 +917,14 @@ rdfs:subClassOf
     rdfs:label "British Indian Ocean Territory"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Country> ;
+.
+
+<https://dev.fiafcore.org/BritishSignLanguage>
+    a owl:Class ;
+    rdfs:label "British Sign Language"@en ;
+    dc:description "British Sign Language (ISO 639-3: bfi)."@en ;
+    dc:source <https://iso639-3.sil.org/code/bfi> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Language> ;
 .
 
 <https://dev.fiafcore.org/BroadcastEvent>
@@ -3659,6 +3675,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/TransferFunction> ;
 .
 
+<https://dev.fiafcore.org/LowerSorbian>
+    a owl:Class ;
+    rdfs:label "Lower Sorbian"@en ;
+    dc:description "Lower Sorbian language (ISO 639-2/3: dsb)."@en ;
+    dc:source <https://iso639-3.sil.org/code/dsb> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Language> ;
+.
+
 <https://dev.fiafcore.org/Lubakatanga>
     a owl:Class ;
     rdfs:label "Luba-Katanga"@en ;
@@ -5105,6 +5129,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/ColourEncoding> ;
 .
 
+<https://dev.fiafcore.org/Rajasthani>
+    a owl:Class ;
+    rdfs:label "Rajasthani"@en ;
+    dc:description "Rajasthani language (ISO 639-2/3: raj)."@en ;
+    dc:source <https://iso639-3.sil.org/code/raj> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Language> ;
+.
+
 <https://dev.fiafcore.org/RatingEvent>
     a owl:Class ;
     rdfs:label "Rating Event"@en ;
@@ -5911,6 +5943,14 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Country> ;
 .
 
+<https://dev.fiafcore.org/SouthernSami>
+    a owl:Class ;
+    rdfs:label "Southern Sami"@en ;
+    dc:description "Southern Sami language (ISO 639-2/3: sma)."@en ;
+    dc:source <https://iso639-3.sil.org/code/sma> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Language> ;
+.
+
 <https://dev.fiafcore.org/SouthernSotho>
     a owl:Class ;
     rdfs:label "Southern Sotho"@en ;
@@ -6709,6 +6749,14 @@ rdfs:subClassOf
     rdfs:label "Uploading Event"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/ManufactureEvent> ;
+.
+
+<https://dev.fiafcore.org/UpperSorbian>
+    a owl:Class ;
+    rdfs:label "Upper Sorbian"@en ;
+    dc:description "Upper Sorbian language (ISO 639-2/3: hsb)."@en ;
+    dc:source <https://iso639-3.sil.org/code/hsb> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Language> ;
 .
 
 <https://dev.fiafcore.org/Urdu>

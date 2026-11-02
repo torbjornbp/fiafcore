@@ -1495,14 +1495,18 @@
                             </xsl:choose>
                             <xsl:choose>
                                 <xsl:when test="not(@sprache) or @sprache = ''" />
-                                <xsl:when test="@sprache = 'Obersorbisch'" />
+                                <xsl:when test="@sprache = 'Obersorbisch'">
+                                    <fiaf:hasLanguage rdf:resource="https://dev.fiafcore.org/UpperSorbian" />
+                                </xsl:when>
                                 <xsl:when test="@sprache = 'Südamerikanisch'" />
                                 <xsl:when test="@sprache = 'Nicht zu entscheiden'" />
                                 <xsl:when test="@sprache = 'Laute / Geräusche'" />
                                 <xsl:when test="@sprache = 'Einzelne andere Sprachen'" />
                                 <xsl:when test="@sprache = 'Mehrere Sprachen'" />
                                 <xsl:when test="@sprache = 'Stumm'" />
-                                <xsl:when test="@sprache = 'Sorbisch (Andere)'" />
+                                <xsl:when test="@sprache = 'Sorbisch (Andere)'">
+                                    <fiaf:hasLanguage rdf:resource="https://dev.fiafcore.org/LowerSorbian" />
+                                </xsl:when>
                                 <xsl:when test="@sprache = 'Musik'" />
                                 <xsl:when test="@sprache = 'Ohne'" />
                                 <xsl:when test="@sprache = 'Geräusche/ Musik'" />
@@ -2312,7 +2316,9 @@
                             </xsl:choose>
                             <xsl:choose>
                                 <xsl:when test="not(@sprache) or @sprache = ''" />
-                                <xsl:when test="@sprache = 'Obersorbisch'" />
+                                <xsl:when test="@sprache = 'Obersorbisch'">
+                                    <fiaf:hasLanguage rdf:resource="https://dev.fiafcore.org/UpperSorbian" />
+                                </xsl:when>
                                 <xsl:when test="@sprache = 'Südamerikanisch'" />
                                 <xsl:when test="@sprache = 'Nicht zu entscheiden'" />
                                 <xsl:when test="@sprache = 'Laute / Geräusche'" />
@@ -2320,7 +2326,9 @@
                                 <xsl:when test="@sprache = 'Mehrere Sprachen'" />
                                 <xsl:when test="@sprache = 'Stumm'" />
                                 <xsl:when test="@sprache = 'Jugoslawisch'" />
-                                <xsl:when test="@sprache = 'Sorbisch (Andere)'" />
+                                <xsl:when test="@sprache = 'Sorbisch (Andere)'">
+                                    <fiaf:hasLanguage rdf:resource="https://dev.fiafcore.org/LowerSorbian" />
+                                </xsl:when>
                                 <xsl:when test="@sprache = 'Baltische Sprachen (Andere)'" />
                                 <xsl:when test="@sprache = 'Südamerikanisch'" />
                                 <xsl:when test="@sprache = 'Musik'" />
