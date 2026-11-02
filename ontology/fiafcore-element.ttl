@@ -11,6 +11,18 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 ### Subclasses
 
+<https://dev.fiafcore.org/AudioElement> a owl:Class ;
+    dc:description "An Element of an audio item, such as a master recording or a sound element separated from the image."@en ;
+    rdfs:label "Audio"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
+.
+
+<https://dev.fiafcore.org/AudioMaster> a owl:Class ;
+    dc:description "An audio master, such as a final mix or print master, from which further copies are made."@en ;
+    rdfs:label "Audio Master"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AudioElement> ;
+.
+
 <https://dev.fiafcore.org/DigitalAccessCopy> a owl:Class ;
     dc:description "A digital copy made for viewing or reference rather than preservation."@en ;
     rdfs:label "Digital Access Copy"@en ;
@@ -48,7 +60,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 .
 
 <https://dev.fiafcore.org/FilmElement> a owl:Class ;
-    dc:description "An Element of a photochemical film item, whatever its polarity or support."@en ;
+    dc:description "An Element of a photochemical film item, whatever its polarity."@en ;
     rdfs:label "Film"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
 .
@@ -57,12 +69,6 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     dc:description "A copy distributed for home viewing, on any carrier, including videotape, optical disc or digital."@en ;
     rdfs:label "Home Viewing Copy"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/VideoElement> ;
-.
-
-<https://dev.fiafcore.org/MagneticElement> a owl:Class ;
-    dc:description "An Element whose image or sound is fixed magnetically rather than photochemically."@en ;
-    rdfs:label "Magnetic"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
 .
 
 <https://dev.fiafcore.org/Negative> a owl:Class ;
@@ -99,6 +105,12 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     dc:description "An original positive produced by reversal processing, without an intervening negative."@en ;
     rdfs:label "Reversal Positive"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
+.
+
+<https://dev.fiafcore.org/SeparatedMagneticSound> a owl:Class ;
+    dc:description "A sound Element on magnetic film carrying sound separately from the image (sepmag)."@en ;
+    rdfs:label "Separated Magnetic Sound"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AudioElement> ;
 .
 
 <https://dev.fiafcore.org/SoundNegative> a owl:Class ;

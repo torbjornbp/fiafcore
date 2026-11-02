@@ -553,6 +553,13 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/ProducingActivity> ;
 .
 
+<https://dev.fiafcore.org/AudioMaster>
+    a owl:Class ;
+    rdfs:label "Audio Master"@en ;
+    dc:description "An audio master, such as a final mix or print master, from which further copies are made."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AudioElement> ;
+.
+
 <https://dev.fiafcore.org/Audiocassette>
     a owl:Class ;
     rdfs:label "Audiocassette"@en ;
@@ -3388,13 +3395,6 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
 .
 
-<https://dev.fiafcore.org/MagneticElement>
-    a owl:Class ;
-    rdfs:label "Magnetic"@en ;
-    dc:description "An Element whose image or sound is fixed magnetically rather than photochemically."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
-.
-
 <https://dev.fiafcore.org/MakeUpArtist>
     a owl:Class ;
     rdfs:label "Make-Up Artist"@en ;
@@ -5135,6 +5135,13 @@ rdfs:subClassOf
     rdfs:label "Sensational Film"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Genre> ;
+.
+
+<https://dev.fiafcore.org/SeparatedMagneticSound>
+    a owl:Class ;
+    rdfs:label "Separated Magnetic Sound"@en ;
+    dc:description "A sound Element on magnetic film carrying sound separately from the image (sepmag)."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AudioElement> ;
 .
 
 <https://dev.fiafcore.org/Serbia>
@@ -6971,6 +6978,13 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
 .
 
+<https://dev.fiafcore.org/AudioElement>
+    a owl:Class ;
+    rdfs:label "Audio"@en ;
+    dc:description "An Element of an audio item, such as a master recording or a sound element separated from the image."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
+.
+
 <https://dev.fiafcore.org/EditingActivity>
     a owl:Class ;
     rdfs:label "Editing Activity"@en ;
@@ -7052,12 +7066,6 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/LanguageUsage> ;
 .
 
-<https://dev.fiafcore.org/Element>
-    a owl:Class ;
-    rdfs:label ""@en ;
-    dc:description ""@en ;
-.
-
 <https://dev.fiafcore.org/LaboratoryActivity>
     a owl:Class ;
     rdfs:label "Laboratory Activity"@en ;
@@ -7117,6 +7125,12 @@ owl:DatatypeProperty
     dc:description ""@en ;
     dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-event.ttl> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
+.
+
+<https://dev.fiafcore.org/Element>
+    a owl:Class ;
+    rdfs:label ""@en ;
+    dc:description ""@en ;
 .
 
 <https://dev.fiafcore.org/SoundCharacteristic>
@@ -7235,6 +7249,13 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/Title> ;
 .
 
+<https://dev.fiafcore.org/FilmElement>
+    a owl:Class ;
+    rdfs:label "Film"@en ;
+    dc:description "An Element of a photochemical film item, whatever its polarity."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
+.
+
 <https://dev.fiafcore.org/WritingActivity>
     a owl:Class ;
     rdfs:label "Writing Activity"@en ;
@@ -7255,13 +7276,6 @@ owl:DatatypeProperty
     rdfs:label "Extent"@en ;
     dc:description ""@en ;
     dc:source <file:///Users/pduc/git/fiafcore/ontology/fiafcore-extent.ttl> ;
-.
-
-<https://dev.fiafcore.org/FilmElement>
-    a owl:Class ;
-    rdfs:label "Film"@en ;
-    dc:description "An Element of a photochemical film item, whatever its polarity or support."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
 .
 
 <https://dev.fiafcore.org/Form>

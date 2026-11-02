@@ -1,5 +1,13 @@
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
+<https://dev.fiafcore.org/AudioMaster>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/AudioElement> ;
+    skos:definition "An audio master, such as a final mix or print master, from which further copies are made."@en ;
+    skos:inScheme <https://dev.fiafcore.org/Element> ;
+    skos:prefLabel "Audio Master"@en ;
+.
+
 <https://dev.fiafcore.org/DigitalAccessCopy>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/DigitalElement> ;
@@ -46,14 +54,6 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:definition "A copy distributed for home viewing, on any carrier, including videotape, optical disc or digital."@en ;
     skos:inScheme <https://dev.fiafcore.org/Element> ;
     skos:prefLabel "Home Viewing Copy"@en ;
-.
-
-<https://dev.fiafcore.org/MagneticElement>
-    a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/FilmElement> ;
-    skos:definition "An Element whose image or sound is fixed magnetically rather than photochemically."@en ;
-    skos:inScheme <https://dev.fiafcore.org/Element> ;
-    skos:prefLabel "Magnetic"@en ;
 .
 
 <https://dev.fiafcore.org/Negative>
@@ -104,6 +104,14 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "Reversal Positive"@en ;
 .
 
+<https://dev.fiafcore.org/SeparatedMagneticSound>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/AudioElement> ;
+    skos:definition "A sound Element on magnetic film carrying sound separately from the image (sepmag)."@en ;
+    skos:inScheme <https://dev.fiafcore.org/Element> ;
+    skos:prefLabel "Separated Magnetic Sound"@en ;
+.
+
 <https://dev.fiafcore.org/SoundNegative>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/FilmElement> ;
@@ -144,6 +152,14 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "Work Print"@en ;
 .
 
+<https://dev.fiafcore.org/AudioElement>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/Element> ;
+    skos:definition "An Element of an audio item, such as a master recording or a sound element separated from the image."@en ;
+    skos:inScheme <https://dev.fiafcore.org/Element> ;
+    skos:prefLabel "Audio"@en ;
+.
+
 <https://dev.fiafcore.org/DigitalElement>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/Element> ;
@@ -163,7 +179,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 <https://dev.fiafcore.org/FilmElement>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/Element> ;
-    skos:definition "An Element of a photochemical film item, whatever its polarity or support."@en ;
+    skos:definition "An Element of a photochemical film item, whatever its polarity."@en ;
     skos:inScheme <https://dev.fiafcore.org/Element> ;
     skos:prefLabel "Film"@en ;
 .
