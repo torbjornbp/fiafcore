@@ -1855,14 +1855,14 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Duplicate Negative"@en ;
     dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Negative> ;
 .
 
 <https://dev.fiafcore.org/DuplicatePositive>
     a owl:Class ;
     rdfs:label "Duplicate Positive"@en ;
     dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Positive> ;
 .
 
 <https://dev.fiafcore.org/DuplicationEvent>
@@ -2639,7 +2639,7 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/HomeViewingCopy>
     a owl:Class ;
     rdfs:label "Home Viewing Copy"@en ;
-    dc:description "A copy distributed for home viewing, on any carrier, including videotape, optical disc or digital."@en ;
+    dc:description "A physical video release distributed for home viewing, such as a videocassette or optical video disc."@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/VideoElement> ;
 .
 
@@ -3822,13 +3822,6 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Language> ;
 .
 
-<https://dev.fiafcore.org/Negative>
-    a owl:Class ;
-    rdfs:label "Negative"@en ;
-    dc:description "A negative Element of unspecified generation."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
-.
-
 <https://dev.fiafcore.org/NegativeCutter>
     a owl:Class ;
     rdfs:label "Negative Cutter"@en ;
@@ -4104,7 +4097,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Original Negative"@en ;
     dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Negative> ;
 .
 
 <https://dev.fiafcore.org/OriginalVideoRecording>
@@ -4372,13 +4365,6 @@ rdfs:subClassOf
     rdfs:label "Portuguese"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Language> ;
-.
-
-<https://dev.fiafcore.org/Positive>
-    a owl:Class ;
-    rdfs:label "Positive"@en ;
-    dc:description "A positive Element of unspecified generation."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
 .
 
 <https://dev.fiafcore.org/PostProductionEvent>
@@ -4677,7 +4663,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Release Print"@en ;
     dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Positive> ;
 .
 
 <https://dev.fiafcore.org/ReligiousFilm>
@@ -4735,7 +4721,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Reversal Positive"@en ;
     dc:description "An original positive produced by reversal processing, without an intervening negative."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Positive> ;
 .
 
 <https://dev.fiafcore.org/RevisionEvent>
@@ -5352,15 +5338,15 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/SoundNegative>
     a owl:Class ;
     rdfs:label "Sound Negative"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
+    dc:description "An optical sound negative Element carrying sound separately from the image."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AudioElement> ;
 .
 
 <https://dev.fiafcore.org/SoundPositive>
     a owl:Class ;
     rdfs:label "Sound Positive"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
+    dc:description "An optical sound positive Element carrying sound separately from the image."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AudioElement> ;
 .
 
 <https://dev.fiafcore.org/SoundRecorderMixer>
@@ -6351,7 +6337,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Work Print"@en ;
     dc:description "A positive print used for editing and assembly work, not for release."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Positive> ;
 .
 
 <https://dev.fiafcore.org/WorkingClassFilm>
@@ -6845,19 +6831,26 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
 .
 
-<https://dev.fiafcore.org/AudioElement>
-    a owl:Class ;
-    rdfs:label "Audio"@en ;
-    dc:description "An Element of an audio item, such as a master recording or a sound element separated from the image."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
-.
-
 <https://dev.fiafcore.org/EditingActivity>
     a owl:Class ;
     rdfs:label "Editing Activity"@en ;
     dc:description "Editing contribution to a moving image work."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
+.
+
+<https://dev.fiafcore.org/FilmElement>
+    a owl:Class ;
+    rdfs:label "Film Element"@en ;
+    dc:description "An Element of a photochemical moving-image film item, whatever its polarity."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
+.
+
+<https://dev.fiafcore.org/Negative>
+    a owl:Class ;
+    rdfs:label "Negative"@en ;
+    dc:description "A negative film Element of unspecified generation."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
 .
 
 <https://dev.fiafcore.org/Organisation>
@@ -6880,7 +6873,7 @@ owl:DatatypeProperty
 
 <https://dev.fiafcore.org/DigitalElement>
     a owl:Class ;
-    rdfs:label "Digital"@en ;
+    rdfs:label "Digital Element"@en ;
     dc:description "An Element of a digital item, such as a master, mezzanine or access copy."@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
 .
@@ -6902,6 +6895,13 @@ owl:DatatypeProperty
     rdfs:label "Agent"@en ;
     dc:description "Agents, whether for works/variants, manifestations, or items in moving images, are entities involved in their creation, exploitation, or preservation, with typical distinctions including person, corporate body, family, and person group, encompassing responsibilities such as release, distribution, acquisition, or preservation."@en ;
     dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%2047%3A79> ;
+.
+
+<https://dev.fiafcore.org/AudioElement>
+    a owl:Class ;
+    rdfs:label "Audio Element"@en ;
+    dc:description "An Element of an audio item, such as a master recording or a sound element separated from the image."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
 .
 
 <https://dev.fiafcore.org/Base>
@@ -6951,6 +6951,13 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
 .
 
+<https://dev.fiafcore.org/Positive>
+    a owl:Class ;
+    rdfs:label "Positive"@en ;
+    dc:description "A positive film Element of unspecified generation."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
+.
+
 <https://dev.fiafcore.org/PreservationEvent>
     a owl:Class ;
     rdfs:label "Preservation Event"@en ;
@@ -6967,7 +6974,7 @@ owl:DatatypeProperty
 
 <https://dev.fiafcore.org/VideoElement>
     a owl:Class ;
-    rdfs:label "Video"@en ;
+    rdfs:label "Video Element"@en ;
     dc:description "An Element of a video item, such as an original recording, master or access copy."@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
 .
@@ -7100,13 +7107,6 @@ owl:DatatypeProperty
     rdfs:label "Alternative Title"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Title> ;
-.
-
-<https://dev.fiafcore.org/FilmElement>
-    a owl:Class ;
-    rdfs:label "Film"@en ;
-    dc:description "An Element of a photochemical film item, whatever its polarity."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
 .
 
 <https://dev.fiafcore.org/WritingActivity>
