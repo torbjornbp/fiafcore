@@ -1344,6 +1344,20 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/DuplicateNegative> ;
 .
 
+<https://dev.fiafcore.org/ColourSeparationNegative>
+    a owl:Class ;
+    rdfs:label "Colour Separation Negative"@en ;
+    dc:description "A black-and-white negative film Element recording a single colour channel (or sequential colour channels) of a colour moving image."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Negative> ;
+.
+
+<https://dev.fiafcore.org/ColourSeparationPositive>
+    a owl:Class ;
+    rdfs:label "Colour Separation Positive"@en ;
+    dc:description "A black-and-white positive film Element (such as a separation master or protection master) recording a single colour channel (or sequential colour channels) of a colour moving image."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Positive> ;
+.
+
 <https://dev.fiafcore.org/ColourizedVariant>
     a owl:Class ;
     rdfs:label "Colourized Variant"@en ;
@@ -2099,6 +2113,13 @@ rdfs:subClassOf
     rdfs:label "Dutch"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Language> ;
+.
+
+<https://dev.fiafcore.org/DyeTransferMatrix>
+    a owl:Class ;
+    rdfs:label "Dye-Transfer Matrix"@en ;
+    dc:description "A positive gelatin-relief film Element recording a single colour channel, used to transfer dye onto a receiver print in dye-transfer (imbibition) printing."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Positive> ;
 .
 
 <https://dev.fiafcore.org/Dzongkha>
@@ -7766,13 +7787,6 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/ColourStandard> ;
 .
 
-<https://dev.fiafcore.org/Negative>
-    a owl:Class ;
-    rdfs:label "Negative"@en ;
-    dc:description "A negative film Element of unspecified generation."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
-.
-
 <https://dev.fiafcore.org/OpticalVariableArea>
     a owl:Class ;
     rdfs:label "Optical Variable Area"@en ;
@@ -7826,6 +7840,13 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Identifier"@en ;
     dc:description ""@en ;
+.
+
+<https://dev.fiafcore.org/Negative>
+    a owl:Class ;
+    rdfs:label "Negative"@en ;
+    dc:description "A negative film Element of unspecified generation."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
 .
 
 <https://dev.fiafcore.org/NoiseReduction>
@@ -8040,13 +8061,6 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
-<https://dev.fiafcore.org/Positive>
-    a owl:Class ;
-    rdfs:label "Positive"@en ;
-    dc:description "A positive film Element of unspecified generation."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
-.
-
 <https://dev.fiafcore.org/SoundStandard>
     a owl:Class ;
     rdfs:label "Sound Standard"@en ;
@@ -8112,6 +8126,13 @@ owl:DatatypeProperty
     dc:description "Directing contribution to a moving image work."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
+.
+
+<https://dev.fiafcore.org/Positive>
+    a owl:Class ;
+    rdfs:label "Positive"@en ;
+    dc:description "A positive film Element of unspecified generation."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
 .
 
 <https://dev.fiafcore.org/Title>

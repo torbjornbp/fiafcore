@@ -24,6 +24,22 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "Colour Reversal Intermediate"@en ;
 .
 
+<https://dev.fiafcore.org/ColourSeparationNegative>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/Negative> ;
+    skos:definition "A black-and-white negative film Element recording a single colour channel (or sequential colour channels) of a colour moving image."@en ;
+    skos:inScheme <https://dev.fiafcore.org/Element> ;
+    skos:prefLabel "Colour Separation Negative"@en ;
+.
+
+<https://dev.fiafcore.org/ColourSeparationPositive>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/Positive> ;
+    skos:definition "A black-and-white positive film Element (such as a separation master or protection master) recording a single colour channel (or sequential colour channels) of a colour moving image."@en ;
+    skos:inScheme <https://dev.fiafcore.org/Element> ;
+    skos:prefLabel "Colour Separation Positive"@en ;
+.
+
 <https://dev.fiafcore.org/DigitalAccessCopy>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/DigitalElement> ;
@@ -54,6 +70,14 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:definition ""@en ;
     skos:inScheme <https://dev.fiafcore.org/Element> ;
     skos:prefLabel "Duplicate Positive"@en ;
+.
+
+<https://dev.fiafcore.org/DyeTransferMatrix>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/Positive> ;
+    skos:definition "A positive gelatin-relief film Element recording a single colour channel, used to transfer dye onto a receiver print in dye-transfer (imbibition) printing."@en ;
+    skos:inScheme <https://dev.fiafcore.org/Element> ;
+    skos:prefLabel "Dye-Transfer Matrix"@en ;
 .
 
 <https://dev.fiafcore.org/HomeViewingCopy>
@@ -160,20 +184,20 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "Film Element"@en ;
 .
 
-<https://dev.fiafcore.org/Negative>
-    a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/FilmElement> ;
-    skos:definition "A negative film Element of unspecified generation."@en ;
-    skos:inScheme <https://dev.fiafcore.org/Element> ;
-    skos:prefLabel "Negative"@en ;
-.
-
 <https://dev.fiafcore.org/DigitalElement>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/Element> ;
     skos:definition "An Element of a digital item, such as a master, mezzanine or access copy."@en ;
     skos:inScheme <https://dev.fiafcore.org/Element> ;
     skos:prefLabel "Digital Element"@en ;
+.
+
+<https://dev.fiafcore.org/Negative>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/FilmElement> ;
+    skos:definition "A negative film Element of unspecified generation."@en ;
+    skos:inScheme <https://dev.fiafcore.org/Element> ;
+    skos:prefLabel "Negative"@en ;
 .
 
 <https://dev.fiafcore.org/AudioElement>

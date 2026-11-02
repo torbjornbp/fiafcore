@@ -68,42 +68,63 @@
 
                     <xsl:for-each select="physical_description[normalize-space(.)]">
                         <xsl:variable name="desc" select="." />
-                        <xsl:if test="contains($desc, 'BW') or contains($desc, 'Colour') or contains($desc, 'Tinted') or contains($desc, 'Toned') or contains($desc, 'Sepia') or contains($desc, 'Stencil') or contains($desc, 'Separation') or contains($desc, 'Matrix') or contains($desc, 'Successive frame')">
-                            <fiaf:hasColourCharacteristic>
-                                <rdf:Description>
-                                    <xsl:choose>
-                                        <xsl:when test="contains($desc, 'BW and Colour')">
-                                            <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite" />
-                                            <rdf:type rdf:resource="https://dev.fiafcore.org/Colour" />
-                                        </xsl:when>
-                                        <xsl:when test="contains($desc, 'BW') or contains($desc, 'Tinted') or contains($desc, 'Toned') or contains($desc, 'Sepia') or contains($desc, 'Stencil') or (contains($desc, 'Separation') and not(contains($desc, 'Colour')))">
-                                            <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite" />
-                                        </xsl:when>
-                                        <xsl:when test="contains($desc, 'Colour') or contains($desc, 'Matrix') or contains($desc, 'Successive frame')">
-                                            <rdf:type rdf:resource="https://dev.fiafcore.org/Colour" />
-                                        </xsl:when>
-                                    </xsl:choose>
-                                    <xsl:if test="contains($desc, 'Tinted')">
-                                        <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Tinted" />
-                                    </xsl:if>
-                                    <xsl:if test="contains($desc, 'Toned') or contains($desc, 'Sepia')">
-                                        <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Toned" />
-                                    </xsl:if>
-                                    <xsl:if test="contains($desc, 'Stencil')">
-                                        <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/StencilColouring" />
-                                    </xsl:if>
-                                    <xsl:if test="contains($desc, 'Separation')">
-                                        <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ColourSeparation" />
-                                    </xsl:if>
-                                    <xsl:if test="contains($desc, 'Matrix')">
-                                        <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/PrintingDyeTransferPigment" />
-                                    </xsl:if>
-                                    <xsl:if test="contains($desc, 'Successive frame')">
-                                        <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/TemporalSynthesis" />
-                                    </xsl:if>
-                                </rdf:Description>
-                            </fiaf:hasColourCharacteristic>
-                        </xsl:if>
+                        <xsl:variable name="is_separation_or_matrix" select="
+                            contains($desc, 'Separation') or
+                            contains($desc, 'Matrix') or
+                            contains($desc, 'Successive frame') or
+                            $desc = 'Tri Negative' or
+                            $desc = 'Cyan Promaster' or
+                            $desc = 'Magenta Promaster' or
+                            $desc = 'Yellow Promaster' or
+                            $desc = 'Cyan Colour Promaster' or
+                            $desc = 'Magenta Colour Promaster' or
+                            $desc = 'Master Cyan Promaster' or
+                            $desc = 'Cyan Negative' or
+                            $desc = 'Magenta Negative' or
+                            $desc = 'Yellow Negative' or
+                            $desc = 'Red Negative' or
+                            $desc = 'Blue Negative' or
+                            $desc = 'Dupe Blue Negative' or
+                            $desc = 'Dupe Magenta Negative' or
+                            $desc = 'Dupe Red Negative' or
+                            $desc = 'Magenta Colour Negative'
+                        " />
+                        <xsl:choose>
+                            <xsl:when test="$is_separation_or_matrix">
+                                <fiaf:hasColourCharacteristic>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite" />
+                                    </rdf:Description>
+                                </fiaf:hasColourCharacteristic>
+                            </xsl:when>
+                            <xsl:when test="contains($desc, 'BW') or contains($desc, 'Colour') or contains($desc, 'Tinted') or contains($desc, 'Toned') or contains($desc, 'Sepia') or contains($desc, 'Stencil')">
+                                <fiaf:hasColourCharacteristic>
+                                    <rdf:Description>
+                                        <xsl:choose>
+                                            <xsl:when test="contains($desc, 'BW and Colour')">
+                                                <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite" />
+                                                <rdf:type rdf:resource="https://dev.fiafcore.org/Colour" />
+                                            </xsl:when>
+                                            <xsl:when test="contains($desc, 'BW') or contains($desc, 'Tinted') or contains($desc, 'Toned') or contains($desc, 'Sepia') or contains($desc, 'Stencil')">
+                                                <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite" />
+                                            </xsl:when>
+                                            <xsl:when test="contains($desc, 'Colour')">
+                                                <rdf:type rdf:resource="https://dev.fiafcore.org/Colour" />
+                                            </xsl:when>
+                                        </xsl:choose>
+                                        <xsl:if test="contains($desc, 'Tinted')">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Tinted" />
+                                        </xsl:if>
+                                        <xsl:if test="contains($desc, 'Toned') or contains($desc, 'Sepia')">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Toned" />
+                                        </xsl:if>
+                                        <xsl:if test="contains($desc, 'Stencil')">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/StencilColouring" />
+                                        </xsl:if>
+                                    </rdf:Description>
+                                </fiaf:hasColourCharacteristic>
+                            </xsl:when>
+                        </xsl:choose>
                     </xsl:for-each>
 
                     <!-- fiaf:hasEvent -->
@@ -396,13 +417,13 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SeparatedMagneticSound" />
                             </xsl:when>
                             <xsl:when test="$element = 'Cyan Separation Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Yellow Separation Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magenta Separation Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'BW Negative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
@@ -417,13 +438,13 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
                             </xsl:when>
                             <xsl:when test="$element = 'Cyan Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magenta Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Yellow Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Re-recorded Negative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundNegative" />
@@ -433,26 +454,26 @@
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe'"/>
                             <xsl:when test="$element = 'Cyan Separation Matrix'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
                             </xsl:when>
                             <xsl:when test="$element = 'Yellow Separation Matrix'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magenta Separation Matrix'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
                             </xsl:when>
                             <xsl:when test="$element = 'Disc'"/>
                             <xsl:when test="$element = 'Re-recorded'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AudioElement" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Yellow Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Cyan Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Magenta Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Interpositive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
@@ -469,17 +490,17 @@
                             </xsl:when>
                             <xsl:when test="$element = 'Duplicating'"/>
                             <xsl:when test="$element = 'Original Magenta Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/OriginalNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original Cyan Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/OriginalNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original Yellow Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/OriginalNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Digital Theater Systems'"/>
                             <xsl:when test="$element = 'Separation Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Master'"/>
                             <xsl:when test="$element = 'Original'"/>
@@ -490,13 +511,13 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
                             </xsl:when>
                             <xsl:when test="$element = 'Yellow Matrix'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
                             </xsl:when>
                             <xsl:when test="$element = 'Cyan Colour Matrix'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magenta Colour Matrix'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
                             </xsl:when>
                             <xsl:when test="$element = 'Negative and Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
@@ -509,31 +530,31 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourReversalIntermediate" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/OriginalNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Promaster'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Finegrain Dupe Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Yellow Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magenta Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Red Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Blue Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Reversal Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
@@ -548,34 +569,34 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Cyan Separation Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Magenta Separation Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original / Dupe Yellow Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Reversal BW Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Yellow Separation Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magenta Separation Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original / Dupe Cyan Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original / Dupe Magenta Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'BW Dupe Negative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Cyan Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original Reversal Colour Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
@@ -596,10 +617,10 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Yellow Separation Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Magenta Separation Matrix'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magnetic Tape'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AudioElement" />
@@ -614,22 +635,22 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
                             </xsl:when>
                             <xsl:when test="$element = 'Successive frame Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Red Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Cyan Separation Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Cyan Colour Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Yellow Separation Matrix'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Cyan Separation Matrix'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
                             </xsl:when>
                             <xsl:when test="$element = 'Colour Positive Technovision'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
@@ -641,7 +662,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Red Separation Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Lavender'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
@@ -650,10 +671,10 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Green Separation Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Blue Separation Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Reversal Colour Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
@@ -671,10 +692,10 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magenta Colour Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Blue Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Colour Reversal Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
@@ -715,7 +736,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
                             </xsl:when>
                             <xsl:when test="$element = '2 Colour Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Master Magenta'"/>
                             <xsl:when test="$element = 'Original Colour'"/>
@@ -726,7 +747,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AudioMaster" />
                             </xsl:when>
                             <xsl:when test="$element = 'Separation Matrix'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original Reversal Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
@@ -743,13 +764,13 @@
                             </xsl:when>
                             <xsl:when test="$element = 'Yellow'"/>
                             <xsl:when test="$element = 'Successive frame Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original Colour Negative Technovision'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/OriginalNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Master Magenta Separation Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Duplicating BW'"/>
                             <xsl:when test="$element = 'Reversal BW'">
@@ -765,10 +786,10 @@
                             </xsl:when>
                             <xsl:when test="$element = 'Cyan Tape'"/>
                             <xsl:when test="$element = 'Dupe Separation Matrix'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
                             </xsl:when>
                             <xsl:when test="$element = 'Separation Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Reversal Colour Internegative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourReversalIntermediate" />
@@ -787,20 +808,20 @@
                             </xsl:when>
                             <xsl:when test="$element = 'Cyan'"/>
                             <xsl:when test="$element = 'Original Magenta Separation Matrix'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
                             </xsl:when>
                             <xsl:when test="$element = 'Colour Check Print'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AnswerPrint" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original Yellow Separation Matrix'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
                             </xsl:when>
                             <xsl:when test="$element = 'TV (low contrast) BW'"/>
                             <xsl:when test="$element = 'Original Magenta Separation Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Cyan Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'X-Mods Negative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundNegative" />
@@ -812,7 +833,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Blue Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'BW Tinted Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
@@ -821,7 +842,9 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
                             </xsl:when>
                             <xsl:when test="$element = 'BW and Tinted and Toned'"/>
-                            <xsl:when test="$element = 'Yellow Separation'"/>
+                            <xsl:when test="$element = 'Yellow Separation'">
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
+                            </xsl:when>
                             <xsl:when test="$element = 'Blue Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
                             </xsl:when>
@@ -832,26 +855,26 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
                             </xsl:when>
                             <xsl:when test="$element = 'Blue Separation Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original Reversal Colour Internegative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourReversalIntermediate" />
                             </xsl:when>
                             <xsl:when test="$element = 'Blue Tape'"/>
                             <xsl:when test="$element = 'Original Cyan Separation Matrix'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
                             </xsl:when>
                             <xsl:when test="$element = 'Cyan Matrix'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original Reversal'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Yellow Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Red Separation Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Colour Answer Print'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AnswerPrint" />
@@ -861,10 +884,10 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Green Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magenta Matrix'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
                             </xsl:when>
                             <xsl:when test="$element = 'Duplicating Colour Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
@@ -875,9 +898,11 @@
                             <xsl:when test="$element = 'Magenta Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
                             </xsl:when>
-                            <xsl:when test="$element = 'Magenta Separation'"/>
+                            <xsl:when test="$element = 'Magenta Separation'">
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
+                            </xsl:when>
                             <xsl:when test="$element = 'Successive frame Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Lavender Duplicating Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
@@ -899,14 +924,18 @@
                             <xsl:when test="$element = 'Dupe Lavender Negative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
                             </xsl:when>
-                            <xsl:when test="$element = 'Master Cyan Separation'"/>
+                            <xsl:when test="$element = 'Master Cyan Separation'">
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
+                            </xsl:when>
                             <xsl:when test="$element = 'Dupe Magenta Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magenta Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
-                            <xsl:when test="$element = 'Master Separation'"/>
+                            <xsl:when test="$element = 'Master Separation'">
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
+                            </xsl:when>
                             <xsl:when test="$element = 'Master X-Mods Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundPositive" />
                             </xsl:when>
@@ -915,10 +944,10 @@
                             </xsl:when>
                             <xsl:when test="$element = 'Original / Dupe'"/>
                             <xsl:when test="$element = 'Master Yellow Separation Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Red Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Tinted and Stencil Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
@@ -930,13 +959,13 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Successive frame Colour Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Reversal Colour Interpositive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Successive frame Separation Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Yellow BW Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
@@ -952,7 +981,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Red Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Toned'"/>
                             <xsl:when test="$element = 'Sepia Internegative'">
@@ -972,14 +1001,14 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
                             </xsl:when>
                             <xsl:when test="$element = 'Tri Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = '2 Colour Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
                             </xsl:when>
                             <xsl:when test="$element = 'Pink'"/>
                             <xsl:when test="$element = 'Dupe Successive frame Colour Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Duplicating Tape'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AudioElement" />
@@ -1015,26 +1044,28 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Yellow and Magenta Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe X-Mods Negative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Successive frame Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Separation Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Green Separation Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Internegative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
                             </xsl:when>
-                            <xsl:when test="$element = 'Dupe Cyan Separation'"/>
+                            <xsl:when test="$element = 'Dupe Cyan Separation'">
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
+                            </xsl:when>
                             <xsl:when test="$element = 'Dupe Copper Separation Matrix'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Colour Reversal Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
@@ -1043,7 +1074,9 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'DTS Colour'"/>
-                            <xsl:when test="$element = 'Cyan Separation'"/>
+                            <xsl:when test="$element = 'Cyan Separation'">
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
+                            </xsl:when>
                             <xsl:when test="$element = 'Cyan BW Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
                             </xsl:when>
@@ -1051,7 +1084,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
                             </xsl:when>
                             <xsl:when test="$element = 'Blue Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Blue BW Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
@@ -1068,7 +1101,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original Yellow Separation Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original / Dupe Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
@@ -1089,7 +1122,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original Red Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/OriginalNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original Promaster'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
@@ -1101,13 +1134,13 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original Cyan Separation Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original Colour Interpositive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original Blue Separation Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/OriginalNegative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original BW and Colour Interpositive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
@@ -1127,16 +1160,20 @@
                             <xsl:when test="$element = 'Orange BW Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
                             </xsl:when>
-                            <xsl:when test="$element = 'Master Yellow Separation'"/>
+                            <xsl:when test="$element = 'Master Yellow Separation'">
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
+                            </xsl:when>
                             <xsl:when test="$element = 'Master Magnetic Recording'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AudioMaster" />
                             </xsl:when>
-                            <xsl:when test="$element = 'Master Magenta Separation'"/>
+                            <xsl:when test="$element = 'Master Magenta Separation'">
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
+                            </xsl:when>
                             <xsl:when test="$element = 'Master Cyan Separation Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Master Cyan Promaster'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Master Colour Interpositive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
@@ -1150,7 +1187,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magenta Colour Negative'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magenta BW Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
