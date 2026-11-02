@@ -11,6 +11,12 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 ### Subclasses
 
+<https://dev.fiafcore.org/AnswerPrint> a owl:Class ;
+    dc:description "A trial positive print made for evaluating and approving grading, timing, and synchronisation before release printing."@en ;
+    rdfs:label "Answer Print"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Positive> ;
+.
+
 <https://dev.fiafcore.org/AudioElement> a owl:Class ;
     dc:description "An Element of an audio item, such as a master recording or a sound element separated from the image."@en ;
     rdfs:label "Audio Element"@en ;
@@ -21,6 +27,12 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     dc:description "An audio master, such as a final mix or print master, from which further copies are made."@en ;
     rdfs:label "Audio Master"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/AudioElement> ;
+.
+
+<https://dev.fiafcore.org/ColourReversalIntermediate> a owl:Class ;
+    dc:description "A duplicate negative produced directly from a negative by reversal processing, without an intervening positive."@en ;
+    rdfs:label "Colour Reversal Intermediate"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DuplicateNegative> ;
 .
 
 <https://dev.fiafcore.org/DigitalAccessCopy> a owl:Class ;
@@ -96,7 +108,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 .
 
 <https://dev.fiafcore.org/ReleasePrint> a owl:Class ;
-    dc:description ""@en ;
+    dc:description "A positive print made for exhibition, distribution, or viewing access."@en ;
     rdfs:label "Release Print"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Positive> ;
 .

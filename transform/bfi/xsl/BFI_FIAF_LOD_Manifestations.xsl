@@ -83,6 +83,9 @@
                                         </xsl:when>
                                         <xsl:when test="$colour_manifestation = 'Sepia'">
                                             <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite"/>
+                                            <xsl:if test="$colour_standard != 'Sepia'">
+                                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Toned"/>
+                                            </xsl:if>
                                         </xsl:when>
                                         <xsl:otherwise>
                                             <xsl:message terminate="yes">
@@ -94,53 +97,140 @@
                                 <xsl:if test="$colour_standard">
                                     <xsl:choose>
                                         <xsl:when test="$colour_standard = ''"/>
-                                        <xsl:when test="$colour_standard = 'Avala Color'"/>
-                                        <xsl:when test="$colour_standard = 'CFI Color'"/>
-                                        <xsl:when test="$colour_standard = 'Movielabcolor'"/>
-                                        <xsl:when test="$colour_standard = 'Rankcolor'"/>
-                                        <xsl:when test="$colour_standard = 'Foto-Kem'"/>
-                                        <xsl:when test="$colour_standard = 'TVC Color'"/>
-                                        <xsl:when test="$colour_standard = 'Trucolor'"/>
-                                        <xsl:when test="$colour_standard = 'Cinecolor'"/>
-                                        <xsl:when test="$colour_standard = 'Film House color'"/>
-                                        <xsl:when test="$colour_standard = 'Cinefotocolor'"/>
-                                        <xsl:when test="$colour_standard = 'Atlab Color'"/>
-                                        <xsl:when test="$colour_standard = 'Telecolor'"/>
-                                        <xsl:when test="$colour_standard = 'Gevacolour'"/>
-                                        <xsl:when test="$colour_standard = 'Astro colour'"/>
-                                        <xsl:when test="$colour_standard = 'Panavision Color'"/>
-                                        <xsl:when test="$colour_standard = 'Alpha Cine Color'"/>
-                                        <xsl:when test="$colour_standard = 'Kodacolor'"/>
-                                        <xsl:when test="$colour_standard = 'MGM Color'"/>
-                                        <xsl:when test="$colour_standard = 'Eclair Color'"/>
-                                        <xsl:when test="$colour_standard = 'Medallioncolor'"/>
+                                        <xsl:when test="$colour_standard = 'Avala Color'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'CFI Color'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Movielabcolor'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Rankcolor'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Foto-Kem'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'TVC Color'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Trucolor'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Trucolor"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Cinecolor'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Cinecolor"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Film House color'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Cinefotocolor'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Atlab Color'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Telecolor'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Gevacolour'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Gevacolor"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Astro colour'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Panavision Color'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Alpha Cine Color'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Kodacolor'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Kodacolor"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'MGM Color'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Metrocolor"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Eclair Color'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Medallioncolor'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
                                         <xsl:when test="$colour_standard = 'Scope Colour'"/>
-                                        <xsl:when test="$colour_standard = 'Cinecittà Color'"/>
-                                        <xsl:when test="$colour_standard = 'United Color'"/>
-                                        <xsl:when test="$colour_standard = 'Consolidated Film Industries'"/>
-                                        <xsl:when test="$colour_standard = 'Supercinecolor'"/>
-                                        <xsl:when test="$colour_standard = 'Monaco colour'"/>
-                                        <xsl:when test="$colour_standard = 'Daieicolor'"/>
-                                        <xsl:when test="$colour_standard = 'Ektachrome'"/>
-                                        <xsl:when test="$colour_standard = 'Cinevexcolour'"/>
-                                        <xsl:when test="$colour_standard = 'Prizma Color'"/>
-                                        <xsl:when test="$colour_standard = 'Luciano Vittori colour'"/>
-                                        <xsl:when test="$colour_standard = 'Dufay'"/>
+                                        <xsl:when test="$colour_standard = 'Cinecittà Color'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'United Color'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Consolidated Film Industries'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Supercinecolor'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Supercinecolor"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Monaco colour'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Daieicolor'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Ektachrome'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Ektachrome"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Cinevexcolour'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Prizma Color'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/MimeticColourProcess"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Luciano Vittori colour'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Dufay'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Dufaycolor"/>
+                                        </xsl:when>
                                         <xsl:when test="$colour_standard = 'Image Transform'"/>
-                                        <xsl:when test="$colour_standard = 'Cinefilm Color'"/>
-                                        <xsl:when test="$colour_standard = 'Cinecocolor'"/>
-                                        <xsl:when test="$colour_standard = 'Telcocolor'"/>
-                                        <xsl:when test="$colour_standard = 'Technochrome'"/>
-                                        <xsl:when test="$colour_standard = 'Getty colour'"/>
-                                        <xsl:when test="$colour_standard = 'Panacolor'"/>
+                                        <xsl:when test="$colour_standard = 'Cinefilm Color'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Cinecocolor'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Telcocolor'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Technochrome'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/MimeticColourProcess"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Getty colour'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Panacolor'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/PrintingDyeTransferPigment"/>
+                                        </xsl:when>
                                         <xsl:when test="$colour_standard = 'Perfect'"/>
-                                        <xsl:when test="$colour_standard = 'Spot Film  Continental color'"/>
-                                        <xsl:when test="$colour_standard = 'Magicolor'"/>
-                                        <xsl:when test="$colour_standard = 'Sonolab colour'"/>
-                                        <xsl:when test="$colour_standard = 'Colorfilm Color'"/>
-                                        <xsl:when test="$colour_standard = 'Astral Bellvue Pathé Color'"/>
-                                        <xsl:when test="$colour_standard = 'Monochrome'"/>
-                                        <xsl:when test="$colour_standard = 'Avala Color'"/>
+                                        <xsl:when test="$colour_standard = 'Spot Film  Continental color'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Magicolor'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/MimeticColourProcess"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Sonolab colour'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Colorfilm Color'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Astral Bellvue Pathé Color'">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/ChromogenicMonopack"/>
+                                        </xsl:when>
+                                        <xsl:when test="$colour_standard = 'Monochrome'">
+                                            <xsl:if test="not($colour_manifestation)">
+                                                <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite"/>
+                                            </xsl:if>
+                                        </xsl:when>
                                         <xsl:when test="$colour_standard = 'Technicolor'">
                                             <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Technicolor"/>
                                         </xsl:when>
@@ -642,31 +732,33 @@
 
                     <xsl:variable name="sound_manifestation" select=".//sound_manifestation/value[@lang='0']"/>
                     <xsl:variable name="sound_standard" select=".//sound_system_manifestation"/>
-                    <xsl:if test="$sound_manifestation">
+                    <xsl:if test="$sound_manifestation or $sound_standard">
                         <fiaf:hasSoundCharacteristic>
                             <rdf:Description>
-                                <xsl:choose>
-                                    <xsl:when test="$sound_manifestation = 'Sound'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Sound" />
-                                    </xsl:when>
-                                    <xsl:when test="$sound_manifestation = 'Mute'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Mute" />
-                                    </xsl:when>
-                                    <xsl:when test="$sound_manifestation = 'Silent'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Silent" />
-                                    </xsl:when>
-                                    <xsl:when test="$sound_manifestation = 'Combined as Mute'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Mute" />
-                                    </xsl:when>
-                                    <xsl:when test="$sound_manifestation = 'Combined as Sound'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Sound" />
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:message terminate="yes">
-                                            Error: Unexpected value "<xsl:value-of select="$sound_manifestation"/>".
-                                        </xsl:message>
-                                    </xsl:otherwise>
-                                </xsl:choose>
+                                <xsl:if test="$sound_manifestation">
+                                    <xsl:choose>
+                                        <xsl:when test="$sound_manifestation = 'Sound'">
+                                            <rdf:type rdf:resource="https://dev.fiafcore.org/Sound" />
+                                        </xsl:when>
+                                        <xsl:when test="$sound_manifestation = 'Mute'">
+                                            <rdf:type rdf:resource="https://dev.fiafcore.org/Mute" />
+                                        </xsl:when>
+                                        <xsl:when test="$sound_manifestation = 'Silent'">
+                                            <rdf:type rdf:resource="https://dev.fiafcore.org/Silent" />
+                                        </xsl:when>
+                                        <xsl:when test="$sound_manifestation = 'Combined as Mute'">
+                                            <rdf:type rdf:resource="https://dev.fiafcore.org/Mute" />
+                                        </xsl:when>
+                                        <xsl:when test="$sound_manifestation = 'Combined as Sound'">
+                                            <rdf:type rdf:resource="https://dev.fiafcore.org/Sound" />
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <xsl:message terminate="yes">
+                                                Error: Unexpected value "<xsl:value-of select="$sound_manifestation"/>".
+                                            </xsl:message>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:if>
                                 <xsl:if test="$sound_standard">
                                     <xsl:choose>
                                         <xsl:when test="$sound_standard = 'Dolby'" >

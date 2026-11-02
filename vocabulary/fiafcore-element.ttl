@@ -1,11 +1,27 @@
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
+<https://dev.fiafcore.org/AnswerPrint>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/Positive> ;
+    skos:definition "A trial positive print made for evaluating and approving grading, timing, and synchronisation before release printing."@en ;
+    skos:inScheme <https://dev.fiafcore.org/Element> ;
+    skos:prefLabel "Answer Print"@en ;
+.
+
 <https://dev.fiafcore.org/AudioMaster>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/AudioElement> ;
     skos:definition "An audio master, such as a final mix or print master, from which further copies are made."@en ;
     skos:inScheme <https://dev.fiafcore.org/Element> ;
     skos:prefLabel "Audio Master"@en ;
+.
+
+<https://dev.fiafcore.org/ColourReversalIntermediate>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/DuplicateNegative> ;
+    skos:definition "A duplicate negative produced directly from a negative by reversal processing, without an intervening positive."@en ;
+    skos:inScheme <https://dev.fiafcore.org/Element> ;
+    skos:prefLabel "Colour Reversal Intermediate"@en ;
 .
 
 <https://dev.fiafcore.org/DigitalAccessCopy>
@@ -30,14 +46,6 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:definition "A digital mezzanine file, of sufficient quality for making distribution copies but not maintained as the master."@en ;
     skos:inScheme <https://dev.fiafcore.org/Element> ;
     skos:prefLabel "Digital Mezzanine"@en ;
-.
-
-<https://dev.fiafcore.org/DuplicateNegative>
-    a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/Negative> ;
-    skos:definition ""@en ;
-    skos:inScheme <https://dev.fiafcore.org/Element> ;
-    skos:prefLabel "Duplicate Negative"@en ;
 .
 
 <https://dev.fiafcore.org/DuplicatePositive>
@@ -75,7 +83,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 <https://dev.fiafcore.org/ReleasePrint>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/Positive> ;
-    skos:definition ""@en ;
+    skos:definition "A positive print made for exhibition, distribution, or viewing access."@en ;
     skos:inScheme <https://dev.fiafcore.org/Element> ;
     skos:prefLabel "Release Print"@en ;
 .
@@ -136,6 +144,14 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "Work Print"@en ;
 .
 
+<https://dev.fiafcore.org/DuplicateNegative>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/Negative> ;
+    skos:definition ""@en ;
+    skos:inScheme <https://dev.fiafcore.org/Element> ;
+    skos:prefLabel "Duplicate Negative"@en ;
+.
+
 <https://dev.fiafcore.org/FilmElement>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/Element> ;
@@ -168,20 +184,20 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "Audio Element"@en ;
 .
 
-<https://dev.fiafcore.org/Positive>
-    a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/FilmElement> ;
-    skos:definition "A positive film Element of unspecified generation."@en ;
-    skos:inScheme <https://dev.fiafcore.org/Element> ;
-    skos:prefLabel "Positive"@en ;
-.
-
 <https://dev.fiafcore.org/VideoElement>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/Element> ;
     skos:definition "An Element of a video item, such as an original recording, master or access copy."@en ;
     skos:inScheme <https://dev.fiafcore.org/Element> ;
     skos:prefLabel "Video Element"@en ;
+.
+
+<https://dev.fiafcore.org/Positive>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/FilmElement> ;
+    skos:definition "A positive film Element of unspecified generation."@en ;
+    skos:inScheme <https://dev.fiafcore.org/Element> ;
+    skos:prefLabel "Positive"@en ;
 .
 
 <https://dev.fiafcore.org/Element>

@@ -24,12 +24,12 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "Chromolytic Single Layer"@en ;
 .
 
-<https://dev.fiafcore.org/ColourSeparation>
+<https://dev.fiafcore.org/Cinecolor>
     a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/SubtractiveColourProcess> ;
-    skos:definition "A subtractive colour process using separate colour-record negatives."@en ;
+    skos:broader <https://dev.fiafcore.org/DoubleCoatedBipack> ;
+    skos:definition "A two-colour subtractive bipack process introduced by Cinecolor in 1932."@en ;
     skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
-    skos:prefLabel "Colour Separation"@en ;
+    skos:prefLabel "Cinecolor"@en ;
 .
 
 <https://dev.fiafcore.org/DeLuxe>
@@ -48,14 +48,6 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "Direct Positive"@en ;
 .
 
-<https://dev.fiafcore.org/DoubleCoatedBipack>
-    a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/SubtractiveColourProcess> ;
-    skos:definition "A subtractive colour process using two emulsion layers or two films exposed together."@en ;
-    skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
-    skos:prefLabel "Double-Coated / Bi-Pack"@en ;
-.
-
 <https://dev.fiafcore.org/Duartcolor>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/ChromogenicMonopack> ;
@@ -64,12 +56,28 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "Duartcolor"@en ;
 .
 
+<https://dev.fiafcore.org/Dufaycolor>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/MosaicScreen> ;
+    skos:definition "An additive screen colour process using a regular red, green, and blue réseau mosaic, introduced for motion picture film in 1932."@en ;
+    skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
+    skos:prefLabel "Dufaycolor"@en ;
+.
+
 <https://dev.fiafcore.org/Eastmancolor>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/ChromogenicMonopack> ;
     skos:definition "A chromogenic monopack colour process introduced by Eastman Kodak in 1950."@en ;
     skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
     skos:prefLabel "Eastmancolor"@en ;
+.
+
+<https://dev.fiafcore.org/Ektachrome>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/ChromogenicMonopack> ;
+    skos:definition "A chromogenic monopack reversal colour process introduced by Eastman Kodak."@en ;
+    skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
+    skos:prefLabel "Ektachrome"@en ;
 .
 
 <https://dev.fiafcore.org/Ferraniacolor>
@@ -94,6 +102,14 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:definition "A subtractive three-colour silver dye-bleach multilayer process."@en ;
     skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
     skos:prefLabel "Gasparcolor"@en ;
+.
+
+<https://dev.fiafcore.org/Gevacolor>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/ChromogenicMonopack> ;
+    skos:definition "A chromogenic monopack colour process introduced by Gevaert in 1947."@en ;
+    skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
+    skos:prefLabel "Gevacolor"@en ;
 .
 
 <https://dev.fiafcore.org/HandColouring>
@@ -128,12 +144,12 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "Kodachrome"@en ;
 .
 
-<https://dev.fiafcore.org/LenticularScreen>
+<https://dev.fiafcore.org/Kodacolor>
     a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/ScreenProcess> ;
-    skos:definition "An additive screen process using lenticular lenses to separate coloured records."@en ;
+    skos:broader <https://dev.fiafcore.org/LenticularScreen> ;
+    skos:definition "An additive lenticular-screen 16mm reversal colour process introduced by Eastman Kodak in 1928."@en ;
     skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
-    skos:prefLabel "Lenticular Screen"@en ;
+    skos:prefLabel "Kodacolor"@en ;
 .
 
 <https://dev.fiafcore.org/LineScreen>
@@ -150,14 +166,6 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:definition "MGM's trade name for films processed at its laboratory, generally shot on Eastmancolor stock."@en ;
     skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
     skos:prefLabel "Metrocolor"@en ;
-.
-
-<https://dev.fiafcore.org/MosaicScreen>
-    a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/ScreenProcess> ;
-    skos:definition "An additive screen process using a mosaic of coloured dots."@en ;
-    skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
-    skos:prefLabel "Mosaic Screen"@en ;
 .
 
 <https://dev.fiafcore.org/Orwocolor>
@@ -192,6 +200,14 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "Spatial Synthesis"@en ;
 .
 
+<https://dev.fiafcore.org/Supercinecolor>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/ColourSeparation> ;
+    skos:definition "A three-colour subtractive separation printing process introduced by Cinecolor in 1951."@en ;
+    skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
+    skos:prefLabel "SuperCinecolor"@en ;
+.
+
 <https://dev.fiafcore.org/Technicolor>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/PrintingDyeTransferPigment> ;
@@ -216,6 +232,22 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "Toned"@en ;
 .
 
+<https://dev.fiafcore.org/Trucolor>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/DoubleCoatedBipack> ;
+    skos:definition "A two-colour (later three-colour) subtractive process developed by Consolidated Film Industries for Republic Pictures in 1946."@en ;
+    skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
+    skos:prefLabel "Trucolor"@en ;
+.
+
+<https://dev.fiafcore.org/Ufacolor>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/DoubleCoatedBipack> ;
+    skos:definition "A two-colour subtractive double-coated positive process used by UFA in the early 1930s."@en ;
+    skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
+    skos:prefLabel "Ufacolor"@en ;
+.
+
 <https://dev.fiafcore.org/Warnercolor>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/ChromogenicMonopack> ;
@@ -230,6 +262,30 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:definition "A subtractive colour process in which dyes in a multilayer emulsion are destroyed in proportion to exposure."@en ;
     skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
     skos:prefLabel "Chromolytic Multilayer"@en ;
+.
+
+<https://dev.fiafcore.org/ColourSeparation>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/SubtractiveColourProcess> ;
+    skos:definition "A subtractive colour process using separate colour-record negatives."@en ;
+    skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
+    skos:prefLabel "Colour Separation"@en ;
+.
+
+<https://dev.fiafcore.org/LenticularScreen>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/ScreenProcess> ;
+    skos:definition "An additive screen process using lenticular lenses to separate coloured records."@en ;
+    skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
+    skos:prefLabel "Lenticular Screen"@en ;
+.
+
+<https://dev.fiafcore.org/MosaicScreen>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/ScreenProcess> ;
+    skos:definition "An additive screen process using a mosaic of coloured dots."@en ;
+    skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
+    skos:prefLabel "Mosaic Screen"@en ;
 .
 
 <https://dev.fiafcore.org/PrintingDyeTransferPigment>
@@ -270,6 +326,14 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:definition "A colour process in which colours are produced by adding coloured light, typically through filters or screens."@en ;
     skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
     skos:prefLabel "Additive Colour Process"@en ;
+.
+
+<https://dev.fiafcore.org/DoubleCoatedBipack>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/SubtractiveColourProcess> ;
+    skos:definition "A subtractive colour process using two emulsion layers or two films exposed together."@en ;
+    skos:inScheme <https://dev.fiafcore.org/ColourStandard> ;
+    skos:prefLabel "Double-Coated / Bi-Pack"@en ;
 .
 
 <https://dev.fiafcore.org/ScreenProcess>

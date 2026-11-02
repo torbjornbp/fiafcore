@@ -93,11 +93,25 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     rdfs:subClassOf <https://dev.fiafcore.org/ScreenProcess> ;
 .
 
+<https://dev.fiafcore.org/Dufaycolor> a owl:Class ;
+    rdfs:label "Dufaycolor"@en ;
+    dc:description "An additive screen colour process using a regular red, green, and blue réseau mosaic, introduced for motion picture film in 1932."@en ;
+    dc:source <https://filmcolors.org/timeline-entry/1262/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/MosaicScreen> ;
+.
+
 <https://dev.fiafcore.org/LenticularScreen> a owl:Class ;
     rdfs:label "Lenticular Screen"@en ;
     dc:description "An additive screen process using lenticular lenses to separate coloured records."@en ;
     dc:source <https://filmcolors.org/cat/lenticular-screen/> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ScreenProcess> ;
+.
+
+<https://dev.fiafcore.org/Kodacolor> a owl:Class ;
+    rdfs:label "Kodacolor"@en ;
+    dc:description "An additive lenticular-screen 16mm reversal colour process introduced by Eastman Kodak in 1928."@en ;
+    dc:source <https://filmcolors.org/timeline-entry/1245/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/LenticularScreen> ;
 .
 
 <https://dev.fiafcore.org/SpatialSynthesis> a owl:Class ;
@@ -240,11 +254,46 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     rdfs:subClassOf <https://dev.fiafcore.org/ChromogenicMonopack> ;
 .
 
+<https://dev.fiafcore.org/Gevacolor> a owl:Class ;
+    rdfs:label "Gevacolor"@en ;
+    dc:description "A chromogenic monopack colour process introduced by Gevaert in 1947."@en ;
+    dc:source <https://filmcolors.org/timeline-entry/1309/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ChromogenicMonopack> ;
+.
+
+<https://dev.fiafcore.org/Ektachrome> a owl:Class ;
+    rdfs:label "Ektachrome"@en ;
+    dc:description "A chromogenic monopack reversal colour process introduced by Eastman Kodak."@en ;
+    dc:source <https://filmcolors.org/timeline-entry/1318/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ChromogenicMonopack> ;
+.
+
 <https://dev.fiafcore.org/DoubleCoatedBipack> a owl:Class ;
     rdfs:label "Double-Coated / Bi-Pack"@en ;
     dc:description "A subtractive colour process using two emulsion layers or two films exposed together."@en ;
     dc:source <https://filmcolors.org/cat/double-coated-stock/> ;
     rdfs:subClassOf <https://dev.fiafcore.org/SubtractiveColourProcess> ;
+.
+
+<https://dev.fiafcore.org/Cinecolor> a owl:Class ;
+    rdfs:label "Cinecolor"@en ;
+    dc:description "A two-colour subtractive bipack process introduced by Cinecolor in 1932."@en ;
+    dc:source <https://filmcolors.org/timeline-entry/1263/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DoubleCoatedBipack> ;
+.
+
+<https://dev.fiafcore.org/Trucolor> a owl:Class ;
+    rdfs:label "Trucolor"@en ;
+    dc:description "A two-colour (later three-colour) subtractive process developed by Consolidated Film Industries for Republic Pictures in 1946."@en ;
+    dc:source <https://filmcolors.org/timeline-entry/1306/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DoubleCoatedBipack> ;
+.
+
+<https://dev.fiafcore.org/Ufacolor> a owl:Class ;
+    rdfs:label "Ufacolor"@en ;
+    dc:description "A two-colour subtractive double-coated positive process used by UFA in the early 1930s."@en ;
+    dc:source <https://filmcolors.org/timeline-entry/1250/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DoubleCoatedBipack> ;
 .
 
 <https://dev.fiafcore.org/PrintingDyeTransferPigment> a owl:Class ;
@@ -266,6 +315,13 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     dc:description "A subtractive colour process using separate colour-record negatives."@en ;
     dc:source <https://filmcolors.org/cat/color-separation/> ;
     rdfs:subClassOf <https://dev.fiafcore.org/SubtractiveColourProcess> ;
+.
+
+<https://dev.fiafcore.org/Supercinecolor> a owl:Class ;
+    rdfs:label "SuperCinecolor"@en ;
+    dc:description "A three-colour subtractive separation printing process introduced by Cinecolor in 1951."@en ;
+    dc:source <https://filmcolors.org/timeline-entry/1313/> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ColourSeparation> ;
 .
 
 <https://dev.fiafcore.org/DirectPositive> a owl:Class ;
