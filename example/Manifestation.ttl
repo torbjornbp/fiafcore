@@ -19,5 +19,5 @@
 <https://example.fiafcore.org/technicolor-manifestation>
     a fiaf:Manifestation ;
     rdfs:label "Technicolor Manifestation Example" ;
-    fiaf:hasColourCharacteristic fiaf:Colour ;
-    fiaf:hasColourProcess fiaf:Technicolor .
+    fiaf:hasColourCharacteristic [ a fiaf:Colour ;
+            fiaf:hasColourProcess fiaf:Technicolor ] .

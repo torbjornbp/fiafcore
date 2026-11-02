@@ -49,8 +49,8 @@ def convert_vocabulary(input_file):
 for vocab in [
     'fiafcore-base.ttl',
     'fiafcore-broadcaststandard.ttl',
-    'fiafcore-colourcharacteristic.ttl',
     'fiafcore-colourencoding.ttl',
+    'fiafcore-colourspace.ttl',
     'fiafcore-colourstandard.ttl',
     'fiafcore-country.ttl',
     'fiafcore-element.ttl',
@@ -59,7 +59,8 @@ for vocab in [
     'fiafcore-genre.ttl',
     'fiafcore-language.ttl',
     'fiafcore-soundstandard.ttl',
-    'fiafcore-status.ttl']:
+    'fiafcore-status.ttl',
+    'fiafcore-transferfunction.ttl']:
     convert_vocabulary(vocab)
 
 # build single turtle file from ontology.

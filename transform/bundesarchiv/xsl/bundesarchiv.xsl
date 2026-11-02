@@ -1844,10 +1844,38 @@
                     <xsl:when test="$colourchar = 'keine'" />
                     <xsl:when test="$colourchar = 'Unbekannt'" />
                     <xsl:when test="$colourchar = 'Farbe von historischer Vorlage'" />
-                    <xsl:when test="$colourchar = 'Schablonenkolorierung'" />
-                    <xsl:when test="$colourchar = 'Handkolorierung'" />
-                    <xsl:when test="$colourchar = 'Gasparcolor'" />
-                    <xsl:when test="$colourchar = 'Bipack-Aufnahmen'" />
+                    <xsl:when test="$colourchar = 'Schablonenkolorierung'">
+                        <fiaf:hasColourCharacteristic>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite" />
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/StencilColouring" />
+                            </rdf:Description>
+                        </fiaf:hasColourCharacteristic>
+                    </xsl:when>
+                    <xsl:when test="$colourchar = 'Handkolorierung'">
+                        <fiaf:hasColourCharacteristic>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite" />
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/HandColouring" />
+                            </rdf:Description>
+                        </fiaf:hasColourCharacteristic>
+                    </xsl:when>
+                    <xsl:when test="$colourchar = 'Gasparcolor'">
+                        <fiaf:hasColourCharacteristic>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="https://dev.fiafcore.org/Colour" />
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Gasparcolor" />
+                            </rdf:Description>
+                        </fiaf:hasColourCharacteristic>
+                    </xsl:when>
+                    <xsl:when test="$colourchar = 'Bipack-Aufnahmen'">
+                        <fiaf:hasColourCharacteristic>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="https://dev.fiafcore.org/Colour" />
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/DoubleCoatedBipack" />
+                            </rdf:Description>
+                        </fiaf:hasColourCharacteristic>
+                    </xsl:when>
                     <xsl:when test="$colourchar = 'Ufacolor'" />
                     <xsl:when test="$colourchar = 'schwarz-weiß'">
                         <fiaf:hasColourCharacteristic>
@@ -1866,14 +1894,16 @@
                     <xsl:when test="$colourchar = 'Virage'">
                         <fiaf:hasColourCharacteristic>
                             <rdf:Description>
-                                <rdf:type rdf:resource="https://dev.fiafcore.org/Tinted" />
+                                <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite" />
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Tinted" />
                             </rdf:Description>
                         </fiaf:hasColourCharacteristic>
                     </xsl:when>
                     <xsl:when test="$colourchar = 'Tonung'">
                         <fiaf:hasColourCharacteristic>
                             <rdf:Description>
-                                <rdf:type rdf:resource="https://dev.fiafcore.org/Toned" />
+                                <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite" />
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Toned" />
                             </rdf:Description>
                         </fiaf:hasColourCharacteristic>
                     </xsl:when>
@@ -1888,8 +1918,9 @@
                     <xsl:when test="$colourchar = 'Virage und Tonung'">
                         <fiaf:hasColourCharacteristic>
                             <rdf:Description>
-                                <rdf:type rdf:resource="https://dev.fiafcore.org/Tinted" />
-                                <rdf:type rdf:resource="https://dev.fiafcore.org/Toned" />
+                                <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite" />
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Tinted" />
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Toned" />
                             </rdf:Description>
                         </fiaf:hasColourCharacteristic>
                     </xsl:when>
@@ -1897,7 +1928,7 @@
                         <fiaf:hasColourCharacteristic>
                             <rdf:Description>
                                 <rdf:type rdf:resource="https://dev.fiafcore.org/Colour" />
-                                <fiaf:hasColourStandard rdf:resource="https://dev.fiafcore.org/Orwocolor"/>
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Orwocolor"/>
                             </rdf:Description>
                         </fiaf:hasColourCharacteristic>
                     </xsl:when>
@@ -1905,7 +1936,7 @@
                         <fiaf:hasColourCharacteristic>
                             <rdf:Description>
                                 <rdf:type rdf:resource="https://dev.fiafcore.org/Colour" />
-                                <fiaf:hasColourStandard rdf:resource="https://dev.fiafcore.org/Agfacolor"/>
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Agfacolor"/>
                             </rdf:Description>
                         </fiaf:hasColourCharacteristic>
                     </xsl:when>
@@ -1913,7 +1944,7 @@
                         <fiaf:hasColourCharacteristic>
                             <rdf:Description>
                                 <rdf:type rdf:resource="https://dev.fiafcore.org/Colour" />
-                                <fiaf:hasColourStandard rdf:resource="https://dev.fiafcore.org/Eastmancolor"/>
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Eastmancolor"/>
                             </rdf:Description>
                         </fiaf:hasColourCharacteristic>
                     </xsl:when>
@@ -1921,7 +1952,7 @@
                         <fiaf:hasColourCharacteristic>
                             <rdf:Description>
                                 <rdf:type rdf:resource="https://dev.fiafcore.org/Colour" />
-                                <fiaf:hasColourStandard rdf:resource="https://dev.fiafcore.org/Technicolor"/>
+                                <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Technicolor"/>
                             </rdf:Description>
                         </fiaf:hasColourCharacteristic>
                     </xsl:when>

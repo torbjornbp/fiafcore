@@ -12,9 +12,23 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 ### Subclasses
 
+<https://dev.fiafcore.org/Greyscale> a owl:Class ;
+    rdfs:label "Greyscale"@en ;
+    dc:description "A single-channel monochrome digital pixel encoding."@en ;
+    dc:source <> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ColourEncoding> ;
+.
+
 <https://dev.fiafcore.org/RGB> a owl:Class ;
     rdfs:label "RGB"@en ;
     dc:description "A digital colour encoding using red, green, and blue channels."@en ;
+    dc:source <> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ColourEncoding> ;
+.
+
+<https://dev.fiafcore.org/XYZ> a owl:Class ;
+    rdfs:label "XYZ"@en ;
+    dc:description "A digital colour encoding based on the CIE 1931 XYZ colour model, used in Digital Cinema Distribution Masters and Digital Cinema Packages."@en ;
     dc:source <> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ColourEncoding> ;
 .

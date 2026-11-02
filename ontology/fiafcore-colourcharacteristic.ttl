@@ -33,6 +33,33 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 ### Object Properties
 
+<https://dev.fiafcore.org/hasColourEncoding>
+    a owl:ObjectProperty ;
+    rdfs:label "Has Colour Encoding"@en ;
+    dc:description "Express the digital colour encoding used to represent pixel values in a Manifestation or Item."@en ;
+    dc:source <> ;
+    rdfs:domain <https://dev.fiafcore.org/ColourCharacteristic> ;
+    rdfs:range <https://dev.fiafcore.org/ColourEncoding> ;
+.
+
+<https://dev.fiafcore.org/hasColourProcess>
+    a owl:ObjectProperty ;
+    rdfs:label "Has Colour Process"@en ;
+    dc:description "Express the colour process or standard by which colour is produced or fixed in a Manifestation or Item."@en ;
+    dc:source <> ;
+    rdfs:domain <https://dev.fiafcore.org/ColourCharacteristic> ;
+    rdfs:range <https://dev.fiafcore.org/ColourStandard> ;
+.
+
+<https://dev.fiafcore.org/hasColourSpace>
+    a owl:ObjectProperty ;
+    rdfs:label "Has Colour Space"@en ;
+    dc:description "Express the digital colour space or gamut standard of a Manifestation or Item."@en ;
+    dc:source <> ;
+    rdfs:domain <https://dev.fiafcore.org/ColourCharacteristic> ;
+    rdfs:range <https://dev.fiafcore.org/ColourSpace> ;
+.
+
 <https://dev.fiafcore.org/hasColourStandard>
     a owl:ObjectProperty ;
     rdfs:label "Has Colour Standard"@en ;
@@ -42,4 +69,13 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     rdfs:domain <https://dev.fiafcore.org/ColourCharacteristic> ;
     rdfs:range <https://dev.fiafcore.org/ColourStandard> ;
     rdfs:subPropertyOf <https://dev.fiafcore.org/hasColourProcess> ;
+.
+
+<https://dev.fiafcore.org/hasTransferFunction>
+    a owl:ObjectProperty ;
+    rdfs:label "Has Transfer Function"@en ;
+    dc:description "Express the electro-optical or opto-electronic transfer function of a digital Manifestation or Item."@en ;
+    dc:source <> ;
+    rdfs:domain <https://dev.fiafcore.org/ColourCharacteristic> ;
+    rdfs:range <https://dev.fiafcore.org/TransferFunction> ;
 .

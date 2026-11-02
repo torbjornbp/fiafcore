@@ -1,11 +1,27 @@
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
+<https://dev.fiafcore.org/Greyscale>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/ColourEncoding> ;
+    skos:definition "A single-channel monochrome digital pixel encoding."@en ;
+    skos:inScheme <https://dev.fiafcore.org/ColourEncoding> ;
+    skos:prefLabel "Greyscale"@en ;
+.
+
 <https://dev.fiafcore.org/RGB>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/ColourEncoding> ;
     skos:definition "A digital colour encoding using red, green, and blue channels."@en ;
     skos:inScheme <https://dev.fiafcore.org/ColourEncoding> ;
     skos:prefLabel "RGB"@en ;
+.
+
+<https://dev.fiafcore.org/XYZ>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/ColourEncoding> ;
+    skos:definition "A digital colour encoding based on the CIE 1931 XYZ colour model, used in Digital Cinema Distribution Masters and Digital Cinema Packages."@en ;
+    skos:inScheme <https://dev.fiafcore.org/ColourEncoding> ;
+    skos:prefLabel "XYZ"@en ;
 .
 
 <https://dev.fiafcore.org/YUV>

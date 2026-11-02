@@ -25,5 +25,5 @@
 <https://example.fiafcore.org/tinted-item>
     a fiaf:Item ;
     rdfs:label "Tinted Item Example" ;
-    fiaf:hasColourCharacteristic fiaf:BlackAndWhite ;
-    fiaf:hasColourProcess fiaf:Tinted .
+    fiaf:hasColourCharacteristic [ a fiaf:BlackAndWhite ;
+            fiaf:hasColourProcess fiaf:Tinted ] .

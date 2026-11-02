@@ -100,6 +100,13 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/FilmFormat> ;
 .
 
+<https://dev.fiafcore.org/ACES>
+    a owl:Class ;
+    rdfs:label "ACES"@en ;
+    dc:description "Academy Color Encoding System (SMPTE ST 2065-1), a colour management and interchange system used for archival and restoration masters."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ColourSpace> ;
+.
+
 <https://dev.fiafcore.org/AVI>
     a owl:Class ;
     rdfs:label "AVI"@en ;
@@ -1578,6 +1585,13 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
+<https://dev.fiafcore.org/DCIP3>
+    a owl:Class ;
+    rdfs:label "DCI-P3"@en ;
+    dc:description "The DCI-P3 wide-gamut colour space (SMPTE RP 431-2) used for digital cinema projection."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ColourSpace> ;
+.
+
 <https://dev.fiafcore.org/DPX>
     a owl:Class ;
     rdfs:label "DPX"@en ;
@@ -2326,6 +2340,13 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Country> ;
 .
 
+<https://dev.fiafcore.org/Gamma>
+    a owl:Class ;
+    rdfs:label "Gamma"@en ;
+    dc:description "A power-law gamma transfer function used for standard dynamic range video and cinema display (such as ITU-R BT.1886 or SMPTE ST 428)."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/TransferFunction> ;
+.
+
 <https://dev.fiafcore.org/Ganda>
     a owl:Class ;
     rdfs:label "Ganda"@en ;
@@ -2463,6 +2484,13 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Country> ;
 .
 
+<https://dev.fiafcore.org/Greyscale>
+    a owl:Class ;
+    rdfs:label "Greyscale"@en ;
+    dc:description "A single-channel monochrome digital pixel encoding."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ColourEncoding> ;
+.
+
 <https://dev.fiafcore.org/GreyscaledVariant>
     a owl:Class ;
     rdfs:label "Greyscaled Variant"@en ;
@@ -2546,6 +2574,13 @@ rdfs:subClassOf
     rdfs:label "HDCAM SR"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+.
+
+<https://dev.fiafcore.org/HLG>
+    a owl:Class ;
+    rdfs:label "HLG"@en ;
+    dc:description "Hybrid Log-Gamma (ITU-R BT.2100 / ARIB STD-B67), a high dynamic range transfer function used in broadcast television."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/TransferFunction> ;
 .
 
 <https://dev.fiafcore.org/HairStylist>
@@ -3288,6 +3323,13 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/ScreenProcess> ;
 .
 
+<https://dev.fiafcore.org/Linear>
+    a owl:Class ;
+    rdfs:label "Linear"@en ;
+    dc:description "A linear transfer function in which code values are directly proportional to scene or display light."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/TransferFunction> ;
+.
+
 <https://dev.fiafcore.org/Lingala>
     a owl:Class ;
     rdfs:label "Lingala"@en ;
@@ -3337,6 +3379,13 @@ rdfs:subClassOf
     dc:description "Location Manager, Location Coordinator, Location Scout. The person charged with various aspects of shooting on location, from visiting possible locations during pre-production (Location Scout) to acquiring permits and permissions required for filming in specific places."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ProducingActivity> ;
+.
+
+<https://dev.fiafcore.org/Logarithmic>
+    a owl:Class ;
+    rdfs:label "Logarithmic"@en ;
+    dc:description "A logarithmic transfer function, such as Cineon/DPX printing density log or camera log curves."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/TransferFunction> ;
 .
 
 <https://dev.fiafcore.org/Lubakatanga>
@@ -4240,6 +4289,13 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/BroadcastStandard> ;
 .
 
+<https://dev.fiafcore.org/PQ>
+    a owl:Class ;
+    rdfs:label "PQ"@en ;
+    dc:description "Perceptual Quantizer (SMPTE ST 2084), a high dynamic range transfer function used in HDR10 and Dolby Vision."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/TransferFunction> ;
+.
+
 <https://dev.fiafcore.org/Pakistan>
     a owl:Class ;
     rdfs:label "Pakistan"@en ;
@@ -4727,6 +4783,27 @@ rdfs:subClassOf
     rdfs:label "Real Video"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
+.
+
+<https://dev.fiafcore.org/Rec2020>
+    a owl:Class ;
+    rdfs:label "Rec. 2020"@en ;
+    dc:description "ITU-R Recommendation BT.2020 ultra-high-definition and wide-colour-gamut digital television colour space."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ColourSpace> ;
+.
+
+<https://dev.fiafcore.org/Rec601>
+    a owl:Class ;
+    rdfs:label "Rec. 601"@en ;
+    dc:description "ITU-R Recommendation BT.601 standard-definition digital television colour space."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ColourSpace> ;
+.
+
+<https://dev.fiafcore.org/Rec709>
+    a owl:Class ;
+    rdfs:label "Rec. 709"@en ;
+    dc:description "ITU-R Recommendation BT.709 high-definition digital television colour space."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ColourSpace> ;
 .
 
 <https://dev.fiafcore.org/Reel>
@@ -6462,6 +6539,13 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/WritingActivity> ;
 .
 
+<https://dev.fiafcore.org/XYZ>
+    a owl:Class ;
+    rdfs:label "XYZ"@en ;
+    dc:description "A digital colour encoding based on the CIE 1931 XYZ colour model, used in Digital Cinema Distribution Masters and Digital Cinema Packages."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ColourEncoding> ;
+.
+
 <https://dev.fiafcore.org/Xhosa>
     a owl:Class ;
     rdfs:label "Xhosa"@en ;
@@ -6613,15 +6697,17 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/hasColourEncoding>
     a owl:ObjectProperty ;
     rdfs:label "Has Colour Encoding"@en ;
-    dc:description "The digital colour encoding used for a Manifestation or Item."@en ;
-    rdfs:domain
-        [
-            owl:unionOf (
-                <https://dev.fiafcore.org/Manifestation>
-                <https://dev.fiafcore.org/Item>
-            ) ;
-        ] ;
+    dc:description "Express the digital colour encoding used to represent pixel values in a Manifestation or Item."@en ;
+    rdfs:domain <https://dev.fiafcore.org/ColourCharacteristic> ;
     rdfs:range <https://dev.fiafcore.org/ColourEncoding> ;
+.
+
+<https://dev.fiafcore.org/hasColourSpace>
+    a owl:ObjectProperty ;
+    rdfs:label "Has Colour Space"@en ;
+    dc:description "Express the digital colour space or gamut standard of a Manifestation or Item."@en ;
+    rdfs:domain <https://dev.fiafcore.org/ColourCharacteristic> ;
+    rdfs:range <https://dev.fiafcore.org/ColourSpace> ;
 .
 
 <https://dev.fiafcore.org/hasColourStandard>
@@ -6880,6 +6966,14 @@ rdfs:subClassOf
     rdfs:range xsd:string ;
 .
 
+<https://dev.fiafcore.org/hasTransferFunction>
+    a owl:ObjectProperty ;
+    rdfs:label "Has Transfer Function"@en ;
+    dc:description "Express the electro-optical or opto-electronic transfer function of a digital Manifestation or Item."@en ;
+    rdfs:domain <https://dev.fiafcore.org/ColourCharacteristic> ;
+    rdfs:range <https://dev.fiafcore.org/TransferFunction> ;
+.
+
 <https://dev.fiafcore.org/hasVariant>
     a owl:ObjectProperty ;
     rdfs:label "Has Variant"@en ;
@@ -6920,6 +7014,13 @@ rdfs:subClassOf
     dc:description ""@en ;
     rdfs:domain <https://dev.fiafcore.org/Event> ;
     rdfs:range xsd:boolean ;
+.
+
+<https://dev.fiafcore.org/sRGB>
+    a owl:Class ;
+    rdfs:label "sRGB"@en ;
+    dc:description "Standard RGB colour space (IEC 61966-2-1) used for computer displays and web delivery."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/ColourSpace> ;
 .
 
 <https://dev.fiafcore.org/CensorshipActivity>
@@ -6973,14 +7074,8 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/hasColourProcess>
     a owl:ObjectProperty ;
     rdfs:label "Has Colour Process"@en ;
-    dc:description "The colour process or standard by which colour is produced or fixed in a Manifestation or Item."@en ;
-    rdfs:domain
-        [
-            owl:unionOf (
-                <https://dev.fiafcore.org/Manifestation>
-                <https://dev.fiafcore.org/Item>
-            ) ;
-        ] ;
+    dc:description "Express the colour process or standard by which colour is produced or fixed in a Manifestation or Item."@en ;
+    rdfs:domain <https://dev.fiafcore.org/ColourCharacteristic> ;
     rdfs:range <https://dev.fiafcore.org/ColourStandard> ;
 .
 
@@ -7024,12 +7119,6 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Carrier"@en ;
     dc:description "A moving image Carrier is the discrete physical unit on which the moving image is retained. It can either contain the entire artistic work or a portion, for example in the case of individual film reels."@en ;
-.
-
-<https://dev.fiafcore.org/ColourEncoding>
-    a owl:Class ;
-    rdfs:label "Colour Encoding"@en ;
-    dc:description "A digital colour encoding used to represent colour values in a moving image file."@en ;
 .
 
 <https://dev.fiafcore.org/Identifier>
@@ -7077,13 +7166,6 @@ owl:DatatypeProperty
     a owl:Class ;
     rdfs:label "Broadcast Standard"@en ;
     dc:description "Standard for broadcast encoding."@en ;
-.
-
-<https://dev.fiafcore.org/ColourCharacteristic>
-    a owl:Class ;
-    rdfs:label "Colour Characteristic"@en ;
-    dc:description "The presence of colour(s), tone(s), etc. in a Manifestation or an Item."@en ;
-    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%2075%3A135> ;
 .
 
 <https://dev.fiafcore.org/ColourStandard>
@@ -7156,6 +7238,12 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
+<https://dev.fiafcore.org/ColourEncoding>
+    a owl:Class ;
+    rdfs:label "Colour Encoding"@en ;
+    dc:description "A digital colour encoding used to represent colour values in a moving image file."@en ;
+.
+
 <https://dev.fiafcore.org/SoundCharacteristic>
     a owl:Class ;
     rdfs:label "Sound Characteristic"@en ;
@@ -7175,11 +7263,23 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
+<https://dev.fiafcore.org/TransferFunction>
+    a owl:Class ;
+    rdfs:label "Transfer Function"@en ;
+    dc:description "An opto-electronic or electro-optical transfer function defining the mapping between light levels and digital code values."@en ;
+.
+
 <https://dev.fiafcore.org/AudioFormat>
     a owl:Class ;
     rdfs:label "Audio Format"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
+.
+
+<https://dev.fiafcore.org/ColourSpace>
+    a owl:Class ;
+    rdfs:label "Colour Space"@en ;
+    dc:description "A standardized digital colour space defining colour primaries and white point in a moving image."@en ;
 .
 
 <https://dev.fiafcore.org/CopyrightandDistributionActivity>
@@ -7216,6 +7316,13 @@ owl:DatatypeProperty
     dc:description "Animation contribution to a moving image work."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
+.
+
+<https://dev.fiafcore.org/ColourCharacteristic>
+    a owl:Class ;
+    rdfs:label "Colour Characteristic"@en ;
+    dc:description "The presence of colour(s), tone(s), etc. in a Manifestation or an Item."@en ;
+    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%2075%3A135> ;
 .
 
 <https://dev.fiafcore.org/FilmFormat>
@@ -7342,18 +7449,18 @@ owl:DatatypeProperty
     dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%2049%3A82> ;
 .
 
-<https://dev.fiafcore.org/Work>
-    a owl:Class ;
-    rdfs:label "Work"@en ;
-    dc:description "A moving image Work comprises both the intellectual or artistic content and the process of realisation in a cinematographic medium."@en ;
-    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.35986%3A5030> ;
-.
-
 <https://dev.fiafcore.org/Item>
     a owl:Class ;
     rdfs:label "Item"@en ;
     dc:description "A moving image Item is the physical or digital product of a Manifestation of a Work or Variant, i.e. the actual copy of a Work or Variant. Whereas the Manifestation record describes the “ideal” of a particular format or publication, the Item record represents the actual holding in a repository's collection."@en ;
     dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.36209%3A5084> ;
+.
+
+<https://dev.fiafcore.org/Work>
+    a owl:Class ;
+    rdfs:label "Work"@en ;
+    dc:description "A moving image Work comprises both the intellectual or artistic content and the process of realisation in a cinematographic medium."@en ;
+    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.35986%3A5030> ;
 .
 
 <https://dev.fiafcore.org/Variant>
@@ -7378,6 +7485,13 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
 .
 
+<https://dev.fiafcore.org/Manifestation>
+    a owl:Class ;
+    rdfs:label "Manifestation"@en ;
+    dc:description "A moving image Manifestation is the embodiment of a moving image Work or Variant. Manifestations usually include all analogue, digital and online media associated with a particular embodiment of a Work or Variant."@en ;
+    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.36114%3A5061> ;
+.
+
 <https://dev.fiafcore.org/ProducingActivity>
     a owl:Class ;
     rdfs:label "Producing Activity"@en ;
@@ -7392,13 +7506,6 @@ owl:DatatypeProperty
     dc:description "Production Design contribution to a moving image work."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
-.
-
-<https://dev.fiafcore.org/Manifestation>
-    a owl:Class ;
-    rdfs:label "Manifestation"@en ;
-    dc:description "A moving image Manifestation is the embodiment of a moving image Work or Variant. Manifestations usually include all analogue, digital and online media associated with a particular embodiment of a Work or Variant."@en ;
-    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.36114%3A5061> ;
 .
 
 <https://dev.fiafcore.org/Stock>
