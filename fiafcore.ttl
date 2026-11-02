@@ -1669,11 +1669,11 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/AudioFormat> ;
 .
 
-<https://dev.fiafcore.org/DTS>
+<https://dev.fiafcore.org/DTSHD>
     a owl:Class ;
-    rdfs:label "DTS"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
+    rdfs:label "DTS-HD"@en ;
+    dc:description "An extension of the DTS digital surround sound format (including DTS-HD High Resolution Audio and DTS-HD Master Audio) used on Blu-ray and Ultra HD Blu-ray discs."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DTS> ;
 .
 
 <https://dev.fiafcore.org/DVCAM>
@@ -1731,6 +1731,13 @@ rdfs:subClassOf
     rdfs:label "Danish"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Language> ;
+.
+
+<https://dev.fiafcore.org/Datasat>
+    a owl:Class ;
+    rdfs:label "Datasat"@en ;
+    dc:description "Datasat Digital Entertainment digital cinema surround sound system, succeeding theatrical DTS."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DigitalSoundSystem> ;
 .
 
 <https://dev.fiafcore.org/DeLuxe>
@@ -1860,18 +1867,60 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Country> ;
 .
 
-<https://dev.fiafcore.org/DolbyDigital>
+<https://dev.fiafcore.org/Dolby>
     a owl:Class ;
-    rdfs:label "Dolby Digital"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
+    rdfs:label "Dolby"@en ;
+    dc:description "An unspecified Dolby noise-reduction or sound encoding system."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/NoiseReduction> ;
+.
+
+<https://dev.fiafcore.org/DolbyA>
+    a owl:Class ;
+    rdfs:label "Dolby A"@en ;
+    dc:description "Dolby A-type four-band companding noise-reduction system, used on magnetic recordings and on Dolby Stereo optical release prints from 1975."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/NoiseReduction> ;
+.
+
+<https://dev.fiafcore.org/DolbyAtmos>
+    a owl:Class ;
+    rdfs:label "Dolby Atmos"@en ;
+    dc:description "An object-based digital surround sound system supporting channel beds and three-dimensional audio objects."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DigitalSoundSystem> ;
+.
+
+<https://dev.fiafcore.org/DolbyDigitalPlus>
+    a owl:Class ;
+    rdfs:label "Dolby Digital Plus"@en ;
+    dc:description "Enhanced AC-3 (E-AC-3) digital multi-channel audio system used on optical disc, broadcast, and streaming media."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DolbyDigital> ;
+.
+
+<https://dev.fiafcore.org/DolbyDigitalSurroundEX>
+    a owl:Class ;
+    rdfs:label "Dolby Digital Surround EX"@en ;
+    dc:description "An extension of Dolby Digital adding a matrix-encoded rear-centre surround channel."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DolbyDigital> ;
+.
+
+<https://dev.fiafcore.org/DolbySR>
+    a owl:Class ;
+    rdfs:label "Dolby SR"@en ;
+    dc:description "Dolby Spectral Recording (SR) noise-reduction system, used on magnetic recordings and on Dolby Stereo SR optical release prints from 1986."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/NoiseReduction> ;
 .
 
 <https://dev.fiafcore.org/DolbyStereo>
     a owl:Class ;
     rdfs:label "Dolby Stereo"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
+    dc:description "An analogue stereo variable-area optical sound system encoding four channels (left, centre, right, surround) into two optical tracks with Dolby noise reduction."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalVariableArea> ;
+.
+
+<https://dev.fiafcore.org/DolbyTrueHD>
+    a owl:Class ;
+    rdfs:label "Dolby TrueHD"@en ;
+    dc:description "A lossless multi-channel digital audio system based on Meridian Lossless Packing, used on Blu-ray and Ultra HD Blu-ray discs."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DigitalSoundSystem> ;
 .
 
 <https://dev.fiafcore.org/DollyGrip>
@@ -2351,6 +2400,13 @@ rdfs:subClassOf
     rdfs:label "Foot"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
+.
+
+<https://dev.fiafcore.org/FourTrackMagnetic>
+    a owl:Class ;
+    rdfs:label "Four-Track Magnetic"@en ;
+    dc:description "A four-track magnetic film sound system (left, centre, right, surround), introduced for 35mm CinemaScope release prints and four-track magnetic film elements."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Magnetic> ;
 .
 
 <https://dev.fiafcore.org/France>
@@ -3660,13 +3716,6 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Country> ;
 .
 
-<https://dev.fiafcore.org/Magnetic>
-    a owl:Class ;
-    rdfs:label "Magnetic"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
-.
-
 <https://dev.fiafcore.org/MagnetoOpticalDisc>
     a owl:Class ;
     rdfs:label "Magneto-Optical Disc"@en ;
@@ -3958,6 +4007,13 @@ rdfs:subClassOf
     rdfs:label "Mongolian"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Language> ;
+.
+
+<https://dev.fiafcore.org/Mono>
+    a owl:Class ;
+    rdfs:label "Mono"@en ;
+    dc:description "Monophonic sound reproduced through a single audio channel."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/SoundChannelConfiguration> ;
 .
 
 <https://dev.fiafcore.org/MonographicWork>
@@ -4425,18 +4481,11 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Genre> ;
 .
 
-<https://dev.fiafcore.org/OpticalVariableArea>
-    a owl:Class ;
-    rdfs:label "Optical Variable Area"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
-.
-
 <https://dev.fiafcore.org/OpticalVariableDensity>
     a owl:Class ;
     rdfs:label "Optical Variable Density"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
+    dc:description "An analogue optical sound process in which the audio signal is represented by variations in the optical density (transmittance) of the soundtrack area."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalSoundProcess> ;
 .
 
 <https://dev.fiafcore.org/OriginalCopyrightOwner>
@@ -5231,8 +5280,8 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/SDDS>
     a owl:Class ;
     rdfs:label "SDDS"@en ;
-    dc:description ""@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
+    dc:description "Sony Dynamic Digital Sound, a digital optical sound system printed on the outer edges of 35mm film."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalSoundProcess> ;
 .
 
 <https://dev.fiafcore.org/SECAM>
@@ -5624,6 +5673,13 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Country> ;
 .
 
+<https://dev.fiafcore.org/SixTrackMagnetic>
+    a owl:Class ;
+    rdfs:label "Six-Track Magnetic"@en ;
+    dc:description "A six-track magnetic film sound system, standard on 70mm release prints and six-track magnetic film elements."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Magnetic> ;
+.
+
 <https://dev.fiafcore.org/SlapstickFilm>
     a owl:Class ;
     rdfs:label "Slapstick Film"@en ;
@@ -5911,6 +5967,13 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/CinematographyActivity> ;
 .
 
+<https://dev.fiafcore.org/Stereo>
+    a owl:Class ;
+    rdfs:label "Stereo"@en ;
+    dc:description "Stereophonic sound reproduced through two or more directional front channels without surround channels."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/SoundChannelConfiguration> ;
+.
+
 <https://dev.fiafcore.org/StickPuppetFilm>
     a owl:Class ;
     rdfs:label "Stick puppet Film"@en ;
@@ -6041,6 +6104,13 @@ rdfs:subClassOf
     rdfs:label "Surrealist Film"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Genre> ;
+.
+
+<https://dev.fiafcore.org/Surround>
+    a owl:Class ;
+    rdfs:label "Surround"@en ;
+    dc:description "Multi-channel sound incorporating one or more surround channels in addition to screen channels."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/SoundChannelConfiguration> ;
 .
 
 <https://dev.fiafcore.org/SvalbardAndJanMayen>
@@ -6497,6 +6567,13 @@ rdfs:subClassOf
     rdfs:label "Ultra HD Blu-ray"@en ;
     dc:description "The Ultra HD Blu-ray optical disc format."@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/BluRay> ;
+.
+
+<https://dev.fiafcore.org/UltraStereo>
+    a owl:Class ;
+    rdfs:label "Ultra-Stereo"@en ;
+    dc:description "An analogue stereo variable-area 4-2-4 matrix optical sound system."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalVariableArea> ;
 .
 
 <https://dev.fiafcore.org/UmaticHighBand>
@@ -7216,6 +7293,14 @@ rdfs:subClassOf
     rdfs:range <https://dev.fiafcore.org/Manifestation> ;
 .
 
+<https://dev.fiafcore.org/hasSoundChannelConfiguration>
+    a owl:ObjectProperty ;
+    rdfs:label "Has Sound Channel Configuration"@en ;
+    dc:description "Express the channel configuration of the sound in a Manifestation or Item."@en ;
+    rdfs:domain <https://dev.fiafcore.org/SoundCharacteristic> ;
+    rdfs:range <https://dev.fiafcore.org/SoundChannelConfiguration> ;
+.
+
 <https://dev.fiafcore.org/hasSoundCharacteristic>
     a owl:ObjectProperty ;
     rdfs:label "Has Sound Characteristic"@en ;
@@ -7233,7 +7318,7 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/hasSoundStandard>
     a owl:ObjectProperty ;
     rdfs:label "Has Sound Standard"@en ;
-    dc:description "Express a specific sound process."@en ;
+    dc:description "Express a specific sound process, playback system, or noise-reduction standard."@en ;
     rdfs:domain <https://dev.fiafcore.org/SoundCharacteristic> ;
     rdfs:range <https://dev.fiafcore.org/SoundStandard> ;
 .
@@ -7373,6 +7458,13 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/SubtractiveColourProcess> ;
 .
 
+<https://dev.fiafcore.org/DTS>
+    a owl:Class ;
+    rdfs:label "DTS"@en ;
+    dc:description "Digital Theater Systems, a digital surround sound system using an optical timecode track on film synchronised with CD-ROM discs, or digital audio streams on disc and digital media."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DigitalSoundSystem> ;
+.
+
 <https://dev.fiafcore.org/DVCPRO>
     a owl:Class ;
     rdfs:label "DVCPRO"@en ;
@@ -7448,6 +7540,13 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
+<https://dev.fiafcore.org/DolbyDigital>
+    a owl:Class ;
+    rdfs:label "Dolby Digital"@en ;
+    dc:description "A digital multi-channel audio compression system (AC-3), printed between perforations on 35mm film (Dolby SRD) or encoded on digital and optical disc media."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DigitalSoundSystem> ;
+.
+
 <https://dev.fiafcore.org/EditingActivity>
     a owl:Class ;
     rdfs:label "Editing Activity"@en ;
@@ -7456,12 +7555,26 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
 .
 
+<https://dev.fiafcore.org/Magnetic>
+    a owl:Class ;
+    rdfs:label "Magnetic"@en ;
+    dc:description "A sound process in which audio is recorded magnetically on a magnetic film stripe, separate magnetic film, or magnetic tape carrier."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
+.
+
 <https://dev.fiafcore.org/MimeticColourProcess>
     a owl:Class ;
     rdfs:label "Mimetic Colour Process"@en ;
     dc:description "A colour process in which the colours of the subject are reproduced photographically."@en ;
     dc:source <https://filmcolors.org/#classification> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ColourStandard> ;
+.
+
+<https://dev.fiafcore.org/OpticalVariableArea>
+    a owl:Class ;
+    rdfs:label "Optical Variable Area"@en ;
+    dc:description "An analogue optical sound process in which the audio signal is represented by variations in the width of the transparent and opaque areas of the soundtrack."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalSoundProcess> ;
 .
 
 <https://dev.fiafcore.org/Organisation>
@@ -7510,11 +7623,25 @@ owl:DatatypeProperty
     dc:description ""@en ;
 .
 
+<https://dev.fiafcore.org/NoiseReduction>
+    a owl:Class ;
+    rdfs:label "Noise Reduction"@en ;
+    dc:description "An analogue companding noise-reduction system applied to optical or magnetic sound recordings."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
+.
+
 <https://dev.fiafcore.org/OneInchVideotape>
     a owl:Class ;
     rdfs:label "One Inch Videotape"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+.
+
+<https://dev.fiafcore.org/OpticalSoundProcess>
+    a owl:Class ;
+    rdfs:label "Optical Sound Process"@en ;
+    dc:description "A sound process in which audio is recorded photographically as an optical track on film."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
 .
 
 <https://dev.fiafcore.org/PackageFormat>
@@ -7649,6 +7776,12 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
+<https://dev.fiafcore.org/SoundChannelConfiguration>
+    a owl:Class ;
+    rdfs:label "Sound Channel Configuration"@en ;
+    dc:description "The spatial channel configuration of a sound recording in a Manifestation or Item."@en ;
+.
+
 <https://dev.fiafcore.org/WrittenLanguage>
     a owl:Class ;
     rdfs:label "Written Language"@en ;
@@ -7676,6 +7809,13 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
 .
 
+<https://dev.fiafcore.org/DigitalSoundSystem>
+    a owl:Class ;
+    rdfs:label "Digital Sound System"@en ;
+    dc:description "A digital audio playback or surround system used for theatrical exhibition, broadcast, or home viewing."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
+.
+
 <https://dev.fiafcore.org/LTO>
     a owl:Class ;
     rdfs:label "LTO"@en ;
@@ -7683,10 +7823,10 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
 .
 
-<https://dev.fiafcore.org/SoundCharacteristic>
+<https://dev.fiafcore.org/SoundStandard>
     a owl:Class ;
-    rdfs:label "Sound Characteristic"@en ;
-    dc:description ""@en ;
+    rdfs:label "Sound Standard"@en ;
+    dc:description "A sound process, playback system, or noise-reduction standard by which sound is fixed or encoded in a moving image."@en ;
 .
 
 <https://dev.fiafcore.org/ManufactureEvent>
@@ -7694,6 +7834,12 @@ owl:DatatypeProperty
     rdfs:label "Manufacture Event"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
+.
+
+<https://dev.fiafcore.org/SoundCharacteristic>
+    a owl:Class ;
+    rdfs:label "Sound Characteristic"@en ;
+    dc:description ""@en ;
 .
 
 <https://dev.fiafcore.org/TransferFunction>
@@ -7769,12 +7915,6 @@ owl:DatatypeProperty
     rdfs:label "Colour Characteristic"@en ;
     dc:description "The presence of colour(s), tone(s), etc. in a Manifestation or an Item."@en ;
     dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%2075%3A135> ;
-.
-
-<https://dev.fiafcore.org/SoundStandard>
-    a owl:Class ;
-    rdfs:label "Sound Standard"@en ;
-    dc:description ""@en ;
 .
 
 <https://dev.fiafcore.org/SubtractiveColourProcess>

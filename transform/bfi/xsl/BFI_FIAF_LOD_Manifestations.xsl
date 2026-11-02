@@ -663,17 +663,41 @@
                                 </xsl:choose>
                                 <xsl:if test="$sound_standard">
                                     <xsl:choose>
-                                        <xsl:when test="$sound_standard = 'Dolby'"/>
-                                        <xsl:when test="$sound_standard = 'Mono'"/>
-                                        <xsl:when test="$sound_standard = 'Stereo'"/>
-                                        <xsl:when test="$sound_standard = 'Dolby SR'"/>
-                                        <xsl:when test="$sound_standard = 'Ultra-Stereo'"/>
-                                        <xsl:when test="$sound_standard = 'DataSat'"/>
-                                        <xsl:when test="$sound_standard = 'Combined Optical Sound'"/>
-                                        <xsl:when test="$sound_standard = 'Dolby Digital Surround EX'"/>
-                                        <xsl:when test="$sound_standard = 'DTS Sound (Optical)'"/>
-                                        <xsl:when test="$sound_standard = 'Dolby Atmos'"/>
-                                        <xsl:when test="$sound_standard = 'Surround Stereo'"/>
+                                        <xsl:when test="$sound_standard = 'Dolby'" >
+                                            <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/Dolby"/>
+                                        </xsl:when>
+                                        <xsl:when test="$sound_standard = 'Mono'" >
+                                            <fiaf:hasSoundChannelConfiguration rdf:resource="https://dev.fiafcore.org/Mono"/>
+                                        </xsl:when>
+                                        <xsl:when test="$sound_standard = 'Stereo'" >
+                                            <fiaf:hasSoundChannelConfiguration rdf:resource="https://dev.fiafcore.org/Stereo"/>
+                                        </xsl:when>
+                                        <xsl:when test="$sound_standard = 'Dolby SR'" >
+                                            <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/DolbySR"/>
+                                        </xsl:when>
+                                        <xsl:when test="$sound_standard = 'Ultra-Stereo'" >
+                                            <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/UltraStereo"/>
+                                        </xsl:when>
+                                        <xsl:when test="$sound_standard = 'DataSat'" >
+                                            <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/Datasat"/>
+                                        </xsl:when>
+                                        <xsl:when test="$sound_standard = 'Combined Optical Sound'" >
+                                            <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/OpticalSoundProcess"/>
+                                        </xsl:when>
+                                        <xsl:when test="$sound_standard = 'Dolby Digital Surround EX'" >
+                                            <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/DolbyDigitalSurroundEX"/>
+                                        </xsl:when>
+                                        <xsl:when test="$sound_standard = 'DTS Sound (Optical)'" >
+                                            <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/DTS"/>
+                                            <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/OpticalSoundProcess"/>
+                                        </xsl:when>
+                                        <xsl:when test="$sound_standard = 'Dolby Atmos'" >
+                                            <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/DolbyAtmos"/>
+                                        </xsl:when>
+                                        <xsl:when test="$sound_standard = 'Surround Stereo'" >
+                                            <fiaf:hasSoundChannelConfiguration rdf:resource="https://dev.fiafcore.org/Stereo"/>
+                                            <fiaf:hasSoundChannelConfiguration rdf:resource="https://dev.fiafcore.org/Surround"/>
+                                        </xsl:when>
                                         <xsl:when test="$sound_standard = 'Dolby Digital'" >
                                             <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/DolbyDigital"/>
                                         </xsl:when>
@@ -685,9 +709,10 @@
                                         </xsl:when>
                                         <xsl:when test="$sound_standard = 'Dolby Stereo SR'" >
                                             <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/DolbyStereo"/>
+                                            <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/DolbySR"/>
                                         </xsl:when>
                                         <xsl:when test="$sound_standard = 'Digital Stereo'" >
-                                            <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/DolbyStereo"/>
+                                            <fiaf:hasSoundChannelConfiguration rdf:resource="https://dev.fiafcore.org/Stereo"/>
                                         </xsl:when>
                                         <xsl:when test="$sound_standard = 'Separate Magnetic Sound'" >
                                             <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/Magnetic"/>

@@ -39,10 +39,19 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 ### Object Properties
 
+<https://dev.fiafcore.org/hasSoundChannelConfiguration>
+    a owl:ObjectProperty ;
+    rdfs:label "Has Sound Channel Configuration"@en ;
+    dc:description "Express the channel configuration of the sound in a Manifestation or Item."@en ;
+    dc:source <> ;
+    rdfs:domain <https://dev.fiafcore.org/SoundCharacteristic> ;
+    rdfs:range <https://dev.fiafcore.org/SoundChannelConfiguration> ;
+.
+
 <https://dev.fiafcore.org/hasSoundStandard>
     a owl:ObjectProperty ;
     rdfs:label "Has Sound Standard"@en ;
-    dc:description "Express a specific sound process."@en ;
+    dc:description "Express a specific sound process, playback system, or noise-reduction standard."@en ;
     dc:source <> ;
     rdfs:domain <https://dev.fiafcore.org/SoundCharacteristic> ;
     rdfs:range <https://dev.fiafcore.org/SoundStandard> ;
