@@ -6,7 +6,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 <https://dev.fiafcore.org/SoundCharacteristic> a owl:Class ;
     rdfs:label "Sound Characteristic"@en ;
-    dc:description ""@en ;
+    dc:description "The presence and nature of sound on a single soundtrack of a Manifestation or Item. A carrier with several soundtracks carries several SoundCharacteristic nodes."@en ;
     dc:source <> ;
 .
 
@@ -14,21 +14,21 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 <https://dev.fiafcore.org/Mute> a owl:Class ;
     rdfs:label "Mute"@en ;
-    dc:description ""@en ;
+    dc:description "An image-only element, or a print whose soundtrack area is intentionally absent or masked, produced in the sound era."@en ;
     dc:source <> ;
     rdfs:subClassOf <https://dev.fiafcore.org/SoundCharacteristic> ;
 .
 
 <https://dev.fiafcore.org/Silent> a owl:Class ;
     rdfs:label "Silent"@en ;
-    dc:description ""@en ;
+    dc:description "A film produced without recorded sound, or a print intended for silent exhibition."@en ;
     dc:source <> ;
     rdfs:subClassOf <https://dev.fiafcore.org/SoundCharacteristic> ;
 .
 
 <https://dev.fiafcore.org/Sound> a owl:Class ;
     rdfs:label "Sound"@en ;
-    dc:description ""@en ;
+    dc:description "Sound is present on the soundtrack."@en ;
     dc:source <> ;
     rdfs:subClassOf <https://dev.fiafcore.org/SoundCharacteristic> ;
 .
@@ -38,6 +38,15 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 # None
 
 ### Object Properties
+
+<https://dev.fiafcore.org/hasNoiseReduction>
+    a owl:ObjectProperty ;
+    rdfs:label "Has Noise Reduction"@en ;
+    dc:description "Express the analogue companding noise-reduction system applied to a sound recording."@en ;
+    dc:source <> ;
+    rdfs:domain <https://dev.fiafcore.org/SoundCharacteristic> ;
+    rdfs:range <https://dev.fiafcore.org/NoiseReduction> ;
+.
 
 <https://dev.fiafcore.org/hasSoundChannelConfiguration>
     a owl:ObjectProperty ;
@@ -51,7 +60,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 <https://dev.fiafcore.org/hasSoundStandard>
     a owl:ObjectProperty ;
     rdfs:label "Has Sound Standard"@en ;
-    dc:description "Express a specific sound process, playback system, or noise-reduction standard."@en ;
+    dc:description "Express a sound fixation process or playback/encoding system. Noise reduction is expressed separately with hasNoiseReduction."@en ;
     dc:source <> ;
     rdfs:domain <https://dev.fiafcore.org/SoundCharacteristic> ;
     rdfs:range <https://dev.fiafcore.org/SoundStandard> ;

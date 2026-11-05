@@ -107,10 +107,11 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/FilmFormat> ;
 .
 
-<https://dev.fiafcore.org/ACES>
+<https://dev.fiafcore.org/ACES2065_1>
     a owl:Class ;
-    rdfs:label "ACES"@en ;
-    dc:description "Academy Color Encoding System (SMPTE ST 2065-1), a colour management and interchange system used for archival and restoration masters."@en ;
+    rdfs:label "ACES2065-1 (AP0)"@en ;
+    dc:description "The scene-linear RGB colour space specified by SMPTE ST 2065-1, using AP0 primaries and the ACES white point. This identifies ACES2065-1 specifically, not the broader Academy Color Encoding System. Record RGB encoding and a Linear transfer function when describing these aspects explicitly."@en ;
+    dc:source <https://docs.acescentral.com/encodings/aces2065-1/> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ColourSpace> ;
 .
 
@@ -1932,18 +1933,11 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Country> ;
 .
 
-<https://dev.fiafcore.org/Dolby>
-    a owl:Class ;
-    rdfs:label "Dolby"@en ;
-    dc:description "An unspecified Dolby noise-reduction or sound encoding system."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/NoiseReduction> ;
-.
-
 <https://dev.fiafcore.org/DolbyA>
     a owl:Class ;
     rdfs:label "Dolby A"@en ;
     dc:description "Dolby A-type four-band companding noise-reduction system, used on magnetic recordings and on Dolby Stereo optical release prints from 1975."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/NoiseReduction> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Dolby> ;
 .
 
 <https://dev.fiafcore.org/DolbyAtmos>
@@ -1971,7 +1965,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Dolby SR"@en ;
     dc:description "Dolby Spectral Recording (SR) noise-reduction system, used on magnetic recordings and on Dolby Stereo SR optical release prints from 1986."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/NoiseReduction> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Dolby> ;
 .
 
 <https://dev.fiafcore.org/DolbyStereo>
@@ -4228,7 +4222,7 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/Mute>
     a owl:Class ;
     rdfs:label "Mute"@en ;
-    dc:description ""@en ;
+    dc:description "An image-only element, or a print whose soundtrack area is intentionally absent or masked, produced in the sound era."@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/SoundCharacteristic> ;
 .
 
@@ -5176,7 +5170,7 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/RealVideo>
     a owl:Class ;
     rdfs:label "Real Video"@en ;
-    dc:description ""@en ;
+    dc:description "The RealVideo family of video codecs."@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/VideoCodec> ;
 .
 
@@ -5391,7 +5385,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "SDDS"@en ;
     dc:description "Sony Dynamic Digital Sound, a digital optical sound system printed on the outer edges of 35mm film."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/OpticalSoundProcess> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DigitalSoundSystem> ;
 .
 
 <https://dev.fiafcore.org/SECAM>
@@ -5742,7 +5736,7 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/Silent>
     a owl:Class ;
     rdfs:label "Silent"@en ;
-    dc:description ""@en ;
+    dc:description "A film produced without recorded sound, or a print intended for silent exhibition."@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/SoundCharacteristic> ;
 .
 
@@ -5878,7 +5872,7 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/Sound>
     a owl:Class ;
     rdfs:label "Sound"@en ;
-    dc:description ""@en ;
+    dc:description "Sound is present on the soundtrack."@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/SoundCharacteristic> ;
 .
 
@@ -6144,6 +6138,13 @@ rdfs:subClassOf
     dc:description "Stunt Man, Stunt Woman, Stunt Performer, Stunts. A professional who performs feats required by the script which are difficult or appear dangerous."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/CastActivity> ;
+.
+
+<https://dev.fiafcore.org/SubtitleStream>
+    a owl:Class ;
+    rdfs:label "Subtitle Stream"@en ;
+    dc:description "A separately encoded subtitle stream within a digital object, not subtitles burned into the picture. A separate subtitle file is described as an object rather than automatically treated as an embedded stream."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DigitalStream> ;
 .
 
 <https://dev.fiafcore.org/SubtitledVariant>
@@ -7051,7 +7052,7 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/WindowsMedia>
     a owl:Class ;
     rdfs:label "Windows Media"@en ;
-    dc:description ""@en ;
+    dc:description "The Windows Media family of video codecs."@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/VideoCodec> ;
 .
 
@@ -7223,6 +7224,14 @@ rdfs:subClassOf
     rdfs:range <https://dev.fiafcore.org/Agent> ;
 .
 
+<https://dev.fiafcore.org/hasAudioCodec>
+    a owl:ObjectProperty ;
+    rdfs:label "Has Audio Codec"@en ;
+    dc:description "Express the encoding of an individual digital audio stream."@en ;
+    rdfs:domain <https://dev.fiafcore.org/AudioStream> ;
+    rdfs:range <https://dev.fiafcore.org/AudioCodec> ;
+.
+
 <https://dev.fiafcore.org/hasAwardName>
     a owl:ObjectProperty ;
     rdfs:label "Has Award Name"@en ;
@@ -7258,12 +7267,13 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/hasColourCharacteristic>
     a owl:ObjectProperty ;
     rdfs:label "Has Colour Characteristic"@en ;
-    dc:description "The presence of colour(s), tone(s), etc. in a Manifestation or an Item."@en ;
+    dc:description "The presence of colour(s), tone(s), etc. in a Manifestation, Item, or individual digital video stream."@en ;
     rdfs:domain
         [
             owl:unionOf (
                 <https://dev.fiafcore.org/Manifestation>
                 <https://dev.fiafcore.org/Item>
+                <https://dev.fiafcore.org/VideoStream>
             ) ;
         ] ;
     rdfs:range <https://dev.fiafcore.org/ColourCharacteristic> ;
@@ -7363,7 +7373,7 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/hasFormat>
     a owl:ObjectProperty ;
     rdfs:label "Has Format"@en ;
-    dc:description "The medium on or the encoding format in which the moving image Manifestation, Item, or Carrier is fixed."@en ;
+    dc:description "The physical medium, digital file format, or package in which the moving image Manifestation, Item, or Carrier is fixed. Codecs are described on digital streams using hasVideoCodec or hasAudioCodec."@en ;
     rdfs:domain
         [
             owl:unionOf (
@@ -7445,13 +7455,15 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/hasLanguageUsage>
     a owl:ObjectProperty ;
     rdfs:label "Has Language Usage"@en ;
-    dc:description "Record the usage type of a language e.g. spoken, intertitles, subtitles, etc."@en ;
+    dc:description "Record the usage type of a language e.g. spoken, intertitles, subtitles, etc. A digital stream may reference the same LanguageUsage node as a Work, Variant, Manifestation, or Item to identify which stream carries that usage; summary and stream statements do not imply each other."@en ;
     rdfs:domain
         [
             owl:unionOf (
                 <https://dev.fiafcore.org/Work>
                 <https://dev.fiafcore.org/Variant>
                 <https://dev.fiafcore.org/Manifestation>
+                <https://dev.fiafcore.org/Item>
+                <https://dev.fiafcore.org/DigitalStream>
             ) ;
         ] ;
     rdfs:range <https://dev.fiafcore.org/LanguageUsage> ;
@@ -7472,6 +7484,14 @@ rdfs:subClassOf
     rdfs:range <https://dev.fiafcore.org/Manifestation> ;
 .
 
+<https://dev.fiafcore.org/hasNoiseReduction>
+    a owl:ObjectProperty ;
+    rdfs:label "Has Noise Reduction"@en ;
+    dc:description "Express the analogue companding noise-reduction system applied to a sound recording."@en ;
+    rdfs:domain <https://dev.fiafcore.org/SoundCharacteristic> ;
+    rdfs:range <https://dev.fiafcore.org/NoiseReduction> ;
+.
+
 <https://dev.fiafcore.org/hasSoundChannelConfiguration>
     a owl:ObjectProperty ;
     rdfs:label "Has Sound Channel Configuration"@en ;
@@ -7483,12 +7503,13 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/hasSoundCharacteristic>
     a owl:ObjectProperty ;
     rdfs:label "Has Sound Characteristic"@en ;
-    dc:description "Technical specifications relating to the fixation of sound in a moving image Manifestation or moving image Item."@en ;
+    dc:description "Technical specifications relating to the fixation of sound in a moving image Manifestation, Item, or individual digital audio stream."@en ;
     rdfs:domain
         [
             owl:unionOf (
                 <https://dev.fiafcore.org/Manifestation>
                 <https://dev.fiafcore.org/Item>
+                <https://dev.fiafcore.org/AudioStream>
             ) ;
         ] ;
     rdfs:range <https://dev.fiafcore.org/SoundCharacteristic> ;
@@ -7497,7 +7518,7 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/hasSoundStandard>
     a owl:ObjectProperty ;
     rdfs:label "Has Sound Standard"@en ;
-    dc:description "Express a specific sound process, playback system, or noise-reduction standard."@en ;
+    dc:description "Express a sound fixation process or playback/encoding system. Noise reduction is expressed separately with hasNoiseReduction."@en ;
     rdfs:domain <https://dev.fiafcore.org/SoundCharacteristic> ;
     rdfs:range <https://dev.fiafcore.org/SoundStandard> ;
 .
@@ -7524,6 +7545,20 @@ rdfs:subClassOf
     dc:description ""@en ;
     rdfs:domain <https://dev.fiafcore.org/Stock> ;
     rdfs:range xsd:string ;
+.
+
+<https://dev.fiafcore.org/hasStream>
+    a owl:ObjectProperty ;
+    rdfs:label "Has Stream"@en ;
+    dc:description "Associate an optional digital stream with the object represented by an Item or Carrier. Both levels are first-class description points; no Carrier record is required. This relationship does not propagate through storage or component relationships."@en ;
+    rdfs:domain
+        [
+            owl:unionOf (
+                <https://dev.fiafcore.org/Item>
+                <https://dev.fiafcore.org/Carrier>
+            ) ;
+        ] ;
+    rdfs:range <https://dev.fiafcore.org/DigitalStream> ;
 .
 
 <https://dev.fiafcore.org/hasTitle>
@@ -7575,6 +7610,14 @@ rdfs:subClassOf
     rdfs:range xsd:string ;
 .
 
+<https://dev.fiafcore.org/hasVideoCodec>
+    a owl:ObjectProperty ;
+    rdfs:label "Has Video Codec"@en ;
+    dc:description "Express the encoding of an individual digital video stream."@en ;
+    rdfs:domain <https://dev.fiafcore.org/VideoStream> ;
+    rdfs:range <https://dev.fiafcore.org/VideoCodec> ;
+.
+
 <https://dev.fiafcore.org/hasWork>
     a owl:ObjectProperty ;
     rdfs:label "Has Work"@en ;
@@ -7605,13 +7648,6 @@ rdfs:subClassOf
     rdfs:label "sRGB"@en ;
     dc:description "Standard RGB colour space (IEC 61966-2-1) used for computer displays and web delivery."@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/ColourSpace> ;
-.
-
-<https://dev.fiafcore.org/AudioCodec>
-    a owl:Class ;
-    rdfs:label "Audio Codec"@en ;
-    dc:description "A digital audio encoding used inside a digital container."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
 .
 
 <https://dev.fiafcore.org/BluRay>
@@ -7743,11 +7779,31 @@ rdfs:subClassOf
     rdfs:range <https://dev.fiafcore.org/ColourStandard> ;
 .
 
+<https://dev.fiafcore.org/AudioCodec>
+    a owl:Class ;
+    rdfs:label "Audio Codec"@en ;
+    dc:description "An encoding of a digital audio stream, independent of its enclosing file format."@en ;
+.
+
+<https://dev.fiafcore.org/AudioStream>
+    a owl:Class ;
+    rdfs:label "Audio Stream"@en ;
+    dc:description "A digital audio stream, which may contain multiple channels. Language usage, codec, and sound characteristics can be associated with this stream independently of other streams."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DigitalStream> ;
+.
+
 <https://dev.fiafcore.org/Betacam>
     a owl:Class ;
     rdfs:label "Betacam"@en ;
     dc:description "The Betacam family of half inch component videocassette formats."@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+.
+
+<https://dev.fiafcore.org/Dolby>
+    a owl:Class ;
+    rdfs:label "Dolby"@en ;
+    dc:description "Dolby noise reduction of unspecified type (for example A-type or SR)."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/NoiseReduction> ;
 .
 
 <https://dev.fiafcore.org/DolbyDigital>
@@ -7787,6 +7843,19 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/ColourStandard> ;
 .
 
+<https://dev.fiafcore.org/NoiseReduction>
+    a owl:Class ;
+    rdfs:label "Noise Reduction"@en ;
+    dc:description "An analogue companding noise-reduction system applied to an optical or magnetic sound recording."@en ;
+.
+
+<https://dev.fiafcore.org/OpticalSoundProcess>
+    a owl:Class ;
+    rdfs:label "Optical Sound Process"@en ;
+    dc:description "An analogue sound process in which audio is recorded photographically as an optical track on film."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
+.
+
 <https://dev.fiafcore.org/OpticalVariableArea>
     a owl:Class ;
     rdfs:label "Optical Variable Area"@en ;
@@ -7800,6 +7869,13 @@ rdfs:subClassOf
     dc:description "A collection of human beings, collaborating for commercial or artistic purposes."@en ;
     dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%2047%3A79> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Agent> ;
+.
+
+<https://dev.fiafcore.org/VideoStream>
+    a owl:Class ;
+    rdfs:label "Video Stream"@en ;
+    dc:description "A digital stream of moving images. Its codec and colour characteristics describe this stream, not other streams in the same object."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DigitalStream> ;
 .
 
 owl:DatatypeProperty
@@ -7828,6 +7904,13 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/Element> ;
 .
 
+<https://dev.fiafcore.org/DigitalFormat>
+    a owl:Class ;
+    rdfs:label "Digital Format"@en ;
+    dc:description "A digital file container, image file format, or deliverable package. Codecs describe individual digital streams rather than the format of the enclosing object."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
+.
+
 <https://dev.fiafcore.org/DoubleCoatedBipack>
     a owl:Class ;
     rdfs:label "Double-Coated / Bi-Pack"@en ;
@@ -7849,25 +7932,11 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
 .
 
-<https://dev.fiafcore.org/NoiseReduction>
-    a owl:Class ;
-    rdfs:label "Noise Reduction"@en ;
-    dc:description "An analogue companding noise-reduction system applied to optical or magnetic sound recordings."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
-.
-
 <https://dev.fiafcore.org/OneInchVideotape>
     a owl:Class ;
     rdfs:label "One Inch Videotape"@en ;
     dc:description ""@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
-.
-
-<https://dev.fiafcore.org/OpticalSoundProcess>
-    a owl:Class ;
-    rdfs:label "Optical Sound Process"@en ;
-    dc:description "A sound process in which audio is recorded photographically as an optical track on film."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
 .
 
 <https://dev.fiafcore.org/PackageFormat>
@@ -7932,12 +8001,6 @@ owl:DatatypeProperty
     dc:description "Standard for broadcast encoding."@en ;
 .
 
-<https://dev.fiafcore.org/Carrier>
-    a owl:Class ;
-    rdfs:label "Carrier"@en ;
-    dc:description "A moving image Carrier is the discrete physical or digital unit on which the moving image is retained. It can either contain the entire artistic work or a portion, for example in the case of individual film reels or digital file parts."@en ;
-.
-
 <https://dev.fiafcore.org/ColourStandard>
     a owl:Class ;
     rdfs:label "Colour Standard"@en ;
@@ -7962,7 +8025,7 @@ owl:DatatypeProperty
 <https://dev.fiafcore.org/ImageFormat>
     a owl:Class ;
     rdfs:label "Image Format"@en ;
-    dc:description "A self-contained digital image file format combining a header and a raster payload, without a separate wrapping container or codec."@en ;
+    dc:description "A digital image file format combining image data and associated metadata. Image data may be compressed or uncompressed."@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
 .
 
@@ -8000,6 +8063,12 @@ owl:DatatypeProperty
     dc:description "The spatial channel configuration of a sound recording in a Manifestation or Item."@en ;
 .
 
+<https://dev.fiafcore.org/SoundStandard>
+    a owl:Class ;
+    rdfs:label "Sound Standard"@en ;
+    dc:description "A sound fixation process or playback/encoding system by which sound is carried in a moving image. Noise reduction is recorded separately with hasNoiseReduction."@en ;
+.
+
 <https://dev.fiafcore.org/VideoElement>
     a owl:Class ;
     rdfs:label "Video Element"@en ;
@@ -8021,24 +8090,22 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
+<https://dev.fiafcore.org/Carrier>
+    a owl:Class ;
+    rdfs:label "Carrier"@en ;
+    dc:description "A moving image Carrier is the discrete physical or digital unit on which the moving image is retained. It can either contain the entire artistic work or a portion, for example in the case of individual film reels or digital file parts."@en ;
+.
+
 <https://dev.fiafcore.org/ColourEncoding>
     a owl:Class ;
     rdfs:label "Colour Encoding"@en ;
     dc:description "A digital colour encoding used to represent colour values in a moving image file."@en ;
 .
 
-<https://dev.fiafcore.org/DigitalFormat>
+<https://dev.fiafcore.org/DigitalStream>
     a owl:Class ;
-    rdfs:label "Digital Format"@en ;
-    dc:description "A digital file container, deliverable package, or encoding."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
-.
-
-<https://dev.fiafcore.org/DigitalSoundSystem>
-    a owl:Class ;
-    rdfs:label "Digital Sound System"@en ;
-    dc:description "A digital audio playback or surround system used for theatrical exhibition, broadcast, or home viewing."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
+    rdfs:label "Digital Stream"@en ;
+    dc:description "An individually describable stream within a digital object represented by an Item or Carrier. A stream is a descriptive component, not an inventory holding or storage carrier; it may be represented by a blank node or an IRI."@en ;
 .
 
 <https://dev.fiafcore.org/Element>
@@ -8061,12 +8128,6 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
-<https://dev.fiafcore.org/SoundStandard>
-    a owl:Class ;
-    rdfs:label "Sound Standard"@en ;
-    dc:description "A sound process, playback system, or noise-reduction standard by which sound is fixed or encoded in a moving image."@en ;
-.
-
 <https://dev.fiafcore.org/DataStorageFormat>
     a owl:Class ;
     rdfs:label "Data Storage Format"@en ;
@@ -8074,10 +8135,17 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
 .
 
+<https://dev.fiafcore.org/DigitalSoundSystem>
+    a owl:Class ;
+    rdfs:label "Digital Sound System"@en ;
+    dc:description "A digital audio playback or surround system used for theatrical exhibition, broadcast, or home viewing."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
+.
+
 <https://dev.fiafcore.org/Format>
     a owl:Class ;
     rdfs:label "Format"@en ;
-    dc:description "The physical medium, file container, encoding, or deliverable package in which a moving image Manifestation or Item is fixed."@en ;
+    dc:description "The physical medium, digital file format, or deliverable package in which a moving image Manifestation, Item, or Carrier is fixed. Digital stream encodings are described separately with hasVideoCodec or hasAudioCodec."@en ;
 .
 
 <https://dev.fiafcore.org/ManufactureEvent>
@@ -8087,23 +8155,10 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/Event> ;
 .
 
-<https://dev.fiafcore.org/SoundCharacteristic>
-    a owl:Class ;
-    rdfs:label "Sound Characteristic"@en ;
-    dc:description ""@en ;
-.
-
 <https://dev.fiafcore.org/TransferFunction>
     a owl:Class ;
     rdfs:label "Transfer Function"@en ;
     dc:description "An opto-electronic or electro-optical transfer function defining the mapping between light levels and digital code values."@en ;
-.
-
-<https://dev.fiafcore.org/VideoCodec>
-    a owl:Class ;
-    rdfs:label "Video Codec"@en ;
-    dc:description "A video or image sequence encoding used inside a digital container."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
 .
 
 <https://dev.fiafcore.org/ColourSpace>
@@ -8135,10 +8190,22 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/FilmElement> ;
 .
 
+<https://dev.fiafcore.org/SoundCharacteristic>
+    a owl:Class ;
+    rdfs:label "Sound Characteristic"@en ;
+    dc:description "The presence and nature of sound on a single soundtrack of a Manifestation or Item. A carrier with several soundtracks carries several SoundCharacteristic nodes."@en ;
+.
+
 <https://dev.fiafcore.org/Title>
     a owl:Class ;
     rdfs:label "Title"@en ;
     dc:description ""@en ;
+.
+
+<https://dev.fiafcore.org/VideoCodec>
+    a owl:Class ;
+    rdfs:label "Video Codec"@en ;
+    dc:description "An encoding of a digital video stream, independent of its enclosing file format."@en ;
 .
 
 <https://dev.fiafcore.org/AnimationActivity>
@@ -8274,18 +8341,18 @@ owl:DatatypeProperty
     dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3AAncrage%2049%3A82> ;
 .
 
-<https://dev.fiafcore.org/Item>
-    a owl:Class ;
-    rdfs:label "Item"@en ;
-    dc:description "A moving image Item is the physical or digital product of a Manifestation of a Work or Variant, i.e. the actual copy of a Work or Variant. Whereas the Manifestation record describes the “ideal” of a particular format or publication, the Item record represents the actual holding in a repository's collection."@en ;
-    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.36209%3A5084> ;
-.
-
 <https://dev.fiafcore.org/Work>
     a owl:Class ;
     rdfs:label "Work"@en ;
     dc:description "A moving image Work comprises both the intellectual or artistic content and the process of realisation in a cinematographic medium."@en ;
     dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.35986%3A5030> ;
+.
+
+<https://dev.fiafcore.org/Item>
+    a owl:Class ;
+    rdfs:label "Item"@en ;
+    dc:description "A moving image Item is the physical or digital product of a Manifestation of a Work or Variant, i.e. the actual copy of a Work or Variant. Whereas the Manifestation record describes the “ideal” of a particular format or publication, the Item record represents the actual holding in a repository's collection."@en ;
+    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.36209%3A5084> ;
 .
 
 <https://dev.fiafcore.org/Variant>

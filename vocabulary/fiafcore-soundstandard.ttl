@@ -16,22 +16,6 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "Datasat"@en ;
 .
 
-<https://dev.fiafcore.org/Dolby>
-    a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/NoiseReduction> ;
-    skos:definition "An unspecified Dolby noise-reduction or sound encoding system."@en ;
-    skos:inScheme <https://dev.fiafcore.org/SoundStandard> ;
-    skos:prefLabel "Dolby"@en ;
-.
-
-<https://dev.fiafcore.org/DolbyA>
-    a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/NoiseReduction> ;
-    skos:definition "Dolby A-type four-band companding noise-reduction system, used on magnetic recordings and on Dolby Stereo optical release prints from 1975."@en ;
-    skos:inScheme <https://dev.fiafcore.org/SoundStandard> ;
-    skos:prefLabel "Dolby A"@en ;
-.
-
 <https://dev.fiafcore.org/DolbyAtmos>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/DigitalSoundSystem> ;
@@ -54,14 +38,6 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:definition "An extension of Dolby Digital adding a matrix-encoded rear-centre surround channel."@en ;
     skos:inScheme <https://dev.fiafcore.org/SoundStandard> ;
     skos:prefLabel "Dolby Digital Surround EX"@en ;
-.
-
-<https://dev.fiafcore.org/DolbySR>
-    a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/NoiseReduction> ;
-    skos:definition "Dolby Spectral Recording (SR) noise-reduction system, used on magnetic recordings and on Dolby Stereo SR optical release prints from 1986."@en ;
-    skos:inScheme <https://dev.fiafcore.org/SoundStandard> ;
-    skos:prefLabel "Dolby SR"@en ;
 .
 
 <https://dev.fiafcore.org/DolbyStereo>
@@ -98,7 +74,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 <https://dev.fiafcore.org/SDDS>
     a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/OpticalSoundProcess> ;
+    skos:broader <https://dev.fiafcore.org/DigitalSoundSystem> ;
     skos:definition "Sony Dynamic Digital Sound, a digital optical sound system printed on the outer edges of 35mm film."@en ;
     skos:inScheme <https://dev.fiafcore.org/SoundStandard> ;
     skos:prefLabel "SDDS"@en ;
@@ -144,28 +120,20 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     skos:prefLabel "Magnetic"@en ;
 .
 
+<https://dev.fiafcore.org/OpticalSoundProcess>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/SoundStandard> ;
+    skos:definition "An analogue sound process in which audio is recorded photographically as an optical track on film."@en ;
+    skos:inScheme <https://dev.fiafcore.org/SoundStandard> ;
+    skos:prefLabel "Optical Sound Process"@en ;
+.
+
 <https://dev.fiafcore.org/OpticalVariableArea>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/OpticalSoundProcess> ;
     skos:definition "An analogue optical sound process in which the audio signal is represented by variations in the width of the transparent and opaque areas of the soundtrack."@en ;
     skos:inScheme <https://dev.fiafcore.org/SoundStandard> ;
     skos:prefLabel "Optical Variable Area"@en ;
-.
-
-<https://dev.fiafcore.org/NoiseReduction>
-    a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/SoundStandard> ;
-    skos:definition "An analogue companding noise-reduction system applied to optical or magnetic sound recordings."@en ;
-    skos:inScheme <https://dev.fiafcore.org/SoundStandard> ;
-    skos:prefLabel "Noise Reduction"@en ;
-.
-
-<https://dev.fiafcore.org/OpticalSoundProcess>
-    a skos:Concept ;
-    skos:broader <https://dev.fiafcore.org/SoundStandard> ;
-    skos:definition "A sound process in which audio is recorded photographically as an optical track on film."@en ;
-    skos:inScheme <https://dev.fiafcore.org/SoundStandard> ;
-    skos:prefLabel "Optical Sound Process"@en ;
 .
 
 <https://dev.fiafcore.org/DigitalSoundSystem>
@@ -178,6 +146,6 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 <https://dev.fiafcore.org/SoundStandard>
     a skos:ConceptScheme ;
-    skos:definition "A sound process, playback system, or noise-reduction standard by which sound is fixed or encoded in a moving image."@en ;
+    skos:definition "A sound fixation process or playback/encoding system by which sound is carried in a moving image. Noise reduction is recorded separately with hasNoiseReduction."@en ;
     skos:prefLabel "Sound Standard"@en ;
 .

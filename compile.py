@@ -47,6 +47,7 @@ def convert_vocabulary(input_file):
 # convert ontology vocabularies to SKOS.
 
 for vocab in [
+    'fiafcore-audiocodec.ttl',
     'fiafcore-base.ttl',
     'fiafcore-broadcaststandard.ttl',
     'fiafcore-colourencoding.ttl',
@@ -58,10 +59,12 @@ for vocab in [
     'fiafcore-format.ttl',
     'fiafcore-genre.ttl',
     'fiafcore-language.ttl',
+    'fiafcore-noisereduction.ttl',
     'fiafcore-soundchannelconfiguration.ttl',
     'fiafcore-soundstandard.ttl',
     'fiafcore-status.ttl',
-    'fiafcore-transferfunction.ttl']:
+    'fiafcore-transferfunction.ttl',
+    'fiafcore-videocodec.ttl']:
     convert_vocabulary(vocab)
 
 # build single turtle file from ontology.

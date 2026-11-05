@@ -1,0 +1,28 @@
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+### Class
+
+<https://dev.fiafcore.org/AudioCodec> a owl:Class ;
+    rdfs:label "Audio Codec"@en ;
+    dc:description "An encoding of a digital audio stream, independent of its enclosing file format."@en ;
+    dc:source <> ;
+.
+
+### Subclasses
+
+<https://dev.fiafcore.org/PCM> a owl:Class ;
+    dc:description "Pulse-code modulation, the uncompressed digital audio encoding used by WAV, CD, DCDM, and most preservation masters."@en ;
+    dc:source <> ;
+    rdfs:label "PCM"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/AudioCodec> ;
+.
+
+### Datatype Properties
+
+# None
+
+### Object Properties
+
+# None

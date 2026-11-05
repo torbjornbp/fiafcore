@@ -755,10 +755,13 @@
                                         </xsl:otherwise>
                                     </xsl:choose>
                                 </xsl:if>
+                                <xsl:if test="$sound_standard and not($sound_manifestation)">
+                                    <rdf:type rdf:resource="https://dev.fiafcore.org/Sound" />
+                                </xsl:if>
                                 <xsl:if test="$sound_standard">
                                     <xsl:choose>
                                         <xsl:when test="$sound_standard = 'Dolby'" >
-                                            <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/Dolby"/>
+                                            <fiaf:hasNoiseReduction rdf:resource="https://dev.fiafcore.org/Dolby"/>
                                         </xsl:when>
                                         <xsl:when test="$sound_standard = 'Mono'" >
                                             <fiaf:hasSoundChannelConfiguration rdf:resource="https://dev.fiafcore.org/Mono"/>
@@ -767,7 +770,7 @@
                                             <fiaf:hasSoundChannelConfiguration rdf:resource="https://dev.fiafcore.org/Stereo"/>
                                         </xsl:when>
                                         <xsl:when test="$sound_standard = 'Dolby SR'" >
-                                            <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/DolbySR"/>
+                                            <fiaf:hasNoiseReduction rdf:resource="https://dev.fiafcore.org/DolbySR"/>
                                         </xsl:when>
                                         <xsl:when test="$sound_standard = 'Ultra-Stereo'" >
                                             <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/UltraStereo"/>
@@ -783,7 +786,6 @@
                                         </xsl:when>
                                         <xsl:when test="$sound_standard = 'DTS Sound (Optical)'" >
                                             <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/DTS"/>
-                                            <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/OpticalSoundProcess"/>
                                         </xsl:when>
                                         <xsl:when test="$sound_standard = 'Dolby Atmos'" >
                                             <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/DolbyAtmos"/>
@@ -803,7 +805,7 @@
                                         </xsl:when>
                                         <xsl:when test="$sound_standard = 'Dolby Stereo SR'" >
                                             <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/DolbyStereo"/>
-                                            <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/DolbySR"/>
+                                            <fiaf:hasNoiseReduction rdf:resource="https://dev.fiafcore.org/DolbySR"/>
                                         </xsl:when>
                                         <xsl:when test="$sound_standard = 'Digital Stereo'" >
                                             <fiaf:hasSoundChannelConfiguration rdf:resource="https://dev.fiafcore.org/Stereo"/>

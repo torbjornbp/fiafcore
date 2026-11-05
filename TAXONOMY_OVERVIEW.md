@@ -6,31 +6,32 @@ Each technical property on a `fiaf:Manifestation` or `fiaf:Item` answers one ort
 
 | Facet | Property & Target Class | Question Answered |
 | :--- | :--- | :--- |
-| **Format** | `fiaf:hasFormat` *(Manifestation, Item, Carrier)* → `fiaf:Format` | **What physical carrier, file wrapper, package, or stream codec fixes it?** (`FilmFormat`, `AudioFormat`, `VideoFormat`, `DataStorageFormat`, `DigitalFormat`) |
+| **Format** | `fiaf:hasFormat` *(Manifestation, Item, Carrier)* → `fiaf:Format` | **What physical medium, digital file format, or package fixes it?** (`FilmFormat`, `AudioFormat`, `VideoFormat`, `DataStorageFormat`, `DigitalFormat`) |
+| **Digital streams** | `fiaf:hasStream` *(Item, Carrier)* → `fiaf:DigitalStream` | **Which internal video, audio, or subtitle streams are described?** Codecs, language usage, and colour/sound characteristics are grouped per stream. |
 | **Element** *(Item only)* | `fiaf:isElement` → `fiaf:Element` | **What is this artefact's functional role or generation in the workflow, including film polarity?** (`FilmElement` → `Negative` / `Positive`; `AudioElement`, `VideoElement`, `DigitalElement`) |
 | **Colour** | `fiaf:hasColourCharacteristic` → `fiaf:ColourCharacteristic` (`BlackAndWhite`, `Colour`) | **Is it monochrome or colour, and how is colour produced or digitally encoded on this artefact?**<ul><li>Film: `fiaf:hasColourProcess` → `fiaf:ColourStandard`</li><li>Digital: `fiaf:hasColourEncoding` → `fiaf:ColourEncoding`<br>`fiaf:hasColourSpace` → `fiaf:ColourSpace`<br>`fiaf:hasTransferFunction` → `fiaf:TransferFunction`</li></ul> |
-| **Sound** | `fiaf:hasSoundCharacteristic` → `fiaf:SoundCharacteristic` (`Silent`, `Mute`, `Sound`) | **Is sound present, and by what process/system and channel layout is it fixed?**<ul><li>`fiaf:hasSoundStandard` → `fiaf:SoundStandard`</li><li>`fiaf:hasSoundChannelConfiguration` → `fiaf:SoundChannelConfiguration`</li></ul> |
+| **Sound** | `fiaf:hasSoundCharacteristic` → `fiaf:SoundCharacteristic` (`Silent`, `Mute`, `Sound`) | **Is sound present, and by what process/system, noise reduction, and channel layout is it fixed?**<ul><li>`fiaf:hasSoundStandard` → `fiaf:SoundStandard`</li><li>`fiaf:hasNoiseReduction` → `fiaf:NoiseReduction`</li><li>`fiaf:hasSoundChannelConfiguration` → `fiaf:SoundChannelConfiguration`</li></ul> |
 
 `fiaf:hasColourStandard` is retained only as a deprecated alias of `fiaf:hasColourProcess`; new data should use `fiaf:hasColourProcess`.
 
 ### Core Design Principles
 1. **Describe the artefact itself at the `Item` level**:
    - **Applied colour (`Tinted`, `Toned`, `HandColouring`, `StencilColouring`)**: A tinted nitrate print has `fiaf:hasColourCharacteristic [ fiaf:hasColourProcess fiaf:Tinted ]` (`fiaf:BlackAndWhite` is used only when the film is actually black and white in appearance, or also contains untinted black-and-white sequences; `fiaf:Colour` is reserved for natural/mimetic colour).
-   - **Digital scans of photochemical prints**: A digital preservation scan of that tinted print describes its digital pixel representation (`[ fiaf:hasColourEncoding fiaf:RGB ; fiaf:hasColourSpace fiaf:ACES ; fiaf:hasTransferFunction fiaf:Linear ]`, omitting both `BlackAndWhite` and `Colour` just as on the tinted source print), never photochemical tinting (`hasColourProcess`).
+   - **Digital scans of photochemical prints**: A digital preservation scan of that tinted print describes its digital pixel representation (`[ fiaf:hasColourEncoding fiaf:RGB ; fiaf:hasColourSpace fiaf:ACES2065_1 ; fiaf:hasTransferFunction fiaf:Linear ]`, omitting both `BlackAndWhite` and `Colour` just as on the tinted source print), never photochemical tinting (`hasColourProcess`). ACES2065-1 is an illustrative choice, not a format inferred for every scan.
    - **Colour separation elements & dye-transfer matrices**: Single-channel (or sequential-frame) separation negatives (`fiaf:ColourSeparationNegative`), separation positives/protection masters (`fiaf:ColourSeparationPositive`), and Technicolor relief matrices (`fiaf:DyeTransferMatrix`) are monochrome intermediate elements, not colour prints. They are identified via `fiaf:isElement` (under `fiaf:Negative` and `fiaf:Positive`) and carry `fiaf:hasColourCharacteristic [ a fiaf:BlackAndWhite ]` without a `hasColourProcess`.
-2. **Symmetric `ColourCharacteristic` and `SoundCharacteristic` blank nodes**: Both Colour and Sound use a qualifying blank node so multiple characteristics on the same Manifestation/Item (e.g., B&W + Technicolor sequences, B&W + Tinted sequences, or Dolby Digital 5.1 + Dolby Stereo optical backup tracks) stay cleanly grouped.
+2. **Symmetric `ColourCharacteristic` and `SoundCharacteristic` blank nodes**: Both Colour and Sound use a qualifying blank node so multiple characteristics on the same Manifestation/Item (e.g., B&W + Technicolor sequences, B&W + Tinted sequences, or several soundtracks) stay cleanly grouped. Each `SoundCharacteristic` node describes **one soundtrack**; a 35mm quad-track print (SDDS + Dolby Digital + Dolby Stereo SR + DTS) therefore carries four nodes, one per track.
 3. **Functional modality across `Format` and `Element`**:
    - Perforated film gauges (`35mmFilm`, `35mmMagneticFilm`) live under `FilmFormat`, while all separated sound-only elements (`SoundNegative`, `SoundPositive`, `SeparatedMagneticSound`, `AudioMaster`) live under `AudioElement`.
    - **Film polarity stays in `Element`**: `Negative` and `Positive` are the organising division of `FilmElement` because in photochemical duplication polarity *is* function — camera originals are negative (except reversal originals), protection masters are positive (`DuplicatePositive`, `ColourSeparationPositive`), printing masters are negative (`DuplicateNegative`, `ColourReversalIntermediate`), and editorial/grading/exhibition prints are positive (`WorkPrint`, `AnswerPrint`, `ReleasePrint`). `FilmFormat` stays orthogonal: it records the gauge, never the polarity.
-   - **Magnetic sound is split across three layers**: `hasFormat fiaf:35mmMagneticFilm` (gauge/material), `hasSoundStandard fiaf:Magnetic` (recording process and track layout), and `isElement fiaf:SeparatedMagneticSound` (a sound-only element carried separately from the image, distinct from `AudioMaster`, `SoundNegative`, and `SoundPositive`).
+   - **Magnetic sound is split across four layers**: `hasFormat fiaf:35mmMagneticFilm` (gauge/material), `hasSoundStandard fiaf:Magnetic` (recording process and track layout), `hasNoiseReduction fiaf:DolbyA` / `fiaf:DolbySR` (companding, where known), and `isElement fiaf:SeparatedMagneticSound` (a sound-only element carried separately from the image, distinct from `AudioMaster`, `SoundNegative`, and `SoundPositive`).
    - Optical discs are placed by functional modality rather than laser physics: authored video discs (`DVD`, `BluRay`, `UltraHDBluRay`, `LaserDisc`, `VCD`, `SVCD`) sit under `fiaf:VideoFormat` → `fiaf:OpticalVideoDisc` (aligning with `fiaf:VideoElement` such as `HomeViewingCopy` and `VideoAccessCopy`); audio compact discs (`CD`) sit under `fiaf:AudioFormat`; and recordable data discs (`CDR`, `DVDR`) sit under `fiaf:DataStorageFormat`.
-4. **Digital objects (`DigitalFormat`), physical data carriers (`DataStorageFormat`), and `Carrier` (`ITEM_PART`)**: Digital holdings should ideally be catalogued by their digital object formats (`DigitalFormat`: `ContainerFormat`, `ImageFormat`, `PackageFormat`, `VideoCodec`, `AudioCodec`). However, many archives also catalogue offline data-storage media (`DataStorageFormat`, such as an `LTO` cartridge, `HardDrive`, `MagnetoOpticalDisc`, `CDR`, or `DVDR`) as `Item`s or `Carrier`s—either on their own when file-level details are not fully inventoried, or alongside `DigitalFormat` on the same `Item` (e.g., a `DPX` master stored on `LTO5`, or an `MP4` access file burned onto a data `DVDR`). Because `fiaf:hasFormat` has domain `Manifestation ∪ Item ∪ Carrier` (where `fiaf:Carrier` represents an individual physical or digital unit/part of an `Item`, such as a single film reel or per-reel DPX sequence), formats can be stated at both the `Item` and `Carrier` levels.
+4. **Digital objects and storage media describe separate objects**: Keep `DigitalFormat` (container, image file, package) on the digital object and `DataStorageFormat` on its storage unit where possible. Item-level and Carrier-level stream descriptions are equally valid; archives need not introduce an entity below Item. `hasStream` groups optional internal streams with their codecs, language usage, and characteristics. A stream is not an inventory holding; a multichannel audio stream is not one stream per channel. Film continues to use ordinary format and characteristic descriptions without a mandatory track model. Storage/content and package-component relationships, and the meaning of Carrier itself, remain open in `TAXONOMY_REVIEW.md` §4.8. See `FORMAT_TAXONOMY.md` for rationale, migration limits, and examples.
 
 ---
 
 ## 2. Taxonomy Trees
 
-The trees below are the complete `rdfs:subClassOf` hierarchies in `ontology/*.ttl`, verified against `fiafcore.ttl` at `unified-taxonomy` commit `1d2a468` (2026-11-03). They cover every taxonomy whose hierarchy changed relative to `origin/develop`. `Carrier` and `Manifestation` changed only in property domains and descriptions, so no subclass tree is shown for them.
+The trees below describe the updated `ontology/*.ttl` hierarchies, including optional digital streams and the independent codec trees. `Carrier` and `Manifestation` have no subclass changes shown here. Carrier's definition remains under review rather than being settled by the stream additions.
 
 ### 2.1 Format
 
@@ -118,8 +119,6 @@ fiaf:Format
 │   └── fiaf:MagnetoOpticalDisc
 │
 └── fiaf:DigitalFormat
-    ├── fiaf:AudioCodec
-    │   └── fiaf:PCM
     ├── fiaf:ContainerFormat
     │   ├── fiaf:AVI
     │   ├── fiaf:MKV
@@ -135,23 +134,33 @@ fiaf:Format
     │   ├── fiaf:DPX
     │   ├── fiaf:OpenEXR
     │   └── fiaf:TIFF
-    ├── fiaf:PackageFormat
-    │   ├── fiaf:DCDM
-    │   ├── fiaf:DCP
-    │   └── fiaf:IMF
-    └── fiaf:VideoCodec
-        ├── fiaf:FFV1
-        ├── fiaf:MPEG2
-        ├── fiaf:MPEG-4
-        ├── fiaf:ProRes
-        │   └── fiaf:ProRes422HQ
-        ├── fiaf:RealVideo
-        └── fiaf:WindowsMedia
+    └── fiaf:PackageFormat
+        ├── fiaf:DCDM
+        ├── fiaf:DCP
+        └── fiaf:IMF
+
+fiaf:DigitalStream                         via hasStream on Item ∪ Carrier
+├── fiaf:VideoStream                        hasVideoCodec; hasColourCharacteristic
+├── fiaf:AudioStream                        hasAudioCodec; hasSoundCharacteristic
+└── fiaf:SubtitleStream
+                                           all streams: hasLanguageUsage
+
+fiaf:VideoCodec
+├── fiaf:FFV1
+├── fiaf:MPEG2
+├── fiaf:MPEG-4
+├── fiaf:ProRes
+│   └── fiaf:ProRes422HQ
+├── fiaf:RealVideo
+└── fiaf:WindowsMedia
+
+fiaf:AudioCodec
+└── fiaf:PCM
 ```
 
 ### 2.2 Element
 
-On this branch, the `FilmElement`, `AudioElement`, `VideoElement`, and `DigitalElement` branches were added. `Negative` and `Positive` sit under `FilmElement`, with the colour separation, dye-transfer matrix, and intermediate classes nested beneath them. This is deliberate: `Element` describes an artefact's role in the workflow *including* its photochemical polarity (see §1, Principle 3), while `Format` describes its physical gauge, carrier, container, or codec. `AudioElement`, `VideoElement`, and `DigitalElement` carry no polarity, since polarity is a photochemical concept.
+On this branch, the `FilmElement`, `AudioElement`, `VideoElement`, and `DigitalElement` branches were added. `Negative` and `Positive` sit under `FilmElement`, with the colour separation, dye-transfer matrix, and intermediate classes nested beneath them. This is deliberate: `Element` describes an artefact's role in the workflow *including* its photochemical polarity (see §1, Principle 3), while `Format` describes its physical medium, file format, or package. Codecs describe digital streams separately. `AudioElement`, `VideoElement`, and `DigitalElement` carry no polarity, since polarity is a photochemical concept.
 
 ```text
 fiaf:Element
@@ -253,7 +262,7 @@ fiaf:ColourEncoding
 └── fiaf:YUV
 
 fiaf:ColourSpace
-├── fiaf:ACES
+├── fiaf:ACES2065_1                         ACES2065-1 (AP0), scene-linear RGB
 ├── fiaf:DCIP3
 ├── fiaf:Rec601
 ├── fiaf:Rec709
@@ -270,7 +279,7 @@ fiaf:TransferFunction
 
 ### 2.4 Sound
 
-`fiaf:hasSoundCharacteristic` targets `fiaf:SoundCharacteristic`; `fiaf:hasSoundStandard` targets `fiaf:SoundStandard`; and `fiaf:hasSoundChannelConfiguration` targets `fiaf:SoundChannelConfiguration`. On this branch, `SoundStandard` was expanded and the channel-configuration branch was added.
+`fiaf:hasSoundCharacteristic` targets `fiaf:SoundCharacteristic`; `fiaf:hasSoundStandard` targets `fiaf:SoundStandard`; `fiaf:hasNoiseReduction` targets `fiaf:NoiseReduction`; and `fiaf:hasSoundChannelConfiguration` targets `fiaf:SoundChannelConfiguration`. `SoundStandard` now covers only the fixation process or playback/encoding system; noise reduction is its own homogeneous tree. `SDDS` moved under `DigitalSoundSystem`, alongside `DolbyDigital` and `DTS`. Each `SoundCharacteristic` node describes one soundtrack. See `SOUND_TAXONOMY.md` §5 for the design rationale.
 
 ```text
 fiaf:SoundCharacteristic
@@ -287,20 +296,21 @@ fiaf:SoundStandard
 │   ├── fiaf:DolbyDigital
 │   │   ├── fiaf:DolbyDigitalPlus
 │   │   └── fiaf:DolbyDigitalSurroundEX
-│   └── fiaf:DolbyTrueHD
+│   ├── fiaf:DolbyTrueHD
+│   └── fiaf:SDDS
 ├── fiaf:Magnetic
 │   ├── fiaf:FourTrackMagnetic
 │   └── fiaf:SixTrackMagnetic
-├── fiaf:NoiseReduction
-│   ├── fiaf:Dolby
-│   ├── fiaf:DolbyA
-│   └── fiaf:DolbySR
 └── fiaf:OpticalSoundProcess
     ├── fiaf:OpticalVariableArea
     │   ├── fiaf:DolbyStereo
     │   └── fiaf:UltraStereo
-    ├── fiaf:OpticalVariableDensity
-    └── fiaf:SDDS
+    └── fiaf:OpticalVariableDensity
+
+fiaf:NoiseReduction
+└── fiaf:Dolby
+    ├── fiaf:DolbyA
+    └── fiaf:DolbySR
 
 fiaf:SoundChannelConfiguration
 ├── fiaf:Mono
@@ -541,7 +551,7 @@ A 35mm nitrate release print of a silent film with tinted images, alongside a 4K
     fiaf:hasStatus fiaf:Preservation ;
     fiaf:hasColourCharacteristic [
         fiaf:hasColourEncoding fiaf:RGB ;               # Digital encoding only; no hasColourProcess
-        fiaf:hasColourSpace fiaf:ACES ;
+        fiaf:hasColourSpace fiaf:ACES2065_1 ;
         fiaf:hasTransferFunction fiaf:Linear
     ] ;
     fiaf:hasSoundCharacteristic [
@@ -573,8 +583,8 @@ A theatrical release print on Eastmancolor stock carrying both a Dolby Digital (
           fiaf:hasSoundStandard fiaf:DolbyDigital ;     # DigitalSoundSystem
           fiaf:hasSoundChannelConfiguration fiaf:Surround ],
         [ a fiaf:Sound ;
-          fiaf:hasSoundStandard fiaf:DolbyStereo,       # OpticalVariableArea -> OpticalSoundProcess
-                                fiaf:DolbySR ;          # NoiseReduction
+          fiaf:hasSoundStandard fiaf:DolbyStereo ;       # OpticalVariableArea -> OpticalSoundProcess
+          fiaf:hasNoiseReduction fiaf:DolbySR ;          # NoiseReduction
           fiaf:hasSoundChannelConfiguration fiaf:Stereo ] ;
     fiaf:hasItem <https://example.fiafcore.org/item/print-1995> .
 
@@ -594,7 +604,8 @@ A theatrical release print on Eastmancolor stock carrying both a Dolby Digital (
           fiaf:hasSoundStandard fiaf:DolbyDigital ;
           fiaf:hasSoundChannelConfiguration fiaf:Surround ],
         [ a fiaf:Sound ;
-          fiaf:hasSoundStandard fiaf:DolbyStereo, fiaf:DolbySR ;
+          fiaf:hasSoundStandard fiaf:DolbyStereo ;
+          fiaf:hasNoiseReduction fiaf:DolbySR ;
           fiaf:hasSoundChannelConfiguration fiaf:Stereo ] .
 ```
 
@@ -653,7 +664,8 @@ Both live under `fiaf:AudioElement` (so querying `AudioElement` finds all sound-
     fiaf:hasStatus fiaf:Preservation ;
     fiaf:hasSoundCharacteristic [
         a fiaf:Sound ;
-        fiaf:hasSoundStandard fiaf:FourTrackMagnetic, fiaf:DolbyA ;
+        fiaf:hasSoundStandard fiaf:FourTrackMagnetic ;
+        fiaf:hasNoiseReduction fiaf:DolbyA ;
         fiaf:hasSoundChannelConfiguration fiaf:Surround
     ] .
 
@@ -706,35 +718,37 @@ A Digital Betacam PAL broadcast master, a consumer VHS home viewing copy, and an
     a fiaf:Item ;
     rdfs:label "DVD-Video Access Copy"@en ;
     fiaf:hasBroadcastStandard fiaf:PAL ;
-    fiaf:hasFormat fiaf:DVD,                            # OpticalVideoDisc -> VideoFormat
-                   fiaf:VOB ;                           # ContainerFormat -> DigitalFormat
+    fiaf:hasFormat fiaf:DVD ;                           # OpticalVideoDisc -> VideoFormat
     fiaf:isElement fiaf:VideoAccessCopy ;               # VideoElement
     fiaf:hasStatus fiaf:Access .
+
+# A separately described file on that disc, when catalogued.
+<https://example.fiafcore.org/carrier/dvd-vob-file>
+    a fiaf:Carrier ;
+    fiaf:hasFormat fiaf:VOB .
+# The disc/file relationship remains part of the Carrier review.
 ```
 
 ### Example 6: Digital Objects (`DigitalFormat`) & Offline Data Storage Carriers (`DataStorageFormat`)
-Digital holdings are described using `DigitalFormat` (`ContainerFormat`, `ImageFormat`, `PackageFormat`, `VideoCodec`, `AudioCodec`). When an archive also records the physical offline storage medium (such as an `LTO` tape or a recordable `DVDR` data disc holding an `.mp4` access file), `DataStorageFormat` can be used either alongside `DigitalFormat` on the same `Item` or on a standalone storage-carrier `Item`:
+Digital objects use `DigitalFormat` (container, image file, package); optional streams group codecs and stream-specific characteristics. Storage media should be described separately. Storage/content relationships remain under review and are not asserted below. For multiple audio streams and shared language-usage nodes, see `example/DigitalStream.ttl`.
 
 ```turtle
 # 1. Digital Preservation Master (file-level digital Item)
 <https://example.fiafcore.org/item/digital-preservation-master>
     a fiaf:Item ;
     rdfs:label "FFV1/MKV Digital Preservation Master"@en ;
-    fiaf:hasFormat fiaf:MKV,                            # ContainerFormat -> DigitalFormat
-                   fiaf:FFV1,                           # VideoCodec -> DigitalFormat
-                   fiaf:PCM ;                           # AudioCodec -> DigitalFormat
+    fiaf:hasFormat fiaf:MKV ;                           # ContainerFormat -> DigitalFormat
+    fiaf:hasStream
+        [ a fiaf:VideoStream ; fiaf:hasVideoCodec fiaf:FFV1 ;
+          fiaf:hasColourCharacteristic [
+              a fiaf:BlackAndWhite ;
+              fiaf:hasColourEncoding fiaf:Greyscale ;
+              fiaf:hasTransferFunction fiaf:Linear ] ],
+        [ a fiaf:AudioStream ; fiaf:hasAudioCodec fiaf:PCM ;
+          fiaf:hasSoundCharacteristic [ a fiaf:Sound ;
+              fiaf:hasSoundChannelConfiguration fiaf:Mono ] ] ;
     fiaf:isElement fiaf:DigitalMaster ;                 # DigitalElement
-    fiaf:hasStatus fiaf:Preservation ;
-    fiaf:hasColourCharacteristic [
-        a fiaf:BlackAndWhite ;
-        fiaf:hasColourEncoding fiaf:RGB ;
-        fiaf:hasColourSpace fiaf:Rec709 ;
-        fiaf:hasTransferFunction fiaf:Linear
-    ] ;
-    fiaf:hasSoundCharacteristic [
-        a fiaf:Sound ;
-        fiaf:hasSoundChannelConfiguration fiaf:Mono
-    ] .
+    fiaf:hasStatus fiaf:Preservation .
 
 # 2. Theatrical DCP Access Package (package-level digital Item)
 <https://example.fiafcore.org/item/dcp-access>
@@ -755,14 +769,18 @@ Digital holdings are described using `DigitalFormat` (`ContainerFormat`, `ImageF
         fiaf:hasSoundChannelConfiguration fiaf:Surround
     ] .
 
-# 3. Digital Access File Stored on a Recordable Data DVD (DigitalFormat + DataStorageFormat)
+# 3. Digital Access File and Separate Recordable Data DVD
 <https://example.fiafcore.org/item/mp4-on-dvdr>
     a fiaf:Item ;
     rdfs:label "MP4 Access File on Data DVD-R"@en ;
-    fiaf:hasFormat fiaf:MP4,                            # ContainerFormat -> DigitalFormat
-                   fiaf:DVDR ;                          # DataStorageFormat
+    fiaf:hasFormat fiaf:MP4 ;                           # ContainerFormat -> DigitalFormat
     fiaf:isElement fiaf:DigitalAccessCopy ;             # DigitalElement
     fiaf:hasStatus fiaf:Access .
+
+<https://example.fiafcore.org/carrier/data-dvdr>
+    a fiaf:Carrier ;
+    fiaf:hasFormat fiaf:DVDR .
+# The storage/content link is deliberately deferred to the Carrier review.
 
 # 4. Physical LTO-6 Data Tape (when catalogued without file-level format details)
 <https://example.fiafcore.org/item/lto6-tape>
@@ -770,4 +788,38 @@ Digital holdings are described using `DigitalFormat` (`ContainerFormat`, `ImageF
     rdfs:label "LTO-6 Preservation Data Tape"@en ;
     fiaf:hasFormat fiaf:LTO6 ;                          # LTO -> DataStorageFormat
     fiaf:hasStatus fiaf:Preservation .
+```
+
+### Example 7: Quad-Track 35mm Release Print (Four Soundtracks)
+
+A 1990s 35mm print carrying four soundtracks side by side: SDDS on the outer edges, Dolby Digital (SRD) between the perforations, a Dolby Stereo SR bilateral variable-area analogue track, and a DTS timecode track. Each soundtrack is its own `SoundCharacteristic` node, so noise reduction and channel layout stay attached to the correct track:
+
+```turtle
+<https://example.fiafcore.org/item/35mm-quad-track-print>
+    a fiaf:Item ;
+    rdfs:label "35mm Quad-Track Release Print"@en ;
+    fiaf:hasFormat fiaf:35mmFilm ;
+    fiaf:isElement fiaf:ReleasePrint ;
+    fiaf:hasStatus fiaf:Access ;
+    fiaf:hasSoundCharacteristic
+        # SDDS: digital optical edge tracks
+        [ a fiaf:Sound ;
+          fiaf:hasSoundStandard fiaf:SDDS ;
+          fiaf:hasSoundChannelConfiguration fiaf:Surround ],
+
+        # Dolby Digital (SRD): digital data blocks between the perforations
+        [ a fiaf:Sound ;
+          fiaf:hasSoundStandard fiaf:DolbyDigital ;
+          fiaf:hasSoundChannelConfiguration fiaf:Surround ],
+
+        # Analogue backup: bilateral variable-area, Dolby Stereo matrix + Dolby SR
+        [ a fiaf:Sound ;
+          fiaf:hasSoundStandard fiaf:DolbyStereo ;      # OpticalVariableArea -> OpticalSoundProcess
+          fiaf:hasNoiseReduction fiaf:DolbySR ;
+          fiaf:hasSoundChannelConfiguration fiaf:Stereo ],
+
+        # DTS: optical timecode synchronised with CD-ROM
+        [ a fiaf:Sound ;
+          fiaf:hasSoundStandard fiaf:DTS ;
+          fiaf:hasSoundChannelConfiguration fiaf:Surround ] .
 ```

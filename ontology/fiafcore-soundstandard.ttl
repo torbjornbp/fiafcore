@@ -6,7 +6,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 <https://dev.fiafcore.org/SoundStandard> a owl:Class ;
     rdfs:label "Sound Standard"@en ;
-    dc:description "A sound process, playback system, or noise-reduction standard by which sound is fixed or encoded in a moving image."@en ;
+    dc:description "A sound fixation process or playback/encoding system by which sound is carried in a moving image. Noise reduction is recorded separately with hasNoiseReduction."@en ;
     dc:source <> ;
 .
 
@@ -16,7 +16,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 <https://dev.fiafcore.org/OpticalSoundProcess> a owl:Class ;
     rdfs:label "Optical Sound Process"@en ;
-    dc:description "A sound process in which audio is recorded photographically as an optical track on film."@en ;
+    dc:description "An analogue sound process in which audio is recorded photographically as an optical track on film."@en ;
     dc:source <> ;
     rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
 .
@@ -47,13 +47,6 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     dc:description "An analogue stereo variable-area 4-2-4 matrix optical sound system."@en ;
     dc:source <> ;
     rdfs:subClassOf <https://dev.fiafcore.org/OpticalVariableArea> ;
-.
-
-<https://dev.fiafcore.org/SDDS> a owl:Class ;
-    rdfs:label "SDDS"@en ;
-    dc:description "Sony Dynamic Digital Sound, a digital optical sound system printed on the outer edges of 35mm film."@en ;
-    dc:source <> ;
-    rdfs:subClassOf <https://dev.fiafcore.org/OpticalSoundProcess> ;
 .
 
 # Magnetic sound processes
@@ -144,35 +137,14 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     rdfs:subClassOf <https://dev.fiafcore.org/DigitalSoundSystem> ;
 .
 
-# Noise reduction
-
-<https://dev.fiafcore.org/NoiseReduction> a owl:Class ;
-    rdfs:label "Noise Reduction"@en ;
-    dc:description "An analogue companding noise-reduction system applied to optical or magnetic sound recordings."@en ;
+<https://dev.fiafcore.org/SDDS> a owl:Class ;
+    rdfs:label "SDDS"@en ;
+    dc:description "Sony Dynamic Digital Sound, a digital optical sound system printed on the outer edges of 35mm film."@en ;
     dc:source <> ;
-    rdfs:subClassOf <https://dev.fiafcore.org/SoundStandard> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DigitalSoundSystem> ;
 .
 
-<https://dev.fiafcore.org/Dolby> a owl:Class ;
-    rdfs:label "Dolby"@en ;
-    dc:description "An unspecified Dolby noise-reduction or sound encoding system."@en ;
-    dc:source <> ;
-    rdfs:subClassOf <https://dev.fiafcore.org/NoiseReduction> ;
-.
-
-<https://dev.fiafcore.org/DolbyA> a owl:Class ;
-    rdfs:label "Dolby A"@en ;
-    dc:description "Dolby A-type four-band companding noise-reduction system, used on magnetic recordings and on Dolby Stereo optical release prints from 1975."@en ;
-    dc:source <> ;
-    rdfs:subClassOf <https://dev.fiafcore.org/NoiseReduction> ;
-.
-
-<https://dev.fiafcore.org/DolbySR> a owl:Class ;
-    rdfs:label "Dolby SR"@en ;
-    dc:description "Dolby Spectral Recording (SR) noise-reduction system, used on magnetic recordings and on Dolby Stereo SR optical release prints from 1986."@en ;
-    dc:source <> ;
-    rdfs:subClassOf <https://dev.fiafcore.org/NoiseReduction> ;
-.
+# Noise reduction is a separate taxonomy, see fiafcore-noisereduction.ttl.
 
 ### Datatype Properties
 

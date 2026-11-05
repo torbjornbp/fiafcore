@@ -1,11 +1,11 @@
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-<https://dev.fiafcore.org/ACES>
+<https://dev.fiafcore.org/ACES2065_1>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/ColourSpace> ;
-    skos:definition "Academy Color Encoding System (SMPTE ST 2065-1), a colour management and interchange system used for archival and restoration masters."@en ;
+    skos:definition "The scene-linear RGB colour space specified by SMPTE ST 2065-1, using AP0 primaries and the ACES white point. This identifies ACES2065-1 specifically, not the broader Academy Color Encoding System. Record RGB encoding and a Linear transfer function when describing these aspects explicitly."@en ;
     skos:inScheme <https://dev.fiafcore.org/ColourSpace> ;
-    skos:prefLabel "ACES"@en ;
+    skos:prefLabel "ACES2065-1 (AP0)"@en ;
 .
 
 <https://dev.fiafcore.org/DCIP3>

@@ -12,10 +12,10 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 ### Subclasses
 
-<https://dev.fiafcore.org/ACES> a owl:Class ;
-    rdfs:label "ACES"@en ;
-    dc:description "Academy Color Encoding System (SMPTE ST 2065-1), a colour management and interchange system used for archival and restoration masters."@en ;
-    dc:source <> ;
+<https://dev.fiafcore.org/ACES2065_1> a owl:Class ;
+    rdfs:label "ACES2065-1 (AP0)"@en ;
+    dc:description "The scene-linear RGB colour space specified by SMPTE ST 2065-1, using AP0 primaries and the ACES white point. This identifies ACES2065-1 specifically, not the broader Academy Color Encoding System. Record RGB encoding and a Linear transfer function when describing these aspects explicitly."@en ;
+    dc:source <https://docs.acescentral.com/encodings/aces2065-1/> ;
     rdfs:subClassOf <https://dev.fiafcore.org/ColourSpace> ;
 .
 

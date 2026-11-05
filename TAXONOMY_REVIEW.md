@@ -65,15 +65,25 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 ### 1.4 Digital Scans of Photochemically Coloured / Tinted Films
 - **Status**: **RESOLVED**
 - **Issue**:
-  - `TAXONOMY_OVERVIEW.md` Principle 1 states: *"A tinted nitrate print has `fiaf:hasColourProcess fiaf:Tinted`; a digital preservation scan of that print describes its digital pixel representation (`fiaf:hasColourEncoding fiaf:RGB`, `fiaf:hasColourSpace fiaf:ACES`, `fiaf:hasTransferFunction fiaf:Linear`), not photochemical tinting."*
+  - `TAXONOMY_OVERVIEW.md` Principle 1 states: *"A tinted nitrate print has `fiaf:hasColourProcess fiaf:Tinted`; a digital preservation scan of that print describes its digital pixel representation (`fiaf:hasColourEncoding fiaf:RGB`, `fiaf:hasColourSpace fiaf:ACES2065_1`, `fiaf:hasTransferFunction fiaf:Linear`), not photochemical tinting."*
   - However, if a digital Item is an RGB scan of a tinted/toned print:
     - Its pixel encoding is `fiaf:RGB` (or `fiaf:YUV`), not `fiaf:Greyscale`.
     - What should the digital Item's `ColourCharacteristic` blank node look like, and should photochemical `hasColourProcess` ever appear on a digital scan `Item`?
 - **Resolution**:
   - **Strict separation**: Digital scan `Item`s only carry digital colour properties (`hasColourEncoding`, `hasColourSpace`, `hasTransferFunction`) and never `hasColourProcess` (photochemical processes belong on the photochemical `Item` or `Manifestation`).
-  - **Consistent `BlackAndWhite` / `Colour` typing (View B)**: Just as a tinted/toned film print omits `a fiaf:BlackAndWhite` and `a fiaf:Colour`, a digital scan of an applied-colour print carries `[ fiaf:hasColourEncoding fiaf:RGB ; fiaf:hasColourSpace fiaf:ACES ; fiaf:hasTransferFunction fiaf:Linear ]` without asserting `a fiaf:BlackAndWhite` or `a fiaf:Colour` (whereas scans of B&W films include `a fiaf:BlackAndWhite` and scans of natural/mimetic colour films include `a fiaf:Colour`).
+  - **Consistent `BlackAndWhite` / `Colour` typing (View B)**: Just as a tinted/toned film print omits `a fiaf:BlackAndWhite` and `a fiaf:Colour`, a digital scan of an applied-colour print carries `[ fiaf:hasColourEncoding fiaf:RGB ; fiaf:hasColourSpace fiaf:ACES2065_1 ; fiaf:hasTransferFunction fiaf:Linear ]` without asserting `a fiaf:BlackAndWhite` or `a fiaf:Colour` (whereas scans of B&W films include `a fiaf:BlackAndWhite` and scans of natural/mimetic colour films include `a fiaf:Colour`). The named colour space is illustrative, not inferred from the scan's source material.
 - **Affected Files** *(all updated)*:
   - `TAXONOMY_OVERVIEW.md` (Core Design Principle 1)
+
+---
+
+### 1.5 Specific ACES Colour Space Rather Than the ACES System
+- **Status**: **RESOLVED**
+- **Decision**: Replace the unused broad ACES term with `fiaf:ACES2065_1`, labelled "ACES2065-1 (AP0)". Remove the old IRI rather than retaining a deprecated alias, as explicitly agreed. Existing illustrative examples now use the specific colour space; no observed source mapping is assumed to identify ACES2065-1.
+- **Rationale**: ACES is a colour-management system containing multiple encodings/spaces. ACES2065-1 identifies AP0 primaries, the ACES white point, and scene-linear RGB, so it can be described using the existing ColourSpace, ColourEncoding (RGB), and TransferFunction (Linear) properties. These are separate descriptive aspects, not arbitrary independent choices. No general ACES taxonomy expansion is needed.
+- **Usage check**: The SPARQL page at `https://dev.fiafcore.org/sparql` identifies `https://data.fiafcore.org` as its endpoint. An exact-IRI query for the old term in subject, predicate, and object positions returned no matches in the currently served dataset. Local references were the ontology/generated vocabulary and illustrative documentation, not source transforms. This check does not establish usage outside that dataset.
+- **Source**: [Official ACES2065-1 specification](https://docs.acescentral.com/encodings/aces2065-1/), referencing SMPTE ST 2065-1.
+- **Unchanged**: Historical colour-process meanings and IRIs; flexibility to combine processes on one characteristic node. Ordering and precise sequence coverage remain outside this model, for example in prose notes. Rec. 601/709/2020 labels are not changed by this decision.
 
 ---
 
@@ -185,9 +195,10 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
      - **Editorial / grading / exhibition** → `fiaf:WorkPrint`, `fiaf:AnswerPrint`, `fiaf:ReleasePrint`: must be positive because a human eye or projector must see a normal image.
      - The decisive case is the duplication intermediate: an interpositive and an internegative share the *same function* and differ *only* by polarity. `fiaf:ReversalPositive` is likewise an *original* (camera capture) that is nonetheless a positive. Polarity therefore cannot be factored out of `Element`.
   2. **Separate sound elements follow the same logic**. `fiaf:SoundNegative` exists to be married with the picture negative to print a combined `fiaf:ReleasePrint` (or to strike a `fiaf:SoundPositive`); a `fiaf:SoundPositive` can be played back directly or used to strike a `fiaf:SoundNegative`. `fiaf:SeparatedMagneticSound` (sepmag) is the non-inverting magnetic counterpart of that same separate-sound follower/master role.
-  3. **The three layers are complementary, not redundant**:
+  3. **The four layers are complementary, not redundant**:
      - `fiaf:hasFormat fiaf:35mmMagneticFilm` states the physical gauge/material (perforated magnetic film).
      - `fiaf:hasSoundStandard fiaf:Magnetic` (or `fiaf:FourTrackMagnetic`) states the recording process and track layout.
+     - `fiaf:hasNoiseReduction fiaf:DolbyA` (or `fiaf:DolbySR`) states the companding system applied to that recording, where known.
      - `fiaf:isElement fiaf:SeparatedMagneticSound` states the element's *role*: a sound-only element carried separately from the image, as distinct from `fiaf:AudioMaster` (a master audio recording), `fiaf:SoundNegative`, and `fiaf:SoundPositive`.
      - Collapsing these would lose the distinction between a sepmag sound follower, an optical sound negative, and a magnetic audio master that happen to share a gauge or a recording process.
   4. **`Positive` / `Negative` are required fallback levels for real catalogue data**. Archives frequently record polarity without generation — Bundesarchiv `Bildnegativ`, `Bildpositiv`, `Stummes_Positiv`; BFI `Original / Dupe Negative`, `TV (low contrast) Positive`, `Reversal Colour Negative`. Without `fiaf:Negative` and `fiaf:Positive` as intermediate classes under `fiaf:FilmElement`, `fiaf:isElement` would have to guess a generation or drop the statement.
@@ -226,6 +237,36 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 - **Questions to Resolve**:
   - Should `'Surround Stereo'` in `BFI_FIAF_LOD_Manifestations.xsl` map only to `fiaf:Surround`, or should the definition of `fiaf:Stereo` be adjusted?
 - **Resolution**: *Pending discussion.*
+
+---
+
+### 3.3 Homogeneous Sound Trees: `SoundStandard` vs. `NoiseReduction`, `SDDS`, and Multi-Track Carriers
+- **Status**: **RESOLVED**
+- **Issue**:
+  - `SoundStandard` mixed orthogonal facets in one tree: the physical/encoding process or system (`OpticalSoundProcess`, `Magnetic`, `DigitalSoundSystem`), and analogue noise reduction (`NoiseReduction` → `Dolby`, `DolbyA`, `DolbySR`). Values such as BFI `'Dolby Stereo SR'` (`DolbyStereo` + `DolbySR`) and `TAXONOMY_OVERVIEW.md` Example 4 (`FourTrackMagnetic` + `DolbyA`) therefore mixed two different kinds of statement on one node.
+  - `SDDS` sat under `OpticalSoundProcess` while its digital peers `DolbyDigital` and `DTS` sat under `DigitalSoundSystem`, even though all three are digital systems that may be carried optically on 35mm film.
+  - A single carrier can hold several soundtracks (e.g. a 35mm quad-track print with SDDS, Dolby Digital, a Dolby Stereo SR analogue variable-area track, and DTS timecode), but the mapping had no rule for keeping each track's attributes separate.
+- **Resolution**:
+  - Added `ontology/fiafcore-noisereduction.ttl` with a homogeneous `NoiseReduction` tree: `Dolby` (unspecified), `DolbyA` and `DolbySR` as subclasses of `Dolby`.
+  - Added `fiaf:hasNoiseReduction` (domain `SoundCharacteristic`, range `NoiseReduction`).
+  - Removed `NoiseReduction`, `Dolby`, `DolbyA`, and `DolbySR` from `SoundStandard`; kept all IRIs unchanged.
+  - Moved `SDDS` from `OpticalSoundProcess` to `DigitalSoundSystem`, alongside `DolbyDigital` and `DTS`. `DolbyStereo` and `UltraStereo` remain under `OpticalVariableArea`.
+  - Adopted **one `SoundCharacteristic` node per soundtrack** on a carrier. A quad-track 35mm print therefore carries four nodes; noise reduction and channel layout attach to the correct track.
+  - Updated BFI mappings: `'Dolby'` and `'Dolby SR'` now emit `hasNoiseReduction`; `'Dolby Stereo SR'` emits `hasSoundStandard fiaf:DolbyStereo` + `hasNoiseReduction fiaf:DolbySR`; `'DTS Sound (Optical)'` emits only `hasSoundStandard fiaf:DTS` (an analogue optical backup track, if present, is its own node).
+- **Rationale**:
+  - **Homogeneity rule**: each tree answers one question. `SoundStandard` answers "how is this soundtrack fixed or encoded?", `NoiseReduction` answers "what companding is applied?", and `SoundChannelConfiguration` answers "what is the channel layout?".
+  - **Why split only noise reduction**: noise reduction is genuinely orthogonal — the same variable-area or magnetic track can use Dolby A, Dolby SR, or none. A full `SoundProcess` / `SoundSystem` split was rejected because analogue systems are specialisations of their fixation process (`DolbyStereo` *is* variable-area optical; `FourTrackMagnetic` *is* magnetic), and splitting would lose that inference or force duplicate statements. Digital systems are carried by film, disc, or file, and the carrier is already stated by `hasFormat`.
+  - **Why `SDDS` moved**: `SDDS`, `DolbyDigital` and `DTS` are all digital systems; their optical printing is a carrier detail, not an analogue optical sound process. Keeping `SDDS` under `OpticalSoundProcess` split the three peers and made `DigitalSoundSystem` queries incomplete.
+  - **Why one node per soundtrack**: a 35mm quad-track print needs `DolbySR` and `Stereo` bound to the analogue track, not to the SDDS or DTS track. The `SoundCharacteristic` node is the grouping device, exactly as `ColourCharacteristic` groups encoding/space/transfer.
+  - **Why `DolbyA` / `DolbySR` under `Dolby`**: `Dolby` is the "specific type unknown" level; the subclasses add precision without losing broad `Dolby` queries.
+  - **Trade-off**: `DolbyStereo` remains an `OpticalVariableArea` while `SDDS` is a `DigitalSoundSystem`, so values in `SoundStandard` can sit at different levels of specificity. This is intentional; `SoundStandard` is a specificity hierarchy, not a set of orthogonal facets. Cardinality and disjointness are not yet enforced in OWL.
+- **Affected Files** *(all updated)*:
+  - `ontology/fiafcore-soundstandard.ttl`, `ontology/fiafcore-noisereduction.ttl` (new), `ontology/fiafcore-soundcharacteristic.ttl`
+  - `vocabulary/fiafcore-soundstandard.ttl`, `vocabulary/fiafcore-noisereduction.ttl` (new) & `fiafcore.ttl` (regenerated)
+  - `compile.py` (vocabulary list)
+  - `SOUND_TAXONOMY.md`, `TAXONOMY_OVERVIEW.md` (Principle 2/3, §2.4, Examples 2, 4, 7), `MAPPING.md` (§6.11), `docs/templates/vocabularies.html`
+  - `transform/bfi/xsl/BFI_FIAF_LOD_Manifestations.xsl`
+- **Note**: §3.1 (`Silent` vs. `Mute`) and §3.2 (`Stereo` vs. `Surround`) remain separate open mapping questions.
 
 ---
 
@@ -315,6 +356,7 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 
 ### 4.8 Replacing `fiaf:Carrier` with Partitive `fiaf:Item`s (`hasPart` / `isPartOf`) and Work-Independent Storage Media (`CARRIER_AND_DIGITAL_MODELING.md`)
 - **Status**: **OPEN (Future Architectural Review)**
+- **Dependency from the Format/stream decision**: Carrier remains vaguely defined and is not settled by §4.10. `hasStream` provisionally accepts Item ∪ Carrier as equally valid attachment points; archives are not required to use any inventory entity below Item. The eventual entity review must distinguish storage units, digital objects, package components, and internal streams. Keep storage and digital-object formats on separate objects where possible; storage/content relationships must not be conflated with stream composition. No hasContent/isContentOf or package-part relation is introduced by the stream change.
 - **Context**:
   - **Lineage & Standards Alignment**:
     - The FIAF Moving Image Cataloguing Manual (2016) defines **four core entities** (`Work`, `Variant`, `Manifestation`, `Item`); `Carrier` is not a primary entity in the FIAF Manual and has no `dc:source` citation in `ontology/fiafcore-carrier.ttl`.
@@ -350,24 +392,25 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 ---
 
 ### 4.9 Homogeneous vs. Heterogeneous Taxonomy Trees: One Kind of Thing per Tree (Colour, Sound, Format, and Untouched Taxonomies)
-- **Status**: **OPEN**
+- **Status**: **PARTIALLY RESOLVED (Sound resolved; Format and the untested trees remain open)**
 - **Issue**:
   - The technical taxonomies do not agree on **what a second value from the same tree means**. In some trees every concept is an instance of the *same kind of thing*, so repeating the property means "more than one of these is present". In others the tree bundles *several different kinds of things* (orthogonal facets), so repeating the property means "this artefact has several different dimensions". That is a **semantic homogeneity** problem, not a cardinality problem:
     - **Homogeneous trees (one kind of thing)**:
       - `ColourStandard`: every concept answers "which colour process is present?". `fiaf:Tinted` + `fiaf:Toned` is therefore not a contradiction; it states that **both processes are present** (e.g. a print that is both tinted and toned). The tree is not strictly "mutually exclusive" — exclusivity only applies to specific values that cannot physically co-occur.
-      - `ColourEncoding` (`RGB`, `YUV`, `XYZ`, `Greyscale`), `ColourSpace` (`Rec709`, `ACES`, …), and `TransferFunction` (`Linear`, `Gamma`, …): each tree covers one digital dimension, and the dimension was split into its own property precisely so that no tree mixes facets (`TAXONOMY_OVERVIEW.md`, Principles 1–2).
+      - `ColourEncoding` (`RGB`, `YUV`, `XYZ`, `Greyscale`), `ColourSpace` (`Rec709`, `ACES2065_1`, …), and `TransferFunction` (`Linear`, `Gamma`, …): each tree covers one digital dimension. These aspects are separately describable, but not every combination is meaningful: ACES2065-1 specifies RGB encoding and a linear transfer function (`TAXONOMY_OVERVIEW.md`, Principles 1–2).
       - `SoundChannelConfiguration` (`Mono`, `Stereo`, `Surround`) and the `BlackAndWhite` / `Colour` and `Sound` / `Silent` / `Mute` type branches are homogeneous too.
       - The current documentation models hybrid colour as **separate blank nodes**, but that is a modelling choice for characteristics on different sequences, not a rule that a single node may hold only one `hasColourProcess`. `TAXONOMY_OVERVIEW.md` Example 3 uses `[ fiaf:hasColourProcess fiaf:Toned ], [ a fiaf:Colour ; fiaf:hasColourProcess fiaf:Technicolor ]` because those processes occur on different parts of the print; `Tinted` + `Toned` on the same part could legitimately sit on one node.
     - **Heterogeneous trees (several kinds of thing in one tree)**:
-      - **`SoundStandard`** mixes three orthogonal facets under one property and one tree:
+      - **`SoundStandard`** *(resolved — see Resolution below)* previously mixed three orthogonal facets under one property and one tree:
         1. **Physical fixation process**: `OpticalSoundProcess` (`OpticalVariableArea`, `OpticalVariableDensity`), `Magnetic` (`FourTrackMagnetic`, `SixTrackMagnetic`).
         2. **Playback / encoding system**: `DigitalSoundSystem` (`DolbyDigital`, `DTS`, `DolbyAtmos`, …), plus `DolbyStereo` and `SDDS` under `OpticalSoundProcess`.
         3. **Noise reduction**: `NoiseReduction` (`Dolby`, `DolbyA`, `DolbySR`).
-        Stating `fiaf:DolbyStereo` + `fiaf:DolbySR` therefore says two **different kinds of things** about one track (a playback system and a noise-reduction system), not "two playback systems are present":
+        Stating `fiaf:DolbyStereo` + `fiaf:DolbySR` therefore said two **different kinds of things** about one track (a playback system and a noise-reduction system), not "two playback systems are present":
         - BFI `'Dolby Stereo SR'` → `fiaf:hasSoundStandard fiaf:DolbyStereo, fiaf:DolbySR` (`BFI_FIAF_LOD_Manifestations.xsl` lines 804–807).
-        - BFI `'DTS Sound (Optical)'` → `fiaf:hasSoundStandard fiaf:DTS, fiaf:OpticalSoundProcess` (lines 784–787) mixes a digital encoding system with the physical carrier process.
-        - `TAXONOMY_OVERVIEW.md` Example 4 → `fiaf:hasSoundStandard fiaf:FourTrackMagnetic, fiaf:DolbyA` (line 656) mixes a track layout with a noise-reduction system.
-        - `fiaf:DolbyStereo` is itself a subclass of `fiaf:OpticalSoundProcess`, so some statements mix a system with its own parent process at two levels of the same branch.
+        - BFI `'DTS Sound (Optical)'` → `fiaf:hasSoundStandard fiaf:DTS, fiaf:OpticalSoundProcess` (lines 784–787) mixed a digital encoding system with the physical carrier process.
+        - `TAXONOMY_OVERVIEW.md` Example 4 → `fiaf:hasSoundStandard fiaf:FourTrackMagnetic, fiaf:DolbyA` (line 656) mixed a track layout with a noise-reduction system.
+        - `fiaf:DolbyStereo` is itself a subclass of `fiaf:OpticalSoundProcess`, so some statements mixed a system with its own parent process at two levels of the same branch.
+        - **Now**: `NoiseReduction` is its own tree (`fiafcore-noisereduction.ttl`) reached via `fiaf:hasNoiseReduction`; `DolbyA` and `DolbySR` are subclasses of `Dolby` (unspecified); `SDDS` moved under `DigitalSoundSystem`; and multi-track carriers use one `SoundCharacteristic` node per soundtrack.
       - **`Format`** mixes physical carriers, file wrappers/packages, and stream codecs under one property and one tree:
         - Physical carrier / gauge: `FilmFormat` (`35mmFilm`), `VideoFormat` (`DigitalBetacam`, `DVD`), `AudioFormat` (`CD`), `DataStorageFormat` (`LTO5`, `DVDR`).
         - Container / package / image file: `ContainerFormat` (`MKV`, `MXF`, `MP4`, `VOB`), `PackageFormat` (`DCP`, `IMF`), `ImageFormat` (`DPX`, `TIFF`).
@@ -379,13 +422,13 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
         - `fiaf:MP4` (`ContainerFormat`) + `fiaf:DVDR` (`DataStorageFormat`) — Example 6, lines 762–763.
     - **`Element`** is currently single-valued by convention (`fiaf:isElement` once per `Item`), even where an artefact arguably occupies two roles (e.g. `SeparatedMagneticSound` + `AudioMaster`, §2.4). Nothing in the ontology enforces this either.
   - The practical consequence is that **the same shape encodes both valid repetition and facet mixing**, and nothing distinguishes them:
-    - *Valid repetition or homogeneity violation*: `fiaf:hasSoundStandard fiaf:DolbyStereo, fiaf:DolbySR` currently means "system + noise reduction"; under a homogeneous model it would be two properties, e.g. `fiaf:hasSoundSystem fiaf:DolbyStereo ; fiaf:hasNoiseReduction fiaf:DolbySR`.
+    - *Valid repetition or homogeneity violation*: `fiaf:hasSoundStandard fiaf:DolbyStereo, fiaf:DolbySR` previously meant "system + noise reduction"; it is now `fiaf:hasSoundStandard fiaf:DolbyStereo ; fiaf:hasNoiseReduction fiaf:DolbySR`.
     - *Facet mix*: `fiaf:hasFormat fiaf:MKV, fiaf:FFV1, fiaf:PCM, fiaf:LTO5` mixes container, video codec, audio codec, and storage medium.
     - *Genuine contradiction*: `fiaf:hasFormat fiaf:35mmFilm, fiaf:16mmFilm`, or `fiaf:hasSoundStandard fiaf:OpticalVariableArea, fiaf:OpticalVariableDensity`.
   - `SoundChannelConfiguration` is homogeneous, but the BFI `'Surround Stereo'` mapping still emits both `fiaf:Stereo` and `fiaf:Surround` on one node (§3.2), and the `Sound` / `Silent` / `Mute` values are `rdf:type` assertions rather than properties. These show that the intended semantics are implicit and therefore easy to break in new mappings.
 - **Why It Matters**:
   - **Validation**: the problem is not maximum cardinality; it is **which combinations are compatible**. Homogeneous trees need `owl:AllDisjointClasses`/SHACL only for values that cannot co-occur, while heterogeneous trees need either separate properties or documented facet rules. Without that, contradictory and facet-mixing statements pass silently.
-  - **Querying**: consumers cannot tell whether two `hasSoundStandard` values mean "two systems present" or "a system plus its noise reduction", nor whether two `hasFormat` values are alternatives or complementary facets.
+  - **Querying**: consumers cannot tell whether two `hasFormat` values mean "two systems present" or "a system plus its noise reduction", nor whether two `hasFormat` values are alternatives or complementary facets. For sound, `hasSoundStandard` (process/system) and `hasNoiseReduction` (companding) are now separate, so this ambiguity is resolved for sound; it remains for `hasFormat`.
   - **SKOS/vocabulary consumers**: `vocabulary/*.ttl` publishes every tree as a flat `skos:ConceptScheme`. Downstream users cannot see which branches are facets and which are alternatives.
   - **Mapping consistency**: BFI, Bundesarchiv, and NB each make ad-hoc choices about when to emit one value, several values, or several blank nodes. Without a stated rule, new mappings will keep diverging.
   - **Expansion risk**: §5.1 and §5.2 will add new `Form`, `Genre`, and `LanguageUsage` concepts. If those trees already mix facets, the additions will make the problem worse.
@@ -399,15 +442,15 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
   - **Trees that look homogeneous but should be verified**: `Base` (nitrate/acetate/polyester), `BroadcastStandard` (NTSC/PAL/SECAM), `Status` (Access/Preservation), `Title` (preferred/alternative/identifying/…), `Event` (lifecycle event types), `Activity`, `Agent`, `Identifier`, `Stock`, `Country`, `Language`, and `SoundChannelConfiguration`. For each, ask whether multiple values mean "more than one instance of the same kind" or "different facets of one artefact".
 - **Questions to Resolve**:
   1. Which trees are **homogeneous** (one kind of thing, multiple values = several instances present) and which are **heterogeneous** (several facets, multiple values = different dimensions)?
-  2. For heterogeneous trees, should each facet get its **own property and tree** (as Colour did with encoding/space/transfer), or should one property keep documented facet branches (as Sound does now)?
+  2. For heterogeneous trees, should each facet get its **own property and tree** (as Colour did with encoding/space/transfer, and as Sound now does with noise reduction), or should one property keep documented facet branches?
   3. Should the ontology enforce only **genuine incompatibilities** (`owl:AllDisjointClasses`, SHACL), rather than a blanket `maxCardinality 1`? Which values in homogeneous trees can never co-occur?
-  4. If Sound is split, what happens to existing classes and IRIs: keep `fiaf:SoundStandard` as an umbrella for backward compatibility, or introduce sibling trees (`SoundProcess`, `SoundSystem`, `NoiseReduction`)?
+  4. ~~If Sound is split, what happens to existing classes and IRIs?~~ **Resolved**: `fiaf:SoundStandard` is retained as the process/system tree (IRIs unchanged), `NoiseReduction` becomes a sibling tree in `ontology/fiafcore-noisereduction.ttl` reached via `fiaf:hasNoiseReduction`, `DolbyA`/`DolbySR` become subclasses of `Dolby`, and `SDDS` moves under `DigitalSoundSystem`. `SoundProcess`/`SoundSystem` were not introduced, so existing `hasSoundStandard` consumers keep working.
   5. Should `fiaf:Tinted` + `fiaf:Toned` be allowed on one `ColourCharacteristic` node (two instances of the same kind), and should `TAXONOMY_OVERVIEW.md` Example 3 distinguish "same sequence" from "different sequences" explicitly?
   6. How should `fiaf:Format` distinguish **alternatives** (film gauge: `35mmFilm` vs. `16mmFilm`) from **complementary facets** (container + video codec + audio codec + storage medium)? Should stream codecs move to a technical-characteristic node instead (§5.5)?
   7. What is the facet analysis for `Form`, `Genre`, `LanguageUsage`, `Variant`, and `Extent`, and should it happen before or alongside §5.1/§5.2?
 - **Options**:
   - **Option A — Split heterogeneous trees into homogeneous trees and properties (Colour-style)**:
-    - Sound: `SoundProcess` (`OpticalVariableArea`, `OpticalVariableDensity`, `Magnetic`, …), `SoundSystem` (`DolbyStereo`, `DolbyDigital`, `DTS`, `DolbyAtmos`, `SDDS`, …), and `NoiseReduction` (`Dolby`, `DolbyA`, `DolbySR`), each with its own property on `SoundCharacteristic`.
+    - Sound *(applied)*: `SoundStandard` retained for the fixation process / playback system; `NoiseReduction` (`Dolby` → `DolbyA`, `DolbySR`) split into its own tree and property `hasNoiseReduction`; `SDDS` moved under `DigitalSoundSystem`. A separate `SoundProcess`/`SoundSystem` pair was not introduced, because analogue systems are specialisations of their fixation process and multi-track carriers use one `SoundCharacteristic` node per soundtrack.
     - Format: keep `hasFormat` for physical carriers and packages, and add facet properties (e.g. `hasContainerFormat`, `hasVideoCodec`, `hasAudioCodec`) or move stream codecs to `TechnicalCharacteristic` (§5.5).
     - Apply the same analysis to `Form`, `Genre`, `LanguageUsage`, `Variant`, and `Extent`.
     - *Advantage*: every property has one meaning; repeated values always mean "more than one instance of the same kind"; contradictions become structurally impossible.
@@ -419,13 +462,40 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
   - **Option C — Hybrid**: split only the facets that are already routinely multi-valued (`NoiseReduction`, digital container/codec/storage), while keeping umbrella trees for the rest and marking incompatible values as disjoint.
 - **Affected Files** *(pending decision)*:
   - `ontology/fiafcore-colourcharacteristic.ttl`, `fiafcore-colourstandard.ttl`, `fiafcore-colourencoding.ttl`, `fiafcore-colourspace.ttl`, `fiafcore-transferfunction.ttl`
-  - `ontology/fiafcore-soundcharacteristic.ttl`, `fiafcore-soundstandard.ttl`, `fiafcore-soundchannelconfiguration.ttl`
+  - `ontology/fiafcore-soundcharacteristic.ttl`, `fiafcore-soundstandard.ttl`, `fiafcore-noisereduction.ttl`, `fiafcore-soundchannelconfiguration.ttl` *(sound split applied)*
   - `ontology/fiafcore-format.ttl`, `ontology/fiafcore-manifestation.ttl` (`fiaf:hasFormat`)
   - `ontology/fiafcore-form.ttl`, `fiafcore-genre.ttl`, `fiafcore-languageusage.ttl`, `fiafcore-variant.ttl`, `fiafcore-extent.ttl` (audit and possible splitting)
-  - `TAXONOMY_OVERVIEW.md` (Core Design Principles 1–2, Examples 2–6), `SOUND_TAXONOMY.md` (§1, §4), `FORMAT_TAXONOMY.md` (§Notes), and §5.1/§5.2 of this review
+  - `TAXONOMY_OVERVIEW.md` (Core Design Principles 1–2, Examples 2–7), `SOUND_TAXONOMY.md` (§1, §4), `FORMAT_TAXONOMY.md` (§Notes), and §5.1/§5.2 of this review
   - `transform/bfi/xsl/BFI_FIAF_LOD_Manifestations.xsl` (lines 758–823), `transform/bundesarchiv/xsl/bundesarchiv.xsl` (lines 2577–2658)
   - `compile.py` and `vocabulary/*.ttl` if trees are split or added (the vocabulary list in `compile.py` is hardcoded)
-- **Resolution**: *Pending discussion.*
+- **Resolution**:
+  - **Sound (resolved 2026-11-05)**: `NoiseReduction` is now an independent homogeneous tree in `ontology/fiafcore-noisereduction.ttl` (`Dolby` → `DolbyA`, `DolbySR`) reached through `fiaf:hasNoiseReduction`. `SoundStandard` keeps the fixation-process/playback-system tree, with `SDDS` moved under `DigitalSoundSystem` alongside `DolbyDigital` and `DTS`. Each `SoundCharacteristic` node describes exactly one soundtrack, so a multi-soundtrack carrier (e.g. a 35mm quad-track print) uses one node per track. BFI `'Dolby Stereo SR'` now emits `hasSoundStandard fiaf:DolbyStereo` + `hasNoiseReduction fiaf:DolbySR`, and `'DTS Sound (Optical)'` emits only `hasSoundStandard fiaf:DTS`. See **§3.3** for the full rationale, including why `SoundProcess` / `SoundSystem` were not split out.
+  - **Format (implemented, see §4.10)**: retain the five Format branches and direct-IRI hasFormat; move codecs into independent trees, with optional DigitalStream descriptions on Item or Carrier. Stream nodes group codecs, language usage, and colour/sound characteristics. Storage/content and package composition remain open with §4.8; legacy mapping migration is not complete. The issue descriptions and options above record the pre-decision analysis.
+  - **Untested trees**: still pending discussion.
+
+### 4.10 Format and Optional Digital Streams
+- **Status**: **ONTOLOGY IMPLEMENTED; mapping migration and Carrier architecture remain open**
+- **Decision**:
+  - Preserve FilmFormat, AudioFormat, VideoFormat, DataStorageFormat, and DigitalFormat under Format. No CarrierFormat wrapper, hasCarrierFormat/hasDigitalFormat split, or change to blank-node hasFormat values.
+  - VideoCodec and AudioCodec are independent trees and SKOS schemes, preserving codec IRIs. Codec subclass links to DigitalFormat are removed.
+  - Add DigitalStream with VideoStream, AudioStream, and SubtitleStream. `hasStream` has domain Item ∪ Carrier and range DigitalStream. Both inventory levels are first-class, not a mandatory Item→Carrier hierarchy.
+  - Add hasVideoCodec on VideoStream and hasAudioCodec on AudioStream. Extend hasColourCharacteristic to VideoStream and hasSoundCharacteristic to AudioStream, retaining their existing domains.
+  - Extend hasLanguageUsage to Item and DigitalStream while retaining Work, Variant, Manifestation. A stream can reference the same LanguageUsage node as the W/V/M/I description. No automatic inheritance is asserted.
+- **Rationale**:
+  - A codec describes encoding, not track identity. Container-level codec lists cannot bind different audio streams to their languages and channel layouts. One stream node per independently described stream solves this; one multichannel stream is not several streams merely because it has several channels.
+  - EBUCore's MediaResource/Track distinction and track-level codec/language description provide inspiration ([ontology source](https://github.com/ebu/ebucore/blob/master/ebucore.rdf)). Do not import its whole engineering model or assume its Format naming matches FIAFcore.
+  - Explicit digital-only streams avoid repurposing ColourCharacteristic as a picture-track entity or forcing unfamiliar track descriptions onto film. Ordinary film format/colour/sound descriptions remain unchanged.
+  - File and storage carrier are different objects. Separating them is preferred over adding facet properties to excuse mixing LTO and MKV on one unit. Aggregate holdings may still summarise component formats.
+  - A dedicated stream layer is optional and distinct from inventory entities; it can use blank nodes. No archive needs to create Carrier records simply to describe a digital file's streams.
+- **Deliberate limits**:
+  - No Manifestation-domain hasStream, generic analogue track model, new storage/content or package-part relationships, technical measurement family, subtitle codec taxonomy, cardinality/disjointness constraints, or changes to Carrier's definition.
+  - Domain/range statements infer types rather than prohibit invalid data. Further SHACL validation is a separate decision.
+  - Multiple containers on a summary record do not establish which streams belong to which file. Use distinct object descriptions where those associations are known. Unknown stream inventories may be omitted.
+- **Migration still to review**:
+  - BFI emits ProRes422HQ and ProRes via hasFormat on Manifestation. Do not attach hasStream there, silently drop codec information, or invent Item holdings to accommodate it. These legacy triples remain pending a source-level mapping decision.
+  - Bundesarchiv MPEG-2 on Item can map to a minimally described VideoStream, but source data and execution must be checked before a broader transform migration. Existing storage/file mixing likewise remains a §4.8 mapping issue.
+  - Existing codec-as-format queries require updating; moving codec IRIs does not preserve their former Format ancestry. No compatibility subclass links or automatic assertion propagation are added.
+- **Documentation/examples**: `FORMAT_TAXONOMY.md` contains the full tree and rationale; `TAXONOMY_OVERVIEW.md` summarises it; `example/DigitalStream.ttl` illustrates Item-only and Carrier-level files, shared language usages, subtitles, and unchanged film carriers. See §4.8 for the independent Carrier reassessment.
 
 ---
 
@@ -485,6 +555,6 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
     - `ColourStandard` (`Tinted`, `Toned` via `hasColourProcess`) and `ColourEncoding` (`RGB`, `YUV` via `hasColourEncoding`)
     - `Format` (`28mmFilm`, `VHS`, `SuperVHS`, `Betamax`, `VCR`, `Video8`, `Hi8`, `Video2000`, `Umatic*`, `DVCAM`, `DVCPRO`, `MiniDV`, `HDV`, `HDCAM`, `D3`, `D6`, `CDR`, `DVDR`, `UltraHDBluRay`, `DAT`, `DTRS`, `LTO2`..`LTO6`, `HardDrive`, `MagnetoOpticalDisc`, `FlashMemory`, `DCP`)
     - `Element` (`Negative`, `ColourReversalIntermediate`, `ReversalPositive`, `WorkPrint`, `SeparatedMagneticSound`)
-    - `SoundStandard` & `SoundChannelConfiguration` (`Mono`, `DolbyA`, `DolbySR`, `FourTrackMagnetic`, `SixTrackMagnetic`, `DolbyDigitalSurroundEX`)
+    - `SoundStandard`, `NoiseReduction` & `SoundChannelConfiguration` (`Mono`, `DolbyA`, `DolbySR` via `hasNoiseReduction`, `FourTrackMagnetic`, `SixTrackMagnetic`, `DolbyDigitalSurroundEX`)
     - `Country` (`SovietUnion`, `Yugoslavia`) and `Stock` (`Maxell`, `BASF`, `Scotch`, `TDK`)
 - **Resolution**: *Pending discussion.*

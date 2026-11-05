@@ -1,0 +1,15 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+<https://dev.fiafcore.org/PCM>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/AudioCodec> ;
+    skos:definition "Pulse-code modulation, the uncompressed digital audio encoding used by WAV, CD, DCDM, and most preservation masters."@en ;
+    skos:inScheme <https://dev.fiafcore.org/AudioCodec> ;
+    skos:prefLabel "PCM"@en ;
+.
+
+<https://dev.fiafcore.org/AudioCodec>
+    a skos:ConceptScheme ;
+    skos:definition "An encoding of a digital audio stream, independent of its enclosing file format."@en ;
+    skos:prefLabel "Audio Codec"@en ;
+.

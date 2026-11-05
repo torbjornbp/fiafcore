@@ -6,7 +6,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 <https://dev.fiafcore.org/Format> a owl:Class ;
     rdfs:label "Format"@en ;
-    dc:description "The physical medium, file container, encoding, or deliverable package in which a moving image Manifestation or Item is fixed."@en ;
+    dc:description "The physical medium, digital file format, or deliverable package in which a moving image Manifestation, Item, or Carrier is fixed. Digital stream encodings are described separately with hasVideoCodec or hasAudioCodec."@en ;
     dc:source <> ;
 .
 
@@ -499,7 +499,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 # Digital formats
 
 <https://dev.fiafcore.org/DigitalFormat> a owl:Class ;
-    dc:description "A digital file container, deliverable package, or encoding."@en ;
+    dc:description "A digital file container, image file format, or deliverable package. Codecs describe individual digital streams rather than the format of the enclosing object."@en ;
     dc:source <> ;
     rdfs:label "Digital Format"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/Format> ;
@@ -513,7 +513,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 .
 
 <https://dev.fiafcore.org/ImageFormat> a owl:Class ;
-    dc:description "A self-contained digital image file format combining a header and a raster payload, without a separate wrapping container or codec."@en ;
+    dc:description "A digital image file format combining image data and associated metadata. Image data may be compressed or uncompressed."@en ;
     dc:source <> ;
     rdfs:label "Image Format"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
@@ -631,74 +631,6 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     dc:source <> ;
     rdfs:label "IMF"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/PackageFormat> ;
-.
-
-<https://dev.fiafcore.org/VideoCodec> a owl:Class ;
-    dc:description "A video or image sequence encoding used inside a digital container."@en ;
-    dc:source <> ;
-    rdfs:label "Video Codec"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
-.
-
-<https://dev.fiafcore.org/FFV1> a owl:Class ;
-    dc:description "FFV1, a lossless intra-frame video codec used for preservation masters."@en ;
-    dc:source <> ;
-    rdfs:label "FFV1"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/VideoCodec> ;
-.
-
-<https://dev.fiafcore.org/MPEG2> a owl:Class ;
-    dc:description "MPEG-2 video."@en ;
-    dc:source <> ;
-    rdfs:label "MPEG-2"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/VideoCodec> ;
-.
-
-<https://dev.fiafcore.org/MPEG-4> a owl:Class ;
-    dc:description "The MPEG-4 family of video encoding standards."@en ;
-    dc:source <> ;
-    rdfs:label "MPEG-4"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/VideoCodec> ;
-.
-
-<https://dev.fiafcore.org/ProRes> a owl:Class ;
-    dc:description "The Apple ProRes family of video codecs."@en ;
-    dc:source <> ;
-    rdfs:label "ProRes"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/VideoCodec> ;
-.
-
-<https://dev.fiafcore.org/ProRes422HQ> a owl:Class ;
-    dc:description "Apple ProRes 422 HQ, a high quality 4:2:2 ProRes variant."@en ;
-    dc:source <> ;
-    rdfs:label "ProRes 422 HQ"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/ProRes> ;
-.
-
-<https://dev.fiafcore.org/RealVideo> a owl:Class ;
-    dc:description ""@en ;
-    rdfs:label "Real Video"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/VideoCodec> ;
-.
-
-<https://dev.fiafcore.org/WindowsMedia> a owl:Class ;
-    dc:description ""@en ;
-    rdfs:label "Windows Media"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/VideoCodec> ;
-.
-
-<https://dev.fiafcore.org/AudioCodec> a owl:Class ;
-    dc:description "A digital audio encoding used inside a digital container."@en ;
-    dc:source <> ;
-    rdfs:label "Audio Codec"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DigitalFormat> ;
-.
-
-<https://dev.fiafcore.org/PCM> a owl:Class ;
-    dc:description "Pulse-code modulation, the uncompressed digital audio encoding used by WAV, CD, DCDM, and most preservation masters."@en ;
-    dc:source <> ;
-    rdfs:label "PCM"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/AudioCodec> ;
 .
 
 ### Datatype Properties
