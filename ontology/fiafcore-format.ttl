@@ -70,6 +70,13 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     rdfs:subClassOf <https://dev.fiafcore.org/FilmFormat> ;
 .
 
+<https://dev.fiafcore.org/65mmFilm> a owl:Class ;
+    dc:description "A perforated 65mm motion-picture film format, commonly used for large-format camera negatives."@en ;
+    dc:source <> ;
+    rdfs:label "65mm Film"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/FilmFormat> ;
+.
+
 <https://dev.fiafcore.org/70mmFilm> a owl:Class ;
     dc:description ""@en ;
     rdfs:label "70mm Film"@en ;
@@ -127,24 +134,31 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 <https://dev.fiafcore.org/HalfInchAudiotape> a owl:Class ;
     dc:description ""@en ;
     rdfs:label "Half Inch Audiotape"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/AudioFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpenReelAudiotape> ;
 .
 
 <https://dev.fiafcore.org/OneInchAudiotape> a owl:Class ;
     dc:description ""@en ;
     rdfs:label "One Inch Audiotape"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/AudioFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpenReelAudiotape> ;
 .
 
 <https://dev.fiafcore.org/QuerterInchAudiotape> a owl:Class ;
     dc:description ""@en ;
     rdfs:label "Querter Inch Audiotape"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/AudioFormat> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpenReelAudiotape> ;
 .
 
 <https://dev.fiafcore.org/TwoInchAudiotape> a owl:Class ;
     dc:description ""@en ;
     rdfs:label "Two Inch Audiotape"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpenReelAudiotape> ;
+.
+
+<https://dev.fiafcore.org/OpenReelAudiotape> a owl:Class ;
+    dc:description "An open-reel magnetic audio tape format, with tape width unspecified unless a narrower term is used. Excludes perforated magnetic film."@en ;
+    dc:source <> ;
+    rdfs:label "Open-Reel Audiotape"@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/AudioFormat> ;
 .
 
@@ -252,7 +266,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 <https://dev.fiafcore.org/SuperVHS> a owl:Class ;
     dc:description ""@en ;
     rdfs:label "Super VHS"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/VHS> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
 <https://dev.fiafcore.org/VCR> a owl:Class ;
@@ -276,7 +290,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 <https://dev.fiafcore.org/Hi8> a owl:Class ;
     dc:description ""@en ;
     rdfs:label "Hi8"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Video8> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
 <https://dev.fiafcore.org/DV> a owl:Class ;
@@ -302,7 +316,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 <https://dev.fiafcore.org/DVCPROHD> a owl:Class ;
     dc:description ""@en ;
     rdfs:label "DVCPRO HD"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/DVCPRO> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DV> ;
 .
 
 <https://dev.fiafcore.org/MiniDV> a owl:Class ;
@@ -368,6 +382,20 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
+<https://dev.fiafcore.org/AmpexDCT> a owl:Class ;
+    dc:description "The Ampex DCT professional digital component videocassette format."@en ;
+    dc:source <> ;
+    rdfs:label "Ampex DCT"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
+.
+
+<https://dev.fiafcore.org/ProfessionalDisc> a owl:Class ;
+    dc:description "The Professional Disc optical recording medium used by disc-based XDCAM systems; not the broader XDCAM family of disc and solid-state implementations."@en ;
+    dc:source <> ;
+    rdfs:label "Professional Disc"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalVideoDisc> ;
+.
+
 <https://dev.fiafcore.org/BluRay> a owl:Class ;
     dc:description "An optical video disc in Blu-ray Disc format."@en ;
     dc:source <> ;
@@ -379,7 +407,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     dc:description "The Ultra HD Blu-ray optical video disc format."@en ;
     dc:source <> ;
     rdfs:label "Ultra HD Blu-ray"@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/BluRay> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/OpticalVideoDisc> ;
 .
 
 <https://dev.fiafcore.org/DVD> a owl:Class ;
@@ -411,6 +439,20 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 .
 
 # Data storage formats
+
+<https://dev.fiafcore.org/CDROM> a owl:Class ;
+    dc:description "A read-only compact disc used to distribute digital data, rather than Compact Disc Digital Audio."@en ;
+    dc:source <> ;
+    rdfs:label "CD-ROM"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
+.
+
+<https://dev.fiafcore.org/DVDROM> a owl:Class ;
+    dc:description "A read-only DVD used to distribute digital data, rather than an authored DVD-Video release."@en ;
+    dc:source <> ;
+    rdfs:label "DVD-ROM"@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/DataStorageFormat> ;
+.
 
 <https://dev.fiafcore.org/DataStorageFormat> a owl:Class ;
     dc:description "An offline digital storage carrier used to hold moving image data, such as data tape, a hard disk drive, a recordable optical data disc, or flash memory."@en ;

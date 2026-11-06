@@ -294,7 +294,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 ### Datatype Properties
 
-<https://dev.fiafcore.org/hasAchievement> a owl:ObjectProperty ;
+<https://dev.fiafcore.org/hasAchievement> a owl:DatatypeProperty ;
     rdfs:label "Has Achievement"@en ;
     dc:description ""@en ;
     dc:source <> ;
@@ -302,7 +302,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
 .
 
-<https://dev.fiafcore.org/hasAwardName> a owl:ObjectProperty ;
+<https://dev.fiafcore.org/hasAwardName> a owl:DatatypeProperty ;
     rdfs:label "Has Award Name"@en ;
     dc:description ""@en ;
     dc:source <> ;
@@ -310,7 +310,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     rdfs:range <http://www.w3.org/2001/XMLSchema#string> ;
 .
 
-<https://dev.fiafcore.org/hasDate> a owl:ObjectProperty ;
+<https://dev.fiafcore.org/hasDate> a owl:DatatypeProperty ;
     rdfs:label "Has Date"@en ;
     dc:description ""@en ;
     dc:source <> ;
@@ -318,7 +318,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     rdfs:range <http://www.w3.org/2001/XMLSchema#date> ;
 .
 
-<https://dev.fiafcore.org/nominationOnly> a owl:ObjectProperty ;
+<https://dev.fiafcore.org/nominationOnly> a owl:DatatypeProperty ;
     rdfs:label "Nomination Only"@en ;
     dc:description ""@en ;
     dc:source <> ;
@@ -326,7 +326,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     rdfs:range <http://www.w3.org/2001/XMLSchema#boolean> ;
 .
 
-<https://dev.fiafcore.org/hasVerdict> a owl:ObjectProperty ;
+<https://dev.fiafcore.org/hasVerdict> a owl:DatatypeProperty ;
     rdfs:label "Has Verdict"@en ;
     dc:description ""@en ;
     dc:source <> ;

@@ -5,8 +5,8 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 ### Class
 
 <https://dev.fiafcore.org/Element> a owl:Class ;
-    rdfs:label ""@en ;
-    dc:description ""@en ;
+    rdfs:label "Element"@en ;
+    dc:description "The nature or function of an Item in production, duplication, preservation, or access, including photochemical polarity where it forms part of that role."@en ;
 .
 
 ### Subclasses

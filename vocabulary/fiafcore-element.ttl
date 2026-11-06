@@ -226,6 +226,6 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 <https://dev.fiafcore.org/Element>
     a skos:ConceptScheme ;
-    skos:definition ""@en ;
-    skos:prefLabel ""@en ;
+    skos:definition "The nature or function of an Item in production, duplication, preservation, or access, including photochemical polarity where it forms part of that role."@en ;
+    skos:prefLabel "Element"@en ;
 .
