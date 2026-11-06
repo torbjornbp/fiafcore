@@ -6,6 +6,76 @@ This document tracks all identified tensions, conflicting data coordinates acros
 
 Each item has a **Status** and **Resolution** block so decisions can be worked through point by point across sessions and documented alongside the code and `TAXONOMY_OVERVIEW.md`.
 
+## Implementation batch — 2026-11-06
+
+- **§2.4 partially resolved**: keep `AudioMaster` + sound standard `Magnetic` for
+  BFI `Master Magnetic Recording`. Generic magnetic recordings (including the
+  loop and three-track descriptions) now use `AudioElement` + `Magnetic`, not
+  `SeparatedMagneticSound`. Sepmag remains an `AudioElement` specifically on
+  perforated magnetic film. Added `OpenReelAudiotape` above the four existing
+  tape-width terms; only explicit reel-to-reel descriptions imply that format.
+  **`Re-recorded Internegative` remains undecided and unchanged.**
+- **§2.5 resolved**: generic BFI positive descriptions now map to `Positive`,
+  independently of `copy_status`. Existing specialised positive terms are
+  retained. Colour/process emission is unchanged: `Tinted Positive` still emits
+  `hasColourProcess Tinted`, without inferring `Colour` or `BlackAndWhite`.
+- **§2.6 resolved**: added `AmpexDCT` and `ProfessionalDisc` (the latter under
+  `OpticalVideoDisc`, not a blanket XDCAM family term). BA `AMPEX_DCT` and
+  `XDCAM_PFD_50DLA` map accordingly. `High_8/8mm`, `D_1_oder_2`, `BETA`, and
+  `MAZ` use `VideoFormat`. `FILE` uses `DigitalFormat` if the container is absent,
+  empty, unknown, or explicitly absent. Legacy MPEG-2 migration remains §4.10.
+  Added `CDROM`, `DVDROM`, and `65mmFilm`; BFI DVD-ROM already referenced that
+  IRI, and BFI 65mm now maps explicitly. NB implementation remains §5.6.
+- **Video hierarchy**: Video8/Hi8 and VHS/SuperVHS are direct `VideoFormat`
+  siblings; DVCPRO/DVCPROHD are siblings under `DV`; BluRay/UltraHDBluRay are
+  siblings under `OpticalVideoDisc`. Retain actual family umbrellas (Betacam,
+  DV, Umatic, OneInchVideotape). No old term IRIs are renamed.
+- **§3.1 resolved**: only the four previously silent `…_mit_Tonkasch` values
+  move to `Mute`; other `Stumm*` values remain unchanged by explicit decision.
+- **§3.2 resolved**: BFI `Surround Stereo` emits `Surround` only. This is a
+  mapping correction, not a new OWL disjointness constraint.
+- **§4.1–§4.6 resolved**: supplied Element metadata; §4.2 was already implemented
+  with digital streams; expanded `hasBroadcastStandard` to Manifestation ∪ Item
+  and restored BFI PAL; corrected six datatype declarations; fixed Greece and
+  stray template text; BA stock values now use typed nodes, with source stock
+  codes preserved verbatim.
+- **Stock code assignments**: DP_31, DN_21, PF2, PF2_V2, TF_12d → Orwo;
+  2374, 2234, 2366 → Kodak; CP_30 and ST_8 → Agfa. In particular, **CP30 is
+  Agfa, not Orwo**. Sources include [ORWO's catalogue](https://orwo.shop/collections/all),
+  [PF2 successor documentation](https://www.orwo.shop/en-us/products/orwo-pf2-35mm),
+  [Agfa CP30](http://www.agfa.com/docs/sp/motionpictures/cp30_en.pdf), and
+  [Agfa ST8.D](http://www.agfa.com/docs/sp/motionpictures/st8d_en.pdf).
+  Mapping the abbreviated ST_8 to Agfa was explicitly approved; the source does
+  not establish the `.D` suffix, which is not added to the emitted code.
+- **§5.3 resolved**: organisation credits use broad activity-domain classes
+  (`WritingActivity`, `CinematographyActivity`, `DirectingActivity`,
+  `SoundActivity`, `ProductionDesignActivity`, `ProductionCompany`, etc.) rather
+  than inferring precise person roles. Person credits keep precise existing role
+  classes only where the match is solid, and retain generic `Activity` where it
+  is not. `Drehbuch` uses `WritingActivity` in both branches and `Fachberatung`
+  uses `Advisor` in both. `Geräusche` remains at `SoundActivity` rather than
+  guessed Foley; `Stunts und Doubles` remains at `CastActivity` rather than
+  asserting both specific roles. No new Activity classes are introduced.
+- **§5.4 resolved within agreed scope**: added PVCBase and CellophaneBase only,
+  mapped BFI PVC and BA Ozaphan, and clarified `hasBase`. Paper, glass,
+  polycarbonate, and acrylic additions are deferred. Added Ampex, Ansco, Deko,
+  EMTEC, GoerzTenax, Indu, JVC, Lignose, Mafe, Memorex, Perutz, Pyral, Sakura,
+  Svema, and Zonal stock terms. Stock includes brands, not just emulsion makers
+  (notably Indu). Historical Goerz-Tenax was explicitly approved despite the
+  camera-name ambiguity. BFI exact brand/approved regional variants now map;
+  uncertain Cbema/SVMA aliases remain unmapped. Recognised unmapped stock values
+  no longer produce empty stock nodes. Stock has no generated SKOS scheme;
+  these additions are included in the generated ontology monolith.
+- **Checks**: `uv run scripts/check_taxonomy_review.py` exercises synthetic BFI
+  and BA inputs, ontology typing, stock nodes/codes, video fallbacks, masking,
+  audio roles, and colour preservation. Archive datasets are not bundled here;
+  this is not a full source-dataset migration run.
+
+The issue descriptions below retain the original audit context; the dated
+resolutions above take precedence over historical proposals. Architectural
+reviews, Form/Genre/LanguageUsage, technical measurements, and NB alignment are
+not settled by this batch.
+
 ---
 
 ## Part 1: Colour Taxonomy & Mappings
@@ -142,7 +212,7 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 ---
 
 ### 2.4 Sound Followers (`SoundNegative`, `SoundPositive`, `SeparatedMagneticSound`) vs. `AudioMaster` and Polarity
-- **Status**: **OPEN**
+- **Status**: **PARTIALLY RESOLVED — magnetic roles implemented; Re-recorded Internegative open**
 - **Issue**:
   - In the current `fiaf:Element` hierarchy, `SoundNegative`, `SoundPositive`, `SeparatedMagneticSound`, and `AudioMaster` are all flat siblings under `fiaf:AudioElement`.
   - Two questions arise:
@@ -153,7 +223,7 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 ---
 
 ### 2.5 Generic `'Positive'` Mapped to `fiaf:ReleasePrint` Instead of `fiaf:Positive` in BFI Items
-- **Status**: **OPEN**
+- **Status**: **RESOLVED — see 2026-11-06 implementation batch**
 - **Issue**:
   - `fiafcore-element.ttl` now defines both `fiaf:Positive` ("A positive film Element of unspecified generation") and its subclass `fiaf:ReleasePrint` ("A positive print made for exhibition, distribution, or viewing access").
   - In `BFI_FIAF_LOD_Items.xsl`, all generic positive descriptions (`'Positive'`, `'BW Positive'`, `'Colour Positive'`, `'Original Positive'`, `'Original / Dupe Positive'`, `'Tinted Positive'`, etc.) are mapped to `fiaf:ReleasePrint` instead of `fiaf:Positive`.
@@ -166,7 +236,7 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 ---
 
 ### 2.6 Missing `hasFormat` Mappings in `bundesarchiv.xsl` for Video/Digital `Materialart` Values
-- **Status**: **OPEN**
+- **Status**: **RESOLVED — see 2026-11-06 implementation batch**
 - **Issue**:
   - In `bundesarchiv.xsl`, the `isElement` block (lines 2713–2955) ignores several `Materialart` values because they represent formats, but the `hasFormat` block (lines 2112–2242) omits them:
     - `High_8/8mm` → could map to `fiaf:Video8` (parent of `fiaf:Hi8`)
@@ -214,7 +284,7 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 ## Part 3: Sound Taxonomy & Mappings
 
 ### 3.1 `Silent` vs. `Mute` on Sound-Era Intermediates and Masked Prints (`bundesarchiv.xsl`)
-- **Status**: **OPEN**
+- **Status**: **RESOLVED — mask cases only; see 2026-11-06 implementation batch**
 - **Issue**:
   - In `bundesarchiv.xsl` (lines 2576–2601), any `Materialart` starting with `Stumm...` is mapped to `fiaf:Silent`:
     - `Stumme_Kopie_mit_Tonkasch`, `Stummes_Duplikatnegativ_mit_Tonkasch`, `Stummes_Internegativ_mit_Tonkasch`, `Stummes_Duplikatpositiv_mit_Tonkasch` ("with soundtrack mask")
@@ -228,7 +298,7 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 ---
 
 ### 3.2 `fiaf:Stereo` vs. `fiaf:Surround` Disjointness (`Surround Stereo` in BFI)
-- **Status**: **OPEN**
+- **Status**: **RESOLVED — mapping only; see 2026-11-06 implementation batch**
 - **Issue**:
   - `ontology/fiafcore-soundchannelconfiguration.ttl` defines:
     - `fiaf:Stereo`: *"Stereophonic sound reproduced through two or more directional front channels **without surround channels**."*
@@ -273,7 +343,7 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 ## Part 4: Cross-Ontology Interactions & Bugs
 
 ### 4.1 Missing Label on `fiaf:Element` Root Class
-- **Status**: **OPEN**
+- **Status**: **RESOLVED — see 2026-11-06 implementation batch**
 - **Issue**:
   - In `ontology/fiafcore-element.ttl` (lines 7–10), `<https://dev.fiafcore.org/Element>` has `rdfs:label ""@en` and `dc:description ""@en`.
   - This causes `vocabulary/fiafcore-element.ttl` to have an empty `skos:prefLabel ""@en` on the `ConceptScheme`.
@@ -284,7 +354,7 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 ---
 
 ### 4.2 Domain of `fiaf:hasLanguageUsage` Excludes `fiaf:Item`
-- **Status**: **OPEN**
+- **Status**: **RESOLVED — already implemented by §4.10**
 - **Issue**:
   - In `ontology/fiafcore-work.ttl` (line 93), `fiaf:hasLanguageUsage` has `rdfs:domain [ owl:unionOf (Work Variant Manifestation) ]`.
   - However, `example/Item.ttl` (line 18), `bundesarchiv.xsl` (line 2273), and NB (`MAPPING.md` §4.3) all use `fiaf:hasLanguageUsage` on `fiaf:Item` (since individual prints/items can have different subtitle or dubbing languages).
@@ -295,7 +365,7 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 ---
 
 ### 4.3 Domain of `fiaf:hasBroadcastStandard` Excludes `fiaf:Manifestation`
-- **Status**: **OPEN**
+- **Status**: **RESOLVED — see 2026-11-06 implementation batch**
 - **Issue**:
   - In `ontology/fiafcore-item.ttl` (line 31), `fiaf:hasBroadcastStandard` has `rdfs:domain <https://dev.fiafcore.org/Item>` only.
   - Broadcast and home-viewing manifestations (`BroadcastManifestation`, `HomeViewingManifestation`) also have broadcast standards (e.g., BFI `BFI_FIAF_LOD_Manifestations.xsl` line 314 has `Phase Alternate Line (PAL)` on Manifestations, which had to be dropped).
@@ -306,7 +376,7 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 ---
 
 ### 4.4 `owl:ObjectProperty` Typo on Datatype Properties in `fiafcore-event.ttl` & `fiafcore-identifier.ttl`
-- **Status**: **OPEN**
+- **Status**: **RESOLVED — see 2026-11-06 implementation batch**
 - **Issue**:
   - Under `### Datatype Properties` in `ontology/fiafcore-event.ttl` (lines 297–335) and `ontology/fiafcore-identifier.ttl` (line 19), six properties with literal `xsd:*` ranges (`hasAchievement`, `hasAwardName`, `hasDate`, `nominationOnly`, `hasVerdict`, `hasIdentifierValue`) are declared as `a owl:ObjectProperty` instead of `a owl:DatatypeProperty`.
 - **Proposed Fix**:
@@ -316,7 +386,7 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 ---
 
 ### 4.5 `fiaf:Stock` Instance vs. Class IRI Inconsistency & SKOS Vocabulary List
-- **Status**: **OPEN**
+- **Status**: **RESOLVED — see 2026-11-06 implementation batch**
 - **Issue**:
   - `example/Item.ttl` (line 22), `BFI_FIAF_LOD_Items.xsl` (line 237), and NB (`MAPPING.md` §4.3) emit `fiaf:hasStock [ a fiaf:Kodak ; fiaf:hasStockCode "..." ]` (an instance of the `Stock` subclass, because `fiaf:hasStockCode` has `rdfs:domain fiaf:Stock`).
   - `bundesarchiv.xsl` (lines 2695–2701) emits `<fiaf:hasStock rdf:resource="https://dev.fiafcore.org/Kodak" />` directly (class IRI as value, rather than a blank node with `<rdf:type rdf:resource="..."/>`), and drops stock formulation codes like `DP_31`, `DN_21`, `PF2`, `ST_8`, `2374`, `2234`, `2366`, `CP_30`, `TF_12d` (lines 2682–2692) which are actually Orwo/Agfa/Kodak `hasStockCode` values!
@@ -327,7 +397,7 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 ---
 
 ### 4.6 Other XSLT & Documentation Bugs Noticed During Audit
-- **Status**: **OPEN**
+- **Status**: **RESOLVED — see 2026-11-06 implementation batch**
 - **Issues**:
   1. `transform/bundesarchiv/xsl/bundesarchiv.xsl` line 198: `'Griechenland'` (Greece) is mapped to `fiaf:Greenland` instead of `fiaf:Greece`.
   2. `transform/bundesarchiv/xsl/bundesarchiv.xsl` lines 1775 and 2969: stray `-->` after `<xsl:template match="ba:Exemplar">` and `<xsl:template match="ba:Aufbewahrungseinheit">`.
@@ -392,7 +462,7 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 ---
 
 ### 4.9 Homogeneous vs. Heterogeneous Taxonomy Trees: One Kind of Thing per Tree (Colour, Sound, Format, and Untouched Taxonomies)
-- **Status**: **PARTIALLY RESOLVED (Sound resolved; Format and the untested trees remain open)**
+- **Status**: **PARTIALLY RESOLVED (Sound, Format, and Form/Genre resolved; LanguageUsage, Variant, and Extent remain open)**
 - **Issue**:
   - The technical taxonomies do not agree on **what a second value from the same tree means**. In some trees every concept is an instance of the *same kind of thing*, so repeating the property means "more than one of these is present". In others the tree bundles *several different kinds of things* (orthogonal facets), so repeating the property means "this artefact has several different dimensions". That is a **semantic homogeneity** problem, not a cardinality problem:
     - **Homogeneous trees (one kind of thing)**:
@@ -471,7 +541,13 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 - **Resolution**:
   - **Sound (resolved 2026-11-05)**: `NoiseReduction` is now an independent homogeneous tree in `ontology/fiafcore-noisereduction.ttl` (`Dolby` → `DolbyA`, `DolbySR`) reached through `fiaf:hasNoiseReduction`. `SoundStandard` keeps the fixation-process/playback-system tree, with `SDDS` moved under `DigitalSoundSystem` alongside `DolbyDigital` and `DTS`. Each `SoundCharacteristic` node describes exactly one soundtrack, so a multi-soundtrack carrier (e.g. a 35mm quad-track print) uses one node per track. BFI `'Dolby Stereo SR'` now emits `hasSoundStandard fiaf:DolbyStereo` + `hasNoiseReduction fiaf:DolbySR`, and `'DTS Sound (Optical)'` emits only `hasSoundStandard fiaf:DTS`. See **§3.3** for the full rationale, including why `SoundProcess` / `SoundSystem` were not split out.
   - **Format (implemented, see §4.10)**: retain the five Format branches and direct-IRI hasFormat; move codecs into independent trees, with optional DigitalStream descriptions on Item or Carrier. Stream nodes group codecs, language usage, and colour/sound characteristics. Storage/content and package composition remain open with §4.8; legacy mapping migration is not complete. The issue descriptions and options above record the pre-decision analysis.
-  - **Untested trees**: still pending discussion.
+  - **Form and Genre (resolved 2026-11-06)**: retain both as broad mixed
+    vocabularies, matching library and archival practice. Length, structural
+    mode, production context, purpose, technique, and audience may legitimately
+    co-occur; they are not split into separate properties or trees. No new
+    classes were added. Mapping dropped Bundesarchiv terms remains a separate
+    cleanup task.
+  - **LanguageUsage, Variant, and Extent**: still pending discussion.
 
 ### 4.10 Format and Optional Digital Streams
 - **Status**: **ONTOLOGY IMPLEMENTED; mapping migration and Carrier architecture remain open**
@@ -502,13 +578,22 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 ## Part 5: Candidate Expansions Through the Same Lens
 
 ### 5.1 `Form` and `Genre` (`fiafcore-form.ttl` & `fiafcore-genre.ttl`)
-- **Status**: **OPEN**
+- **Status**: **RESOLVED — retain broad mixed vocabularies; mapping cleanup deferred**
 - **Scope**:
   - **Missing core classes across BFI, BA, and NB**: `Documentary` / `DocumentaryFilm`, `Newsreel` (`Wochenschau`), `TelevisionFilm` (`Fernsehfilm` / `Fjernsynsfilm`), `AdvertisingFilm` / `Commercial` (`Werbefilm` / `Reklame`), `MusicVideo`.
   - **Dropped matches in `bundesarchiv.xsl` (lines 1028–1245)**: ~35 German genre terms in `bundesarchiv.xsl` are currently dropped with empty `<xsl:when>` clauses even though exact FIAFcore classes already exist in `fiafcore-genre.ttl` (`Abenteuerfilm`, `Horrorfilm`, `Science_Fiction`, `Western`, `Melodram`, `Tragödie`, `Biografischer_Film`, `Historischer_Film`, `Experimentalfilm`, `Naturfilm`, `Umweltfilm`, `Ethnografischer_Film`, etc.).
   - **Structural review**: Clarify the boundary between `Form` and `Genre` and evaluate whether `Genre`'s 68 flat classes should be grouped into intermediate categories.
   - **Facet check first**: Both trees currently mix different kinds of things (see **§4.9**). Decide which facets belong in `Form` (length, publication/structural mode, production context, production-material purpose) and in `Genre` (narrative/thematic genre, technique/medium, movement/style, purpose/context, audience, adaptation status) before adding new concepts.
-- **Resolution**: *Pending discussion.*
+- **Resolution**:
+  - `Form` and `Genre` remain broad mixed vocabularies, matching library and
+    archival practice. Multiple facets may be present, and repeated values mean
+    multiple applicable categories rather than separate dimensions that require
+    new properties.
+  - No structural split and no new taxonomy terms were introduced. The missing
+    `DocumentaryFilm`, `NewsreelFilm`, `TelevisionFilm`, `AdvertisingFilm`, and
+    `MusicVideo` candidates were therefore not added in this pass.
+  - The dropped Bundesarchiv form/genre mappings remain a mapping cleanup; that
+    work does not require taxonomy changes and is deferred.
 
 ---
 
@@ -523,15 +608,20 @@ Each item has a **Status** and **Resolution** block so decisions can be worked t
 ---
 
 ### 5.3 `Activity` Mappings (`fiafcore-activity.ttl` & `bundesarchiv.xsl`)
-- **Status**: **OPEN**
+- **Status**: **RESOLVED — see 2026-11-06 implementation batch**
 - **Scope**:
   - Map the ~30 German credit roles in `bundesarchiv.xsl` (lines 417–988) that currently fall back to generic `fiaf:Activity` despite having exact classes in `fiafcore-activity.ttl` (`Producer`, `ExecutiveProducer`, `Coproducer`, `CameraOperator`, `ProductionDesigner`, `Choreographer`, `GafferLighting`, `SpecialEffects`, `Interviewer`, `Continuity`, `DubbingMixer`, `FoleyArtist`, `Double`, etc.).
-- **Resolution**: *Pending discussion.*
+- **Resolution**:
+  - Organisation credits use broad activity-domain classes rather than inferring
+    precise person roles. Person credits use precise existing roles only for
+    solid matches; ambiguous labels remain generic `Activity`.
+  - `Drehbuch` and `Synchrontext` are writing activity; `Fachberatung` is
+    `Advisor`. No new Activity classes were added.
 
 ---
 
 ### 5.4 `Base` and `Stock` Expansions (`fiafcore-base.ttl` & `fiafcore-stock.ttl`)
-- **Status**: **OPEN**
+- **Status**: **RESOLVED within agreed scope — see 2026-11-06 implementation batch**
 - **Scope**:
   - `Base`: Evaluate adding `PolycarbonateBase` (for optical discs: `Polycarbonat` in BA), `PaperBase` (`Papir` in NB, n=3,290), `GlassBase` (`Glass` in NB), `CellophaneBase` (`Ozaphan` in BA). Update `fiaf:hasBase` description in `fiafcore-item.ttl` (which still says *"The physical material or video format..."*).
   - `Stock`: Evaluate adding remaining stock manufacturers dropped in `BFI_FIAF_LOD_Items.xsl` (`Ampex`, `Pyral`, `Zonal`, `Perutz`, `Svema`, `Ansco`, `Sakura`, `Memorex`, `EMTEC`, `JVC`).

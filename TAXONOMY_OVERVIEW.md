@@ -49,6 +49,7 @@ fiaf:Format
 │   ├── fiaf:28mmFilm
 │   ├── fiaf:35mmFilm
 │   ├── fiaf:35mmMagneticFilm
+│   ├── fiaf:65mmFilm
 │   ├── fiaf:70mmFilm
 │   ├── fiaf:Super8mmFilm
 │   └── fiaf:Super16mmFilm
@@ -58,12 +59,14 @@ fiaf:Format
 │   ├── fiaf:CD
 │   ├── fiaf:DAT
 │   ├── fiaf:DTRS
-│   ├── fiaf:HalfInchAudiotape
-│   ├── fiaf:OneInchAudiotape
-│   ├── fiaf:QuerterInchAudiotape
-│   └── fiaf:TwoInchAudiotape
+│   └── fiaf:OpenReelAudiotape
+│       ├── fiaf:HalfInchAudiotape
+│       ├── fiaf:OneInchAudiotape
+│       ├── fiaf:QuerterInchAudiotape
+│       └── fiaf:TwoInchAudiotape
 │
 ├── fiaf:VideoFormat
+│   ├── fiaf:AmpexDCT
 │   ├── fiaf:Betacam
 │   │   ├── fiaf:BetacamSP
 │   │   └── fiaf:DigitalBetacam
@@ -76,7 +79,7 @@ fiaf:Format
 │   ├── fiaf:DV
 │   │   ├── fiaf:DVCAM
 │   │   ├── fiaf:DVCPRO
-│   │   │   └── fiaf:DVCPROHD
+│   │   ├── fiaf:DVCPROHD
 │   │   └── fiaf:MiniDV
 │   ├── fiaf:HalfInchVideotape
 │   ├── fiaf:HDCAM
@@ -88,7 +91,8 @@ fiaf:Format
 │   │   └── fiaf:OneInchTypeC
 │   ├── fiaf:OpticalVideoDisc
 │   │   ├── fiaf:BluRay
-│   │   │   └── fiaf:UltraHDBluRay
+│   │   ├── fiaf:UltraHDBluRay
+│   │   ├── fiaf:ProfessionalDisc
 │   │   ├── fiaf:DVD
 │   │   ├── fiaf:LaserDisc
 │   │   ├── fiaf:SVCD
@@ -100,12 +104,14 @@ fiaf:Format
 │   │   └── fiaf:UmaticSP
 │   ├── fiaf:VCR
 │   ├── fiaf:VHS
-│   │   └── fiaf:SuperVHS
+│   ├── fiaf:SuperVHS
 │   ├── fiaf:Video2000
-│   └── fiaf:Video8
-│       └── fiaf:Hi8
+│   ├── fiaf:Video8
+│   └── fiaf:Hi8
 │
 ├── fiaf:DataStorageFormat
+│   ├── fiaf:CDROM
+│   ├── fiaf:DVDROM
 │   ├── fiaf:CDR
 │   ├── fiaf:DVDR
 │   ├── fiaf:FlashMemory

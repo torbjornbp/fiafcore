@@ -10,6 +10,19 @@ Branch: `unified-taxonomy` (Format work originally developed on `restructure-for
 
 ## Class Hierarchy (Tree)
 
+Family umbrellas (`Betacam`, `DV`, `Umatic`, `OneInchVideotape`) retain their
+specialisations. Evolved named formats are siblings, not automatically subclasses
+of the older standard: Video8/Hi8, VHS/SuperVHS, DVCPRO/DVCPROHD, and
+BluRay/UltraHDBluRay. Broader family queries must account for those sibling terms.
+Bundesarchiv's ambiguous `High_8/8mm`, `D_1_oder_2`, `BETA`, and `MAZ` map to
+`VideoFormat`, not to both alternatives. `ProfessionalDisc` describes disc-based
+XDCAM media; it does not classify all XDCAM implementations as optical discs.
+
+`OpenReelAudiotape` permits width-unspecified reel-to-reel audio descriptions.
+Generic magnetic recording does not establish open-reel format or perforated
+magnetic film: use `AudioElement` (or an explicit `AudioMaster`) and the sound
+standard `Magnetic`, reserving `SeparatedMagneticSound` for known magnetic film.
+
 ```text
 fiaf:Format
 │
@@ -22,6 +35,7 @@ fiaf:Format
 │   ├── fiaf:28mmFilm                                   NEW
 │   ├── fiaf:35mmFilm
 │   ├── fiaf:35mmMagneticFilm                           moved from AudioFormat
+│   ├── fiaf:65mmFilm
 │   ├── fiaf:70mmFilm
 │   ├── fiaf:Super8mmFilm
 │   └── fiaf:Super16mmFilm
@@ -31,12 +45,14 @@ fiaf:Format
 │   ├── fiaf:CD                                         moved from OpticalFormat
 │   ├── fiaf:DAT                                        NEW
 │   ├── fiaf:DTRS                                       NEW
-│   ├── fiaf:HalfInchAudiotape                          (duplicate declaration removed)
-│   ├── fiaf:OneInchAudiotape
-│   ├── fiaf:QuerterInchAudiotape
-│   └── fiaf:TwoInchAudiotape
+│   └── fiaf:OpenReelAudiotape
+│       ├── fiaf:HalfInchAudiotape
+│       ├── fiaf:OneInchAudiotape
+│       ├── fiaf:QuerterInchAudiotape
+│       └── fiaf:TwoInchAudiotape
 │
 ├── fiaf:VideoFormat
+│   ├── fiaf:AmpexDCT
 │   ├── fiaf:Betacam                                     NEW
 │   │   ├── fiaf:BetacamSP
 │   │   └── fiaf:DigitalBetacam
@@ -49,7 +65,7 @@ fiaf:Format
 │   ├── fiaf:DV                                          NEW
 │   │   ├── fiaf:DVCAM
 │   │   ├── fiaf:DVCPRO                                  NEW
-│   │   │   └── fiaf:DVCPROHD
+│   │   ├── fiaf:DVCPROHD
 │   │   └── fiaf:MiniDV
 │   ├── fiaf:HalfInchVideotape                           NEW
 │   ├── fiaf:HDCAM
@@ -61,7 +77,8 @@ fiaf:Format
 │   │   └── fiaf:OneInchTypeC
 │   ├── fiaf:OpticalVideoDisc                            NEW (replaces OpticalFormat for video)
 │   │   ├── fiaf:BluRay
-│   │   │   └── fiaf:UltraHDBluRay                       NEW
+│   │   ├── fiaf:UltraHDBluRay
+│   │   ├── fiaf:ProfessionalDisc
 │   │   ├── fiaf:DVD
 │   │   ├── fiaf:LaserDisc
 │   │   ├── fiaf:SVCD                                    moved from DigitalFormat
@@ -73,12 +90,14 @@ fiaf:Format
 │   │   └── fiaf:UmaticSP
 │   ├── fiaf:VCR
 │   ├── fiaf:VHS
-│   │   └── fiaf:SuperVHS                                re-parented
+│   ├── fiaf:SuperVHS
 │   ├── fiaf:Video2000
-│   └── fiaf:Video8
-│       └── fiaf:Hi8                                     re-parented
+│   ├── fiaf:Video8
+│   └── fiaf:Hi8
 │
 ├── fiaf:DataStorageFormat                               NEW branch
+│   ├── fiaf:CDROM
+│   ├── fiaf:DVDROM
 │   ├── fiaf:CDR                                         NEW
 │   ├── fiaf:DVDR                                        NEW
 │   ├── fiaf:FlashMemory
@@ -119,14 +138,16 @@ fiaf:Format
   - `fiaf:FilmFormat` — a film gauge on which a moving image is recorded photochemically
     - `fiaf:8mmFilm`, `fiaf:9.5mmFilm`, `fiaf:16mmFilm`, `fiaf:17.5mmFilm`
     - `fiaf:28mmFilm` — non-standard gauge used chiefly for early home and educational projection
-    - `fiaf:35mmFilm`, `fiaf:70mmFilm`
+    - `fiaf:35mmFilm`, `fiaf:65mmFilm`, `fiaf:70mmFilm`
     - `fiaf:Super8mmFilm`, `fiaf:Super16mmFilm`
   - `fiaf:AudioFormat` — a physical non-film audio carrier
     - `fiaf:Audiocassette`, `fiaf:CD`
     - `fiaf:DAT` — Digital Audio Tape, 3.81mm digital audio cassette
     - `fiaf:DTRS` — Digital Tape Recording System, eight-track modular multitrack tape
-    - `fiaf:HalfInchAudiotape`, `fiaf:OneInchAudiotape`, `fiaf:QuerterInchAudiotape`, `fiaf:TwoInchAudiotape`
+    - `fiaf:OpenReelAudiotape` — width-unspecified open-reel magnetic audio tape
+      - `fiaf:HalfInchAudiotape`, `fiaf:OneInchAudiotape`, `fiaf:QuerterInchAudiotape`, `fiaf:TwoInchAudiotape`
   - `fiaf:VideoFormat` — a physical videotape, videocassette, or optical video disc format
+    - `fiaf:AmpexDCT`
     - `fiaf:Betacam` — Betacam family
       - `fiaf:BetacamSP`, `fiaf:DigitalBetacam`
     - `fiaf:Betamax`, `fiaf:VCR`, `fiaf:Video2000`
@@ -134,25 +155,21 @@ fiaf:Format
     - `fiaf:D6` — uncompressed HD videocassette
     - `fiaf:DV` — DV family
       - `fiaf:DVCAM`, `fiaf:MiniDV`
-      - `fiaf:DVCPRO`
-        - `fiaf:DVCPROHD`
+      - `fiaf:DVCPRO`, `fiaf:DVCPROHD`
     - `fiaf:HalfInchVideotape` — 1/2" gauge of the Betamax/VHS/Video 2000 families
     - `fiaf:HDCAM`, `fiaf:HDCAMSR`, `fiaf:HDV`
     - `fiaf:OneInchVideotape`
       - `fiaf:OneInchTypeA`, `fiaf:OneInchTypeB`, `fiaf:OneInchTypeC`
     - `fiaf:OpticalVideoDisc` — an optical disc format carrying moving image video
-      - `fiaf:BluRay`
-        - `fiaf:UltraHDBluRay`
+      - `fiaf:BluRay`, `fiaf:UltraHDBluRay`, `fiaf:ProfessionalDisc`
       - `fiaf:DVD`, `fiaf:LaserDisc`, `fiaf:SVCD`, `fiaf:VCD`
     - `fiaf:TwoInchVideotape`
     - `fiaf:Umatic`
       - `fiaf:UmaticHighBand`, `fiaf:UmaticLowBand`, `fiaf:UmaticSP`
-    - `fiaf:VHS`
-      - `fiaf:SuperVHS`
-    - `fiaf:Video8`
-      - `fiaf:Hi8`
+    - `fiaf:VHS`, `fiaf:SuperVHS`
+    - `fiaf:Video8`, `fiaf:Hi8`
   - `fiaf:DataStorageFormat` — an offline digital storage carrier
-    - `fiaf:CDR`, `fiaf:DVDR`
+    - `fiaf:CDR`, `fiaf:DVDR`, `fiaf:CDROM`, `fiaf:DVDROM`
     - `fiaf:LTO2`, `fiaf:LTO3`, `fiaf:LTO4`, `fiaf:LTO5`, `fiaf:LTO6`
     - `fiaf:HardDrive`, `fiaf:FlashMemory`, `fiaf:MagnetoOpticalDisc`
   - `fiaf:DigitalFormat` — a digital file container, image file format, or deliverable package
