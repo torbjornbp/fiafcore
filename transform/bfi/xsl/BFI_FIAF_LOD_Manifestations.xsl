@@ -307,7 +307,9 @@
                             </xsl:when>
                             <xsl:when test="$format = 'Digital Video'"/>
                             <xsl:when test="$format = 'Digital Media'"/>
-                            <xsl:when test="$format = 'Phase Alternate Line (PAL)'"/>
+                            <xsl:when test="$format = 'Phase Alternate Line (PAL)'">
+                                <fiaf:hasBroadcastStandard rdf:resource="https://dev.fiafcore.org/PAL" />
+                            </xsl:when>
                             <xsl:when test="$format = 'U-Matic Videocassette'">
                                 <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Umatic" />
                             </xsl:when>
@@ -326,7 +328,9 @@
                             <xsl:when test="$format = 'Mini-DV'">
                                 <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/MiniDV" />
                             </xsl:when>
-                            <xsl:when test="$format = '65mm film'"/>
+                            <xsl:when test="$format = '65mm film'">
+                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/65mmFilm" />
+                            </xsl:when>
                             <xsl:when test="$format = 'HD Digital'"/>
                             <xsl:when test="$format = 'Apple ProRes 422 HQ'">
                                 <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/ProRes422HQ" />
@@ -347,7 +351,9 @@
                             <xsl:when test="$format = 'Super-VHS'">
                                 <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/SuperVHS" />
                             </xsl:when>
-                            <xsl:when test="$format = 'Reel to reel tape'"/>
+                            <xsl:when test="$format = 'Reel to reel tape'">
+                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/OpenReelAudiotape" />
+                            </xsl:when>
                             <xsl:when test="$format = 'Scope (Un-specified)'"/>
                             <xsl:when test="$format = 'QuickTime'">
                                 <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Quicktime" />
@@ -791,7 +797,6 @@
                                             <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/DolbyAtmos"/>
                                         </xsl:when>
                                         <xsl:when test="$sound_standard = 'Surround Stereo'" >
-                                            <fiaf:hasSoundChannelConfiguration rdf:resource="https://dev.fiafcore.org/Stereo"/>
                                             <fiaf:hasSoundChannelConfiguration rdf:resource="https://dev.fiafcore.org/Surround"/>
                                         </xsl:when>
                                         <xsl:when test="$sound_standard = 'Dolby Digital'" >

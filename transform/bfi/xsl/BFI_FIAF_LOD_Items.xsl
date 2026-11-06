@@ -26,7 +26,9 @@
                         <xsl:choose>
                             <xsl:when test="$base = 'Acrylic'"/>
                             <xsl:when test="$base = 'Mixed'"/>
-                            <xsl:when test="$base = 'PVC'"/>
+                            <xsl:when test="$base = 'PVC'">
+                                <fiaf:hasBase rdf:resource="https://dev.fiafcore.org/PVCBase" />
+                            </xsl:when>
                             <xsl:when test="$base = 'Safety'">
                                 <fiaf:hasBase rdf:resource="https://dev.fiafcore.org/AcetateBase" />
                             </xsl:when>
@@ -254,52 +256,52 @@
                     <!-- fiaf:hasStock -->
 
                     <xsl:for-each select="stock/stock_film[normalize-space(.)]">
-                        <fiaf:hasStock>
-                            <rdf:Description>
-                                <xsl:variable name="stock" select="translate(., '&amp;', '')" />
+                        <xsl:variable name="stock" select="translate(., '&amp;', '')" />
+                        <!-- Build the type first: recognised but unmapped values must not emit empty stock nodes. -->
+                        <xsl:variable name="stock_term">
                                 <xsl:choose>
                                     <xsl:when test="$stock = 'Unidentified-Eastern European'"/>
-                                    <xsl:when test="$stock = 'Kodak Canada'"/>
+                                    <xsl:when test="$stock = 'Kodak Canada'">
+                                        <xsl:text>Kodak</xsl:text>
+                                    </xsl:when>
                                     <xsl:when test="$stock = 'Unmarked'"/>
                                     <xsl:when test="$stock = 'Unidentified manufacturer'"/>
                                     <xsl:when test="$stock = 'Eastmancolor'"/>
-                                    <xsl:when test="$stock = 'Pathe Cinema France'"/>
+                                    <xsl:when test="$stock = 'Pathe Cinema France'"><xsl:text>Pathe</xsl:text></xsl:when>
                                     <xsl:when test="$stock = 'Selo'"/>
                                     <xsl:when test="$stock = 'Eastmancolor'"/>
                                     <xsl:when test="$stock = 'Unidentified-Russian'"/>
                                     <xsl:when test="$stock = 'Cbema'"/>
                                     <xsl:when test="$stock = 'Unidentified manufacturer'"/>
-                                    <xsl:when test="$stock = 'SONY'"/>
-                                    <xsl:when test="$stock = 'Ampex'"/>
-                                    <xsl:when test="$stock = 'Pyral'"/>
+                                    <xsl:when test="$stock = 'SONY'"><xsl:text>Sony</xsl:text></xsl:when>
+                                    <xsl:when test="$stock = 'Ampex'"><xsl:text>Ampex</xsl:text></xsl:when>
+                                    <xsl:when test="$stock = 'Pyral'"><xsl:text>Pyral</xsl:text></xsl:when>
                                     <xsl:when test="$stock = 'Maxell'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Maxell" />
+                                        <xsl:text>Maxell</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = 'BASF'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/BASF" />
+                                        <xsl:text>BASF</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = 'MIXED'"/>
                                     <xsl:when test="$stock = 'unknown credit activity'"/>
-                                    <xsl:when test="$stock = 'Zonal'"/>
-                                    <xsl:when test="$stock = 'Deko'"/>
-                                    <xsl:when test="$stock = 'Kodak France'"/>
-                                    <xsl:when test="$stock = 'Pathe Cinema France'"/>
+                                    <xsl:when test="$stock = 'Zonal'"><xsl:text>Zonal</xsl:text></xsl:when>
+                                    <xsl:when test="$stock = 'Deko'"><xsl:text>Deko</xsl:text></xsl:when>
+                                    <xsl:when test="$stock = 'Kodak France'"><xsl:text>Kodak</xsl:text></xsl:when>
                                     <xsl:when test="$stock = 'Technicolor'"/>
                                     <xsl:when test="$stock = '?'"/>
-                                    <xsl:when test="$stock = 'Perutz'"/>
-                                    <xsl:when test="$stock = 'Kodak Canada'"/>
+                                    <xsl:when test="$stock = 'Perutz'"><xsl:text>Perutz</xsl:text></xsl:when>
                                     <xsl:when test="$stock = 'FTON'"/>
                                     <xsl:when test="$stock = 'BLNX'"/>
                                     <xsl:when test="$stock = 'Unidentified-Eastern European'"/>
                                     <xsl:when test="$stock = 'Estar'"/>
                                     <xsl:when test="$stock = 'OBS'"/>
                                     <xsl:when test="$stock = 'Dupont Pathe'"/>
-                                    <xsl:when test="$stock = 'Kodak AG (German Kodak)'"/>
-                                    <xsl:when test="$stock = 'Goerz-Tenax'"/>
+                                    <xsl:when test="$stock = 'Kodak AG (German Kodak)'"><xsl:text>Kodak</xsl:text></xsl:when>
+                                    <xsl:when test="$stock = 'Goerz-Tenax'"><xsl:text>GoerzTenax</xsl:text></xsl:when>
                                     <xsl:when test="$stock = 'Turkish'"/>
-                                    <xsl:when test="$stock = 'Mafe'"/>
-                                    <xsl:when test="$stock = 'Ansco'"/>
-                                    <xsl:when test="$stock = 'Lignose'"/>
+                                    <xsl:when test="$stock = 'Mafe'"><xsl:text>Mafe</xsl:text></xsl:when>
+                                    <xsl:when test="$stock = 'Ansco'"><xsl:text>Ansco</xsl:text></xsl:when>
+                                    <xsl:when test="$stock = 'Lignose'"><xsl:text>Lignose</xsl:text></xsl:when>
                                     <xsl:when test="$stock = 'D94L'"/>
                                     <xsl:when test="$stock = 'Unidentified-Indu'"/>
                                     <xsl:when test="$stock = 'DA8-113'"/>
@@ -308,82 +310,83 @@
                                     <xsl:when test="$stock = 'SVMA'"/>
                                     <xsl:when test="$stock = 'DA8113'"/>
                                     <xsl:when test="$stock = 'TDK'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/TDK" />
+                                        <xsl:text>TDK</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = 'T C FOX'"/>
                                     <xsl:when test="$stock = 'T AUET(USSR)'"/>
                                     <xsl:when test="$stock = 'VA RCA DUPLEX'"/>
                                     <xsl:when test="$stock = 'VUS'"/>
-                                    <xsl:when test="$stock = 'Sakura'"/>
-                                    <xsl:when test="$stock = 'Pathe France'"/>
+                                    <xsl:when test="$stock = 'Sakura'"><xsl:text>Sakura</xsl:text></xsl:when>
+                                    <xsl:when test="$stock = 'Pathe France'"><xsl:text>Pathe</xsl:text></xsl:when>
                                     <xsl:when test="$stock = 'E180'"/>
                                     <xsl:when test="$stock = 'E90'"/>
                                     <xsl:when test="$stock = 'IXD'"/>
                                     <xsl:when test="$stock = 'D124L'"/>
-                                    <xsl:when test="$stock = 'Indu'"/>
-                                    <xsl:when test="$stock = 'JVC'"/>
+                                    <xsl:when test="$stock = 'Indu'"><xsl:text>Indu</xsl:text></xsl:when>
+                                    <xsl:when test="$stock = 'JVC'"><xsl:text>JVC</xsl:text></xsl:when>
                                     <xsl:when test="$stock = 'KANS'"/>
                                     <xsl:when test="$stock = 'KCA'"/>
                                     <xsl:when test="$stock = 'D22'"/>
-                                    <xsl:when test="$stock = 'Memorex'"/>
-                                    <xsl:when test="$stock = 'EMTEC'"/>
+                                    <xsl:when test="$stock = 'Memorex'"><xsl:text>Memorex</xsl:text></xsl:when>
+                                    <xsl:when test="$stock = 'EMTEC'"><xsl:text>EMTEC</xsl:text></xsl:when>
+                                    <xsl:when test="$stock = 'Svema'"><xsl:text>Svema</xsl:text></xsl:when>
                                     <xsl:when test="$stock = 'EACO'"/>
                                     <xsl:when test="$stock = 'D124'"/>
-                                    <xsl:when test="$stock = 'Pathe Freres'"/>
-                                    <xsl:when test="$stock = 'Pathe Paris'"/>
-                                    <xsl:when test="$stock = 'Pathe Vincennes Paris'"/>
+                                    <xsl:when test="$stock = 'Pathe Freres'"><xsl:text>Pathe</xsl:text></xsl:when>
+                                    <xsl:when test="$stock = 'Pathe Paris'"><xsl:text>Pathe</xsl:text></xsl:when>
+                                    <xsl:when test="$stock = 'Pathe Vincennes Paris'"><xsl:text>Pathe</xsl:text></xsl:when>
                                     <xsl:when test="$stock = 'D64L'"/>
                                     <xsl:when test="$stock = 'Kodak  ESTM'"/>
                                     <xsl:when test="$stock = 'Kodak'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Kodak" />
+                                        <xsl:text>Kodak</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = 'Eastman'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Eastman" />
+                                        <xsl:text>Eastman</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = 'Agfa Gevaert'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/AgfaGevaert" />
+                                        <xsl:text>AgfaGevaert</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = 'Fuji'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Fuji" />
+                                        <xsl:text>Fuji</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = 'Agfa'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Agfa" />
+                                        <xsl:text>Agfa</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = 'Ilford'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Ilford" />
+                                        <xsl:text>Ilford</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = 'Eastman Kodak'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/EastmanKodak" />
+                                        <xsl:text>EastmanKodak</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = 'Gevaert Belgium'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/GevaertBelgium" />
+                                        <xsl:text>GevaertBelgium</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = 'Pathe'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Pathe" />
+                                        <xsl:text>Pathe</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = 'Gevaert'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Gevaert" />
+                                        <xsl:text>Gevaert</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = '3M'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/3M" />
+                                        <xsl:text>3M</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = 'Orwo'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Orwo" />
+                                        <xsl:text>Orwo</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = 'Sony'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Sony" />
+                                        <xsl:text>Sony</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = 'Dupont'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Dupont" />
+                                        <xsl:text>Dupont</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = 'Ferrania'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Ferrania" />
+                                        <xsl:text>Ferrania</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = 'Panasonic'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Panasonic" />
+                                        <xsl:text>Panasonic</xsl:text>
                                     </xsl:when>
                                     <xsl:when test="$stock = 'EASTMAN'">
-                                        <rdf:type rdf:resource="https://dev.fiafcore.org/Eastman" />
+                                        <xsl:text>Eastman</xsl:text>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <xsl:message terminate="yes">
@@ -391,8 +394,14 @@
                                         </xsl:message>
                                     </xsl:otherwise>
                                 </xsl:choose>
-                            </rdf:Description>
-                        </fiaf:hasStock>
+                        </xsl:variable>
+                        <xsl:if test="normalize-space($stock_term)">
+                            <fiaf:hasStock>
+                                <rdf:Description>
+                                    <rdf:type rdf:resource="https://dev.fiafcore.org/{normalize-space($stock_term)}" />
+                                </rdf:Description>
+                            </fiaf:hasStock>
+                        </xsl:if>
                     </xsl:for-each>
 
                     <!-- fiaf:isElement -->
@@ -401,10 +410,10 @@
                         <xsl:variable name="element" select="." />
                         <xsl:choose>
                             <xsl:when test="$element = 'Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magnetic'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SeparatedMagneticSound" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AudioElement" />
                             </xsl:when>
                             <xsl:when test="$element = 'Master'"/>
                             <xsl:when test="$element = 'Master Positive'">
@@ -414,7 +423,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magnetic recording'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SeparatedMagneticSound" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AudioElement" />
                             </xsl:when>
                             <xsl:when test="$element = 'Cyan Separation Promaster'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
@@ -429,13 +438,13 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
                             </xsl:when>
                             <xsl:when test="$element = 'BW and Colour Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Tinted Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'BW and Tinted Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Cyan Separation Negative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
@@ -508,7 +517,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Tinted and Toned Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Yellow Matrix'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
@@ -523,7 +532,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Magnetic Recording'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SeparatedMagneticSound" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AudioElement" />
                             </xsl:when>
                             <xsl:when test="$element = 'TV (low contrast)'"/>
                             <xsl:when test="$element = 'Colour Reversal Internegative'">
@@ -563,7 +572,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'BW and Tinted and Toned Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Lavender Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
@@ -653,7 +662,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DyeTransferMatrix" />
                             </xsl:when>
                             <xsl:when test="$element = 'Colour Positive Technovision'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'BW Negative and Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
@@ -701,7 +710,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Reversal Colour Negative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
@@ -733,7 +742,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Sepia BW and Tinted and Toned Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = '2 Colour Separation Negative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
@@ -741,7 +750,7 @@
                             <xsl:when test="$element = 'Master Magenta'"/>
                             <xsl:when test="$element = 'Original Colour'"/>
                             <xsl:when test="$element = 'Sepia Toned Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Master Recording'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AudioMaster" />
@@ -754,13 +763,13 @@
                             </xsl:when>
                             <xsl:when test="$element = 'Master Cyan'"/>
                             <xsl:when test="$element = 'Yellow Tinted Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'TV (low contrast) Colour Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'BW Tinted and Toned Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Yellow'"/>
                             <xsl:when test="$element = 'Successive frame Promaster'">
@@ -782,7 +791,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AudioElement" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original Colour Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Cyan Tape'"/>
                             <xsl:when test="$element = 'Dupe Separation Matrix'">
@@ -795,7 +804,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourReversalIntermediate" />
                             </xsl:when>
                             <xsl:when test="$element = 'Orange Tinted Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original BW and Colour Negative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/OriginalNegative" />
@@ -836,7 +845,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'BW Tinted Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'BW and Colour Negative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
@@ -846,7 +855,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
                             </xsl:when>
                             <xsl:when test="$element = 'Blue Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original Reversal Colour Positive Monopack'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
@@ -893,10 +902,10 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Tinted and Tinted and Toned Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magenta Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magenta Separation'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
@@ -909,10 +918,10 @@
                             </xsl:when>
                             <xsl:when test="$element = 'Laserdisc'"/>
                             <xsl:when test="$element = 'Magnetic Recording 3 Track Stereophonic'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SeparatedMagneticSound" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AudioElement" />
                             </xsl:when>
                             <xsl:when test="$element = 'Sepia Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Duplicating Reversal'"/>
                             <xsl:when test="$element = 'Duplicating Negative and Positive'">
@@ -950,7 +959,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Tinted and Stencil Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'TV (low contrast) BW and Colour Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
@@ -968,13 +977,13 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Yellow BW Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Reversal Negative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Toned Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Red'"/>
                             <xsl:when test="$element = 'Reversal'">
@@ -988,10 +997,10 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Telerecorded BW and Tinted Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Sepia BW Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Tinted'"/>
                             <xsl:when test="$element = 'Tinted Negative and Positive'">
@@ -1004,7 +1013,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = '2 Colour Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Pink'"/>
                             <xsl:when test="$element = 'Dupe Successive frame Colour Negative'">
@@ -1078,16 +1087,16 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
                             </xsl:when>
                             <xsl:when test="$element = 'Cyan BW Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Blue Toned Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Blue Negative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Blue BW Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Blue'"/>
                             <xsl:when test="$element = 'BW and Tinted'"/>
@@ -1104,7 +1113,7 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationPositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original / Dupe Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Original X-Mods Negative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundNegative" />
@@ -1149,16 +1158,16 @@
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
                             </xsl:when>
                             <xsl:when test="$element = 'Orange Colour Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Lavender BW and Tinted Positive'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Orange BW and Tinted Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Orange BW Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Master Yellow Separation'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
@@ -1181,25 +1190,25 @@
                             <xsl:when test="$element = 'Master Colour'"/>
                             <xsl:when test="$element = 'Master BW'"/>
                             <xsl:when test="$element = 'Magnetic Recording Loop'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SeparatedMagneticSound" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AudioElement" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magenta Colour Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magenta Colour Negative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourSeparationNegative" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magenta BW Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Magnetic Cassette Recording'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AudioElement" />
                             </xsl:when>
                             <xsl:when test="$element = 'BW Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Colour Positive'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
                             </xsl:when>
                             <xsl:when test="$element = 'Dupe Negative'">
                                 <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
