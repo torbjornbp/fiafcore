@@ -106,7 +106,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 <https://dev.fiafcore.org/hasFormat> a owl:ObjectProperty ;
     rdfs:label "Has Format"@en ;
-    dc:description "The physical medium, digital file format, or package in which the moving image Manifestation, Item, or Carrier is fixed. Codecs are described on digital streams using hasVideoCodec or hasAudioCodec."@en ;
+    dc:description "The physical medium, digital file format, or package in which the moving image Manifestation or Item is fixed. Codecs are described on digital streams using hasVideoCodec or hasAudioCodec."@en ;
     dc:source <> ;
     rdfs:domain [ owl:unionOf (<https://dev.fiafcore.org/Manifestation> <https://dev.fiafcore.org/Item> <https://dev.fiafcore.org/Carrier>) ] ;
     rdfs:range <https://dev.fiafcore.org/Format> ;

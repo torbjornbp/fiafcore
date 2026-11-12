@@ -56,7 +56,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 <https://dev.fiafcore.org/hasEvent> a owl:ObjectProperty ;
     rdfs:label "Has Event"@en ;
-    dc:description "An Event characterises occurrences in the lifecycle of a moving image Work, Variant, Manifestation, Item or Carrier."@en ;
+    dc:description "An Event characterises occurrences in the lifecycle of a moving image Work, Variant, Manifestation or Item."@en ;
     dc:source <> ;
     rdfs:domain [ owl:unionOf (<https://dev.fiafcore.org/Work> <https://dev.fiafcore.org/Variant> <https://dev.fiafcore.org/Manifestation> <https://dev.fiafcore.org/Item> <https://dev.fiafcore.org/Carrier>) ] ;
     rdfs:range <https://dev.fiafcore.org/Event> ;

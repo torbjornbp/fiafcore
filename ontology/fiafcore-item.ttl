@@ -1,4 +1,5 @@
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
@@ -38,10 +39,20 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 <https://dev.fiafcore.org/hasCarrier> a owl:ObjectProperty ;
     rdfs:label "Has Carrier"@en ;
-    dc:description "Express the relationship between a moving image Item and a moving image Carrier."@en ;
+    dc:description "Deprecated: use hasComponent between Items. Express the relationship between a moving image Item and a moving image Carrier."@en ;
     dc:source <> ;
+    owl:deprecated true ;
+    dcterms:isReplacedBy <https://dev.fiafcore.org/hasComponent> ;
     rdfs:domain <https://dev.fiafcore.org/Item> ;
     rdfs:range <https://dev.fiafcore.org/Carrier> ;
+.
+
+<https://dev.fiafcore.org/hasComponent> a owl:ObjectProperty ;
+    rdfs:label "Has Component"@en ;
+    dc:description "Relate a moving image Item to an Item that is one of the discrete units it is made up of, for example a multi-reel print to an individual reel. An Item that is a single unit needs no component, but may have one where the source describes it that way. Used for composition only, not for storage media, package dependency, or copying relationships. Statements are not inherited between the whole and its components."@en ;
+    dc:source <> ;
+    rdfs:domain <https://dev.fiafcore.org/Item> ;
+    rdfs:range <https://dev.fiafcore.org/Item> ;
 .
 
 <https://dev.fiafcore.org/hasHoldingInstitution> a owl:ObjectProperty ;

@@ -7516,9 +7516,11 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/hasCarrier>
     a owl:ObjectProperty ;
     rdfs:label "Has Carrier"@en ;
-    dc:description "Express the relationship between a moving image Item and a moving image Carrier."@en ;
+    dc:description "Deprecated: use hasComponent between Items. Express the relationship between a moving image Item and a moving image Carrier."@en ;
+    dcterms:isReplacedBy <https://dev.fiafcore.org/hasComponent> ;
     rdfs:domain <https://dev.fiafcore.org/Item> ;
     rdfs:range <https://dev.fiafcore.org/Carrier> ;
+    owl:deprecated true ;
 .
 
 <https://dev.fiafcore.org/hasColourCharacteristic>
@@ -7582,7 +7584,7 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/hasEvent>
     a owl:ObjectProperty ;
     rdfs:label "Has Event"@en ;
-    dc:description "An Event characterises occurrences in the lifecycle of a moving image Work, Variant, Manifestation, Item or Carrier."@en ;
+    dc:description "An Event characterises occurrences in the lifecycle of a moving image Work, Variant, Manifestation or Item."@en ;
     rdfs:domain
         [
             owl:unionOf (
@@ -7630,7 +7632,7 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/hasFormat>
     a owl:ObjectProperty ;
     rdfs:label "Has Format"@en ;
-    dc:description "The physical medium, digital file format, or package in which the moving image Manifestation, Item, or Carrier is fixed. Codecs are described on digital streams using hasVideoCodec or hasAudioCodec."@en ;
+    dc:description "The physical medium, digital file format, or package in which the moving image Manifestation or Item is fixed. Codecs are described on digital streams using hasVideoCodec or hasAudioCodec."@en ;
     rdfs:domain
         [
             owl:unionOf (
@@ -7807,7 +7809,7 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/hasStream>
     a owl:ObjectProperty ;
     rdfs:label "Has Stream"@en ;
-    dc:description "Associate an optional digital stream with the object represented by an Item or Carrier. Both levels are first-class description points; no Carrier record is required. This relationship does not propagate through storage or component relationships."@en ;
+    dc:description "Associate an optional digital stream with the object represented by an Item, whether that Item is a single unit, a group, or a component. This relationship does not propagate through component relationships. Carrier remains in the domain only for data using the deprecated class."@en ;
     rdfs:domain
         [
             owl:unionOf (
@@ -8026,6 +8028,14 @@ rdfs:subClassOf
     dc:description "Express the colour process by which colour is produced or fixed in the Manifestation or Item itself. A copy that only reproduces the appearance of a process, such as a digital scan of a tinted print, does not have that process."@en ;
     rdfs:domain <https://dev.fiafcore.org/ColourCharacteristic> ;
     rdfs:range <https://dev.fiafcore.org/ColourStandard> ;
+.
+
+<https://dev.fiafcore.org/hasComponent>
+    a owl:ObjectProperty ;
+    rdfs:label "Has Component"@en ;
+    dc:description "Relate a moving image Item to an Item that is one of the discrete units it is made up of, for example a multi-reel print to an individual reel. An Item that is a single unit needs no component, but may have one where the source describes it that way. Used for composition only, not for storage media, package dependency, or copying relationships. Statements are not inherited between the whole and its components."@en ;
+    rdfs:domain <https://dev.fiafcore.org/Item> ;
+    rdfs:range <https://dev.fiafcore.org/Item> ;
 .
 
 <https://dev.fiafcore.org/AnalogueOpticalSound>
@@ -8383,7 +8393,9 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/Carrier>
     a owl:Class ;
     rdfs:label "Carrier"@en ;
-    dc:description "A moving image Carrier is the discrete physical or digital unit on which the moving image is retained. It can either contain the entire artistic work or a portion, for example in the case of individual film reels or digital file parts."@en ;
+    dc:description "Deprecated: describe each discrete physical or digital unit as an Item, and relate the units of a multi-unit Item to it using hasComponent. A moving image Carrier is the discrete physical or digital unit on which the moving image is retained. It can either contain the entire artistic work or a portion, for example in the case of individual film reels or digital file parts."@en ;
+    dcterms:isReplacedBy <https://dev.fiafcore.org/Item> ;
+    owl:deprecated true ;
 .
 
 <https://dev.fiafcore.org/ColourEncoding>
@@ -8409,7 +8421,7 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/DigitalStream>
     a owl:Class ;
     rdfs:label "Digital Stream"@en ;
-    dc:description "An individually describable stream within a digital object represented by an Item or Carrier. A stream is a descriptive component, not an inventory holding or storage carrier; it may be represented by a blank node or an IRI."@en ;
+    dc:description "An individually describable stream within a digital object represented by an Item. A stream is a descriptive part of that object, not an inventory holding, a component Item, or a storage medium; it may be represented by a blank node or an IRI."@en ;
 .
 
 <https://dev.fiafcore.org/Element>
@@ -8661,13 +8673,6 @@ owl:DatatypeProperty
     dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.35986%3A5030> ;
 .
 
-<https://dev.fiafcore.org/Item>
-    a owl:Class ;
-    rdfs:label "Item"@en ;
-    dc:description "A moving image Item is the physical or digital product of a Manifestation of a Work or Variant, i.e. the actual copy of a Work or Variant. Whereas the Manifestation record describes the “ideal” of a particular format or publication, the Item record represents the actual holding in a repository's collection."@en ;
-    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.36209%3A5084> ;
-.
-
 <https://dev.fiafcore.org/Variant>
     a owl:Class ;
     rdfs:label "Variant"@en ;
@@ -8695,6 +8700,13 @@ owl:DatatypeProperty
     dc:description "Cinematography contribution to a moving image work."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
+.
+
+<https://dev.fiafcore.org/Item>
+    a owl:Class ;
+    rdfs:label "Item"@en ;
+    dc:description "A moving image Item is the physical or digital product of a Manifestation of a Work or Variant, i.e. the actual copy of a Work or Variant. Whereas the Manifestation record describes the “ideal” of a particular format or publication, the Item record represents the actual holding in a repository's collection."@en ;
+    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.36209%3A5084> ;
 .
 
 <https://dev.fiafcore.org/Manifestation>
@@ -8727,14 +8739,14 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/VideoFormat> ;
 .
 
-owl:ObjectProperty
-    rdfs:label "Object Property" ;
-.
-
 <https://dev.fiafcore.org/Stock>
     a owl:Class ;
     rdfs:label "Stock"@en ;
     dc:description ""@en ;
+.
+
+owl:ObjectProperty
+    rdfs:label "Object Property" ;
 .
 
 <https://dev.fiafcore.org/Genre>

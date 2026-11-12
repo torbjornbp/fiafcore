@@ -1,4 +1,5 @@
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
@@ -6,7 +7,9 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 <https://dev.fiafcore.org/Carrier> a owl:Class ;
     rdfs:label "Carrier"@en ;
-    dc:description "A moving image Carrier is the discrete physical or digital unit on which the moving image is retained. It can either contain the entire artistic work or a portion, for example in the case of individual film reels or digital file parts."@en ;
+    dc:description "Deprecated: describe each discrete physical or digital unit as an Item, and relate the units of a multi-unit Item to it using hasComponent. A moving image Carrier is the discrete physical or digital unit on which the moving image is retained. It can either contain the entire artistic work or a portion, for example in the case of individual film reels or digital file parts."@en ;
+    owl:deprecated true ;
+    dcterms:isReplacedBy <https://dev.fiafcore.org/Item> ;
 .
 
 ### Subclasses

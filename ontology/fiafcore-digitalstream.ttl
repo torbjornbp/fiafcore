@@ -6,7 +6,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 <https://dev.fiafcore.org/DigitalStream> a owl:Class ;
     rdfs:label "Digital Stream"@en ;
-    dc:description "An individually describable stream within a digital object represented by an Item or Carrier. A stream is a descriptive component, not an inventory holding or storage carrier; it may be represented by a blank node or an IRI."@en ;
+    dc:description "An individually describable stream within a digital object represented by an Item. A stream is a descriptive part of that object, not an inventory holding, a component Item, or a storage medium; it may be represented by a blank node or an IRI."@en ;
     dc:source <> ;
 .
 
@@ -41,7 +41,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 <https://dev.fiafcore.org/hasStream> a owl:ObjectProperty ;
     rdfs:label "Has Stream"@en ;
-    dc:description "Associate an optional digital stream with the object represented by an Item or Carrier. Both levels are first-class description points; no Carrier record is required. This relationship does not propagate through storage or component relationships."@en ;
+    dc:description "Associate an optional digital stream with the object represented by an Item, whether that Item is a single unit, a group, or a component. This relationship does not propagate through component relationships. Carrier remains in the domain only for data using the deprecated class."@en ;
     dc:source <> ;
     rdfs:domain [ owl:unionOf (<https://dev.fiafcore.org/Item> <https://dev.fiafcore.org/Carrier>) ] ;
     rdfs:range <https://dev.fiafcore.org/DigitalStream> ;
