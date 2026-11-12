@@ -2,7 +2,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ex: <https://example.fiafcore.org/stream-example/> .
 
-# First-class Item-level description: no Carrier records are required.
+# A single-unit Item described directly: no component Items are required.
 ex:file-item a fiaf:Item ;
     rdfs:label "Matroska preservation file with two audio streams"@en ;
     fiaf:hasFormat fiaf:MKV ;
@@ -45,22 +45,26 @@ ex:audio-2 a fiaf:AudioStream ;
         fiaf:hasSoundChannelConfiguration fiaf:Surround
     ] .
 
-# Equally valid Carrier-level description, with optional blank-node streams.
+# Equally valid description on a component Item, with optional blank-node streams.
 ex:audio-holding a fiaf:Item ;
-    fiaf:hasCarrier ex:wav-file .
+    fiaf:hasComponent ex:wav-file-1, ex:wav-file-2 .
 
-ex:wav-file a fiaf:Carrier ;
+ex:wav-file-1 a fiaf:Item ;
+    fiaf:hasFormat fiaf:WAV ;
+    fiaf:hasStream [ a fiaf:AudioStream ; fiaf:hasAudioCodec fiaf:PCM ] .
+
+ex:wav-file-2 a fiaf:Item ;
     fiaf:hasFormat fiaf:WAV ;
     fiaf:hasStream [ a fiaf:AudioStream ; fiaf:hasAudioCodec fiaf:PCM ] .
 
 # Minimally catalogued digital objects need no stream inventory.
 ex:minimal-file a fiaf:Item ; fiaf:hasFormat fiaf:MP4 .
 
-# Storage is a separate object. The storage/content relation remains under review.
-ex:storage-tape a fiaf:Carrier ; fiaf:hasFormat fiaf:LTO6 .
+# Storage media are not component Items. How a file relates to the medium it
+# is stored on remains under review and is not modelled here.
 
 # Film description does not require digital streams.
 ex:picture-and-sound-set a fiaf:Item ;
-    fiaf:hasCarrier ex:picture-roll, ex:sound-roll .
-ex:picture-roll a fiaf:Carrier ; fiaf:hasFormat fiaf:35mmFilm .
-ex:sound-roll a fiaf:Carrier ; fiaf:hasFormat fiaf:35mmMagneticFilm .
+    fiaf:hasComponent ex:picture-roll, ex:sound-roll .
+ex:picture-roll a fiaf:Item ; fiaf:hasFormat fiaf:35mmFilm .
+ex:sound-roll a fiaf:Item ; fiaf:hasFormat fiaf:35mmMagneticFilm .

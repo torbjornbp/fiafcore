@@ -1,6 +1,9 @@
 @prefix fiaf: <https://dev.fiafcore.org/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
+# fiaf:Carrier is deprecated. New data describes each unit as a fiaf:Item and
+# relates the units of a multi-unit Item using fiaf:hasComponent; see Item.ttl.
+
 <https://example.fiafcore.org/005ecbf8-1693-4986-8fef-43f55436dfe8>
     a fiaf:Carrier ;
     rdfs:label "Metropolis Carrier" ;

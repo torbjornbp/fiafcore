@@ -5,8 +5,6 @@
     a fiaf:Item ;
     rdfs:label "Metropolis Item" ;
     fiaf:hasBase fiaf:PolyesterBase ;
-    fiaf:hasCarrier
-        <https://example.fiafcore.org/005ecbf8-1693-4986-8fef-43f55436dfe8> ;
     fiaf:hasColourCharacteristic [ a fiaf:BlackAndWhite ] ;
     fiaf:hasFormat fiaf:35mmFilm ;
     fiaf:hasHoldingInstitution
@@ -21,6 +19,31 @@
     fiaf:hasStatus fiaf:Preservation ;
     fiaf:hasStock [ a fiaf:Agfa ] ;
     fiaf:isElement fiaf:ReleasePrint .
+
+# A multi-reel print: a group Item with one component Item per reel held.
+# Each reel carries its own description; nothing is inherited from the group.
+
+<https://example.fiafcore.org/multi-reel-print>
+    a fiaf:Item ;
+    rdfs:label "Release print, 2 reels" ;
+    fiaf:isElement fiaf:ReleasePrint ;
+    fiaf:hasFormat fiaf:35mmFilm ;
+    fiaf:hasExtent [ a fiaf:Reel ; fiaf:hasExtentValue "2" ] ;
+    fiaf:hasComponent
+        <https://example.fiafcore.org/multi-reel-print-reel-1> ,
+        <https://example.fiafcore.org/multi-reel-print-reel-2> .
+
+<https://example.fiafcore.org/multi-reel-print-reel-1>
+    a fiaf:Item ;
+    rdfs:label "Reel 1" ;
+    fiaf:hasBase fiaf:NitrateBase ;
+    fiaf:hasExtent [ a fiaf:Metre ; fiaf:hasExtentValue "310" ] .
+
+<https://example.fiafcore.org/multi-reel-print-reel-2>
+    a fiaf:Item ;
+    rdfs:label "Reel 2 (later safety replacement)" ;
+    fiaf:hasBase fiaf:AcetateBase ;
+    fiaf:hasExtent [ a fiaf:Metre ; fiaf:hasExtentValue "295" ] .
 
 <https://example.fiafcore.org/tinted-item>
     a fiaf:Item ;
