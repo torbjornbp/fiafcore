@@ -195,8 +195,6 @@ The texts below were checked on 2026-11-12. EN 15907 has not been checked.
 | FRBR (1998, amended 2008) | No | Yes, with an item-to-item whole/part relationship |
 | IFLA LRM (2017) | No | Yes in the definition of Item; no relationship defined |
 | RDA | No | Yes, item-to-item relationships |
-| PBCore | No | Yes, `instantiationPart`, with the same structure as an instantiation |
-| EBUCore (RDF) | No | Not found; its part relation is editorial |
 
 **FIAF Moving Image Cataloguing Manual**, 3.0 Definition (p. 67):
 
@@ -228,27 +226,11 @@ of item" is "An item that is a discrete component of a larger item", and
 `rdai:P40009` "is contained in item" is its counterpart. Both are published
 elements with domain Item. `hasComponent` corresponds to `rdai:P40034`.
 
-**PBCore** is the closest match to the proposal. `instantiationPart` "allows
-the instantiation to be split into multiple parts, which can describe the parts
-of a multi-section instantiation, e.g., a multi-disk DVD", and "contains all of
-the elements that a pbcoreInstantiation element would typically contain". A
-part is described exactly as a whole is.
-
-**EBUCore** supports the proposal only in part. It has one class for physical
-and digital resources and no carrier entity: `PhysicalResource` ("a physical
-resource e.g. a tape") is a subclass of `MediaResource`. But its `hasPart` and
-`isPartOf` relate an editorial object to its segments and fragments, not a
-copy to its physical units. An earlier statement in
-`CARRIER_AND_DIGITAL_MODELING.md` that EBUCore models a multi-reel print with
-`hasPart` between media resources is not supported by the ontology file.
-
 Sources:
 [FIAF Manual](https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf),
 [FRBR](https://www.ifla.org/files/assets/cataloguing/frbr/frbr_2008.pdf),
 [IFLA LRM](https://www.ifla.org/files/assets/cataloguing/frbr-lrm/ifla-lrm-august-2017_rev201712.pdf),
-[RDA Registry, item elements](https://www.rdaregistry.info/Elements/i/),
-[PBCore instantiationPart](https://pbcore.org/elements/instantiationpart),
-[EBUCore ontology](https://www.ebu.ch/metadata/ontologies/ebucore/ebucore.rdf).
+[RDA Registry, item elements](https://www.rdaregistry.info/Elements/i/).
 
 ## 3. The proposed model
 
