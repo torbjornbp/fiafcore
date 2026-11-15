@@ -180,14 +180,15 @@ sound-only.
 
 ## 5. Design Rationale
 
-### 5.1 Polarity is part of film function
+### 5.1 Retain polarity branches; allow neutral categories when needed
 
-In photochemical duplication, polarity is function: camera originals are negative
-(except reversal originals), protection masters are positive, printing masters
-are negative, and editorial, grading, and exhibition prints are positive. An
-interpositive and an internegative share the same function and differ only in
-polarity, so polarity cannot be factored out of `FilmElement` (§2.7). `FilmFormat`
-records the medium, never the polarity.
+Keep `Positive`, `Negative`, and existing specific terms so polarity remains
+deducible without separate statements. Where source data requires a neutral
+category, it can sit directly under `FilmElement`; specific children can inherit
+from both that category and a polarity class (e.g. `NegativeTrims` under `Trims`
+and `Negative`). Trims are a candidate, not yet implemented. Discussion #130's
+listed separation terms imply polarity and do not alone justify a neutral term.
+`FilmFormat` continues to record the medium, not polarity.
 
 ### 5.2 Why sound on film is a `FilmElement`
 
