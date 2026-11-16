@@ -99,7 +99,31 @@
                                     </rdf:Description>
                                 </fiaf:hasColourCharacteristic>
                             </xsl:when>
-                            <xsl:when test="contains($desc, 'BW') or contains($desc, 'Colour') or contains($desc, 'Tinted') or contains($desc, 'Toned') or contains($desc, 'Sepia') or contains($desc, 'Stencil')">
+                            <xsl:when test="contains($desc, 'Tinted') or contains($desc, 'Toned') or contains($desc, 'Sepia') or contains($desc, 'Stencil')">
+                                <!-- Explicitly mixed sections keep their own appearance node. -->
+                                <xsl:if test="contains($desc, 'BW and')">
+                                    <fiaf:hasColourCharacteristic>
+                                        <rdf:Description>
+                                            <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhite" />
+                                        </rdf:Description>
+                                    </fiaf:hasColourCharacteristic>
+                                </xsl:if>
+                                <fiaf:hasColourCharacteristic>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhiteWithAppliedColour" />
+                                        <xsl:if test="contains($desc, 'Tinted')">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Tinted" />
+                                        </xsl:if>
+                                        <xsl:if test="contains($desc, 'Toned') or contains($desc, 'Sepia')">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Toned" />
+                                        </xsl:if>
+                                        <xsl:if test="contains($desc, 'Stencil')">
+                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/StencilColouring" />
+                                        </xsl:if>
+                                    </rdf:Description>
+                                </fiaf:hasColourCharacteristic>
+                            </xsl:when>
+                            <xsl:when test="contains($desc, 'BW') or contains($desc, 'Colour')">
                                 <fiaf:hasColourCharacteristic>
                                     <rdf:Description>
                                         <xsl:choose>
@@ -114,15 +138,6 @@
                                                 <rdf:type rdf:resource="https://dev.fiafcore.org/Colour" />
                                             </xsl:when>
                                         </xsl:choose>
-                                        <xsl:if test="contains($desc, 'Tinted')">
-                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Tinted" />
-                                        </xsl:if>
-                                        <xsl:if test="contains($desc, 'Toned') or contains($desc, 'Sepia')">
-                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Toned" />
-                                        </xsl:if>
-                                        <xsl:if test="contains($desc, 'Stencil')">
-                                            <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/StencilColouring" />
-                                        </xsl:if>
                                     </rdf:Description>
                                 </fiaf:hasColourCharacteristic>
                             </xsl:when>

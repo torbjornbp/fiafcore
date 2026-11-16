@@ -2,6 +2,11 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ex: <https://example.fiafcore.org/stream-example/> .
 
+# A Manifestation specifies ideal streams; holdings describe their actual streams.
+ex:prores-manifestation a fiaf:Manifestation ;
+    fiaf:hasFormat fiaf:Quicktime ;
+    fiaf:hasStream [ a fiaf:VideoStream ; fiaf:hasVideoCodec fiaf:ProRes ] .
+
 # First-class Item-level description: no Carrier records are required.
 ex:file-item a fiaf:Item ;
     rdfs:label "Matroska preservation file with two audio streams"@en ;

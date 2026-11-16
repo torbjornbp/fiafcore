@@ -7807,10 +7807,11 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/hasStream>
     a owl:ObjectProperty ;
     rdfs:label "Has Stream"@en ;
-    dc:description "Associate an optional digital stream with the object represented by an Item or Carrier. Both levels are first-class description points; no Carrier record is required. This relationship does not propagate through storage or component relationships."@en ;
+    dc:description "Associate an optional digital stream with the ideal technical structure of a Manifestation or the actual object represented by an Item or Carrier. No Carrier record is required. This relationship does not propagate through storage or component relationships."@en ;
     rdfs:domain
         [
             owl:unionOf (
+                <https://dev.fiafcore.org/Manifestation>
                 <https://dev.fiafcore.org/Item>
                 <https://dev.fiafcore.org/Carrier>
             ) ;
@@ -8409,7 +8410,7 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/DigitalStream>
     a owl:Class ;
     rdfs:label "Digital Stream"@en ;
-    dc:description "An individually describable stream within a digital object represented by an Item or Carrier. A stream is a descriptive component, not an inventory holding or storage carrier; it may be represented by a blank node or an IRI."@en ;
+    dc:description "An individually describable stream in the ideal technical structure of a Manifestation or within an actual digital object represented by an Item or Carrier. A stream is a descriptive component, not an inventory holding or storage carrier; it may be represented by a blank node or an IRI."@en ;
 .
 
 <https://dev.fiafcore.org/Element>
@@ -8697,13 +8698,6 @@ owl:DatatypeProperty
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
 .
 
-<https://dev.fiafcore.org/Manifestation>
-    a owl:Class ;
-    rdfs:label "Manifestation"@en ;
-    dc:description "A moving image Manifestation is the embodiment of a moving image Work or Variant. Manifestations usually include all analogue, digital and online media associated with a particular embodiment of a Work or Variant."@en ;
-    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.36114%3A5061> ;
-.
-
 <https://dev.fiafcore.org/ProducingActivity>
     a owl:Class ;
     rdfs:label "Producing Activity"@en ;
@@ -8718,6 +8712,13 @@ owl:DatatypeProperty
     dc:description "Production Design contribution to a moving image work."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
+.
+
+<https://dev.fiafcore.org/Manifestation>
+    a owl:Class ;
+    rdfs:label "Manifestation"@en ;
+    dc:description "A moving image Manifestation is the embodiment of a moving image Work or Variant. Manifestations usually include all analogue, digital and online media associated with a particular embodiment of a Work or Variant."@en ;
+    dc:source <https://www.fiafnet.org/images/tinyUpload/E-Resources/Commission-And-PIP-Resources/CDC-resources/20160920_Fiaf_Manual-WEB.pdf#20160915%20Fiaf%20Manual-WEB.indd%3A.36114%3A5061> ;
 .
 
 <https://dev.fiafcore.org/VideoTape>

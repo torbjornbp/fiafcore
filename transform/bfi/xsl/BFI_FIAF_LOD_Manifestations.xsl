@@ -64,13 +64,22 @@
 
                     <!-- fiaf:hasColourCharacteristic -->
 
-                    <xsl:variable name="colour_manifestation" select=".//colour_manifestation/value[@lang='0']"/>
+                    <xsl:variable name="colour_manifestation" select=".//colour_manifestation/value[@lang='0'][normalize-space(.)]"/>
                     <xsl:variable name="colour_standard" select="translate(.//colour_code_manifestation, '&amp;', '')"/>
-                    <xsl:if test="$colour_manifestation or $colour_standard">
+                    <!-- Unmapped process names alone must not create an empty description. -->
+                    <xsl:if test="$colour_manifestation or
+                        (normalize-space($colour_standard) and
+                         not($colour_standard = 'Scope Colour' or
+                             $colour_standard = 'Image Transform' or
+                             $colour_standard = 'Perfect'))">
                         <fiaf:hasColourCharacteristic>
                             <rdf:Description>
+                                <xsl:if test="$colour_manifestation = 'Sepia' or $colour_standard = 'Sepia'">
+                                    <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhiteWithAppliedColour"/>
+                                </xsl:if>
                                 <xsl:if test="$colour_manifestation">
                                     <xsl:choose>
+                                        <xsl:when test="$colour_standard = 'Sepia'"/>
                                         <xsl:when test="$colour_manifestation = 'Colour'">
                                             <rdf:type rdf:resource="https://dev.fiafcore.org/Colour"/>
                                         </xsl:when>
@@ -93,7 +102,7 @@
                                         </xsl:otherwise>
                                     </xsl:choose>
                                 </xsl:if>
-                                <xsl:if test="$colour_standard">
+                                <xsl:if test="normalize-space($colour_standard)">
                                     <xsl:choose>
                                         <xsl:when test="$colour_standard = ''"/>
                                         <xsl:when test="$colour_standard = 'Avala Color'">
@@ -333,7 +342,12 @@
                             </xsl:when>
                             <xsl:when test="$format = 'HD Digital'"/>
                             <xsl:when test="$format = 'Apple ProRes 422 HQ'">
-                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/ProRes422HQ" />
+                                <fiaf:hasStream>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="https://dev.fiafcore.org/VideoStream" />
+                                        <fiaf:hasVideoCodec rdf:resource="https://dev.fiafcore.org/ProRes422HQ" />
+                                    </rdf:Description>
+                                </fiaf:hasStream>
                             </xsl:when>
                             <xsl:when test="$format = '25mm Film'"/>
                             <xsl:when test="$format = 'Betacam Videocassette'">
@@ -406,7 +420,12 @@
                             </xsl:when>
                             <xsl:when test="$format = 'ProRes QuickTime'">
                                 <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Quicktime" />
-                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/ProRes" />
+                                <fiaf:hasStream>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="https://dev.fiafcore.org/VideoStream" />
+                                        <fiaf:hasVideoCodec rdf:resource="https://dev.fiafcore.org/ProRes" />
+                                    </rdf:Description>
+                                </fiaf:hasStream>
                             </xsl:when>
                             <xsl:when test="$format = 'Laser-Disc'">
                                 <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/LaserDisc" />
@@ -733,8 +752,11 @@
                     <!-- fiaf:hasSoundCharacteristic -->
 
                     <xsl:variable name="sound_manifestation" select=".//sound_manifestation/value[@lang='0']"/>
-                    <xsl:variable name="sound_standard" select=".//sound_system_manifestation"/>
-                    <xsl:if test="$sound_manifestation or $sound_standard">
+                    <xsl:variable name="sound_standards" select=".//sound_system_manifestation[normalize-space(.)]"/>
+                    <!-- Preserve each source description, keeping compound values together.
+                         Without a system value, retain the presence/absence description. -->
+                    <xsl:for-each select="$sound_standards | $sound_manifestation[not($sound_standards)]">
+                        <xsl:variable name="sound_standard" select="self::sound_system_manifestation"/>
                         <fiaf:hasSoundCharacteristic>
                             <rdf:Description>
                                 <xsl:if test="$sound_manifestation">
@@ -830,7 +852,7 @@
                                 </xsl:if>
                             </rdf:Description>
                         </fiaf:hasSoundCharacteristic>
-                    </xsl:if>
+                    </xsl:for-each>
 
                 </rdf:Description>
             </xsl:for-each>

@@ -1,6 +1,6 @@
 # FIAFcore Format Taxonomy and Optional Digital Streams
 
-The five Format branches are retained. Codecs are independent trees attached to optional digital streams, not additional formats of the enclosing object. Item and Carrier are equally valid stream description points; no entity below Item is required. Carrier reassessment remains open.
+The five Format branches are retained. Codecs are independent trees attached to optional digital streams, not additional formats of the enclosing object. Manifestation describes ideal streams; Item and Carrier describe actual streams; no entity below Item is required. Carrier reassessment remains open.
 
 Branch: `unified-taxonomy` (Format work originally developed on `restructure-format-taxonomy`, based on `expand-videoformat-subclasses`)
 
@@ -247,7 +247,7 @@ fiaf:Format
 ## Digital streams and codec trees
 
 ```text
-DigitalStream                         via hasStream on Item ∪ Carrier
+DigitalStream                         via hasStream on Manifestation ∪ Item ∪ Carrier
 ├── VideoStream                       hasVideoCodec; hasColourCharacteristic
 ├── AudioStream                       hasAudioCodec; hasSoundCharacteristic
 └── SubtitleStream
@@ -274,7 +274,7 @@ AudioCodec                            via hasAudioCodec on AudioStream
 - A file format describes the enclosing digital object; a codec describes a stream's encoding. One container can contain many streams, including several with the same codec. A codec does not identify a stream.
 - Stream nodes bind codec, language usage, and colour/sound characteristics without a cross-product between unrelated streams. They may be blank nodes or IRIs, and are not inventory Items or Carriers. One multichannel audio stream is not one stream per channel.
 - This borrows the resource/track distinction from [EBUCore](https://github.com/ebu/ebucore/blob/master/ebucore.rdf), which has Track, AudioTrack, VideoTrack, and codec properties. It does not import EBUCore wholesale or impose a track model on film.
-- Item and Carrier are first-class alternatives for stream attachment. Archives need not create Carrier records to describe streams. Existing W/V/M/I language descriptions remain; a stream can reference the same LanguageUsage node. No language or characteristic assertions propagate automatically between levels.
+- Manifestation streams describe the ideal technical structure; Item and Carrier streams describe actual objects. Archives need not create Carrier records to describe streams. Existing W/V/M/I language descriptions remain; a stream can reference the same LanguageUsage node. No language or characteristic assertions propagate automatically between levels.
 - Keep storage media and stored digital objects separate where possible. Storage/content and package-component relationships are distinct from hasStream and remain unresolved with Carrier (§4.8). No new hasContent/isContentOf relation is introduced here.
 - Multiple files should have distinct object descriptions when their formats and streams must be associated precisely. Multiple hasFormat values plus unassigned streams on one summary Item do not establish those associations.
 - Ordinary film description remains unchanged. A picture-and-sepmag set can link to two carriers with 35mmFilm and 35mmMagneticFilm; no DigitalStream is needed. Summary Items may report component formats, without asserting a single physical roll has both formats.
@@ -283,7 +283,7 @@ AudioCodec                            via hasAudioCodec on AudioStream
 
 ### Examples
 
-See `example/DigitalStream.ttl` for executable RDF examples of Item-only description, Carrier-level description, shared language-usage nodes, embedded subtitles, and a picture/sepmag film set. The examples do not introduce speculative storage or package relationships.
+See `example/DigitalStream.ttl` for executable RDF examples of Manifestation-level ideal streams, Item-only description, Carrier-level description, shared language-usage nodes, embedded subtitles, and a picture/sepmag film set. The examples do not introduce speculative storage or package relationships.
 
 ```turtle
 # An archive with no inventory entity below Item.
@@ -304,4 +304,12 @@ See `example/DigitalStream.ttl` for executable RDF examples of Item-only descrip
 
 ### Migration
 
-`hasFormat` continues to point directly to format IRIs; it does not change to blank-node descriptions. Codec IRIs are preserved, but codec values previously emitted via hasFormat must move to hasVideoCodec/hasAudioCodec on a stream. Existing format queries will no longer find codecs through the Format hierarchy. A source naming a specific codec can support a minimally described stream; unknown additional streams and characteristics are left unstated. Coarse Manifestation-level codec mappings require review because hasStream deliberately has only Item ∪ Carrier as its domain.
+`hasFormat` continues to point directly to format IRIs; it does not change to blank-node descriptions. Codec IRIs are preserved, but codec values previously emitted via hasFormat must move to hasVideoCodec/hasAudioCodec on a stream. Existing format queries will no longer find codecs through the Format hierarchy. A source naming a specific codec can support a minimally described stream; unknown additional streams and characteristics are left unstated. Manifestation-level codec values can describe ideal streams; BFI ProRes mappings now use this pattern.
+
+
+Bundesarchiv unit material formats are recorded on each Carrier; Exemplar-level
+container and gauge remain on Item. Unit characteristics whose properties do not
+include Carrier (base, stock, colour, sound, and element) are collected as Item
+summaries. All units are processed, but those summaries do not retain unit
+associations. Magnetic interpretation uses the current unit's material and gauge,
+falling back to the Exemplar gauge where no unit gauge is supplied.

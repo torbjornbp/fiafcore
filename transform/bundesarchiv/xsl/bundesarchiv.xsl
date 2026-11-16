@@ -1778,8 +1778,8 @@
 
             <!-- fiaf:hasBase -->
 
-            <xsl:if test="ba:Aufbewahrungseinheit/ba:Traeger">
-                <xsl:variable name="base" select="translate(ba:Aufbewahrungseinheit/ba:Traeger, ' ', '_')"/>
+            <xsl:for-each select="ba:Aufbewahrungseinheit/ba:Traeger[normalize-space(.)]">
+                <xsl:variable name="base" select="translate(., ' ', '_')"/>
                 <xsl:choose>
                     <xsl:when test="$base = 'keiner'" />
                     <xsl:when test="$base = 'Bearbeitungsspeicher'" />
@@ -1806,7 +1806,7 @@
                         </xsl:message>
                     </xsl:otherwise>
                 </xsl:choose>
-            </xsl:if>
+            </xsl:for-each>
 
             <!-- fiaf:hasBroadcastStandard  -->
 
@@ -1844,8 +1844,8 @@
 
             <!-- fiaf:hasColourCharacteristic  -->
 
-            <xsl:if test="ba:Aufbewahrungseinheit/ba:Farbe">
-                <xsl:variable name="colourchar" select="ba:Aufbewahrungseinheit/ba:Farbe"/>
+            <xsl:for-each select="ba:Aufbewahrungseinheit/ba:Farbe[normalize-space(.)]">
+                <xsl:variable name="colourchar" select="."/>
                 <xsl:choose>
                     <xsl:when test="$colourchar = 'keine'" />
                     <xsl:when test="$colourchar = 'Unbekannt'" />
@@ -1859,6 +1859,7 @@
                     <xsl:when test="$colourchar = 'Schablonenkolorierung'">
                         <fiaf:hasColourCharacteristic>
                             <rdf:Description>
+                                <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhiteWithAppliedColour" />
                                 <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/StencilColouring" />
                             </rdf:Description>
                         </fiaf:hasColourCharacteristic>
@@ -1866,6 +1867,7 @@
                     <xsl:when test="$colourchar = 'Handkolorierung'">
                         <fiaf:hasColourCharacteristic>
                             <rdf:Description>
+                                <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhiteWithAppliedColour" />
                                 <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/HandColouring" />
                             </rdf:Description>
                         </fiaf:hasColourCharacteristic>
@@ -1911,6 +1913,7 @@
                     <xsl:when test="$colourchar = 'Virage'">
                         <fiaf:hasColourCharacteristic>
                             <rdf:Description>
+                                <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhiteWithAppliedColour" />
                                 <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Tinted" />
                             </rdf:Description>
                         </fiaf:hasColourCharacteristic>
@@ -1918,6 +1921,7 @@
                     <xsl:when test="$colourchar = 'Tonung'">
                         <fiaf:hasColourCharacteristic>
                             <rdf:Description>
+                                <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhiteWithAppliedColour" />
                                 <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Toned" />
                             </rdf:Description>
                         </fiaf:hasColourCharacteristic>
@@ -1933,6 +1937,7 @@
                     <xsl:when test="$colourchar = 'Virage und Tonung'">
                         <fiaf:hasColourCharacteristic>
                             <rdf:Description>
+                                <rdf:type rdf:resource="https://dev.fiafcore.org/BlackAndWhiteWithAppliedColour" />
                                 <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Tinted" />
                                 <fiaf:hasColourProcess rdf:resource="https://dev.fiafcore.org/Toned" />
                             </rdf:Description>
@@ -1976,7 +1981,7 @@
                         </xsl:message>
                     </xsl:otherwise>
                 </xsl:choose>
-            </xsl:if>
+            </xsl:for-each>
 
             <!-- fiaf:hasExtent  -->
 
@@ -2012,7 +2017,12 @@
                         <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/WebM" />
                     </xsl:when>
                     <xsl:when test="$format = 'MPEG-2'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/MPEG2" />
+                        <fiaf:hasStream>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="https://dev.fiafcore.org/VideoStream" />
+                                <fiaf:hasVideoCodec rdf:resource="https://dev.fiafcore.org/MPEG2" />
+                            </rdf:Description>
+                        </fiaf:hasStream>
                     </xsl:when>
                     <xsl:when test="$format = 'Unbekannt'" />
                     <xsl:when test="$format = 'DCP'">
@@ -2053,213 +2063,13 @@
                 </xsl:choose>
             </xsl:if>
 
-            <xsl:if test="ba:Filmbreite">
-                <xsl:variable name="format" select="translate(ba:Filmbreite, ' ', '_')"/>
-                <xsl:variable name="is_sepmag" select="translate(ba:Aufbewahrungseinheit/ba:Materialart, ' ', '_') = 'Magnetband' or translate(ba:Aufbewahrungseinheit/ba:Materialart, ' ', '_') = 'Magnetband_zu_Farbe'"/>
-                <xsl:choose>
-                    <xsl:when test="$format = '6,25_mm'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/QuerterInchAudiotape" />
-                    </xsl:when>
-                    <xsl:when test="$format = 'Unbekannt'" />
-                    <xsl:when test="$format = '35_+_16_mm'" />
-                    <xsl:when test="$format = '35-8_mm'" />
-                    <xsl:when test="$format = '42_mm'" />
-                    <xsl:when test="$format = 'Nicht_standardisiert'" />
-                    <xsl:when test="$format = '35-16_mm'" />
-                    <xsl:when test="$format = '35_mm'">
-                        <xsl:choose>
-                            <xsl:when test="$is_sepmag">
-                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/35mmMagneticFilm" />
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/35mmFilm" />
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:when>
-                    <xsl:when test="$format = '16_mm' or $format = '16_mm_neue_Norm' or $format = '16_mm_alte_Norm'">
-                        <xsl:choose>
-                            <xsl:when test="$is_sepmag">
-                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/16mmMagneticFilm" />
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/16mmFilm" />
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:when>
-                    <xsl:when test="$format = '8_mm'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/8mmFilm" />
-                    </xsl:when>
-                    <xsl:when test="$format = 'S_16_mm'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Super16mmFilm" />
-                    </xsl:when>
-                    <xsl:when test="$format = '17,5_mm'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/17.5mmFilm" />
-                    </xsl:when>
-                    <xsl:when test="$format = '9,5_mm'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/9.5mmFilm" />
-                    </xsl:when>
-                    <xsl:when test="$format = '70_mm'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/70mmFilm" />
-                    </xsl:when>
-                    <xsl:when test="$format = 'Normal_8_mm'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/8mmFilm" />
-                    </xsl:when>
-                    <xsl:when test="$format = 'Super_8_mm'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Super8mmFilm" />
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:message terminate="yes">
-                            Error: Unexpected value "<xsl:value-of select="$format"/>".
-                        </xsl:message>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:if>
+            <xsl:call-template name="gauge-format">
+                <xsl:with-param name="gauge" select="ba:Filmbreite"/>
+            </xsl:call-template>
 
             <!-- fiaf:hasFormat (material types) -->
 
-            <xsl:if test="ba:Aufbewahrungseinheit/ba:Materialart">
-                <xsl:variable name="material" select="translate(ba:Aufbewahrungseinheit/ba:Materialart, ' ', '_')"/>
-                <xsl:choose>
-                    <xsl:when test="$material = 'High_8/8mm' or $material = 'D_1_oder_2' or $material = 'BETA' or $material = 'MAZ'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/VideoFormat" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'AMPEX_DCT'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/AmpexDCT" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'XDCAM_PFD_50DLA'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/ProfessionalDisc" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'FILE' and (not(normalize-space(ba:Container)) or ba:Container = 'Unbekannt' or translate(ba:Container, ' ', '_') = 'OHNE_Container')">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DigitalFormat" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'Umatic'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Umatic" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'U-matic-HB'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/UmaticHighBand" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'U-matic-HB/BA'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/UmaticHighBand" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'U-matic-HB/BA+TC'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/UmaticHighBand" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'U-matic-LB'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/UmaticLowBand" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'U-matic-LB/BA'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/UmaticLowBand" />
-                    </xsl:when>
-                    <xsl:when test="$material = '1_Zoll_A'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/OneInchTypeA" />
-                    </xsl:when>
-                    <xsl:when test="$material = '1_Zoll_B'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/OneInchTypeB" />
-                    </xsl:when>
-                    <xsl:when test="$material = '1_Zoll_C'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/OneInchTypeC" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'VHS'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/VHS" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'VHS/BA'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/VHS" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'VHS/BA_+_TC'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/VHS" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'VHS/TC'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/VHS" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'S-VHS'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/SuperVHS" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'S-VHS/BA'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/SuperVHS" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'S-VHS/BA+TC'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/SuperVHS" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'S-VHS/TC'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/SuperVHS" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'Betamax'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Betamax" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'VCR'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/VCR" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'VIDEO_2000'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Video2000" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'HD_CAM'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/HDCAM" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'HD_CAM_SR'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/HDCAMSR" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'Mini_DV'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/MiniDV" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'Betacam_SP'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/BetacamSP" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'Betacam_SP/TC'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/BetacamSP" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'Betacam_Digital'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DigitalBetacam" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'Betacam_Digital/BA'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DigitalBetacam" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'DVD'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DVD" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'DVD/BA'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DVD" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'DVD/TC'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DVD" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'DVD/BA+TC'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DVD" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'Blu-ray_Disc'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/BluRay" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'Bildplatte'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/LaserDisc" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'Digital_Audio_Tape'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DAT" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'DA-88'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DTRS" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'LTO_2'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/LTO2" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'LTO_3'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/LTO3" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'LTO_4'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/LTO4" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'LTO_5'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/LTO5" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'HDD'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/HardDrive" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'HDD_mit_USB3'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/HardDrive" />
-                    </xsl:when>
-                    <xsl:when test="$material = 'Magnetic_Optical_Disc'">
-                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/MagnetoOpticalDisc" />
-                    </xsl:when>
-                </xsl:choose>
-            </xsl:if>
+            <!-- Unit material formats are emitted on their Carrier. -->
 
             <!-- fiaf:hasHoldingInstitution  -->
 
@@ -2590,86 +2400,88 @@
 
             <!-- fiaf:hasSoundCharacteristic  -->
 
-            <xsl:if test="ba:Aufbewahrungseinheit/ba:Materialart">
-                <xsl:variable name="soundmat" select="translate(ba:Aufbewahrungseinheit/ba:Materialart, ' ', '_')"/>
-                <xsl:choose>
-                    <xsl:when test="$soundmat = 'Stumme_Kopie'
-                        or $soundmat = 'Farbmuster-stumme_Kopie'
-                        or $soundmat = 'Stumme_Korrekturkopie'
-                        or $soundmat = 'Stumme_Footage_(Positiv_und_Negativ)'
-                        or $soundmat = 'Stummes_Originalnegativ'
-                        or $soundmat = 'Stummes_Duplikatnegativ'
-                        or $soundmat = 'Stummes_Internegativ'
-                        or $soundmat = 'Stummes_Intermediate_Negative'
-                        or $soundmat = 'Stummes_Color_Reversal_Intermediate'
-                        or $soundmat = 'Stummes_Negativ'
-                        or $soundmat = 'Stummes_Duplikatpositiv'
-                        or $soundmat = 'Stummes_Intermediate_Positve'
-                        or $soundmat = 'Stummes_Positiv'
-                        or $soundmat = 'Stummes_Original_Reversal_Positive'
-                        or $soundmat = 'Stummes_Original_Color_Reversal_Positive'
-                        or $soundmat = 'Stummes_Reversal_Positive'
-                        or $soundmat = 'Stummes_Color_Reversal_Positive'">
-                        <fiaf:hasSoundCharacteristic>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="https://dev.fiafcore.org/Silent" />
-                            </rdf:Description>
-                        </fiaf:hasSoundCharacteristic>
-                    </xsl:when>
-                    <xsl:when test="$soundmat = 'Kopie_mit_Tonkasch'
-                        or $soundmat = 'Stumme_Kopie_mit_Tonkasch'
-                        or $soundmat = 'Stummes_Duplikatnegativ_mit_Tonkasch'
-                        or $soundmat = 'Stummes_Internegativ_mit_Tonkasch'
-                        or $soundmat = 'Stummes_Duplikatpositiv_mit_Tonkasch'
-                        or $soundmat = 'Originalbildnegativ'
-                        or $soundmat = 'Bildduplikatnegativ'
-                        or $soundmat = 'Bildnegativ'
-                        or $soundmat = 'Bildduplikatpositiv'
-                        or $soundmat = 'Bildpositiv'">
-                        <fiaf:hasSoundCharacteristic>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="https://dev.fiafcore.org/Mute" />
-                            </rdf:Description>
-                        </fiaf:hasSoundCharacteristic>
-                    </xsl:when>
-                    <xsl:when test="$soundmat = 'Kopie_mit_Magnetton'
-                        or $soundmat = 'Magnetband'
-                        or $soundmat = 'Magnetband_zu_Farbe'">
-                        <fiaf:hasSoundCharacteristic>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="https://dev.fiafcore.org/Sound" />
-                                <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/Magnetic" />
-                            </rdf:Description>
-                        </fiaf:hasSoundCharacteristic>
-                    </xsl:when>
-                    <xsl:when test="$soundmat = 'Tonnegativ'
-                        or $soundmat = 'Originaltonnegativ'
-                        or $soundmat = 'TN_zu_Farbbildnegativ'
-                        or $soundmat = 'Ton_-_Dupnegativ'
-                        or $soundmat = 'Tonpositiv'
-                        or $soundmat = 'TP_zu_Farbfilm'
-                        or $soundmat = 'Tonpositiv_nur_für_Tonumspielung'">
-                        <fiaf:hasSoundCharacteristic>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="https://dev.fiafcore.org/Sound" />
-                                <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/AnalogueOpticalSound" />
-                            </rdf:Description>
-                        </fiaf:hasSoundCharacteristic>
-                    </xsl:when>
-                    <xsl:when test="$soundmat = 'Kombinierte_Kopie'
-                        or $soundmat = 'Farbmuster-_kombinierte_Kopie'
-                        or $soundmat = 'Nullkopie_kombiniert'
-                        or $soundmat = 'kombiniertes_Duplikatpositiv'
-                        or $soundmat = 'kombiniertes_Duplikatnegativ'
-                        or $soundmat = 'Kombinierte_Footage_(Positiv_und_Negativ)'">
-                        <fiaf:hasSoundCharacteristic>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="https://dev.fiafcore.org/Sound" />
-                            </rdf:Description>
-                        </fiaf:hasSoundCharacteristic>
-                    </xsl:when>
-                </xsl:choose>
-            </xsl:if>
+            <xsl:for-each select="ba:Aufbewahrungseinheit">
+                <xsl:if test="ba:Materialart">
+                    <xsl:variable name="soundmat" select="translate(ba:Materialart, ' ', '_')"/>
+                    <xsl:choose>
+                        <xsl:when test="$soundmat = 'Stumme_Kopie'
+                            or $soundmat = 'Farbmuster-stumme_Kopie'
+                            or $soundmat = 'Stumme_Korrekturkopie'
+                            or $soundmat = 'Stumme_Footage_(Positiv_und_Negativ)'
+                            or $soundmat = 'Stummes_Originalnegativ'
+                            or $soundmat = 'Stummes_Duplikatnegativ'
+                            or $soundmat = 'Stummes_Internegativ'
+                            or $soundmat = 'Stummes_Intermediate_Negative'
+                            or $soundmat = 'Stummes_Color_Reversal_Intermediate'
+                            or $soundmat = 'Stummes_Negativ'
+                            or $soundmat = 'Stummes_Duplikatpositiv'
+                            or $soundmat = 'Stummes_Intermediate_Positve'
+                            or $soundmat = 'Stummes_Positiv'
+                            or $soundmat = 'Stummes_Original_Reversal_Positive'
+                            or $soundmat = 'Stummes_Original_Color_Reversal_Positive'
+                            or $soundmat = 'Stummes_Reversal_Positive'
+                            or $soundmat = 'Stummes_Color_Reversal_Positive'">
+                            <fiaf:hasSoundCharacteristic>
+                                <rdf:Description>
+                                    <rdf:type rdf:resource="https://dev.fiafcore.org/Silent" />
+                                </rdf:Description>
+                            </fiaf:hasSoundCharacteristic>
+                        </xsl:when>
+                        <xsl:when test="$soundmat = 'Kopie_mit_Tonkasch'
+                            or $soundmat = 'Stumme_Kopie_mit_Tonkasch'
+                            or $soundmat = 'Stummes_Duplikatnegativ_mit_Tonkasch'
+                            or $soundmat = 'Stummes_Internegativ_mit_Tonkasch'
+                            or $soundmat = 'Stummes_Duplikatpositiv_mit_Tonkasch'
+                            or $soundmat = 'Originalbildnegativ'
+                            or $soundmat = 'Bildduplikatnegativ'
+                            or $soundmat = 'Bildnegativ'
+                            or $soundmat = 'Bildduplikatpositiv'
+                            or $soundmat = 'Bildpositiv'">
+                            <fiaf:hasSoundCharacteristic>
+                                <rdf:Description>
+                                    <rdf:type rdf:resource="https://dev.fiafcore.org/Mute" />
+                                </rdf:Description>
+                            </fiaf:hasSoundCharacteristic>
+                        </xsl:when>
+                        <xsl:when test="$soundmat = 'Kopie_mit_Magnetton'
+                            or $soundmat = 'Magnetband'
+                            or $soundmat = 'Magnetband_zu_Farbe'">
+                            <fiaf:hasSoundCharacteristic>
+                                <rdf:Description>
+                                    <rdf:type rdf:resource="https://dev.fiafcore.org/Sound" />
+                                    <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/Magnetic" />
+                                </rdf:Description>
+                            </fiaf:hasSoundCharacteristic>
+                        </xsl:when>
+                        <xsl:when test="$soundmat = 'Tonnegativ'
+                            or $soundmat = 'Originaltonnegativ'
+                            or $soundmat = 'TN_zu_Farbbildnegativ'
+                            or $soundmat = 'Ton_-_Dupnegativ'
+                            or $soundmat = 'Tonpositiv'
+                            or $soundmat = 'TP_zu_Farbfilm'
+                            or $soundmat = 'Tonpositiv_nur_für_Tonumspielung'">
+                            <fiaf:hasSoundCharacteristic>
+                                <rdf:Description>
+                                    <rdf:type rdf:resource="https://dev.fiafcore.org/Sound" />
+                                    <fiaf:hasSoundStandard rdf:resource="https://dev.fiafcore.org/AnalogueOpticalSound" />
+                                </rdf:Description>
+                            </fiaf:hasSoundCharacteristic>
+                        </xsl:when>
+                        <xsl:when test="$soundmat = 'Kombinierte_Kopie'
+                            or $soundmat = 'Farbmuster-_kombinierte_Kopie'
+                            or $soundmat = 'Nullkopie_kombiniert'
+                            or $soundmat = 'kombiniertes_Duplikatpositiv'
+                            or $soundmat = 'kombiniertes_Duplikatnegativ'
+                            or $soundmat = 'Kombinierte_Footage_(Positiv_und_Negativ)'">
+                            <fiaf:hasSoundCharacteristic>
+                                <rdf:Description>
+                                    <rdf:type rdf:resource="https://dev.fiafcore.org/Sound" />
+                                </rdf:Description>
+                            </fiaf:hasSoundCharacteristic>
+                        </xsl:when>
+                    </xsl:choose>
+                </xsl:if>
+            </xsl:for-each>
 
             <!-- fiaf:hasStatus  -->
 
@@ -2696,15 +2508,15 @@
 
             <!-- fiaf:hasStock  -->
 
-            <xsl:if test="ba:Aufbewahrungseinheit/ba:Rohfilmtyp">
-                <xsl:variable name="stock" select="translate(ba:Aufbewahrungseinheit/ba:Rohfilmtyp, ' ', '_')"/>
+            <xsl:for-each select="ba:Aufbewahrungseinheit/ba:Rohfilmtyp[normalize-space(.)]">
+                <xsl:variable name="stock" select="translate(., ' ', '_')"/>
                 <xsl:choose>
                     <!-- Source codes are retained verbatim. -->
                     <xsl:when test="$stock = 'DP_31' or $stock = 'PF2' or $stock = 'DN_21' or $stock = 'PF2_V2' or $stock = 'TF_12d'">
                         <fiaf:hasStock>
                             <rdf:Description>
                                 <rdf:type rdf:resource="https://dev.fiafcore.org/Orwo" />
-                                <fiaf:hasStockCode><xsl:value-of select="ba:Aufbewahrungseinheit/ba:Rohfilmtyp" /></fiaf:hasStockCode>
+                                <fiaf:hasStockCode><xsl:value-of select="." /></fiaf:hasStockCode>
                             </rdf:Description>
                         </fiaf:hasStock>
                     </xsl:when>
@@ -2712,7 +2524,7 @@
                         <fiaf:hasStock>
                             <rdf:Description>
                                 <rdf:type rdf:resource="https://dev.fiafcore.org/Kodak" />
-                                <fiaf:hasStockCode><xsl:value-of select="ba:Aufbewahrungseinheit/ba:Rohfilmtyp" /></fiaf:hasStockCode>
+                                <fiaf:hasStockCode><xsl:value-of select="." /></fiaf:hasStockCode>
                             </rdf:Description>
                         </fiaf:hasStock>
                     </xsl:when>
@@ -2720,7 +2532,7 @@
                         <fiaf:hasStock>
                             <rdf:Description>
                                 <rdf:type rdf:resource="https://dev.fiafcore.org/Agfa" />
-                                <fiaf:hasStockCode><xsl:value-of select="ba:Aufbewahrungseinheit/ba:Rohfilmtyp" /></fiaf:hasStockCode>
+                                <fiaf:hasStockCode><xsl:value-of select="." /></fiaf:hasStockCode>
                             </rdf:Description>
                         </fiaf:hasStock>
                     </xsl:when>
@@ -2741,264 +2553,268 @@
                         </xsl:message>
                     </xsl:otherwise>
                 </xsl:choose>
-            </xsl:if>
+            </xsl:for-each>
 
             <!-- fiaf:isElement  -->
 
-            <xsl:if test="ba:Aufbewahrungseinheit/ba:Materialart">
-                <xsl:variable name="element" select="translate(ba:Aufbewahrungseinheit/ba:Materialart, ' ', '_')"/>
-                <xsl:choose>
-                    <xsl:when test="$element = 'Magnetband' or $element = 'Magnetband_zu_Farbe'">
-                        <xsl:choose>
-                            <xsl:when test="ba:Filmbreite and translate(ba:Filmbreite, ' ', '_') != '6,25_mm' and translate(ba:Filmbreite, ' ', '_') != 'Unbekannt'">
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SeparatedMagneticSound" />
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AudioElement" />
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:when>
-                    <xsl:when test="$element = 'Stumme_Kopie'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'FILE'" />
-                    <xsl:when test="$element = 'Verschiedenes'" />
-                    <xsl:when test="$element = 'DVD/BA+TC'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'VHS'" />
-                    <xsl:when test="$element = 'VHS/BA_+_TC'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'DVD'" />
-                    <xsl:when test="$element = 'TN_zu_Farbbildnegativ'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundNegative" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Betacam_Digital'" />
-                    <xsl:when test="$element = 'Internegativ'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
-                    </xsl:when>
-                    <xsl:when test="$element = '1_Zoll_B'" />
-                    <xsl:when test="$element = 'Umatic'" />
-                    <xsl:when test="$element = 'Kopie_mit_Tonkasch'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Betacam_SP'" />
-                    <xsl:when test="$element = 'Stummes_Internegativ'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Kopie_mit_Magnetton'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'DVD/BA'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Farbmuster-stumme_Kopie'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AnswerPrint" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Stummes_Duplikatpositiv_mit_Tonkasch'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Tonpositiv_nur_für_Tonumspielung'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundPositive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'VHS/BA'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'S-VHS'" />
-                    <xsl:when test="$element = 'Stummes_Positiv'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Original_Reversal_Positive'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'DVD/TC'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Color_Reversal_Intermediate_(Negativ)'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourReversalIntermediate" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Stummes_Duplikatnegativ_mit_Tonkasch'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'TP_zu_Farbfilm'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundPositive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Stummes_Negativ'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Digital_Audio_Tape'" />
-                    <xsl:when test="$element = 'Original_Color_Reversal_Positive'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'AMPEX_DCT'" />
-                    <xsl:when test="$element = 'Originaltonnegativ'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundNegative" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Reversal_Positive'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'VCR'" />
-                    <xsl:when test="$element = 'VHS/TC'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Stummes_Intermediate_Positve'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'U-matic-HB'" />
-                    <xsl:when test="$element = 'Stumme_Kopie_mit_Tonkasch'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
-                    </xsl:when>
-                    <xsl:when test="$element = '1_Zoll_C'" />
-                    <xsl:when test="$element = 'HD_CAM_SR'" />
-                    <xsl:when test="$element = 'BETA'" />
-                    <xsl:when test="$element = 'Magnetic_Optical_Disc'" />
-                    <xsl:when test="$element = 'Color_Reversal_Positive'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Stummes_Original_Reversal_Positive'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'HD_CAM'" />
-                    <xsl:when test="$element = 'D_1_oder_2'" />
-                    <xsl:when test="$element = 'Ton_-_Dupnegativ'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundNegative" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Farbmuster-_kombinierte_Kopie'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AnswerPrint" />
-                    </xsl:when>
-                    <xsl:when test="$element = '1_Zoll_A'" />
-                    <xsl:when test="$element = 'Nullkopie'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AnswerPrint" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Nullkopie_kombiniert'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AnswerPrint" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'LTO_5'" />
-                    <xsl:when test="$element = 'Stummes_Original_Color_Reversal_Positive'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Stummes_Intermediate_Negative'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Blu-ray_Disc'" />
-                    <xsl:when test="$element = 'Arbeitskopie/Schnittkopie'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/WorkPrint" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Korrekturkopie'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AnswerPrint" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Mini_DV'" />
-                    <xsl:when test="$element = 'S-VHS/BA'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'XDCAM_PFD_50DLA'" />
-                    <xsl:when test="$element = 'Stummes_Color_Reversal_Intermediate'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourReversalIntermediate" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Stummes_Reversal_Positive'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'LTO_2'" />
-                    <xsl:when test="$element = 'Betacam_Digital/BA'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'S-VHS/BA+TC'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'LTO_4'" />
-                    <xsl:when test="$element = 'Stummes_Internegativ_mit_Tonkasch'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Betacam_SP/TC'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Stummes_Color_Reversal_Positive'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'U-matic-LB'" />
-                    <xsl:when test="$element = 'HDD'" />
-                    <xsl:when test="$element = 'Bildplatte'" />
-                    <xsl:when test="$element = 'LTO_3'" />
-                    <xsl:when test="$element = 'S-VHS/TC'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Stumme_Korrekturkopie'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AnswerPrint" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'MAZ'" />
-                    <xsl:when test="$element = 'U-matic-LB/BA'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'DA-88'" />
-                    <xsl:when test="$element = 'Stumme_Footage_(Positiv_und_Negativ)'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'U-matic-HB/BA+TC'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'HDD_mit_USB3'" />
-                    <xsl:when test="$element = 'High_8/8mm'" />
-                    <xsl:when test="$element = 'U-matic-HB/BA'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Betamax'" />
-                    <xsl:when test="$element = 'Kombinierte_Footage_(Positiv_und_Negativ)'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'VIDEO_2000'" />
-                    <xsl:when test="$element = 'Kombinierte_Kopie'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Tonnegativ'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundNegative" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'kombiniertes_Duplikatpositiv'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Bildduplikatnegativ'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Originalbildnegativ'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/OriginalNegative" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'kombiniertes_Duplikatnegativ'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Bildnegativ'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Stummes_Duplikatnegativ'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Bildduplikatpositiv'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Stummes_Duplikatpositiv'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Bildpositiv'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Tonpositiv'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundPositive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Intermediate_Positive'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Intermediate_Negative'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
-                    </xsl:when>
-                    <xsl:when test="$element = 'Stummes_Originalnegativ'">
-                        <fiaf:isElement rdf:resource="https://dev.fiafcore.org/OriginalNegative" />
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:message terminate="yes">
-                            Error: Unexpected value "<xsl:value-of select="$element"/>".
-                        </xsl:message>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:if>
+            <xsl:for-each select="ba:Aufbewahrungseinheit">
+                <xsl:variable name="unit_gauge" select="ba:Filmbreite[normalize-space(.)]"/>
+                <xsl:variable name="gauge" select="$unit_gauge | ../ba:Filmbreite[not($unit_gauge)]"/>
+                <xsl:if test="ba:Materialart">
+                    <xsl:variable name="element" select="translate(ba:Materialart, ' ', '_')"/>
+                    <xsl:choose>
+                        <xsl:when test="$element = 'Magnetband' or $element = 'Magnetband_zu_Farbe'">
+                            <xsl:choose>
+                                <xsl:when test="$gauge and translate($gauge, ' ', '_') != '6,25_mm' and translate($gauge, ' ', '_') != 'Unbekannt'">
+                                    <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SeparatedMagneticSound" />
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AudioElement" />
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:when>
+                        <xsl:when test="$element = 'Stumme_Kopie'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'FILE'" />
+                        <xsl:when test="$element = 'Verschiedenes'" />
+                        <xsl:when test="$element = 'DVD/BA+TC'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'VHS'" />
+                        <xsl:when test="$element = 'VHS/BA_+_TC'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'DVD'" />
+                        <xsl:when test="$element = 'TN_zu_Farbbildnegativ'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundNegative" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Betacam_Digital'" />
+                        <xsl:when test="$element = 'Internegativ'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                        </xsl:when>
+                        <xsl:when test="$element = '1_Zoll_B'" />
+                        <xsl:when test="$element = 'Umatic'" />
+                        <xsl:when test="$element = 'Kopie_mit_Tonkasch'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Betacam_SP'" />
+                        <xsl:when test="$element = 'Stummes_Internegativ'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Kopie_mit_Magnetton'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'DVD/BA'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Farbmuster-stumme_Kopie'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AnswerPrint" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Stummes_Duplikatpositiv_mit_Tonkasch'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Tonpositiv_nur_für_Tonumspielung'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundPositive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'VHS/BA'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'S-VHS'" />
+                        <xsl:when test="$element = 'Stummes_Positiv'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Original_Reversal_Positive'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'DVD/TC'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Color_Reversal_Intermediate_(Negativ)'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourReversalIntermediate" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Stummes_Duplikatnegativ_mit_Tonkasch'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'TP_zu_Farbfilm'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundPositive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Stummes_Negativ'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Digital_Audio_Tape'" />
+                        <xsl:when test="$element = 'Original_Color_Reversal_Positive'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'AMPEX_DCT'" />
+                        <xsl:when test="$element = 'Originaltonnegativ'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundNegative" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Reversal_Positive'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'VCR'" />
+                        <xsl:when test="$element = 'VHS/TC'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Stummes_Intermediate_Positve'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'U-matic-HB'" />
+                        <xsl:when test="$element = 'Stumme_Kopie_mit_Tonkasch'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                        </xsl:when>
+                        <xsl:when test="$element = '1_Zoll_C'" />
+                        <xsl:when test="$element = 'HD_CAM_SR'" />
+                        <xsl:when test="$element = 'BETA'" />
+                        <xsl:when test="$element = 'Magnetic_Optical_Disc'" />
+                        <xsl:when test="$element = 'Color_Reversal_Positive'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Stummes_Original_Reversal_Positive'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'HD_CAM'" />
+                        <xsl:when test="$element = 'D_1_oder_2'" />
+                        <xsl:when test="$element = 'Ton_-_Dupnegativ'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundNegative" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Farbmuster-_kombinierte_Kopie'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AnswerPrint" />
+                        </xsl:when>
+                        <xsl:when test="$element = '1_Zoll_A'" />
+                        <xsl:when test="$element = 'Nullkopie'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AnswerPrint" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Nullkopie_kombiniert'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AnswerPrint" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'LTO_5'" />
+                        <xsl:when test="$element = 'Stummes_Original_Color_Reversal_Positive'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Stummes_Intermediate_Negative'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Blu-ray_Disc'" />
+                        <xsl:when test="$element = 'Arbeitskopie/Schnittkopie'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/WorkPrint" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Korrekturkopie'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AnswerPrint" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Mini_DV'" />
+                        <xsl:when test="$element = 'S-VHS/BA'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'XDCAM_PFD_50DLA'" />
+                        <xsl:when test="$element = 'Stummes_Color_Reversal_Intermediate'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ColourReversalIntermediate" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Stummes_Reversal_Positive'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'LTO_2'" />
+                        <xsl:when test="$element = 'Betacam_Digital/BA'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'S-VHS/BA+TC'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'LTO_4'" />
+                        <xsl:when test="$element = 'Stummes_Internegativ_mit_Tonkasch'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Betacam_SP/TC'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Stummes_Color_Reversal_Positive'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReversalPositive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'U-matic-LB'" />
+                        <xsl:when test="$element = 'HDD'" />
+                        <xsl:when test="$element = 'Bildplatte'" />
+                        <xsl:when test="$element = 'LTO_3'" />
+                        <xsl:when test="$element = 'S-VHS/TC'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Stumme_Korrekturkopie'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/AnswerPrint" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'MAZ'" />
+                        <xsl:when test="$element = 'U-matic-LB/BA'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'DA-88'" />
+                        <xsl:when test="$element = 'Stumme_Footage_(Positiv_und_Negativ)'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'U-matic-HB/BA+TC'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'HDD_mit_USB3'" />
+                        <xsl:when test="$element = 'High_8/8mm'" />
+                        <xsl:when test="$element = 'U-matic-HB/BA'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/VideoAccessCopy" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Betamax'" />
+                        <xsl:when test="$element = 'Kombinierte_Footage_(Positiv_und_Negativ)'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/FilmElement" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'VIDEO_2000'" />
+                        <xsl:when test="$element = 'Kombinierte_Kopie'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/ReleasePrint" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Tonnegativ'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundNegative" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'kombiniertes_Duplikatpositiv'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Bildduplikatnegativ'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Originalbildnegativ'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/OriginalNegative" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'kombiniertes_Duplikatnegativ'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Bildnegativ'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Negative" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Stummes_Duplikatnegativ'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Bildduplikatpositiv'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Stummes_Duplikatpositiv'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Bildpositiv'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/Positive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Tonpositiv'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/SoundPositive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Intermediate_Positive'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicatePositive" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Intermediate_Negative'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/DuplicateNegative" />
+                        </xsl:when>
+                        <xsl:when test="$element = 'Stummes_Originalnegativ'">
+                            <fiaf:isElement rdf:resource="https://dev.fiafcore.org/OriginalNegative" />
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:message terminate="yes">
+                                Error: Unexpected value "<xsl:value-of select="$element"/>".
+                            </xsl:message>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:if>
+            </xsl:for-each>
 
         </rdf:Description>
     </xsl:template>
@@ -3008,6 +2824,166 @@
     <xsl:template match="ba:Aufbewahrungseinheit">
         <rdf:Description rdf:about="bundesarchiv://resource/carrier/{@uuid}">
             <rdf:type rdf:resource="https://dev.fiafcore.org/Carrier" />
+
+            <xsl:variable name="unit_gauge" select="ba:Filmbreite[normalize-space(.)]"/>
+            <xsl:variable name="gauge" select="$unit_gauge | ../ba:Filmbreite[not($unit_gauge)]"/>
+            <xsl:variable name="unit_container" select="ba:Container[normalize-space(.)]"/>
+            <xsl:variable name="container" select="$unit_container | ../ba:Container[not($unit_container)]"/>
+
+            <!-- Unit-level gauge is recorded only where explicitly supplied. -->
+            <xsl:call-template name="gauge-format">
+                <xsl:with-param name="gauge" select="$unit_gauge"/>
+                <xsl:with-param name="is_sepmag" select="ba:Materialart = 'Magnetband' or ba:Materialart = 'Magnetband zu Farbe' or ba:Materialart = 'Magnetband_zu_Farbe'"/>
+            </xsl:call-template>
+            <xsl:if test="ba:Materialart">
+                <xsl:variable name="material" select="translate(ba:Materialart, ' ', '_')"/>
+                <xsl:choose>
+                    <xsl:when test="$material = 'Magnetband' or $material = 'Magnetband_zu_Farbe'">
+                        <xsl:call-template name="gauge-format">
+                            <xsl:with-param name="gauge" select="$gauge"/>
+                            <xsl:with-param name="is_sepmag" select="true()"/>
+                        </xsl:call-template>
+                    </xsl:when>
+                    <xsl:when test="$material = 'High_8/8mm' or $material = 'D_1_oder_2' or $material = 'BETA' or $material = 'MAZ'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/VideoFormat" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'AMPEX_DCT'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/AmpexDCT" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'XDCAM_PFD_50DLA'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/ProfessionalDisc" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'FILE' and (not(normalize-space($container)) or $container = 'Unbekannt' or translate($container, ' ', '_') = 'OHNE_Container')">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DigitalFormat" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'Umatic'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Umatic" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'U-matic-HB'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/UmaticHighBand" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'U-matic-HB/BA'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/UmaticHighBand" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'U-matic-HB/BA+TC'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/UmaticHighBand" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'U-matic-LB'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/UmaticLowBand" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'U-matic-LB/BA'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/UmaticLowBand" />
+                    </xsl:when>
+                    <xsl:when test="$material = '1_Zoll_A'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/OneInchTypeA" />
+                    </xsl:when>
+                    <xsl:when test="$material = '1_Zoll_B'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/OneInchTypeB" />
+                    </xsl:when>
+                    <xsl:when test="$material = '1_Zoll_C'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/OneInchTypeC" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'VHS'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/VHS" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'VHS/BA'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/VHS" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'VHS/BA_+_TC'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/VHS" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'VHS/TC'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/VHS" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'S-VHS'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/SuperVHS" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'S-VHS/BA'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/SuperVHS" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'S-VHS/BA+TC'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/SuperVHS" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'S-VHS/TC'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/SuperVHS" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'Betamax'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Betamax" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'VCR'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/VCR" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'VIDEO_2000'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Video2000" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'HD_CAM'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/HDCAM" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'HD_CAM_SR'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/HDCAMSR" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'Mini_DV'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/MiniDV" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'Betacam_SP'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/BetacamSP" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'Betacam_SP/TC'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/BetacamSP" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'Betacam_Digital'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DigitalBetacam" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'Betacam_Digital/BA'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DigitalBetacam" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'DVD'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DVD" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'DVD/BA'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DVD" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'DVD/TC'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DVD" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'DVD/BA+TC'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DVD" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'Blu-ray_Disc'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/BluRay" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'Bildplatte'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/LaserDisc" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'Digital_Audio_Tape'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DAT" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'DA-88'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/DTRS" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'LTO_2'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/LTO2" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'LTO_3'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/LTO3" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'LTO_4'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/LTO4" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'LTO_5'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/LTO5" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'HDD'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/HardDrive" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'HDD_mit_USB3'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/HardDrive" />
+                    </xsl:when>
+                    <xsl:when test="$material = 'Magnetic_Optical_Disc'">
+                        <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/MagnetoOpticalDisc" />
+                    </xsl:when>
+                </xsl:choose>
+            </xsl:if>
 
             <!-- fiafcore:hasIdentifier -->
 
@@ -3026,6 +3002,72 @@
             </fiaf:hasIdentifier>
 
         </rdf:Description>
+    </xsl:template>
+
+    <!-- Shared gauge mapping; caller supplies the material context. -->
+    <xsl:template name="gauge-format">
+        <xsl:param name="gauge"/>
+        <xsl:param name="is_sepmag" select="false()"/>
+        <xsl:if test="$gauge">
+            <xsl:variable name="format" select="translate($gauge, ' ', '_')"/>
+            <xsl:choose>
+                <xsl:when test="$format = '6,25_mm'">
+                    <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/QuarterInchAudiotape" />
+                </xsl:when>
+                <xsl:when test="$format = 'Unbekannt'" />
+                <xsl:when test="$format = '35_+_16_mm'" />
+                <xsl:when test="$format = '35-8_mm'" />
+                <xsl:when test="$format = '42_mm'" />
+                <xsl:when test="$format = 'Nicht_standardisiert'" />
+                <xsl:when test="$format = '35-16_mm'" />
+                <xsl:when test="$format = '35_mm'">
+                    <xsl:choose>
+                        <xsl:when test="$is_sepmag">
+                            <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/35mmMagneticFilm" />
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/35mmFilm" />
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:when>
+                <xsl:when test="$format = '16_mm' or $format = '16_mm_neue_Norm' or $format = '16_mm_alte_Norm'">
+                    <xsl:choose>
+                        <xsl:when test="$is_sepmag">
+                            <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/16mmMagneticFilm" />
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/16mmFilm" />
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:when>
+                <xsl:when test="$format = '8_mm'">
+                    <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/8mmFilm" />
+                </xsl:when>
+                <xsl:when test="$format = 'S_16_mm'">
+                    <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Super16mmFilm" />
+                </xsl:when>
+                <xsl:when test="$format = '17,5_mm'">
+                    <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/17.5mmFilm" />
+                </xsl:when>
+                <xsl:when test="$format = '9,5_mm'">
+                    <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/9.5mmFilm" />
+                </xsl:when>
+                <xsl:when test="$format = '70_mm'">
+                    <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/70mmFilm" />
+                </xsl:when>
+                <xsl:when test="$format = 'Normal_8_mm'">
+                    <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/8mmFilm" />
+                </xsl:when>
+                <xsl:when test="$format = 'Super_8_mm'">
+                    <fiaf:hasFormat rdf:resource="https://dev.fiafcore.org/Super8mmFilm" />
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:message terminate="yes">
+                        Error: Unexpected value "<xsl:value-of select="$format"/>".
+                    </xsl:message>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
     </xsl:template>
 
 </xsl:stylesheet>
