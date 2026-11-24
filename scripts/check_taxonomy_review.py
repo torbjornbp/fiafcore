@@ -11,7 +11,7 @@ from pathlib import Path
 import re
 
 from lxml import etree
-from rdflib import Graph, Namespace, RDF, RDFS, OWL, Literal, URIRef
+from rdflib import Graph, Namespace, RDF, RDFS, OWL, XSD, Literal, URIRef
 from rdflib.compare import isomorphic
 from rdflib.namespace import DCTERMS
 
@@ -90,8 +90,8 @@ for child, parent in [("Hi8", "VideoTape"), ("SuperVHS", "VideoTape"),
                       ("Narration", "SpokenLanguage"), ("AudioDescription", "SpokenLanguage"),
                       ("NoDialogue", "Dialogue"),
                       # Phase 1 Extent decision.
-                      ("Metre", "PhysicalExtent"), ("Byte", "PhysicalExtent"),
-                      ("Gigabyte", "PhysicalExtent"), ("Minute", "Duration"),
+                      ("Length", "Extent"), ("Foot", "Length"), ("Metre", "Length"),
+                      ("Byte", "Extent"), ("Minute", "Duration"),
                       ("Reel", "Extent"),
                       # Phase 1 Event decision.
                       ("AccessionEvent", "Event"), ("DeAcquisitionEvent", "Event"),
@@ -100,6 +100,27 @@ for child, parent in [("Hi8", "VideoTape"), ("SuperVHS", "VideoTape"),
                       ("TheatricalDistributionEvent", "DistributionEvent"),
                       ("NonTheatricalDistributionEvent", "DistributionEvent")]:
     assert list(ontology.objects(F[child], RDFS.subClassOf)) == [F[parent]], child
+assert (F.hasExtentValue, RDFS.range, XSD.decimal) in ontology
+for legacy_unit in [F.Kilobyte, F.Megabyte, F.Gigabyte, F.Terabyte]:
+    assert (legacy_unit, OWL.deprecated, Literal(True)) in ontology
+    assert (legacy_unit, RDFS.subClassOf, F.Extent) in ontology
+
+extent_graph = transform(bundesarchiv, f'''<root xmlns:ba="{BA}">
+    <ba:Manifestation uuid="extent"><ba:Laufzeit>12,5</ba:Laufzeit><ba:Gesamtlaenge>42.25</ba:Gesamtlaenge></ba:Manifestation>
+    <ba:Exemplar uuid="extent"><ba:Laenge>0</ba:Laenge><ba:Laenge> </ba:Laenge></ba:Exemplar>
+</root>''')
+for subject, unit, value in [
+    ("bundesarchiv://resource/manifestation/extent", F.Minute, "12.5"),
+    ("bundesarchiv://resource/manifestation/extent", F.Metre, "42.25"),
+    ("bundesarchiv://resource/item/extent", F.Metre, "0"),
+]:
+    assert any(
+        (node, RDF.type, unit) in extent_graph
+        and (node, F.hasExtentValue, Literal(value, datatype=XSD.decimal)) in extent_graph
+        for node in extent_graph.objects(URIRef(subject), F.hasExtent)
+    )
+assert len(list(extent_graph.objects(None, F.hasExtentValue))) == 3
+
 for removed in ["OpticalVideoDisc", "HomeViewingCopy", "OpticalSoundProcess",
                 "DirectPositive", "ChromolyticSingleLayer", "ColourSeparation",
                 "InstantDyeDiffusion"]:

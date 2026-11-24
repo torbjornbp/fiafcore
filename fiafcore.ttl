@@ -1070,8 +1070,8 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/Byte>
     a owl:Class ;
     rdfs:label "Byte"@en ;
-    dc:description "A data size measured in bytes. The preferred unit for the size of a digital object, because it is exact."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/PhysicalExtent> ;
+    dc:description "The size of a digital object as a whole number of bytes."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
 <https://dev.fiafcore.org/CD>
@@ -2583,7 +2583,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Foot"@en ;
     dc:description "A length measured in feet."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/PhysicalExtent> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Length> ;
 .
 
 <https://dev.fiafcore.org/FourTrackMagnetic>
@@ -2803,8 +2803,9 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/Gigabyte>
     a owl:Class ;
     rdfs:label "Gigabyte"@en ;
-    dc:description "A data size measured in gigabytes (1 gigabyte = 10^9 bytes). Where the exact size is known, use Byte."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/PhysicalExtent> ;
+    dc:description "A data size measured in gigabytes (1 gigabyte = 10^9 bytes). Deprecated for new descriptions. Record the size in bytes when known."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
+    owl:deprecated true ;
 .
 
 <https://dev.fiafcore.org/GoerzTenax>
@@ -3492,8 +3493,9 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/Kilobyte>
     a owl:Class ;
     rdfs:label "Kilobyte"@en ;
-    dc:description "A data size measured in kilobytes (1 kilobyte = 1,000 bytes). Where the exact size is known, use Byte."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/PhysicalExtent> ;
+    dc:description "A data size measured in kilobytes (1 kilobyte = 1,000 bytes). Deprecated for new descriptions. Record the size in bytes when known."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
+    owl:deprecated true ;
 .
 
 <https://dev.fiafcore.org/Kinemacolor>
@@ -4161,8 +4163,9 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/Megabyte>
     a owl:Class ;
     rdfs:label "Megabyte"@en ;
-    dc:description "A data size measured in megabytes (1 megabyte = 1,000,000 bytes). Where the exact size is known, use Byte."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/PhysicalExtent> ;
+    dc:description "A data size measured in megabytes (1 megabyte = 1,000,000 bytes). Deprecated for new descriptions. Record the size in bytes when known."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
+    owl:deprecated true ;
 .
 
 <https://dev.fiafcore.org/MelodramaFilm>
@@ -4183,7 +4186,7 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Metre"@en ;
     dc:description "A length measured in metres."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/PhysicalExtent> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Length> ;
 .
 
 <https://dev.fiafcore.org/Metrocolor>
@@ -6641,8 +6644,9 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/Terabyte>
     a owl:Class ;
     rdfs:label "Terabyte"@en ;
-    dc:description "A data size measured in terabytes (1 terabyte = 10^12 bytes). Where the exact size is known, use Byte."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/PhysicalExtent> ;
+    dc:description "A data size measured in terabytes (1 terabyte = 10^12 bytes). Deprecated for new descriptions. Record the size in bytes when known."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
+    owl:deprecated true ;
 .
 
 <https://dev.fiafcore.org/Thai>
@@ -7627,9 +7631,9 @@ rdfs:subClassOf
 <https://dev.fiafcore.org/hasExtentValue>
     a owl:DatatypeProperty ;
     rdfs:label "Has Extent Value"@en ;
-    dc:description "The value of a measurement, expressed in the unit given by the type of the Extent node."@en ;
+    dc:description "The non-negative numeric value of a measurement, expressed in the unit given by the type of the Extent node. Byte and Reel values must be whole numbers."@en ;
     rdfs:domain <https://dev.fiafcore.org/Extent> ;
-    rdfs:range xsd:string ;
+    rdfs:range xsd:decimal ;
 .
 
 <https://dev.fiafcore.org/hasForm>
@@ -8114,6 +8118,13 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
 .
 
+<https://dev.fiafcore.org/Length>
+    a owl:Class ;
+    rdfs:label "Length"@en ;
+    dc:description "The physical length of film or tape."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
+.
+
 <https://dev.fiafcore.org/Magnetic>
     a owl:Class ;
     rdfs:label "Magnetic"@en ;
@@ -8433,12 +8444,6 @@ rdfs:subClassOf
     dc:description "The intended function of an Item in the production, duplication, preservation, or access workflow in which it was made, including photochemical polarity where it forms part of that role. The institution's current designation of the Item is recorded as its Status, not its Element. Storage media holding digital objects have no Element."@en ;
 .
 
-<https://dev.fiafcore.org/Extent>
-    a owl:Class ;
-    rdfs:label "Extent"@en ;
-    dc:description "A measurement of a Manifestation or Item, typed by its unit and carrying its value with hasExtentValue. Each measurement is a separate node."@en ;
-.
-
 <https://dev.fiafcore.org/LTO>
     a owl:Class ;
     rdfs:label "LTO"@en ;
@@ -8512,13 +8517,6 @@ rdfs:subClassOf
     a owl:Class ;
     rdfs:label "Format"@en ;
     dc:description "The physical or digital technical form of a moving image object, identifying the family of equipment or software needed to read, decode, or play back that specific object. A storage medium and a digital object stored on it are separate objects with separate formats. Digital stream encodings are described separately with hasVideoCodec or hasAudioCodec."@en ;
-.
-
-<https://dev.fiafcore.org/PhysicalExtent>
-    a owl:Class ;
-    rdfs:label "Physical Extent"@en ;
-    dc:description "The physical length of film or tape, or the data size of a digital object."@en ;
-    rdfs:subClassOf <https://dev.fiafcore.org/Extent> ;
 .
 
 <https://dev.fiafcore.org/Positive>
@@ -8614,6 +8612,12 @@ owl:DatatypeProperty
     dc:description "A subtractive colour process in which colour couplers in one or more emulsion layers form dyes during development."@en ;
     dc:source <https://filmcolors.org/cat/chromogenic-monopack/> ;
     rdfs:subClassOf <https://dev.fiafcore.org/SubtractiveColourProcess> ;
+.
+
+<https://dev.fiafcore.org/Extent>
+    a owl:Class ;
+    rdfs:label "Extent"@en ;
+    dc:description "A measurement of a Manifestation or Item, typed by its unit and carrying its value with hasExtentValue. Each measurement is a separate node."@en ;
 .
 
 <https://dev.fiafcore.org/WritingActivity>

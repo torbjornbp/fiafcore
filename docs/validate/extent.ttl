@@ -1,0 +1,15 @@
+@prefix fiaf: <https://dev.fiafcore.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fiaf:ExtentValueShape a sh:PropertyShape ;
+    sh:targetSubjectsOf fiaf:hasExtentValue ;
+    sh:path fiaf:hasExtentValue ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0.0 .
+
+fiaf:WholeExtentValueShape a sh:PropertyShape ;
+    sh:targetClass fiaf:Byte, fiaf:Reel ;
+    sh:path fiaf:hasExtentValue ;
+    sh:pattern "^[+-]?([0-9]+([.]0*)?|[.]0+)$" ;
+    sh:message "Byte and Reel extent values must be whole numbers."@en .

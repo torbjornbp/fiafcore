@@ -1391,31 +1391,15 @@
 
             <!-- fiaf:hasExtent -->
 
-            <xsl:if test="ba:Laufzeit">
-                <xsl:for-each select="ba:Laufzeit">
-                    <fiaf:hasExtent>
-                        <rdf:Description>
-                            <rdf:type rdf:resource="https://dev.fiafcore.org/Minute" />
-                            <fiaf:hasExtentValue>
-                                <xsl:value-of select="." />
-                            </fiaf:hasExtentValue>
-                        </rdf:Description>
-                    </fiaf:hasExtent>
-                </xsl:for-each>
-            </xsl:if>
+            <xsl:call-template name="extent">
+                <xsl:with-param name="measurements" select="ba:Laufzeit" />
+                <xsl:with-param name="unit" select="'Minute'" />
+            </xsl:call-template>
 
-            <xsl:if test="ba:Gesamtlaenge">
-                <xsl:for-each select="ba:Gesamtlaenge">
-                    <fiaf:hasExtent>
-                        <rdf:Description>
-                            <rdf:type rdf:resource="https://dev.fiafcore.org/Metre" />
-                            <fiaf:hasExtentValue>
-                                <xsl:value-of select="." />
-                            </fiaf:hasExtentValue>
-                        </rdf:Description>
-                    </fiaf:hasExtent>
-                </xsl:for-each>
-            </xsl:if>
+            <xsl:call-template name="extent">
+                <xsl:with-param name="measurements" select="ba:Gesamtlaenge" />
+                <xsl:with-param name="unit" select="'Metre'" />
+            </xsl:call-template>
 
             <!-- fiafcore:hasIdentifier -->
 
@@ -1985,18 +1969,10 @@
 
             <!-- fiaf:hasExtent  -->
 
-            <xsl:if test="ba:Laenge">
-                <xsl:for-each select="ba:Laenge">
-                    <fiaf:hasExtent>
-                        <rdf:Description>
-                            <rdf:type rdf:resource="https://dev.fiafcore.org/Metre" />
-                            <fiaf:hasExtentValue>
-                                <xsl:value-of select="." />
-                            </fiaf:hasExtentValue>
-                        </rdf:Description>
-                    </fiaf:hasExtent>
-                </xsl:for-each>
-            </xsl:if>
+            <xsl:call-template name="extent">
+                <xsl:with-param name="measurements" select="ba:Laenge" />
+                <xsl:with-param name="unit" select="'Metre'" />
+            </xsl:call-template>
 
             <!-- fiaf:hasFormat  -->
 
@@ -3068,6 +3044,29 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="extent">
+        <xsl:param name="measurements" />
+        <xsl:param name="unit" />
+        <xsl:for-each select="$measurements[normalize-space(.)]">
+            <xsl:variable name="value" select="translate(normalize-space(.), ',', '.')" />
+            <xsl:if test="translate($value, '0123456789.', '') != ''
+                          or translate($value, '.', '') = ''
+                          or contains(substring-after($value, '.'), '.')">
+                <xsl:message terminate="yes">
+                    Error: Expected a non-negative decimal extent in <xsl:value-of select="local-name()" />: "<xsl:value-of select="." />".
+                </xsl:message>
+            </xsl:if>
+            <fiaf:hasExtent>
+                <rdf:Description>
+                    <rdf:type rdf:resource="https://dev.fiafcore.org/{$unit}" />
+                    <fiaf:hasExtentValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">
+                        <xsl:value-of select="$value" />
+                    </fiaf:hasExtentValue>
+                </rdf:Description>
+            </fiaf:hasExtent>
+        </xsl:for-each>
     </xsl:template>
 
 </xsl:stylesheet>
