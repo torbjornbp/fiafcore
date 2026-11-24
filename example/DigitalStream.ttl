@@ -27,8 +27,7 @@ ex:picture a fiaf:VideoStream ;
     fiaf:hasColourCharacteristic [
         a fiaf:Colour ;
         fiaf:hasColourEncoding fiaf:RGB ;
-        fiaf:hasColourSpace fiaf:Rec709 ;
-        fiaf:hasTransferFunction fiaf:Gamma
+        fiaf:hasColourSpace fiaf:Rec709
     ] .
 
 # These distinct streams share a codec, but not their language or layout.

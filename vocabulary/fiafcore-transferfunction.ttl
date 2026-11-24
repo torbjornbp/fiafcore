@@ -1,11 +1,27 @@
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-<https://dev.fiafcore.org/Gamma>
+<https://dev.fiafcore.org/Gamma2_2>
     a skos:Concept ;
     skos:broader <https://dev.fiafcore.org/TransferFunction> ;
-    skos:definition "A power-law gamma transfer function used for standard dynamic range video and cinema display (such as ITU-R BT.1886 or SMPTE ST 428)."@en ;
+    skos:definition "A power-law transfer function with exponent 2.2 from encoded signal values to linear light."@en ;
     skos:inScheme <https://dev.fiafcore.org/TransferFunction> ;
-    skos:prefLabel "Gamma"@en ;
+    skos:prefLabel "Gamma 2.2"@en ;
+.
+
+<https://dev.fiafcore.org/Gamma2_4>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/TransferFunction> ;
+    skos:definition "A power-law transfer function with exponent 2.4 from encoded signal values to linear light."@en ;
+    skos:inScheme <https://dev.fiafcore.org/TransferFunction> ;
+    skos:prefLabel "Gamma 2.4"@en ;
+.
+
+<https://dev.fiafcore.org/Gamma2_6>
+    a skos:Concept ;
+    skos:broader <https://dev.fiafcore.org/TransferFunction> ;
+    skos:definition "A power-law transfer function with exponent 2.6 from encoded signal values to linear light."@en ;
+    skos:inScheme <https://dev.fiafcore.org/TransferFunction> ;
+    skos:prefLabel "Gamma 2.6"@en ;
 .
 
 <https://dev.fiafcore.org/HLG>

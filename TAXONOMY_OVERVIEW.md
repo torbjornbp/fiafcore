@@ -290,7 +290,9 @@ fiaf:ColourSpace
 └── fiaf:sRGB
 
 fiaf:TransferFunction
-├── fiaf:Gamma
+├── fiaf:Gamma2_2
+├── fiaf:Gamma2_4
+├── fiaf:Gamma2_6
 ├── fiaf:HLG
 ├── fiaf:Linear
 ├── fiaf:Logarithmic
@@ -739,8 +741,7 @@ A Digital Betacam PAL broadcast master, a commercial VHS home video release, and
     fiaf:hasColourCharacteristic [
         a fiaf:Colour ;
         fiaf:hasColourEncoding fiaf:YUV ;
-        fiaf:hasColourSpace fiaf:Rec601 ;
-        fiaf:hasTransferFunction fiaf:Gamma
+        fiaf:hasColourSpace fiaf:Rec601
     ] ;
     fiaf:hasSoundCharacteristic [
         a fiaf:Sound ;
@@ -803,7 +804,7 @@ Digital objects use `DigitalFormat` (container, image file, package); optional s
         a fiaf:Colour ;
         fiaf:hasColourEncoding fiaf:XYZ ;
         fiaf:hasColourSpace fiaf:DCIP3 ;
-        fiaf:hasTransferFunction fiaf:Gamma
+        fiaf:hasTransferFunction fiaf:Gamma2_6
     ] ;
     fiaf:hasSoundCharacteristic [
         a fiaf:Sound ;

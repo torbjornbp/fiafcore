@@ -12,9 +12,23 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 ### Subclasses
 
-<https://dev.fiafcore.org/Gamma> a owl:Class ;
-    rdfs:label "Gamma"@en ;
-    dc:description "A power-law gamma transfer function used for standard dynamic range video and cinema display (such as ITU-R BT.1886 or SMPTE ST 428)."@en ;
+<https://dev.fiafcore.org/Gamma2_2> a owl:Class ;
+    rdfs:label "Gamma 2.2"@en ;
+    dc:description "A power-law transfer function with exponent 2.2 from encoded signal values to linear light."@en ;
+    dc:source <> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/TransferFunction> ;
+.
+
+<https://dev.fiafcore.org/Gamma2_4> a owl:Class ;
+    rdfs:label "Gamma 2.4"@en ;
+    dc:description "A power-law transfer function with exponent 2.4 from encoded signal values to linear light."@en ;
+    dc:source <> ;
+    rdfs:subClassOf <https://dev.fiafcore.org/TransferFunction> ;
+.
+
+<https://dev.fiafcore.org/Gamma2_6> a owl:Class ;
+    rdfs:label "Gamma 2.6"@en ;
+    dc:description "A power-law transfer function with exponent 2.6 from encoded signal values to linear light."@en ;
     dc:source <> ;
     rdfs:subClassOf <https://dev.fiafcore.org/TransferFunction> ;
 .

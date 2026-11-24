@@ -2685,10 +2685,24 @@ rdfs:subClassOf
     rdfs:subClassOf <https://dev.fiafcore.org/Country> ;
 .
 
-<https://dev.fiafcore.org/Gamma>
+<https://dev.fiafcore.org/Gamma2_2>
     a owl:Class ;
-    rdfs:label "Gamma"@en ;
-    dc:description "A power-law gamma transfer function used for standard dynamic range video and cinema display (such as ITU-R BT.1886 or SMPTE ST 428)."@en ;
+    rdfs:label "Gamma 2.2"@en ;
+    dc:description "A power-law transfer function with exponent 2.2 from encoded signal values to linear light."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/TransferFunction> ;
+.
+
+<https://dev.fiafcore.org/Gamma2_4>
+    a owl:Class ;
+    rdfs:label "Gamma 2.4"@en ;
+    dc:description "A power-law transfer function with exponent 2.4 from encoded signal values to linear light."@en ;
+    rdfs:subClassOf <https://dev.fiafcore.org/TransferFunction> ;
+.
+
+<https://dev.fiafcore.org/Gamma2_6>
+    a owl:Class ;
+    rdfs:label "Gamma 2.6"@en ;
+    dc:description "A power-law transfer function with exponent 2.6 from encoded signal values to linear light."@en ;
     rdfs:subClassOf <https://dev.fiafcore.org/TransferFunction> ;
 .
 
@@ -8472,12 +8486,6 @@ rdfs:subClassOf
     dc:description "Whether the content of a Manifestation or Item is intended to have recorded sound and, where it is, the characteristics of one soundtrack. A carrier with several soundtracks carries several SoundCharacteristic nodes. Image layout, such as a masked soundtrack area, is not a sound characteristic."@en ;
 .
 
-<https://dev.fiafcore.org/TransferFunction>
-    a owl:Class ;
-    rdfs:label "Transfer Function"@en ;
-    dc:description "An opto-electronic or electro-optical transfer function defining the mapping between light levels and digital code values."@en ;
-.
-
 <https://dev.fiafcore.org/ColourSpace>
     a owl:Class ;
     rdfs:label "Colour Space"@en ;
@@ -8545,6 +8553,12 @@ rdfs:subClassOf
     dc:description "Animation contribution to a moving image work."@en ;
     dc:source <https://www.fiafnet.org/pages/E-Resources/Glossary.html> ;
     rdfs:subClassOf <https://dev.fiafcore.org/Activity> ;
+.
+
+<https://dev.fiafcore.org/TransferFunction>
+    a owl:Class ;
+    rdfs:label "Transfer Function"@en ;
+    dc:description "An opto-electronic or electro-optical transfer function defining the mapping between light levels and digital code values."@en ;
 .
 
 <https://dev.fiafcore.org/VideoDisc>
